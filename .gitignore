@@ -1,0 +1,13 @@
+# Ignore editor config folders
+.vscode/
+.idea/
+
+# Ignore backup or temporary files
+*.bak
+*.tmp
+*.log
+
+# Optional: testing or scratch folders
+scratch/
+sandbox/
+testing/
