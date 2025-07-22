@@ -1,0 +1,16 @@
+/*
+Report Name: Client Status Missing  
+Category: Exception Reports  
+
+See docs/exception/Client-Status-Missing.md for full documentation.
+*/
+
+SELECT C.CLIENT_STATUS AS [CLIENT STATUS],
+	C.CLIENT_FIRST AS [FIRST NAME],
+	C.CLIENT_LAST AS [LAST NAME],
+	C.CLIENT_NUMBER AS [CLIENT NUMBER],
+	CAST(C.VISITDT AS DATE) AS [DATE ENTERED],
+	C.VISITTM AS [TIME ENTERED],
+	C.USERID AS [WHODUNIT]
+FROM BEHAVHEALT_LIVE.DBO.Q_CLIENT_BHN AS [C]
+WHERE C.CLIENT_STATUS = ''
