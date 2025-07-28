@@ -2,7 +2,7 @@
 Report Name: Client Status Missing  
 Category: Exception Reports  
 
-See docs/exception/Client-Status-Missing.md for full documentation.
+See docs/exception/client-status-missing.md for full documentation.
 */
 
 SELECT C.CLIENT_STATUS AS [CLIENT STATUS],

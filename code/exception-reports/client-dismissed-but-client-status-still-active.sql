@@ -2,7 +2,7 @@
 Report Name: Client Dismissed But Client Status Still Active
 Category: Exception Reports  
 
-See docs/exception/Clients-Dismissed-But-Client-Status-Still-Active.md for full documentation.
+See docs/exception/clients-dismissed-but-client-status-still-active.md for full documentation.
 */
 
 SELECT C.CLIENT_STATUS AS [CLIENT_STATUS],

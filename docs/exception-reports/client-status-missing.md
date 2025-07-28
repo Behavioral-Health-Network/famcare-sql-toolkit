@@ -1,7 +1,7 @@
 # Client Status Missing
 
 **Category:** Exception Reports  
-**File:** `code/exception/Client-Status-Missing.sql`  
+**File:** `code/exception/client-status-missing.sql`  
 **Last Updated:** 2025-07-21
 
 ---

@@ -1,7 +1,7 @@
 # Client With Missing Demographics
 
 **Category:** Exception Reports  
-**File:** `code/exception/Client-With-Missing-Demographics.sql`  
+**File:** `code/exception/client-with-missing-demographics.sql`  
 **Last Updated:** 2025-07-21
 
 ---

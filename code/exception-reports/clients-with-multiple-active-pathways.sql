@@ -2,7 +2,7 @@
 Report Name: Clients With Multiple Active Pathways
 Category: Exception Reports
 
-See docs/exception-reports/Clients-With-Multiple-Active-Pathways.md for full documentation.
+See docs/exception-reports/clients-with-multiple-active-pathways.md for full documentation.
 */
 
 SELECT *
