@@ -1,7 +1,7 @@
 # Clients With Multiple Active Enrollments
 
 **Category:** Exception Reports  
-**File:** `code/exception/Clients-With-Multiple-Active-Enrollments.sql`  
+**File:** `code/exception/clients-with-multiple-active-enrollments.sql`  
 **Last Updated:** 2025-07-15
 
 ---

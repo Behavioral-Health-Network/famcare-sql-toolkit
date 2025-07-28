@@ -1,7 +1,7 @@
 # Clients With Multiple Active Pathways Sharing Same Start Date
 
 **Category:** Exception Reports  
-**File:** `code/exception/Clients-With-Multiple-Active-Pathways-Sharing-Same-Start-Date.sql`  
+**File:** `code/exception/clients-with-multiple-active-pathways-sharing-same-start-date.sql`  
 **Last Updated:** 2025-07-21
 
 ---

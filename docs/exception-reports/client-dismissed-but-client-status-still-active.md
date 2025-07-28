@@ -1,7 +1,7 @@
 # Client Dismissed But Client Status Still Active
 
 **Category:** Exception Reports  
-**File:** `code/exception/Client-Dismissed-But-Client-Status-Still-Active.sql`  
+**File:** `code/exception/client-dismissed-but-client-status-still-active.sql`  
 **Last Updated:** 2025-07-21
 
 ---
@@ -41,6 +41,6 @@ This report helps Data Team staff ensure that client statuses are updated approp
 - Views: `Q_CLIENT_BHN`, `Q_PROVIDERPLACEMENT`  
 - Security Groups: GVT, System Administrator  
 - Exception Conditions:
-  - `CLIEN_T_STATUS = 'Active'`
+  - `CLIENT_STATUS = 'Active'`
   - No open enrollments exist
   - At least one dismissed enrollment present

@@ -2,7 +2,7 @@
 Report Name: Clients With Multiple Active Enrollments  
 Category: Exception Reports  
 
-See docs/exception/Clients-With-Multiple-Active-Enrollments.md for full documentation.
+See docs/exception/clients-with-multiple-active-enrollments.md for full documentation.
 */
 
 SELECT C.ID,
