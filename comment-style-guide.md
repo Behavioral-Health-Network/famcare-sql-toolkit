@@ -75,7 +75,7 @@ Validate procedural compliance, user actions, or documentation completeness.
 
 ---
 
-## Compiliance Reports
+## Compliance Reports
 
 ```markdown
 # [Report Name]
