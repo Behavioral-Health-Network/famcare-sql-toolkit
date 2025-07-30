@@ -2,7 +2,7 @@
 Report Name: EPICC Candidates for Dismissal
 Category: Program Management Reports  
 
-See docs/exception/epicc-candidates-for-dismissal.md for full documentation.
+See docs/program-management-reports/epicc-candidates-for-dismissal.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;
