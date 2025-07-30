@@ -3,7 +3,33 @@
 This guide defines the canonical Markdown documentation structure for all SQL assets in the  
 `FAMCare-SQL-Toolkit` repository. Every `.sql` file in `/code/<category>/` should have a  
 matching `.md` file in `/docs/<category>/`. The Markdown file is the single source of truth  
-for purpose, logic, usage and history—no full comments belong in the SQL itself.
+for purpose, logic, usage and history—no full comments belong in the SQL itself. Instead, a standardized SQL comment header should be used. Templates for the documentation files may be located below.
+
+## Standardized SQL File Header Block
+
+Each `.sql` file should begin with a standardized comment block that identifies its asset type and links to related documentation.
+
+| Asset Type             | Label Prefix     | Example                                   |
+|------------------------|------------------|-------------------------------------------|
+| Report Variant         | `Report Name:`   | `Report Name: yere-duplicate-pwy-forms`   |
+| View Definition        | `View Name:`     | `View Name: q-bcr-client-counseling-sessions` |
+| Extract / Maintenance Query | `Query Name:`     | `Query Name: extract-bcr-session-counts`    |
+| Maintenance Script     | `Script Name:`   | `Script Name: rebuild-session-indexes`     |
+
+### Example
+
+```sql
+/*
+View Name: Q_BCR_CLIENT_COUNSELING_SESSIONS  
+Category: View Definitions  
+
+See docs/views/q-bcr-client-counseling-sessions.md for full documentation.
+*/
+```
+
+---
+
+## Documentation Templates for Markdown Documentation
 
 ---
 
@@ -75,7 +101,7 @@ Validate procedural compliance, user actions, or documentation completeness.
 
 ---
 
-## Compiliance Reports
+## Compliance Reports
 
 ```markdown
 # [Report Name]
