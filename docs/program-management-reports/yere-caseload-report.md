@@ -57,6 +57,7 @@ Supports program managers in tracking milestone compliance, identifying overdue 
 ## Parameterization Notes
 
 This report uses FAMCare Quick Report parameters for date filtering:  
+
 - `^^START RANGE|DATEPICKER^^` is a vendor-specific placeholder for user-selected start date.  
 - These parameters will not execute in SSMS but are valid in the FAMCare reporting interface.
 
@@ -87,4 +88,3 @@ This report uses FAMCare Quick Report parameters for date filtering:
   - Added milestone tracking logic and overdue calculations.  
   - Incorporated payor and suicide attempt indicators.  
   - Documented parameter usage and HR joins.
-
