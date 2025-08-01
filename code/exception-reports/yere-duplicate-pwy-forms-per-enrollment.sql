@@ -2,7 +2,7 @@
 Report Name: YERE Duplicate PWY Forms Per Enrollment
 Category: Exception Reports  
 
-See docs/exception/yere-duplicate-pwy-forms-per-enrollment.md for full documentation.
+See docs/exception-reports/yere-duplicate-pwy-forms-per-enrollment.md for full documentation.
 */
 
 SELECT [EENROLL].CLIENT_NUMBER,

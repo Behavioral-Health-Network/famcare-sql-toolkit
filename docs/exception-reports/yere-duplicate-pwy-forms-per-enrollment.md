@@ -1,6 +1,11 @@
-# Duplicate Pathway Forms Per Enrollment
+# YERE Duplicate Pathway Forms Per Enrollment
 
 **Category:** Exception Reports  
+**Source File:** `code/duplicate-pathway-forms-per-enrollment.sql`  
+**Last Updated:** 2025-07-28  
+**Author:** BHN Data Team  
+
+---
 
 ## Purpose
 
@@ -16,7 +21,7 @@ This query flags potential duplicates requiring manual review to determine which
 
 ## Usage Notes
 
-- Intended for internal review by program or QA staff.
+- Intended for internal review by program or Data Team staff.
 - Confirm authoritative version for each duplicated entry before cleanup.
 - Optionally reference audit log or historical submission timestamps to guide decision-making.
 
