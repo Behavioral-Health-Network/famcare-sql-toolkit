@@ -1,6 +1,9 @@
 # Q_BCR_CLIENT_COUNSELING_SESSIONS
 
 **Category:** View Definitions  
+**Source File:** `code/bcr-client-counseling-sessions.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
 
