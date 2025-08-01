@@ -41,4 +41,3 @@ Supports Data Team staff in monitoring concurrent Pathway assignments that may r
 
 - View: `Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS`  
 - Security Groups: GVT, System Administrator  
-- Exception Criteria: Multiple concurrent active Pathways (`COUNT_PATHWAY > 1`)
