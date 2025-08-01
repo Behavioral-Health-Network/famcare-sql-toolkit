@@ -1,4 +1,9 @@
-# Program Management Report: EPICC Candidates for Dismissal
+# EPICC Candidates for Dismissal
+
+**Category:** Program Management Reports  
+**Source File:** `code/epicc-candidates-for-dismissal.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
 
@@ -38,3 +43,8 @@ The report applies a tiered HAVING clause that cascades through key milestones:
 
 - Review report routinely on an enrollment audit cycles set by the program leadership
 - Keep dismissal criteria consistent with evolving policy language and external oversight standards
+
+## Changelog
+
+- 2025-08-01: Adds yaml-like block and this changelog.
+- 2025-07-29: Adds initial version.
