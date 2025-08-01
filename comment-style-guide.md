@@ -39,20 +39,28 @@ See docs/views/q-bcr-client-counseling-sessions.md for full documentation.
 # [Report Name]
 
 **Category:** Exception Reports  
+**Source File:** `code/exception-reports/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Describe the exception being flagged (e.g. overlapping dates, missing forms, duplicated submissions).
 
 ## Logic Summary
+
 - Identify key joins, filters, and logic used.
 - Specify any thresholds (e.g. enrollment gaps > 90 days).
 
 ## Usage Notes
+
 - Intended for internal review or staff remediation.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial creation.
 - YYYY-MM-DD: Adjusted filter to exclude dismissed clients.
+
 ```
 
 ---
@@ -63,19 +71,27 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 # [Report Name]
 
 **Category:** Program Management  
+**Source File:** `code/program-management-reports/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Summarize or segment data to support caseload tracking, grant monitoring, or service planning.
 
 ## Key Metrics
+
 - Describe aggregation logic, counts, or grouping rules.
 
 ## Filters
+
 - Note time-based or demographic constraints.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial version.
 - YYYY-MM-DD: Added agency filter logic.
+
 ```
 
 ---
@@ -86,17 +102,24 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 # [Report Name]
 
 **Category:** Audit Reports  
+**Source File:** `code/audit-reports/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Validate procedural compliance, user actions, or documentation completeness.
 
 ## Audit Scope
+
 - List tracked actions (e.g. form submissions, report runs).
 - Define timeframes or actors under review.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial version.
 - YYYY-MM-DD: Expanded audit scope to include housing status forms.
+
 ```
 
 ---
@@ -107,21 +130,29 @@ Validate procedural compliance, user actions, or documentation completeness.
 # [Report Name]
 
 **Category:** Compliance Reports  
+**Source File:** `code/compliance-reports/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Fulfill contractual, policy-based, or regulatory requirements through structured exports.
 
 ## Compliance Scope
+
 - Define the regulation, grant, or external party receiving the report.
 - Indicate required fields, formatting, and timing.
 
 ## Usage Notes
+
 - Often part of recurring obligations.
 - May require formal approval before publishing.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial compliance report authored for [entity].
 - YYYY-MM-DD: Added required eligibility field per updated policy.
+
 ```
 
 ---
@@ -132,22 +163,30 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 # [Report Name]
 
 **Category:** External Data Sharing Reports  
+**Source File:** `code/external-data-sharing-reports/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Provide structured data exports for approved non-contractual partners  
 (e.g. research, coordination, voluntary sharing).
 
 ## Sharing Context
+
 - Identify recipient agency or collaboration purpose.
 - Clarify whether the request is recurring or ad hoc.
 
 ## Usage Notes
+
 - Tailor filters and formatting to recipient needs.
 - Ensure sharing complies with internal guidelines.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial version for [partner agency].
 - YYYY-MM-DD: Renamed demographic fields for consistency.
+
 ```
 
 ---
@@ -158,19 +197,27 @@ Provide structured data exports for approved non-contractual partners
 # [Query Title]
 
 **Category:** Extract Queries  
+**Source File:** `code/extract-queries/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Export structured data for external analysis or flat-file delivery.
 
 ## Output Description
+
 - List fields returned and their source tables.
 - Indicate whether data is filtered or raw.
 
 ## Usage Notes
+
 - Intended for dashboards or downstream pipelines.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial query authored.
+
 ```
 
 ---
@@ -181,21 +228,29 @@ Export structured data for external analysis or flat-file delivery.
 # [Query Title]
 
 **Category:** Maintenance Queries  
+**Source File:** `code/maintenance-queries/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Examine system-level objects or metadata for troubleshooting, schema analysis, or performance review.
 
 ## Scope
+
 - Review system tables, views, indexes, or procedures.
 - Read-only access; no data modification.
 
 ## Usage Notes
+
 - Used by developers and DBAs.
 - Often paired with performance diagnostics.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial maintenance query created.
 - YYYY-MM-DD: Added filtering for `sys.indexes` by object type.
+
 ```
 
 ---
@@ -206,22 +261,31 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 # [Script Title]
 
 **Category:** Maintenance Scripts  
+**Source File:** `code/maintenance-scripts/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Apply data corrections or cleanup actions.
 
 ## Reasoning
+
 - Explain why rows need updating or removal.
 - Reference related validation queries or reports.
 
 ## Affected Rows
+
 - Describe filter criteria and estimated scope.
 
 ## Execution Notes
+
 - Run in staging prior to production deployment.
 
 ## Changelog
+
 - YYYY-MM-DD: Script created for FY25 onboarding cleanup.
+
 ```
 
 ---
@@ -232,19 +296,27 @@ Apply data corrections or cleanup actions.
 # [View Name]
 
 **Category:** View Definitions  
+**Source File:** `code/view-definitions/file-name.sql`  
+**Last Updated:** 2025-07-31  
+**Author:** BHN Data Team  
 
 ## Purpose
+
 Encapsulate reusable logic for reporting or downstream joins.
 
 ## Description
+
 - Summarize joins, calculated fields, and filters.
 - State intended report dependencies.
 
 ## Maintenance Notes
+
 - Document changes carefully—may affect multiple reports.
 
 ## Changelog
+
 - YYYY-MM-DD: Initial view definition authored.
+
 ```
 
 ---
