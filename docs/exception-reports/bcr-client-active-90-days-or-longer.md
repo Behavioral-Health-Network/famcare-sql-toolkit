@@ -1,7 +1,7 @@
 # BCR Client Active 90 Days or Longer
 
 **Category:** Exception Reports  
-**Source File:** `bcr-client-active-90-days-or-longer.sql`  
+**Source File:** `code/bcr-client-active-90-days-or-longer.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
 
