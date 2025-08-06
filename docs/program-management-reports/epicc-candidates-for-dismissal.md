@@ -46,5 +46,7 @@ The report applies a tiered HAVING clause that cascades through key milestones:
 
 ## Changelog
 
+- 2025-08-06: Fixes problematic joins to PATHWAYCLIENT and PATHWAYEVENTCLIENT by pulling the join logic from Q_EPICC_PATHCLIENT_ENROLLMENTS. The join to PATHWAYCLIENT was apparently not distinguishing between enrollments adequately, and at least one PROGRAM_PARTICIPATION_IC value from a different enrollment was being joined into another enrollment, resulting in a false positive showing.  
+- 2025-08-06: Adds PP.ENDINGDATE IS NULL to ensure that only clients with active enrollments may be considered for dismissal.
 - 2025-08-01: Adds yaml-like block and this changelog.
 - 2025-07-29: Adds initial version.
