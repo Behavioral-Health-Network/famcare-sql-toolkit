@@ -32,6 +32,7 @@ Surfaces cases where a client has multiple enrollments with the same `ENROLLMENT
 
 ## Maintenance Notes
 
+- Source logic depends on `Q_PROVIDERPLACEMENT_BHN`; changes to that view may affect results.
 - May surface legitimate duplicates (e.g. multiple programs starting on same day); review context before remediation  
 
 ## Changelog
