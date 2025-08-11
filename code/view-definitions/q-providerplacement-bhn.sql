@@ -2,7 +2,7 @@
 View Name: Q_PROVIDERPLACEMENT_BHN
 Category: View Definitions
 
-See docs/views/q-providerplacement-bhn.md for full documentation.
+See docs/view-definitions/q-providerplacement-bhn.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;
