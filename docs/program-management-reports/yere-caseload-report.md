@@ -1,7 +1,7 @@
 # YERE Caseload Report
 
 **Category:** Program Management Reports  
-**Source File:** `code/yere-caseload-report.sql`  
+**Source File:** `code/program-management-reports/yere-caseload-report.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
 
