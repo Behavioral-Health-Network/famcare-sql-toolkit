@@ -2,7 +2,7 @@
 View Name: Q_YERE_IA  
 Category: View Definitions  
 
-See docs/views/q-yere-ia.md for full documentation.
+See docs/view-definitions/q-yere-ia.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;
