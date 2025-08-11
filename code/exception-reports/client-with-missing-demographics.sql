@@ -2,7 +2,7 @@
 Report Name: Client With Missing Demographics  
 Category: Exception Reports  
 
-See docs/exception/client-with-missing-demographics.md for full documentation.
+See docs/exception-reports/client-with-missing-demographics.md for full documentation.
 */
 
 SELECT C.CLIENT_STATUS AS [CLIENT STATUS],
