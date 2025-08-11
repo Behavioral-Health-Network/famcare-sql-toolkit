@@ -1,7 +1,7 @@
 # BCR Client Active 90 Days or Longer
 
 **Category:** Exception Reports  
-**Source File:** `code/bcr-client-active-90-days-or-longer.sql`  
+**Source File:** `code/exception-reports/bcr-client-active-90-days-or-longer.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
 
@@ -58,7 +58,7 @@ This report supports program leadership in reviewing clients for timely dismissa
 ## Changelog
 
 - **2025-07-31** – Markdown documentation authored.  
-  - Added logic summary and output field descriptions.  
-  - Standardized comment block and Markdown structure.  
-  - Confirmed alignment with exception reporting standards.
+  - Adds logic summary and output field descriptions.  
+  - Standardizes comment block and Markdown structure.  
+  - Confirms alignment with exception reporting standards.
 - **2025-04-29** – Initial SQL version authored.  

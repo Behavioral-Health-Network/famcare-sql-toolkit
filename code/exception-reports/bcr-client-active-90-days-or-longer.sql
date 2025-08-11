@@ -2,7 +2,7 @@
 Report Name: BCR Client Active 90 Days or Longer  
 Category: Exception Reports  
 
-See docs/exception/bcr-client-active-90-days-or-longer.md for full documentation.
+See docs/exception-reports/bcr-client-active-90-days-or-longer.md for full documentation.
 */
 
 SELECT DISTINCT C.CLIENT_NUMBER,
