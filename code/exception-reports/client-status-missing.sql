@@ -2,7 +2,7 @@
 Report Name: Client Status Missing  
 Category: Exception Reports  
 
-See docs/exception/client-status-missing.md for full documentation.
+See docs/exception-reports/client-status-missing.md for full documentation.
 */
 
 SELECT C.CLIENT_STATUS AS [CLIENT STATUS],
@@ -13,4 +13,4 @@ SELECT C.CLIENT_STATUS AS [CLIENT STATUS],
 	C.VISITTM AS [TIME ENTERED],
 	C.USERID AS [WHODUNIT]
 FROM BEHAVHEALT_LIVE.DBO.Q_CLIENT_BHN AS [C]
-WHERE C.CLIENT_STATUS = ''
+WHERE C.CLIENT_STATUS = '';

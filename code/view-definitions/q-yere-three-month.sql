@@ -2,7 +2,7 @@
 View Name: Q_YERE_THREE_MONTH
 Category: View Definitions  
 
-See docs/views/q-yere-three-month.md for full documentation.
+See docs/view-definitions/q-yere-three-month.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;

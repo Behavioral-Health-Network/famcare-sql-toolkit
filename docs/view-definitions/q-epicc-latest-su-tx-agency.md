@@ -1,23 +1,60 @@
-# Q-EPICC-LATEST-SU-TX-AGENCY
+# Q_EPICC_LATEST_SU_TX_AGENCY
 
 **Category:** View Definitions  
-**Source File:** `code/q-epicc-latest-su-tx-agency.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-epicc-latest-su-tx-agency.sql`  
+**Last Updated:** **2025-08-10**  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Returns the most recent substance use treatment agency referral record for each EPICC client.  
+Supports reporting and analysis based on the latest available referral data, including inferred parent form linkage for imported records.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Built on `PWSUBROADTREATMENTAGENCY`, filtered to current records (`DOCREVNO = ' 0 '`).
+- Uses `Q_CLIENT_BHN` to exclude test clients.
+- Enriches agency codes with descriptions via `EPICC_SU_TX_AGENCY`.
+- Infers missing `PARENTDOCSERNO` for imported records using form-matching logic.
+- Applies tie-breaking logic to ensure one record per client based on `VISITDT`, `DOCSERNO`, and `PARENTDOCSERNO`.
+
+### Logic Summary
+
+- **FORM_MATCH CTE**
+  - Matches `START_DATE` to `PATHWAY_DATE` across EPICC forms to infer `DOCSERNO`.
+
+- **INFERREDSUTX CTE**
+  - Applies `COALESCE` logic to resolve missing `PARENTDOCSERNO` for imported records.
+
+- **LATESTVISITDATE CTE**
+  - Identifies the most recent `VISITDT` per client.
+
+- **LATESTSUTXRECORD CTE**
+  - Filters to records with the latest visit date and joins to agency descriptions.
+
+- **FINALSELECTION CTE**
+  - Applies final tie-breaking using max `DOCSERNO` and `PARENTDOCSERNO`.
+
+## Output Fields
+
+| Field Name                         | Description |
+|------------------------------------|-------------|
+| `CLIENT_NUMBER`                    | Unique client identifier |
+| `DOCSERNO`                         | Document reference for the referral |
+| `PARENT_DOCSERNO`                  | Reporting interval form (inferred if needed) |
+| `VISITDT`                          | Date of referral entry |
+| `EPICC_SU_TX_AGENCY_CODE`         | Referral agency code |
+| `EPICC_SU_TX_AGENCY_DESCRIPTION`  | Human-readable agency name |
+| `USERID`                           | User who entered the record |
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- **Form Expansion**: Update `FORM_MATCH` if new EPICC forms are added to the workflow.
+- **Agency Lookup**: Ensure `EPICC_SU_TX_AGENCY` remains aligned with form codes.
+- **Test Client Filtering**: Confirm `Q_CLIENT_BHN` continues to exclude test clients reliably.
+- **Parent Inference Logic**: This view does not persist inferred values; consider a data patch routine if needed.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
+- **2025-08-10**: Initial Markdown documentation authored.  
+- **2025-05-06**: View created to support reporting on latest substance use treatment referrals for EPICC clients.

@@ -1,9 +1,6 @@
 # Comment Style Guide for SQL Queries (Markdown-Based)
 
-This guide defines the canonical Markdown documentation structure for all SQL assets in the  
-`FAMCare-SQL-Toolkit` repository. Every `.sql` file in `/code/<category>/` should have a  
-matching `.md` file in `/docs/<category>/`. The Markdown file is the single source of truth  
-for purpose, logic, usage and history—no full comments belong in the SQL itself. Instead, a standardized SQL comment header should be used. Templates for the documentation files may be located below.
+This guide defines the canonical Markdown documentation structure for all SQL assets in the `FAMCare-SQL-Toolkit` repository. Every `.sql` file in `/code/<category>/` should have a matching `.md` file in `/docs/<category>/`. The Markdown file is the single source of truth for purpose, logic, usage and history—no full comments belong in the SQL itself. Instead, a standardized SQL comment header should be used. Templates for the documentation files may be located below.
 
 ## Standardized SQL File Header Block
 
@@ -23,13 +20,15 @@ Each `.sql` file should begin with a standardized comment block that identifies 
 View Name: Q_BCR_CLIENT_COUNSELING_SESSIONS  
 Category: View Definitions  
 
-See docs/views/q-bcr-client-counseling-sessions.md for full documentation.
+See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documentation.
 */
 ```
 
 ---
 
 ## Documentation Templates for Markdown Documentation
+
+> See [Documentation Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/data-team-processes/documentation-standards.md) for guidance on formatting changelogs.
 
 ---
 
@@ -58,9 +57,8 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 
 ## Changelog
 
-- YYYY-MM-DD: Initial creation.
-- YYYY-MM-DD: Adjusted filter to exclude dismissed clients.
-
+- **YYYY-MM-DD**: Adjusts filter to exclude dismissed clients.
+- **YYYY-MM-DD**: Initial creation.
 ```
 
 ---
@@ -89,9 +87,8 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 
 ## Changelog
 
-- YYYY-MM-DD: Initial version.
-- YYYY-MM-DD: Added agency filter logic.
-
+- **YYYY-MM-DD**: Adds agency filter logic.
+- **YYYY-MM-DD**: Initial version.
 ```
 
 ---
@@ -117,9 +114,8 @@ Validate procedural compliance, user actions, or documentation completeness.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial version.
-- YYYY-MM-DD: Expanded audit scope to include housing status forms.
-
+- **YYYY-MM-DD**: Expands audit scope to include housing status forms.
+- **YYYY-MM-DD**: Initial version.
 ```
 
 ---
@@ -150,9 +146,8 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 
 ## Changelog
 
-- YYYY-MM-DD: Initial compliance report authored for [entity].
-- YYYY-MM-DD: Added required eligibility field per updated policy.
-
+- **YYYY-MM-DD**: Adds required eligibility field per updated policy.
+- **YYYY-MM-DD**: Initial compliance report authored for [entity].
 ```
 
 ---
@@ -184,9 +179,8 @@ Provide structured data exports for approved non-contractual partners
 
 ## Changelog
 
-- YYYY-MM-DD: Initial version for [partner agency].
-- YYYY-MM-DD: Renamed demographic fields for consistency.
-
+- **YYYY-MM-DD**: Renames demographic fields for consistency.
+- **YYYY-MM-DD**: Initial version for [partner agency].
 ```
 
 ---
@@ -216,8 +210,8 @@ Export structured data for external analysis or flat-file delivery.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial query authored.
-
+- **YYYY-MM-DD**: Replaces something.
+- **YYYY-MM-DD**: Initial query authored.
 ```
 
 ---
@@ -248,9 +242,8 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 
 ## Changelog
 
-- YYYY-MM-DD: Initial maintenance query created.
-- YYYY-MM-DD: Added filtering for `sys.indexes` by object type.
-
+- **YYYY-MM-DD**: Adds filtering for `sys.indexes` by object type.
+- **YYYY-MM-DD**: Initial maintenance query created.
 ```
 
 ---
@@ -284,8 +277,8 @@ Apply data corrections or cleanup actions.
 
 ## Changelog
 
-- YYYY-MM-DD: Script created for FY25 onboarding cleanup.
-
+- **YYYY-MM-DD**: Updates something.
+- **YYYY-MM-DD**: Script created for FY25 onboarding cleanup.
 ```
 
 ---
@@ -315,8 +308,8 @@ Encapsulate reusable logic for reporting or downstream joins.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
-
+- **YYYY-MM-DD**: Fixes something.
+- **YYYY-MM-DD**: Initial view definition authored.
 ```
 
 ---

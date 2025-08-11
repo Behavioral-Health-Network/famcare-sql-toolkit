@@ -2,7 +2,7 @@
 View Name: Q_BCR_CLIENT_COUNSELING_SESSIONS  
 Category: View Definitions  
 
-See docs/views/q-bcr-client-counseling-sessions.md for full documentation.
+See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;

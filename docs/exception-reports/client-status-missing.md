@@ -1,7 +1,7 @@
 # Client Status Missing
 
 **Category:** Exception Reports  
-**File:** `code/exception/client-status-missing.sql`  
+**File:** `code/exception-reports/client-status-missing.sql`  
 **Last Updated:** 2025-07-21
 
 ---
@@ -32,7 +32,8 @@ up-to-date status values for accurate tracking and reporting.
 
 ## Changelog
 
-- **2025-07-21**: Initial version aligned to comment style guide.
+- **2025-07-21**: Initial Markdown documentation authored.
+- **2025-04-03**: Initial SQL query authored.
 
 ---
 

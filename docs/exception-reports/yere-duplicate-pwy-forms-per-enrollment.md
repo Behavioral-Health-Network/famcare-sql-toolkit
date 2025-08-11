@@ -1,7 +1,7 @@
 # YERE Duplicate Pathway Forms Per Enrollment
 
 **Category:** Exception Reports  
-**Source File:** `code/duplicate-pathway-forms-per-enrollment.sql`  
+**Source File:** `code/exception-reports/duplicate-pathway-forms-per-enrollment.sql`  
 **Last Updated:** 2025-07-28  
 **Author:** BHN Data Team  
 
@@ -27,4 +27,4 @@ This query flags potential duplicates requiring manual review to determine which
 
 ## Changelog
 
-- 2025-07-13: Initial query authored.
+- **2025-07-13**: Initial SQL query authored.

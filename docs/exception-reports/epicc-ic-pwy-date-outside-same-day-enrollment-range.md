@@ -23,4 +23,4 @@ Flags EPICC Initial Contact records where the enrollment start and end dates are
 
 ## Changelog
 
-- 2025-08-05: Initial creation
+- **2025-08-05**: Initial SQL query authored.

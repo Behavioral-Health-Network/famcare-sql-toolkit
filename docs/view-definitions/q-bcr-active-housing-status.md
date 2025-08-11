@@ -1,24 +1,44 @@
-
-# Q-BCR-ACTIVE-HOUSING-STANDARDS
+# Q_BCR_ACTIVE_HOUSING_STATUS
 
 **Category:** View Definitions  
-**Source File:** `code/q-bcr-active-housing-status.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-bcr-active-housing-status.sql`  
+**Last Updated:** 2025-08-09  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Consolidates active housing status data into a single row per client, providing a snapshot of the most recent and relevant housing status for each CLIENT_NUMBER. Supports accurate reporting and case management by excluding historical and test data.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Built on top of `Q_BCR_ALL_HOUSING_STATUS`, which contains full housing status history including resolved parent form linkage.
+- Includes only active housing statuses by filtering for the most recent `HOUSING_START_DATE` and valid `PARENT_DOCSERNO` values.
+- Excludes test clients based on last name variants (`GVTTest`, `GVTest`, `GVTTEST`) from `Q_CLIENT_BHN`.
+- Outputs pivoted housing status columns for easier reporting:
+  - `HOUSING_STATUS_STABLY_HOUSED`
+  - `HOUSING_STATUS_UNHOUSED`
+  - `HOUSING_STATUS_PRECARIOUSLY_HOUSED`
+  - `HOUSING_STATUS_INSTITUTIONALLY_HOUSED`
+  - `HOUSING_STATUS_UNKNOWN`
+- Includes additional fields relevant to FY25 reporting: visit date/time, user ID, and housing insecurity indicators.
+
+### Logic Summary
+
+- **[LATESTHOUSINGSTART]**  
+  - Identifies the most recent `HOUSING_START_DATE` per client (`DOCREVNO = ' 0 '`).
+- **[LATESTHOUSINGSTATUS]**  
+  - Filters to records matching the latest start date and valid `PARENT_DOCSERNO` from `Q_BCR_PATHWAY_FORM_DOCSERNOS`.
+- **[FINALSELECTION]**  
+  - Selects the latest `PARENT_DOCSERNO` and `DOCSERNO` per client, resolving ties via `HOUSING_END_DATE` and `DOCSERNO`.
+- **Final SELECT**  
+  - Joins `LATESTHOUSINGSTATUS` with `FINALSELECTION` and `Q_CLIENT_BHN` to exclude test clients and output final fields.
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- Changes to `Q_BCR_ALL_HOUSING_STATUS`, `Q_BCR_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` will affect this view.
+- If new housing status types are introduced, update the `CASE` statements in the final `SELECT`.
+- Test client exclusions rely on name variants—update filter logic if naming conventions change.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
+- **2025-08-09**: Initial view definition authored.

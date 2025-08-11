@@ -1,7 +1,7 @@
 # Clients With Multiple Active Pathways
 
 **Category:** Exception Reports  
-**File:** `code/exception/clients-with-multiple-active-pathways.sql`  
+**File:** `code/exception-reports/clients-with-multiple-active-pathways.sql`  
 **Last Updated:** 2025-07-21
 
 ---

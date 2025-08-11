@@ -1,24 +1,61 @@
-# Q-CLIENTS-WITH-MULTIPLE-ACTIVE-PATHWAYS
+# Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
 
 **Category:** View Definitions  
-**Source File:** `code/q-clients-wtih-multiple-active-pathways.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-clients-with-multiple-active-pathways.sql`  
+**Last Updated:** **2025-08-09**  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Identifies clients with more than one active Pathway enrollment at the same time.  
+Supports exception reporting and program monitoring by surfacing potential duplication or misalignment in Pathway assignments.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Built on `PATHWAY`, `PATHWAYCLIENT`, and `Q_PROVIDERPLACEMENT`, joined with `Q_CLIENT_BHN` for client metadata and test client exclusion.
+- Filters to include only active Pathway records (`ENDDATE IS NULL`, `DOCREVNO = ' 0 '`).
+- Uses a window function to count active Pathways per client.
+- Returns one row per active Pathway for clients with more than one.
+
+### Logic Summary
+
+- **Client Join**
+  - Uses `Q_CLIENT_BHN` to exclude test clients based on last name variants.
+
+- **Active Pathway Filter**
+  - Includes only records where `ENDDATE IS NULL` and `DOCREVNO = ' 0 '`.
+
+- **Window Function**
+  - `COUNT(CLIENT_NUMBER) OVER (PARTITION BY CLIENT_NUMBER)` calculates the number of active Pathways per client.
+
+- **Final Filter**
+  - `WHERE COUNT_PATHWAY > 1` restricts output to clients with multiple concurrent Pathways.
+
+## Output Fields
+
+| Field Name             | Description |
+|------------------------|-------------|
+| `CLIENT_NAME`, `CLIENT_NUMBER` | Client identifiers |
+| `WHODUNIT`             | User ID who entered the Pathway |
+| `PP DOCSERNO`          | `PROVIDERPLACEMENT` document reference |
+| `PROGRAM_CODE`, `PROGRAM_DESCRIPTION` | Program assignment |
+| `AGENCY_CODE`, `AGENCY_DESCRIPTION`   | Agency assignment |
+| `PATHWAYNAME`          | Name of the Pathway |
+| `COUNT_PATHWAY`        | Number of active Pathways for the client |
+
+## Usage Notes
+
+- **Ad Hoc Compatibility**: Designed as a view to support tools that do not allow CTEs.
+- **Security Group Access**: Available to GVT and System Administrator groups.
+- **Review Frequency**: Recommended periodic review to ensure business rules and filters remain aligned.
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- **Test Client Filtering**: Based on last name variants in `Q_CLIENT_BHN`; update if naming conventions change.
+- **Join Integrity**: Ensure `PATHWAY`, `PATHWAYCLIENT`, and `Q_PROVIDERPLACEMENT` remain structurally aligned.
+- **Window Function Behavior**: Confirm that `COUNT_PATHWAY` reflects only active records.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
-  
+- **2025-08-09**: Initial Markdown documentation authored.  
+- **2025-06-24**: View definition created to support exception reporting for concurrent pathway enrollments.

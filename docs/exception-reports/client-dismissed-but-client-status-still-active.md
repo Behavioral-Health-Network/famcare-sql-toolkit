@@ -1,7 +1,7 @@
 # Client Dismissed But Client Status Still Active
 
 **Category:** Exception Reports  
-**File:** `code/exception/client-dismissed-but-client-status-still-active.sql`  
+**File:** `code/exception-reports/client-dismissed-but-client-status-still-active.sql`  
 **Last Updated:** 2025-07-21
 
 ---
@@ -32,7 +32,8 @@ This report helps Data Team staff ensure that client statuses are updated approp
 
 ## Changelog
 
-- **2025-07-21**: Initial documentation authored.
+- **2025-07-21**: Initial Markdown documentation authored.
+- **2025-05-02**: Initial SQL query authored.  
 
 ---
 

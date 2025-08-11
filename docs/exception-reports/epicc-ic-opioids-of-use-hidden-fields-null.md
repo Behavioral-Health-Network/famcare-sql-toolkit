@@ -1,7 +1,7 @@
 # EPICC IC Opioids of Use Hidden Fields Null.sql
 
 **Category:** Exception Reports  
-**Source File:** `code/epicc-ic-opioids-of-use-hidden-fields-null.sql`  
+**Source File:** `code/exception-reports/epicc-ic-opioids-of-use-hidden-fields-null.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
 
@@ -46,7 +46,7 @@ The query joins to `Q_CLIENT_BHN` for client context and returns identifying det
 
 ## Changelog
 
-- 2025-05-19: Initial query authored.
+- **2025-05-19**: Initial SQL query authored.
 
 ## Related Assets
 

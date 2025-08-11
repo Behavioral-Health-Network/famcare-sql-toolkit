@@ -1,7 +1,7 @@
 # Q_BCR_CLIENT_COUNSELING_SESSIONS
 
 **Category:** View Definitions  
-**Source File:** `code/bcr-client-counseling-sessions.sql`  
+**Source File:** `code/view-definitions/bcr-client-counseling-sessions.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
 
@@ -45,4 +45,5 @@ This view consolidates session-level detail for audit, monitoring, and reporting
 
 ## Changelog
 
-- 2025-07-28: Initial view definition authored.
+- **2025-07-28**: Initial Markdown documentation authored.
+- **2025-07-02**: Initial view definition authored.

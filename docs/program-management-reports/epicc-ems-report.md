@@ -1,7 +1,7 @@
 # EPICC EMS Report
 
 **Category:** Program Management Reports  
-**Source File:** `code/program-management/epicc-ems-report.sql`  
+**Source File:** `code/program-management-reports/epicc-ems-report.sql`  
 **Last Updated:** 2025-08-06  
 **Author:** BHN Data Team  
 
@@ -47,8 +47,8 @@ It includes:
 
 ## Changelog
 
-- 2025-08-06: Changed FAMCare Quick Report parameters to use `DATEPICKER` for enrollment start dates; removed enrollment end date parameter  
-- 2025-07-17: Updated parameters to allow blank values and renamed START RANGE to START DATE  
-- 2025-07-17: Added EMS involvement logic for hospital referrals  
-- 2025-07-16: Added filtering for agency code `'073'` (EMS/Fire District)  
-- 2025-07-08: Initial creation
+- **2025-08-06**: Changed FAMCare Quick Report parameters to use `DATEPICKER` for enrollment start dates; removed enrollment end date parameter  
+- **2025-07-17**: Updated parameters to allow blank values and renamed START RANGE to START DATE  
+- **2025-07-17**: Added EMS involvement logic for hospital referrals  
+- **2025-07-16**: Added filtering for agency code `'073'` (EMS/Fire District)  
+- **2025-07-08**: Initial creation
