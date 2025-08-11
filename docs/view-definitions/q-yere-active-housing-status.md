@@ -1,23 +1,63 @@
-# Q-YERE-ACTIVE-HOUSING-STATUS
+# Q_YERE_ACTIVE_HOUSING_STATUS
 
 **Category:** View Definitions  
-**Source File:** `code/q-yere-active-housing-status.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-yere-active-housing-status.sql`  
+**Last Updated:** **2025-08-09**  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Provides a one-row-per-client snapshot of the most recent active housing status, supporting FY25 reporting and housing insecurity diagnostics.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Built on `Q_YERE_ALL_HOUSING_STATUS`, which contains full housing history including imported records.
+- Filters to retain only the most recent, active housing status per client.
+- Excludes historical records and test clients.
+- Outputs pivoted housing status flags for simplified reporting.
+
+### Logic Summary
+
+- **CTE: `LATESTHOUSINGSTART`**
+  - Identifies the most recent `HOUSING_START_DATE` per client.
+  - Filters to `DOCREVNO = ' 0 '` implicitly via source view.
+
+- **CTE: `LATESTHOUSINGSTATUS`**
+  - Filters to records matching the latest start date.
+  - Ensures valid `PARENT_DOCSERNO` via `Q_YERE_PATHWAY_FORM_DOCSERNOS`.
+
+- **CTE: `FINALSELECTION`**
+  - Resolves ties using `HOUSING_END_DATE` and `DOCSERNO`.
+  - Substitutes null end dates with `'9999-12-31'` to prioritize ongoing statuses.
+
+- **Final SELECT**
+  - Joins with `Q_CLIENT_BHN` to exclude test clients.
+  - Outputs:
+    - Visit metadata
+    - Housing status flags (pivoted)
+    - Housing insecurity indicators (`IF_UNHOUSED_EXP`, `WORRIED_LOSING_HOUSING`, `HOMELESS_HOUSING_INSECURE_ETO`)
+
+## Output Fields
+
+| Field Name                              | Description                                      |
+|----------------------------------------|--------------------------------------------------|
+| `CLIENT_NUMBER`                        | Unique client ID                                 |
+| `HOUSING_START_DATE` / `HOUSING_END_DATE` | Date range of housing status                    |
+| `CLIENT_HOUSING_STATUS` (pivoted)      | Flags for each housing status type              |
+| `IF_UNHOUSED_EXP`                      | Client reports prior experience of being unhoused |
+| `WORRIED_LOSING_HOUSING`               | Client expresses concern about housing stability |
+| `HOMELESS_HOUSING_INSECURE_ETO`        | Housing insecurity flag for ETO reporting        |
+| `VISITDT`, `VISITTM`, `USERID`         | Metadata for audit and traceability              |
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- **Alias Correction**: `HOUSE` → `YHOUSE` applied on 2025-08-06 for consistency.
+- **Test Client Exclusion**: Based on last name variants (`GVTTest`, `GVTest`, `GVTTEST`) in `Q_CLIENT_BHN`.
+- **Housing Status Expansion**: Update CASE logic if new status types are introduced.
+- **Dependency Awareness**: Changes to `Q_YERE_ALL_HOUSING_STATUS`, `Q_YERE_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` may affect logic integrity.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
+- **2025-08-09**: Initial Markdown documentation authored.  
+- **2025-08-06**: Alias corrected from `HOUSE` to `YHOUSE` for clarity.  
+- **2025-05-07**: View created to support FY25 housing status reporting.
