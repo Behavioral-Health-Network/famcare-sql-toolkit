@@ -2,7 +2,7 @@
 Report Name: EPICC IC PWY Date Outside Same Day Enrollment Range  
 Category: Exception Reports  
 
-See docs/exception/epicc-ic-pwy-date-outside--enrollment-range.md for full documentation.
+See docs/exception-reports/epicc-ic-pwy-date-outside--enrollment-range.md for full documentation.
 */
 
 
