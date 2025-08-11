@@ -1,23 +1,52 @@
-# Q-EPICC-REFERRAL
+# Q_EPICC_REFERRAL
 
 **Category:** View Definitions  
-**Source File:** `code/q-epicc-referral.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-epicc-referral.sql`  
+**Last Updated:** **2025-08-09**  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Extracts and consolidates EPICC referral data for reporting, eligibility tracking, and program evaluation.  
+Includes client metadata, referral sources, EMS involvement, and program participation flags.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Pulls structured data from the `PWEPICCREFERRAL` form.
+- Enriches coded fields with descriptive metadata from multiple lookup tables.
+- Filters out test clients via `Q_CLIENT_BHN` and excludes non-current records.
+- Supports analysis of referral pathways, EMS transport, and client eligibility.
+
+### Logic Summary
+
+- **Source Table:**
+  - `PWEPICCREFERRAL` (aliased as `EREF`)
+
+- **Joins:**
+  - `INNER JOIN Q_CLIENT_BHN` for client metadata and test client exclusion
+  - `LEFT JOIN PROGRAM_REFERRAL_SOURCES` for referring agency and EMS transport descriptions
+  - `LEFT JOIN COMMUNITY_REFERRAL_SOURCE` for community referral descriptions
+  - `LEFT JOIN EPICC_EMS_FIRE_DISTRICT` for EMS/fire district descriptions
+  - `LEFT JOIN EPICC_PROGRAM_PARTICIPATION` for program participation descriptions
+
+- **Key Filters:**
+  - `DOCREVNO = ' 0 '` to isolate current records
+
+- **Output Fields:**
+  - Referral metadata: `VISITDT`, `USERID`, `PATHWAY_DATE`, `REFERRER_NAME`, `REFERRER_PHONE`
+  - Referral sources: agency codes and descriptions, community source, EMS/fire district
+  - EMS involvement: suboxone administration, transport, emergency response
+  - Law enforcement: police custody, LEO involvement
+  - Program participation: EPICC flags, ineligibility reasons
+  - Notes and context: `PRESENTING_NOTES`, ADA list, DM3700 status
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- If new referral codes or EMS transport types are introduced, ensure lookup tables are updated and joins remain valid.
+- Monitor for changes in form structure, especially around EMS flags and program eligibility logic.
+- Consider surfacing diagnostic flags for missing referral descriptions or ambiguous EMS transport codes.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
+- **2025-07-21**: Updated to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming  
+- **2025-05-01**: Initial creation to support EPICC referral reporting and EMS involvement tracking
