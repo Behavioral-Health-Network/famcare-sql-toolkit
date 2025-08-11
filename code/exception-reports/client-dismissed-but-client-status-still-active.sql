@@ -2,7 +2,7 @@
 Report Name: Client Dismissed But Client Status Still Active
 Category: Exception Reports  
 
-See docs/exception/clients-dismissed-but-client-status-still-active.md for full documentation.
+See docs/exception-reports/clients-dismissed-but-client-status-still-active.md for full documentation.
 */
 
 SELECT C.CLIENT_STATUS AS [CLIENT_STATUS],
@@ -25,4 +25,4 @@ WHERE C.CLIENT_STATUS = 'Active'
 			WHERE PP2.CLIENTNUMBER = C.CLIENT_NUMBER
 			AND PP2.ENDINGDATE IS NULL
 		)
-	AND PP.ENDINGDATE IS NOT NULL
+	AND PP.ENDINGDATE IS NOT NULL;
