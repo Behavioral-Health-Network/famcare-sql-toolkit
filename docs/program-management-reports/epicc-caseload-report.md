@@ -1,7 +1,7 @@
 # EPICC Caseload Report
 
 **Category:** Program Management Reports  
-**Source File:** `code/epicc-caseload-report.sql`  
+**Source File:** `code/program-management-reports/epicc-caseload-report.sql`  
 **Last Updated:** 2025-06-10  
 **Author:** BHN Data Team  
 
