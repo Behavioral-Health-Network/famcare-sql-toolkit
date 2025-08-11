@@ -1,7 +1,7 @@
 # Q_DUPLICATE_ENROLLMENTS_WITH_PROGRAM
 
 **Category:** View Definitions  
-**Source File:** `code/views/q-duplciate-enrollments-with-program.sql`  
+**Source File:** `code/view-definitions/q-duplciate-enrollments-with-program.sql`  
 **Last Updated:** 2025-08-07  
 **Author:** BHN Data Team  
 
@@ -37,4 +37,4 @@ Surfaces cases where a client has multiple enrollments with the same `ENROLLMENT
 
 ## Changelog
 
-- 2025-08-07: Initial view definition authored.
+- **2025-08-07**: Initial view definition authored.

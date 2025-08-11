@@ -2,7 +2,7 @@
 View Name: Q_DUPLICATE_ENROLLMENTS_WITH_PROGRAM
 Category: View Definitions
 
-See docs/views/q-duplicate-enrollments-with-program.md for full documentation.
+See docs/view-definitions/q-duplicate-enrollments-with-program.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;
