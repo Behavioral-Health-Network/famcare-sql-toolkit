@@ -1,7 +1,7 @@
 # Clients With Multiple Active Enrollments
 
 **Category:** Exception Reports  
-**File:** `code/exception/clients-with-multiple-active-enrollments.sql`  
+**File:** `code/exception-reports/clients-with-multiple-active-enrollments.sql`  
 **Last Updated:** 2025-07-15
 
 ---
@@ -32,7 +32,8 @@ Supports identification of potential data entry errors or overlapping program en
 
 ## Changelog
 
-- **2025-07-15**: Initial version documented.
+- **2025-07-15**: Initial Markdown documentation authored.
+- **2025-05-22**: Initial SQL query authored.
 
 ---
 
