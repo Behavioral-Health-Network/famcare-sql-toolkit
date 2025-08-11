@@ -1,24 +1,64 @@
-# Q-COMPLEX-CARE-CLIENT
+# Q_COMPLEX_CARE_CLIENT
 
 **Category:** View Definitions  
-**Source File:** `code/q-complex-care-client.sql`  
-**Last Updated:** 2025-07-31  
+**Source File:** `code/view-definitions/q-complex-care-client.sql`  
+**Last Updated:** **2025-08-09**  
 **Author:** BHN Data Team  
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Extracts detailed client information for individuals enrolled in the **Complex Care** program.  
+Supports program-specific reporting, roster validation, and client-level diagnostics.
 
 ## Description
 
-- Summarize joins, calculated fields, and filters.
-- State intended report dependencies.
+- Pulls from `Q_CLIENT_BHN` for demographic and contact details.
+- Filters to clients associated with `PROGRAM_CODE = '100034'` (Complex Care).
+- Joins with `Q_PROVIDERPLACEMENT_BHN` for program linkage.
+- Optionally joins with `Q_COMPLEX_CARE_ROSTER` for roster alignment (non-filtering).
+
+### Logic Summary
+
+- **Program Filter**
+  - Restricts to `PROGRAM_CODE = '100034'` via `Q_PROVIDERPLACEMENT_BHN`.
+
+- **Client Join**
+  - Uses `CLIENT_NUMBER` to join `Q_CLIENT_BHN` and `Q_PROVIDERPLACEMENT_BHN`.
+
+- **Roster Join**
+  - Includes `Q_COMPLEX_CARE_ROSTER` via `LEFT JOIN` for future expansion or validation.
+
+- **Test Client Filtering**
+  - Not currently implemented; consider adding exclusion logic based on `CLIENT_LAST` if needed.
+
+## Output Fields
+
+Returns one row per client with full demographic and contact details. Key fields include:
+
+| Field Name            | Description |
+|-----------------------|-------------|
+| `CLIENT_NUMBER`       | Unique client identifier |
+| `CLIENT_NAME`, `CLIENT_FIRST`, `CLIENT_LAST` | Name components |
+| `BIRTH_DATE`, `GENDER_DESCRIPTION`, `RACE_DESCRIPTION`, `ETHNICITY_DESCRIPTION` | Demographics |
+| `MRN_MERCY`, `MRN_BJC`, `MRN_SSM` | Medical record numbers |
+| `SSN`, `SSN_LAST_FOUR` | Social Security details |
+| `STREET`, `CITY`, `STATE`, `ZIP_CODE`, `COUNTY_DESCRIPTION` | Address |
+| `PRIMARY_PHONE`, `CELL_PHONE`, `WORK_PHONE`, `CLIENT_EMAIL` | Contact info |
+| `FACM` | Unknown field—consider documenting purpose if used downstream |
+
+## Usage Notes
+
+- **Roster Join**: `Q_COMPLEX_CARE_ROSTER` is joined but not filtered; may be used for future validation or enrichment.
+- **Test Clients**: No exclusion logic currently applied; consider adding if needed for reporting.
+- **Field Volume**: Returns full client profile; downstream consumers should select only needed fields.
 
 ## Maintenance Notes
 
-- Document changes carefully—may affect multiple reports.
+- **Program Code Dependency**: Hardcoded to `'100034'`; confirm this remains valid for Complex Care.
+- **Join Integrity**: Ensure `CLIENT_NUMBER` remains stable across `Q_CLIENT_BHN`, `Q_PROVIDERPLACEMENT_BHN`, and `Q_COMPLEX_CARE_ROSTER`.
+- **Roster Alignment**: If `Q_COMPLEX_CARE_ROSTER` becomes authoritative, consider filtering or flagging mismatches.
 
 ## Changelog
 
-- YYYY-MM-DD: Initial view definition authored.
-  
+- **2025-08-09**: Initial Markdown documentation authored.  
+- **2025-07-23**: View definition created to support Complex Care client reporting.
