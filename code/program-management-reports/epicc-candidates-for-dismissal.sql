@@ -295,7 +295,7 @@ HAVING
 			CASE 
 				WHEN PE.SHORTDESCRIPTION = 'EPICC Initial Contact'
 				THEN EIC.EPICC_PROGRAM_PARTICIPATION_IC_DESCRIPTION
-			END) <> 'Enrolled With EPICC'
+			END) NOT IN ('Enrolled With EPICC', 'Unable To Contact/Locate')
 	)
 	OR
 	(
@@ -330,4 +330,34 @@ HAVING
 			THEN EREF.EPICC_PROGRAM_PARTICIPATION_REFERRAL_DESCRIPTION
 		END) <> 'Eligible For Services'
 	)
+    OR
+    -- Re-engagement candidates (new logic)
+    (
+        -- Client is still enrolled, has not completed 30-Day, 3-Month, or 6-Month milestones,
+        -- and has a status indicating outreach or re-engagement is needed
+        MAX(
+			CASE 
+				WHEN PE.SHORTDESCRIPTION = 'EPICC Initial Contact' 
+				THEN EIC.EPICC_PROGRAM_PARTICIPATION_IC_DESCRIPTION 
+			END) LIKE 'Enrolled%'
+        AND 
+			MAX(
+				CASE 
+					WHEN PE.SHORTDESCRIPTION = 'EPICC 3 Month' 
+					THEN ETHREEM.PROGRAM_PARTICIPATION_THREEM_DESCRIPTION 
+				END) IS NULL
+            OR MAX(
+				CASE 
+					WHEN PE.SHORTDESCRIPTION = 'EPICC 6 Month' 
+					THEN ESIXM.PROGRAM_PARTICIPATION_SIXM_DESCRIPTION 
+				END) IS NULL
+        )
+        AND (
+            MAX(
+				CASE 
+					WHEN PE.SHORTDESCRIPTION = 'EPICC 30 Day' 
+					THEN ETHIRTYD.CLIENT_STATUS_THIRTY_DAY 
+				END) = 'Transfer to Re-Engagement Specialist'
+        )
+    )
 );
