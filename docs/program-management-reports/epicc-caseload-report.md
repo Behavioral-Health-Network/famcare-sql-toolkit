@@ -3,7 +3,8 @@
 **Category:** Program Management Reports  
 **Source File:** `code/program-management-reports/epicc-caseload-report.sql`  
 **Last Updated:** 2025-06-10  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
@@ -11,8 +12,6 @@
 
 Summarizes EPICC program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, program participation, and treatment path indicators.  
 Supports program managers in tracking milestone compliance, reviewing treatment progression, and monitoring worker caseloads.
-
----
 
 ## Logic Summary
 
@@ -27,8 +26,6 @@ Supports program managers in tracking milestone compliance, reviewing treatment 
 - Tracks treatment path and program participation at each milestone.
 - Joins to client table for demographic and assignment accuracy.
 - Filters by enrollment date range using FAMCare Quick Report parameters (commented for SSMS compatibility).
-
----
 
 ## Output Fields
 
@@ -63,16 +60,12 @@ Supports program managers in tracking milestone compliance, reviewing treatment 
 | `6_MONTH_DATE_ACCOMPLISHED`       | 6-Month milestone completion date                            |
 | `6_MONTH_PROGRAM_PARTICIPATION`   | Program participation at 6-Month milestone                   |
 
----
-
 ## Parameterization Notes
 
 This report uses FAMCare Quick Report parameters for date filtering:  
 
 - `^^START RANGE|DATEPICKER^^` is a vendor-specific placeholder for user-selected start date.  
 - These parameters are commented out for SSMS compatibility but active in the FAMCare reporting interface.
-
----
 
 ## Usage Notes
 
@@ -81,15 +74,11 @@ This report uses FAMCare Quick Report parameters for date filtering:
 - Program participation and treatment path fields support service planning and client engagement review.
 - Worker and agency context supports caseload management and supervision.
 
----
-
 ## Maintenance Guidelines
 
 - Update milestone event names or logic if program workflows change.
 - Confirm client table joins remain valid for demographic accuracy.
 - Validate treatment path and participation  
-
----
 
 ## Changelog
 
