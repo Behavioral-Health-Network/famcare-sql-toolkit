@@ -3,7 +3,10 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-pathclient-enrollments.sql`  
 **Last Updated:** **2025-07-16**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
