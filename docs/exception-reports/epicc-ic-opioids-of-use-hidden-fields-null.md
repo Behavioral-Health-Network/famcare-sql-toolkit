@@ -3,7 +3,8 @@
 **Category:** Exception Reports  
 **Source File:** `code/exception-reports/epicc-ic-opioids-of-use-hidden-fields-null.sql`  
 **Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
