@@ -3,7 +3,10 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-active-housing-status.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

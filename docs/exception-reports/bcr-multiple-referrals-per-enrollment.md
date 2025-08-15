@@ -10,8 +10,7 @@
 
 ## Purpose
 
-Identifies clients who have more than one BCR referral recorded within a single program enrollment.  
-Supports exception reporting by flagging potential duplicate or erroneous referral entries.
+Identifies clients who have more than one BCR referral recorded within a single program enrollment. Supports exception reporting by flagging potential duplicate or erroneous referral entries.
 
 ## Description
 

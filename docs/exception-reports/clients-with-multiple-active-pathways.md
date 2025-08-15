@@ -1,17 +1,16 @@
 # Clients With Multiple Active Pathways
 
 **Category:** Exception Reports  
-**File:** `code/exception-reports/clients-with-multiple-active-pathways.sql`  
+**Source File:** `code/exception-reports/clients-with-multiple-active-pathways.sql`  
 **Last Updated:** 2025-07-21
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identify clients who are assigned to more than one active Pathway at the same time.  
-Supports Data Team staff in monitoring concurrent Pathway assignments that may require review or follow-up.
-
----
+Identify clients who are assigned to more than one active Pathway at the same time. Supports Data Team staff in monitoring concurrent Pathway assignments that may require review or follow-up.
 
 ## Logic Summary
 
@@ -21,21 +20,15 @@ Supports Data Team staff in monitoring concurrent Pathway assignments that may r
 - Excludes test clients.  
 - Includes program and agency details per Pathway instance.
 
----
-
 ## Usage Notes
 
 - The `[COUNT_PATHWAY]` column represents the number of active Pathways per client—always > 1 in this report.  
 - Designed for Quick Reports compatibility, as CTEs are disallowed directly in Quick Reports.  
 - Review and maintain exclusion logic for test clients.
 
----
-
 ## Changelog
 
 - **2025-06-24**: View created.
-
----
 
 ## Related Assets
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-reengagement.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Tracks client-level data for individuals transferred to a **Re-Engagement Specialist** after failing to engage with their Recovery Coach.  
-Supports program oversight and exception reporting by documenting efforts to re-engage clients prior to dismissal.
+Tracks client-level data for individuals transferred to a **Re-Engagement Specialist** after failing to engage with their Recovery Coach. Supports program oversight and exception reporting by documenting efforts to re-engage clients prior to dismissal.
 
 ## Description
 

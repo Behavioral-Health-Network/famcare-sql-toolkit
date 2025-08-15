@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-all-housing-status.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Returns a complete history of housing status records for EPICC clients.  
-Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
+Returns a complete history of housing status records for EPICC clients. Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
 
 ## Description
 

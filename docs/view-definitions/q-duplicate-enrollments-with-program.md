@@ -3,7 +3,10 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-duplciate-enrollments-with-program.sql`  
 **Last Updated:** 2025-08-07  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

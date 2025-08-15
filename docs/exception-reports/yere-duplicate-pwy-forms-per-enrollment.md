@@ -3,14 +3,14 @@
 **Category:** Exception Reports  
 **Source File:** `code/exception-reports/duplicate-pathway-forms-per-enrollment.sql`  
 **Last Updated:** 2025-07-28  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identify duplicate Pathway forms (Referral, Initial Assessment, Follow-Up, etc.) submitted for the same enrollment.  
-This query flags potential duplicates requiring manual review to determine which version should be retained. Non-authoritative versions should be deleted with caution.
+Identify duplicate Pathway forms (Referral, Initial Assessment, Follow-Up, etc.) submitted for the same enrollment. This query flags potential duplicates requiring manual review to determine which version should be retained. Non-authoritative versions should be deleted with caution.
 
 ## Logic Summary
 

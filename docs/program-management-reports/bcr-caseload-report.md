@@ -1,9 +1,12 @@
 # BCR Caseload Report
 
 **Category:** Program Management  
-**Source File:** `code/program-management-reports/bcr-caseload.sql`  
+**Source File:** `code/program-management-reports/bcr-caseload-report.sql`  
 **Last Updated:** 2025-08-11  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

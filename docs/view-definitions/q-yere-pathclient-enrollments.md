@@ -10,7 +10,7 @@
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Joins client enrollment, Pathway core forms, and the Pathway Event data collection forms to enable program management and to allow for reporting on program outcomes.
 
 ## Description
 

@@ -8,8 +8,7 @@
 
 ## Purpose
 
-Encapsulate reusable logic to identify BCR clients who have been actively enrolled for 90 days or longer.  
-Supports program leadership in reviewing clients for timely dismissal and ensuring outreach efforts are appropriately tracked.
+Encapsulate reusable logic to identify BCR clients who have been actively enrolled for 90 days or longer. Supports program leadership in reviewing clients for timely dismissal and ensuring outreach efforts are appropriately tracked.
 
 ## Description
 

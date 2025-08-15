@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-hospital-visit.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Captures initial hospital-based contact notes for youth referred to the YERE program.  
-Supports program oversight by documenting whether outreach workers are conducting first visits in the hospital, as requested by the program coordinator.
+Captures initial hospital-based contact notes for youth referred to the YERE program. Supports program oversight by documenting whether outreach workers are conducting first visits in the hospital, as requested by the program coordinator.
 
 ## Description
 

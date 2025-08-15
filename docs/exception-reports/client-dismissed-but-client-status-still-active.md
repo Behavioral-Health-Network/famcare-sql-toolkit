@@ -10,8 +10,7 @@
 
 ## Purpose
 
-Identify clients who have a recorded enrollment dismissal but whose client status remains marked as "Active," and who do not have any open enrollments.  
-This report helps Data Team staff ensure that client statuses are updated appropriately following dismissal, supporting accurate case management and reporting.
+Identify clients who have a recorded enrollment dismissal but whose client status remains marked as "Active," and who do not have any open enrollments. This report helps Data Team staff ensure that client statuses are updated appropriately following dismissal, supporting accurate case management and reporting.
 
 ## Logic Summary
 

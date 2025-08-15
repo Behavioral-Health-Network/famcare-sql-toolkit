@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-six-month.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates EPICC 6-month follow-up data for longitudinal engagement tracking, MAT prescribing analysis, and program participation review.  
-Includes client metadata, treatment path, appointment attendance, and transfer outcomes.
+Extracts and consolidates EPICC 6-month follow-up data for longitudinal engagement tracking, MAT prescribing analysis, and program participation review. Includes client metadata, treatment path, appointment attendance, and transfer outcomes.
 
 ## Description
 

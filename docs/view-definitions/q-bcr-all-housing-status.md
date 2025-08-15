@@ -3,11 +3,15 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-bcr-all-housing-status.sql`  
 **Last Updated:** **2025-05-19**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Returns a complete history of housing status records for BCR clients. Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
+
 
 ## Description
 

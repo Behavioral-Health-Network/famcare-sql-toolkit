@@ -3,7 +3,10 @@
 **Category:** Program Management Reports  
 **Source File:** `code/program-management-reports/epicc-ems-report.sql`  
 **Last Updated:** 2025-08-06  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

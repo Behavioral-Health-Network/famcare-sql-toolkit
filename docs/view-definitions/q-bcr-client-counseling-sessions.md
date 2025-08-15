@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/bcr-client-counseling-sessions.sql`  
 **Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges to Care & Recovery (BCR) program. Clients are typically authorized for up to five counseling sessions, but exceptions may be granted for additional sessions at staff discretion.  
-This view consolidates session-level detail for audit, monitoring, and reporting.
+Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges to Care & Recovery (BCR) program. Clients are typically authorized for up to five counseling sessions, but exceptions may be granted for additional sessions at staff discretion. This view consolidates session-level detail for audit, monitoring, and reporting.
 
 ## Description
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-complex-care-client.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts detailed client information for individuals enrolled in the **Complex Care** program.  
-Supports program-specific reporting, roster validation, and client-level diagnostics.
+Extracts detailed client information for individuals enrolled in the **Complex Care** program. Supports program-specific reporting, roster validation, and client-level diagnostics.
 
 ## Description
 

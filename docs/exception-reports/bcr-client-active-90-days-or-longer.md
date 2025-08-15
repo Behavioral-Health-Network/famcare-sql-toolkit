@@ -10,8 +10,7 @@
 
 ## Purpose
 
-Identifies BCR clients who have been actively enrolled for 90 days or more.  
-This report supports program leadership in reviewing clients for timely dismissal, ensuring outreach coordinators have had sufficient time to engage and serve each client.
+Identifies BCR clients who have been actively enrolled for 90 days or more. This report supports program leadership in reviewing clients for timely dismissal, ensuring outreach coordinators have had sufficient time to engage and serve each client.
 
 ## Logic Summary
 

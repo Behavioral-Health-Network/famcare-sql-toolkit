@@ -3,11 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-complex-care-pathway-form-docsernos.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Unions all Pathway form `DOCSERNO` values to allow for joining to summations to identify intervals at which records have been added based on the Pathway Event of the parent forms.
 
 ## Description
 

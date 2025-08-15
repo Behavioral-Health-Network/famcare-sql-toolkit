@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-all-su-tx-agency.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Returns all substance use treatment agency referral records for EPICC clients.  
-Supports longitudinal tracking of referrals, intake outcomes, and agency engagement across multiple forms.
+Returns all substance use treatment agency referral records for EPICC clients. Supports longitudinal tracking of referrals, intake outcomes, and agency engagement across multiple forms.
 
 ## Description
 

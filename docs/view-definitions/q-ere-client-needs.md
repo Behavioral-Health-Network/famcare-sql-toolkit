@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-client-needs.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-View on summation form for client needs accessed from ERE milestone forms.  
-The summation form supports real-time display of client needs history in embedded tables on each form, enabling longitudinal tracking and service engagement monitoring.
+View on summation form for client needs accessed from ERE milestone forms. The summation form supports real-time display of client needs history in embedded tables on each form, enabling longitudinal tracking and service engagement monitoring.
 
 ## Description
 

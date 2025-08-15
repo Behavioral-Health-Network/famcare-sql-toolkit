@@ -1,18 +1,17 @@
 # Client Status Missing
 
 **Category:** Exception Reports  
-**File:** `code/exception-reports/client-status-missing.sql`  
+**Source File:** `code/exception-reports/client-status-missing.sql`  
 **Last Updated:** 2025-07-21
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identify clients who lack a current status in the client status field.  
-Supports the Data Team in ensuring all active and enrolled clients have  
+Identify clients who lack a current status in the client status field. Supports the Data Team in ensuring all active and enrolled clients have  
 up-to-date status values for accurate tracking and reporting.
-
----
 
 ## Logic Summary
 
@@ -20,22 +19,16 @@ up-to-date status values for accurate tracking and reporting.
 - Joins to `Q_CLIENT_BHN` to exclude test clients via view logic.
 - Filters for records where `CLIENT_STATUS = ''`.
 
----
-
 ## Usage Notes
 
 - Intended for internal review and remediation by GVT and System  
   Administrator groups.
 - Regular review recommended to ensure alignment with current business rules.
 
----
-
 ## Changelog
 
 - **2025-07-21**: Initial Markdown documentation authored.
 - **2025-04-03**: Initial SQL query authored.
-
----
 
 ## Related Assets
 

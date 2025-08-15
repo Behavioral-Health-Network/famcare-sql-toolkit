@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-bcr-ic.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Consolidates BCR Initial Contact form data for reporting and analysis.  
-Captures client demographics, program participation, psychosocial assessments, and justice involvement.
+Consolidates BCR Initial Contact form data for reporting and analysis. Captures client demographics, program participation, psychosocial assessments, and justice involvement.
 
 ## Description
 

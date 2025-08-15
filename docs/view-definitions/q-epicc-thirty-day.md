@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-thirty-day.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates EPICC 30-day follow-up data for reporting, program tracking, and MAT engagement analysis.  
-Includes client metadata, treatment path, program participation, and physician-prescribed MAT details.
+Extracts and consolidates EPICC 30-day follow-up data for reporting, program tracking, and MAT engagement analysis. Includes client metadata, treatment path, program participation, and physician-prescribed MAT details.
 
 ## Description
 

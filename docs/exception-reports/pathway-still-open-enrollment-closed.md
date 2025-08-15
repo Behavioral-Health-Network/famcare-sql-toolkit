@@ -3,7 +3,10 @@
 **Category:** Exception Reports  
 **Source File:** `code/exception-reports/pathway-still-open-enrollment-closed.sql`  
 **Last Updated:** 2025-08-09  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-three-month.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Supports ERE 3-month follow-up reporting by extracting client engagement, contact outcomes, and recent service utilization.  
-Includes employment status metadata and filters out test clients and non-current records.
+Supports ERE 3-month follow-up reporting by extracting client engagement, contact outcomes, and recent service utilization. Includes employment status metadata and filters out test clients and non-current records.
 
 ## Description
 

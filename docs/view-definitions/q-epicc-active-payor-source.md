@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-active-payor-source.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a one-row-per-client snapshot of active payor source data for EPICC clients.  
-Supports payor source tracking, managed care analysis, and insurance coverage diagnostics.
+Provides a one-row-per-client snapshot of active payor source data for EPICC clients. Supports payor source tracking, managed care analysis, and insurance coverage diagnostics.
 
 ## Description
 

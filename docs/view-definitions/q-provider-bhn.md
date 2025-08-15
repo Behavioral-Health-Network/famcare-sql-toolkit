@@ -3,7 +3,10 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-provider-bhn.sql`  
 **Last Updated:** 2025-08-10  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

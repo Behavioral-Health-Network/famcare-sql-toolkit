@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-all-housing-status.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a complete history of housing status records for ERE clients, including both active and historical entries.  
-Supports longitudinal analysis, reporting interval alignment, and housing insecurity diagnostics.
+Provides a complete history of housing status records for ERE clients, including both active and historical entries. Supports longitudinal analysis, reporting interval alignment, and housing insecurity diagnostics.
 
 ## Description
 

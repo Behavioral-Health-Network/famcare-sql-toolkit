@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-complex-care-pathclient-enrollments.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates enrollment and event data for clients participating in the **Complex Care** Pathway.  
-Supports reporting on enrollment timelines, dismissal reasons, program worker assignments, and Pathway event completion.
+Extracts and consolidates enrollment and event data for clients participating in the **Complex Care** Pathway. Supports reporting on enrollment timelines, dismissal reasons, program worker assignments, and Pathway event completion.
 
 ## Description
 

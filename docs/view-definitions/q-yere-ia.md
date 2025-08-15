@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-ia.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BWW (BHN Data Team)  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Supports reporting and analytics for YERE Initial Assessments (formerly Initial Contact).  
-Captures client demographics, assessment details, trauma history, school discipline, and behavioral health concerns.
+Supports reporting and analytics for YERE Initial Assessments (formerly Initial Contact). Captures client demographics, assessment details, trauma history, school discipline, and behavioral health concerns.
 
 ## Description
 

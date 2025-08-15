@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-clients-with-multiple-active-pathways.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Identifies clients with more than one active Pathway enrollment at the same time.  
-Supports exception reporting and program monitoring by surfacing potential duplication or misalignment in Pathway assignments.
+Identifies clients with more than one active Pathway enrollment at the same time. Supports exception reporting and program monitoring by surfacing potential duplication or misalignment in Pathway assignments.
 
 ## Description
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-referral.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates ERE referral data for reporting, eligibility tracking, and program evaluation.  
-Includes client metadata, referral sources, employment status, and ineligibility flags.
+Extracts and consolidates ERE referral data for reporting, eligibility tracking, and program evaluation. Includes client metadata, referral sources, employment status, and ineligibility flags.
 
 ## Description
 

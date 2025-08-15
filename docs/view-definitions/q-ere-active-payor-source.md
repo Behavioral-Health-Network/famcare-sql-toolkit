@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-active-payor-source.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a snapshot of each client’s active payor source(s), pivoted into individual columns for simplified reporting.  
-Ensures only current, relevant payor source data is retained, with descriptive linkage to managed Medicaid providers.
+Provides a snapshot of each client’s active payor source(s), pivoted into individual columns for simplified reporting. Ensures only current, relevant payor source data is retained, with descriptive linkage to managed Medicaid providers.
 
 ## Description
 

@@ -10,8 +10,7 @@
 
 ## Purpose
 
-Identifies EPICC clients who are candidates for either dismissal or re-engagement based on milestone participation, client status, and treatment path progression.  
-Supports program management decision-making by surfacing clients who may require outreach to re-engage or closure, in alignment with contractual obligations and workflow expectations.
+Identifies EPICC clients who are candidates for either dismissal or re-engagement based on milestone participation, client status, and treatment path progression. Supports program management decision-making by surfacing clients who may require outreach to re-engage or closure, in alignment with contractual obligations and workflow expectations.
 
 ## Key Metrics
 

@@ -10,8 +10,7 @@
 
 ## Purpose
 
-Returns the most recent substance use treatment agency referral record for each EPICC client.  
-Supports reporting and analysis based on the latest available referral data, including inferred parent form linkage for imported records.
+Returns the most recent substance use treatment agency referral record for each EPICC client. Supports reporting and analysis based on the latest available referral data, including inferred parent form linkage for imported records.
 
 ## Description
 
