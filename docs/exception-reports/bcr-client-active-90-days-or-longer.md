@@ -3,16 +3,14 @@
 **Category:** Exception Reports  
 **Source File:** `code/exception-reports/bcr-client-active-90-days-or-longer.sql`  
 **Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identifies BCR clients who have been actively enrolled for 90 days or more.  
-This report supports program leadership in reviewing clients for timely dismissal, ensuring outreach coordinators have had sufficient time to engage and serve each client.
-
----
+Identifies BCR clients who have been actively enrolled for 90 days or more. This report supports program leadership in reviewing clients for timely dismissal, ensuring outreach coordinators have had sufficient time to engage and serve each client.
 
 ## Logic Summary
 
@@ -22,8 +20,6 @@ This report supports program leadership in reviewing clients for timely dismissa
 - Joins to `PATHWAYCLIENT` to confirm enrollment alignment.
 - Excludes test clients via upstream filters (assumed in `Q_CLIENT_BHN`).
 - Returns distinct client records with enrollment and review dates.
-
----
 
 ## Output Fields
 
@@ -35,16 +31,12 @@ This report supports program leadership in reviewing clients for timely dismissa
 | `ENROLLMENT_STARTING_DATE` | Date of enrollment start                  |
 | `90_DAY_DATE`           | Calculated date marking 90 days of enrollment |
 
----
-
 ## Usage Notes
 
 - Intended for internal program review and client engagement tracking.
 - May be used to support dismissal decisions or outreach follow-up.
 - Ensure business rules for enrollment duration remain aligned with program expectations.
 - Review logic periodically to confirm alignment with evolving program workflows.
-
----
 
 ## Maintenance Guidelines
 
@@ -53,12 +45,12 @@ This report supports program leadership in reviewing clients for timely dismissa
 - Test regularly to ensure accuracy and avoid silent misattribution.
 - Document any changes in the changelog below.
 
----
-
 ## Changelog
 
-- **2025-07-31** – Markdown documentation authored.  
+- **2025-08-13**: Exception report SQL query updated to select from the view by the same name. See the code file for the view definition for detail on how the report is structured.
+- **2025-08-13**: Adds PC.PARENTDOCSERNO = '55320240917145557321' to the join with PATHWAYCLIENT to ensure that only enrollments with BCR Pathway assignments will be returned; switches from joining the base PROVIDERPLACEMENT table to using the view instead..
+- **2025-07-31**: Adds Initial Markdown documentation.  
   - Adds logic summary and output field descriptions.  
   - Standardizes comment block and Markdown structure.  
   - Confirms alignment with exception reporting standards.
-- **2025-04-29** – Initial SQL version authored.  
+- **2025-04-29**: Adds Initial SQL query.  

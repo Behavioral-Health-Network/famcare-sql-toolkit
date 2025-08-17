@@ -1,17 +1,16 @@
 # Clients With Multiple Active Enrollments
 
 **Category:** Exception Reports  
-**File:** `code/exception-reports/clients-with-multiple-active-enrollments.sql`  
+**Source File:** `code/exception-reports/clients-with-multiple-active-enrollments.sql`  
 **Last Updated:** 2025-07-15
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Flag clients who have more than one active enrollment at the same time, regardless of program.  
-Supports identification of potential data entry errors or overlapping program enrollments, both within and across programs.
-
----
+Flag clients who have more than one active enrollment at the same time, regardless of program. Supports identification of potential data entry errors or overlapping program enrollments, both within and across programs.
 
 ## Logic Summary
 
@@ -20,22 +19,16 @@ Supports identification of potential data entry errors or overlapping program en
 - Groups by client and counts active enrollments.
 - Returns clients with more than one simultaneous active enrollment irrespective of program.
 
----
-
 ## Usage Notes
 
 - Used for internal data quality review by the Data Team.
 - May indicate issues with program transitions, duplicative enrollments, or form workflow gaps.
 - Review records flagged for operational accuracy before remediation.
 
----
-
 ## Changelog
 
 - **2025-07-15**: Initial Markdown documentation authored.
 - **2025-05-22**: Initial SQL query authored.
-
----
 
 ## Related Assets
 

@@ -3,11 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-bcr-ref-placed.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Extracts and consolidates BCR Referrals Placed form data for reporting, eligibility tracking, and program evaluation.
 
 ## Description
 

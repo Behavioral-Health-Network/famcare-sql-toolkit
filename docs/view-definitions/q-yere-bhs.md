@@ -3,11 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-bhs.sql`  
 **Last Updated:** **2025-07-15**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Extracts and consolidates YERE behavioral health service data to enagble reporting on intake and admission status for clients on given enrollments.
 
 ## Description
 

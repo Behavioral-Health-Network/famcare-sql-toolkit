@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-referral.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates EPICC referral data for reporting, eligibility tracking, and program evaluation.  
-Includes client metadata, referral sources, EMS involvement, and program participation flags.
+Extracts and consolidates EPICC referral data for reporting, eligibility tracking, and program evaluation. Includes client metadata, referral sources, EMS involvement, and program participation flags.
 
 ## Description
 

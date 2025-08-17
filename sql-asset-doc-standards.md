@@ -1,4 +1,4 @@
-# Comment Style Guide for SQL Queries (Markdown-Based)
+# Style Guide for SQL Queries and Other Assets (Markdown-Based)
 
 This guide defines the canonical Markdown documentation structure for all SQL assets in the `FAMCare-SQL-Toolkit` repository. Every `.sql` file in `/code/<category>/` should have a matching `.md` file in `/docs/<category>/`. The Markdown file is the single source of truth for purpose, logic, usage and history—no full comments belong in the SQL itself. Instead, a standardized SQL comment header should be used. Templates for the documentation files may be located below.
 
@@ -24,6 +24,19 @@ See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documenta
 */
 ```
 
+## Lifecycle Tag Reference
+
+Use the `Lifecycle:` field in Markdown documentation headers to indicate the operational status of a report or view.
+
+| Tag          | Meaning                                                                 | Contributor Guidance                          |
+|--------------|-------------------------------------------------------------------------|-----------------------------------------------|
+| `Production` | Actively updated and used in live reporting workflows.          | Keep documentation current; test regularly.     |
+| `Deprecated` | Superseded by a newer report/view but still available for reference.     | Flag in changelog; avoid new dependencies.      |
+| `Retired`    | No longer in use; retained for historical or audit purposes.             | Do not modify; archive if appropriate.          |
+| `Experimental` | Under development or pilot use; not yet approved for production.       | Document clearly; coordinate with stakeholders. |
+
+>_Note: Lifecycle tags should be updated whenever a report’s status changes due to program shifts, vendor transitions, or internal restructuring. Use backticks around the lifecyle tag in the header to visually distinguish these as controlled values_
+
 ---
 
 ## Documentation Templates for Markdown Documentation
@@ -41,6 +54,7 @@ See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documenta
 **Source File:** `code/exception-reports/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -72,6 +86,7 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 **Source File:** `code/program-management-reports/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -102,6 +117,7 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 **Source File:** `code/audit-reports/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -129,6 +145,7 @@ Validate procedural compliance, user actions, or documentation completeness.
 **Source File:** `code/compliance-reports/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -161,6 +178,7 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 **Source File:** `code/external-data-sharing-reports/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -194,6 +212,7 @@ Provide structured data exports for approved non-contractual partners
 **Source File:** `code/extract-queries/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -225,6 +244,7 @@ Export structured data for external analysis or flat-file delivery.
 **Source File:** `code/maintenance-queries/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -257,6 +277,7 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 **Source File:** `code/maintenance-scripts/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 
@@ -292,6 +313,7 @@ Apply data corrections or cleanup actions.
 **Source File:** `code/view-definitions/file-name.sql`  
 **Last Updated:** 2025-07-31  
 **Author:** BHN Data Team  
+**Lifecycle:** `Production`
 
 ## Purpose
 

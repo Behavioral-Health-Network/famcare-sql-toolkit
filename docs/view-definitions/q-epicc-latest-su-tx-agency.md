@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-latest-su-tx-agency.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Returns the most recent substance use treatment agency referral record for each EPICC client.  
-Supports reporting and analysis based on the latest available referral data, including inferred parent form linkage for imported records.
+Returns the most recent substance use treatment agency referral record for each EPICC client. Supports reporting and analysis based on the latest available referral data, including inferred parent form linkage for imported records.
 
 ## Description
 
@@ -17,6 +19,8 @@ Supports reporting and analysis based on the latest available referral data, inc
 - Enriches agency codes with descriptions via `EPICC_SU_TX_AGENCY`.
 - Infers missing `PARENTDOCSERNO` for imported records using form-matching logic.
 - Applies tie-breaking logic to ensure one record per client based on `VISITDT`, `DOCSERNO`, and `PARENTDOCSERNO`.
+- Includes `SU_TX_INTAKE` indicator for whether client attended intake with `INTAKE_NOT_COMPLETED` for the reason if the client did not attend intake and `SU_TX_DATE` if the client did attend intake.
+- Includes `COACH_ATTEND_INTAKE` and `CES_ATTEND_INTAKE` indicator columns.
 
 ### Logic Summary
 
@@ -56,5 +60,6 @@ Supports reporting and analysis based on the latest available referral data, inc
 
 ## Changelog
 
+- **2025-08-14**: Adds `SU_TX_INTAKE`, `INTAKE_NOT_COMPLETED`, `SU_TX_DATE`, `COACH_ATTEND_INTAKE`, and `CES_ATTEND_INTAKE`.
 - **2025-08-10**: Initial Markdown documentation authored.  
 - **2025-05-06**: View created to support reporting on latest substance use treatment referrals for EPICC clients.

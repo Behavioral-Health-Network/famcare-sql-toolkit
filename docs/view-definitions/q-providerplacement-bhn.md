@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-providerplacement-bhn.sql`  
 **Last Updated:** 2025-08-10  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Consolidates client enrollment records from the `PROVIDERPLACEMENT` table, enriched with descriptive metadata for program, agency, service, and dismissal reason.  
-Supports reporting on program entry, assignment, transfer, and dismissal across BHN programs.  
+Consolidates client enrollment records from the `PROVIDERPLACEMENT` table, enriched with descriptive metadata for program, agency, service, and dismissal reason. Supports reporting on program entry, assignment, transfer, and dismissal across BHN programs.  
 
 ## Description
 

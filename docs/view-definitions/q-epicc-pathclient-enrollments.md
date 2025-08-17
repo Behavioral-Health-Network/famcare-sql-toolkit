@@ -3,11 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-pathclient-enrollments.sql`  
 **Last Updated:** **2025-05-07**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Joins client enrollment, Pathway core forms, and the Pathway Event data collection forms to enable program management and to allow for reporting on program outcomes.
 
 ## Description
 
@@ -18,11 +21,11 @@ Encapsulate reusable logic for reporting or downstream joins.
   - **Enrollment/Start Date Join**: Fallback logic for mismatches (e.g., imports).
 - Joins to `PATHWAYEVENTCLIENT` (PEC) and `PATHWAYEVENT` (PE) for event-level metadata.
 - Left joins to filtered views of EPICC-specific forms to avoid row inflation.
-- Uses `COALESCE` and `[ENROLL_PATH_JOIN_SOURCE]` to trace attribution logic.
+- Uses `COALESCE` and `ENROLL_PATH_JOIN_SOURCE` to trace attribution logic.
 - Includes form-level metadata:
   - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
   - `TREATMENT_PATH`, `PROGRAM_PARTICIPATION`, `PRO_OR_CORE`
-- Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy versions.
+- Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy record versions.
 - Filters to Pathway ID `55320240807113504583` (EPICC).
 
 ### Logic Summary

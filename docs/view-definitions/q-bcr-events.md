@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-bcr-events.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Tracks and consolidates data on events conducted under the Bridges to Care & Recovery (BCR) Program.  
-Supports reporting on event types, attendance, grant funding, and outreach impact.
+Tracks and consolidates data on events conducted under the Bridges to Care & Recovery (BCR) Program. Supports reporting on event types, attendance, grant funding, and outreach impact.
 
 ## Description
 

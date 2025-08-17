@@ -1,9 +1,12 @@
-# EPICC Enrollment Start = End Date Exception
+# EPICC IC PWY Date Outside Same Day Enrollment Range
 
 **Category:** Exception Reports  
-**Source File:** `code/exception-reports/epicc-ic-pwy-date-outside--enrollment-range.sql`  
+**Source File:** `code/exception-reports/epicc-ic-pwy-date-outside-same-day-enrollment-range.sql`  
 **Last Updated:** 2025-08-05  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-client-bhn.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a clean, locally customized client reference view for use across BHN reporting and diagnostics.  
-Excludes test clients and includes only fields relevant to local implementation.
+Provides a clean, locally customized client reference view for use across BHN reporting and diagnostics. Excludes test clients and includes only fields relevant to local implementation.
 
 ## Description
 

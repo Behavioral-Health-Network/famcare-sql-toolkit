@@ -3,15 +3,18 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-pathway-form-docsernos.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Unions all Pathway form `DOCSERNO` values to allow for joining to summations to identify intervals at which records have been added based on the Pathway Event of the parent forms.
 
 ## Description
 
-- Consolidates DOCSERNO values from all YERE Pathway forms into a unified dataset.
+- Consolidates `DOCSERNO` values from all YERE Pathway forms into a unified dataset.
 - Uses `UNION ALL` to aggregate records from:
   - `PWYEREREFERRAL` (Referral)
   - `PWYEREHOSPITALVISITNOTE` (Hospital Visit Note)

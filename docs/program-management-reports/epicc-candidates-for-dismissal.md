@@ -3,9 +3,14 @@
 **Category:** Program Management Reports  
 **Source File:** `code/program-management-reports/epicc-candidates-for-dismissal.sql`  
 **Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle** `Deprecated`
+
+---
 
 ## Purpose
+
+This report is now considered defunct as it has been superseded by the revised `code/program-management-reports/epicc-candidates-for-re-engagement-or-dismissal.sql` report.
 
 This report identifies EPICC program clients who are candidates for dismissal due to program completion, non-engagement resulting in a recommendation for termination, or a variety of program participation responses indicating that the client is ineligible, declined, has become incarcerated, become deceased, has been transferred to another state-wide EPICC region, etc. It supports decision-making around closure of enrollments that no longer meet continued outreach or engagement thresholds, in alignment with contractual obligations and program workflow.
 

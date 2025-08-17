@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-all-housing-status.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Returns a complete history of housing status records for YERE clients.  
-Supports longitudinal analysis, reporting interval alignment, and housing insecurity diagnostics.
+Returns a complete history of housing status records for YERE clients. Supports longitudinal analysis, reporting interval alignment, and housing insecurity diagnostics.
 
 ## Description
 

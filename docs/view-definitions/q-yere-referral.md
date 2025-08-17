@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-referral.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BWW (BHN Data Team)  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates YERE referral data for reporting, eligibility tracking, and program evaluation.  
-Includes client metadata, referral sources, CMHC/ADA status, and housing context.
+Extracts and consolidates YERE referral data for reporting, eligibility tracking, and program evaluation. Includes client metadata, referral sources, CMHC/ADA status, and housing context.
 
 ## Description
 

@@ -3,7 +3,8 @@
 **Category:** Program Management Reports  
 **Source File:** `code/program-management-reports/yere-caseload-report.sql`  
 **Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
@@ -11,8 +12,6 @@
 
 Summarizes YERE program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, payor information, and suicide attempt history.  
 Supports program managers in tracking milestone compliance, identifying overdue forms, and reviewing worker caseloads.
-
----
 
 ## Logic Summary
 
@@ -28,8 +27,6 @@ Supports program managers in tracking milestone compliance, identifying overdue 
 - Joins to payor source data for Medicaid and ShowMe Healthy Kids indicators.
 - Uses nested subqueries to identify supervisor via HR form joins.
 - Filters by enrollment date range using FAMCare Quick Report parameters.
-
----
 
 ## Output Fields
 
@@ -52,16 +49,12 @@ Supports program managers in tracking milestone compliance, identifying overdue 
 | `MANAGED_MEDICAID_PROVIDER_DESCRIPTION` | Managed Medicaid payor info                          |
 | `SHOWME_HEALTHY_KIDS`             | ShowMe Healthy Kids payor indicator                          |
 
----
-
 ## Parameterization Notes
 
 This report uses FAMCare Quick Report parameters for date filtering:  
 
 - `^^START RANGE|DATEPICKER^^` is a vendor-specific placeholder for user-selected start date.  
 - These parameters will not execute in SSMS but are valid in the FAMCare reporting interface.
-
----
 
 ## Usage Notes
 
@@ -70,8 +63,6 @@ This report uses FAMCare Quick Report parameters for date filtering:
 - Suicide attempt flag supports risk assessment and service planning.
 - Payor data supports review of managed medicaid provider details specific to youth.
 
----
-
 ## Maintenance Guidelines
 
 - Update milestone event names or logic if program workflows change.
@@ -79,8 +70,6 @@ This report uses FAMCare Quick Report parameters for date filtering:
 - Validate payor source joins against current Medicaid structures (e.g., ShowMe Healthy Kids).
 - Ensure parameter syntax remains compatible with FAMCare conventions.
 - Test regularly to confirm accuracy and relevance to program needs.
-
----
 
 ## Changelog
 

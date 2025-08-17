@@ -1,17 +1,16 @@
 # Clients With Multiple Active Pathways Sharing Same Start Date
 
 **Category:** Exception Reports  
-**File:** `code/exception-reports/clients-with-multiple-active-pathways-sharing-same-start-date.sql`  
+**Source File:** `code/exception-reports/clients-with-multiple-active-pathways-sharing-same-start-date.sql`  
 **Last Updated:** 2025-07-21
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identify clients who have multiple active Pathways that share the same start date.  
-This report helps surface potential data entry errors or structural duplication in Pathway assignment workflows.
-
----
+Identifies clients who have multiple active Pathways that share the same start date. This report helps surface potential data entry errors or structural duplication in Pathway assignment workflows.
 
 ## Logic Summary
 
@@ -20,22 +19,16 @@ This report helps surface potential data entry errors or structural duplication 
 - Joins the duplicate start date results to full Pathway, ProviderPlacement, Provider, and Client metadata.  
 - Returns one row per Pathway instance matching the duplicated start date for the same client.
 
----
-
 ## Usage Notes
 
 - Used as a source view for Quick Reports to flag possible duplication across Pathway assignments.  
 - Review flagged rows for clients with multiple concurrent Pathways sharing identical start dates.  
 - Useful for data cleanup, staff follow-up, and resolving overlapping assignment logic.
 
----
-
 ## Changelog
 
 - **2025-07-21**: Initial Markdown documentation authored.  
 - **2025-07-08**: Initial SQL query authored and view created.
-
----
 
 ## Related Assets
 

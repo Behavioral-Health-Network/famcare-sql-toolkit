@@ -3,11 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-bcr-pathclient-enrollments.sql`  
 **Last Updated:** **2025-07-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for reporting or downstream joins.
+Joins client enrollment, Pathway core forms, and the Pathway Event data collection forms to enable program management and to allow for reporting on program outcomes.
 
 ## Description
 

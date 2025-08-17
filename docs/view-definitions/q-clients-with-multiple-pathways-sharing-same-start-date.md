@@ -3,13 +3,14 @@
 **Category:** View Definitions  
 **File:** `code/view-definitions/q-clients-with-multiple-active-pathways-sharing-same-start-date.sql`  
 **Last Updated:** 2025-07-21
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
 
 ---
 
 ## Purpose
 
-Identify clients who have multiple active Pathways that share the same start date.  
-This report helps surface potential data entry errors or structural duplication in Pathway assignment workflows.
+Identify clients who have multiple active Pathways that share the same start date. This report helps surface potential data entry errors or structural duplication in Pathway assignment workflows.
 
 ---
 

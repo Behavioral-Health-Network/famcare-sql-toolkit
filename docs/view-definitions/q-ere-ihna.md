@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-ere-ihna.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting client engagement, diagnostic history, and recent service utilization.  
-Includes mental health, substance use, and physical health flags for comprehensive intake review and care coordination.
+Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting client engagement, diagnostic history, and recent service utilization. Includes mental health, substance use, and physical health flags for comprehensive intake review and care coordination.
 
 ## Description
 

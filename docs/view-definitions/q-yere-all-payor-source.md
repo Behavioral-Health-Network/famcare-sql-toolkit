@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-all-payor-source.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Returns all payor source records for YERE clients, including historical entries.  
-Supports longitudinal tracking of insurance coverage and provider engagement across reporting intervals.
+Returns all payor source records for YERE clients, including historical entries. Supports longitudinal tracking of insurance coverage and provider engagement across reporting intervals.
 
 ## Description
 

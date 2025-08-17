@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-client.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a filtered client reference view for individuals enrolled in the YERE program.  
-Supports program-specific reporting, diagnostics, and cross-system linkage.
+Provides a filtered client reference view for individuals enrolled in the YERE program. Supports program-specific reporting, diagnostics, and cross-system linkage.
 
 ## Description
 

@@ -3,12 +3,14 @@
 **Category:** Lookup Views  
 **Source File:** `code/lookups/q-program-agency-bridge.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a normalized bridge between programs (parent organizations) and agencies (site providers) in the BHN provider hierarchy.  
-Supports reporting, filtering, and analysis by valid program/agency pairings, especially where agencies serve multiple programs.
+Provides a normalized bridge between programs (parent organizations) and agencies (site providers) in the BHN provider hierarchy. Supports reporting, filtering, and analysis by valid program/agency pairings, especially where agencies serve multiple programs.
 
 ## Description
 

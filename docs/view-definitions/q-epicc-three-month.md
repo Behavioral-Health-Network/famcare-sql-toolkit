@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-three-month.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking, MAT engagement, and program participation analysis.  
-Includes client metadata, treatment path, appointment attendance, and transfer outcomes.
+Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking, MAT engagement, and program participation analysis. Includes client metadata, treatment path, appointment attendance, and transfer outcomes.
 
 ## Description
 

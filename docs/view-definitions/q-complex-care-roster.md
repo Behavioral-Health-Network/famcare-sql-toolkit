@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-complex-care-roster.sql`  
 **Last Updated:** **2025-08-09**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Tracks participants in the **Clinical BEACN** program, known as the **Complex Care** program in FAMCare.  
-Supports program enrollment tracking, agency assignment validation, and CIMOR status reporting.
+Tracks participants in the **Clinical BEACN** program, known as the **Complex Care** program in FAMCare. Supports program enrollment tracking, agency assignment validation, and CIMOR status reporting.
 
 ## Description
 

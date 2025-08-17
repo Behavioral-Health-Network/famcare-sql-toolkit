@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-yere-active-payor-source.sql`  
 **Last Updated:** **2025-08-10**  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Provides a snapshot of each YERE client’s active payor source(s), pivoted into a single row per client.  
-Supports reporting, managed care analysis, and insurance coverage diagnostics.
+Provides a snapshot of each YERE client’s active payor source(s), pivoted into a single row per client. Supports reporting, managed care analysis, and insurance coverage diagnostics.
 
 ## Description
 

@@ -3,12 +3,14 @@
 **Category:** View Definitions  
 **Source File:** `code/view-definitions/q-epicc-core-exceptions-by-type.sql`  
 **Last Updated:** 2025-08-10  
-**Author:** BHN Data Team  
+**Author:** Bradley Wing  
+**Lifecycle:** `Production`
+
+---
 
 ## Purpose
 
-Encapsulate reusable logic for exception reporting on EPICC enrollments starting on or after July 1, 2024.  
-Supports staff follow-up, data integrity reviews, and developer diagnostics by surfacing form-level and enrollment-level anomalies.
+Encapsulate reusable logic for exception reporting on EPICC enrollments starting on or after July 1, 2024. Supports staff follow-up, data integrity reviews, and developer diagnostics by surfacing form-level and enrollment-level anomalies.
 
 ## Description
 
