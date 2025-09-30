@@ -1,17 +1,31 @@
-# EPICC Caseload Report
-
-**Category:** Program Management Reports  
-**Source File:** `code/program-management-reports/epicc-caseload-report.sql`  
-**Last Updated:** 2025-06-10  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: EPICC Caseload Report
+category: Program Management Reports
+source_file: code/program-management-reports/epicc-caseload-report.sql
+last_updated: 2025-06-10
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags: [value1, value2]
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# EPICC Caseload Report
 
 ## Purpose
 
-Summarizes EPICC program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, program participation, and treatment path indicators.  
-Supports program managers in tracking milestone compliance, reviewing treatment progression, and monitoring worker caseloads.
+Summarizes EPICC program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, program participation, and treatment path indicators. Supports program managers in tracking milestone compliance, reviewing treatment progression, and monitoring worker caseloads.
 
 ## Logic Summary
 
@@ -82,6 +96,8 @@ This report uses FAMCare Quick Report parameters for date filtering:
 
 ## Changelog
 
-- **2025-06-10** – Initial version authored.  
-  - Added milestone tracking logic and overdue calculations.  
-  - Documented parameter usage and HR joins.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-08**: Adds initial Markdown documentation.
+- **2025-06-10** – Adds initial SQL query.  
+  - Adds milestone tracking logic and overdue calculations.  
+  - Documents parameter usage and HR joins.

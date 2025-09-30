@@ -1,12 +1,29 @@
-# EPICC IC PWY Date Outside Same Day Enrollment Range
-
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/epicc-ic-pwy-date-outside-same-day-enrollment-range.sql`  
-**Last Updated:** 2025-08-05  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: EPICC IC Pathway Date Outside Same Day Enrollment Range
+category: Exception Reports
+source_file: code/exception-reports/epicc-ic-pwy-date-outside-same-day-enrollment-range.sql
+last_updated: 2025-08-05
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# EPICC IC Pathway Date Outside Same Day Enrollment Range
 
 ## Purpose
 
@@ -26,4 +43,7 @@ Flags EPICC Initial Contact records where the enrollment start and end dates are
 
 ## Changelog
 
-- **2025-08-05**: Initial SQL query authored.
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-08**: Adds initial Markdown documentation.  
+- **2025-08-05**: Adds initial SQL query.

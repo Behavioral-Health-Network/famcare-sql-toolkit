@@ -1,12 +1,29 @@
-# YERE Duplicate Pathway Forms Per Enrollment
-
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/duplicate-pathway-forms-per-enrollment.sql`  
-**Last Updated:** 2025-07-28  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: YERE Duplicate Pathway Forms Per Enrollment
+category: Exception Reports
+source_file: code/exception-reports/duplicate-pathway-forms-per-enrollment.sql
+last_updated: 2025-07-28
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# YERE Duplicate Pathway Forms Per Enrollment
 
 ## Purpose
 
@@ -27,4 +44,7 @@ Identify duplicate Pathway forms (Referral, Initial Assessment, Follow-Up, etc.)
 
 ## Changelog
 
-- **2025-07-13**: Initial SQL query authored.
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-08**: Adds initial Markdown documentation.  
+- **2025-07-13**: Adds initial SQL query.
