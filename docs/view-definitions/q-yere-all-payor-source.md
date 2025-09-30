@@ -1,12 +1,49 @@
-# Q_YERE_ALL_PAYOR_SOURCE
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-all-payor-source.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_ALL_PAYOR_SOURCE
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-all-payor-source.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - historical-record-view
+  - insurance-data
+dependencies:
+  - name: pwpayorsource
+    type: html
+    repo: famcare-html-form-code
+  - name: pwpayorsource
+    type: table
+    repo: none
+  - name: pwyereinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyereinitialcontact
+    type: table
+    repo: none
+  - name: q-yere-pathway-form-docsernos
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_ALL_PAYOR_SOURCE
 
 ## Purpose
 
@@ -50,5 +87,6 @@ Returns all payor source records for YERE clients, including historical entries.
 
 ## Changelog
 
-- **2025-08-10**: Initial Markdown documentation authored.  
-- **2025-08-10**: View created to support full payor source history for EPICC clients.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients.

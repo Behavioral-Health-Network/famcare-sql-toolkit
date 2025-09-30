@@ -1,12 +1,33 @@
-# Clients With Multiple Active Enrollments
-
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/clients-with-multiple-active-enrollments.sql`  
-**Last Updated:** 2025-07-15
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Clients With Multiple Active Enrollments
+category: Exception Reports
+source_file: code/exception-reports/clients-with-multiple-active-enrollments.sql
+last_updated: 2025-07-15
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Clients With Multiple Active Enrollments
 
 ## Purpose
 
@@ -27,8 +48,10 @@ Flag clients who have more than one active enrollment at the same time, regardle
 
 ## Changelog
 
-- **2025-07-15**: Initial Markdown documentation authored.
-- **2025-05-22**: Initial SQL query authored.
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-07-15**: Adds initial Markdown documentation.
+- **2025-05-22**: Adds initial SQL query.
 
 ## Related Assets
 

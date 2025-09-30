@@ -1,12 +1,34 @@
-# Q_ERE_ACTIVE_PAYOR_SOURCE
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-active-payor-source.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_ACTIVE_PAYOR_SOURCE
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-active-payor-source.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - active-record-view
+  - insurance-data
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_ACTIVE_PAYOR_SOURCE
 
 ## Purpose
 
@@ -75,5 +97,6 @@ Provides a snapshot of each client’s active payor source(s), pivoted into indi
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-08-06**: View created to support reporting on currently active or last open payor source.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-08-06**: Adds initial view definition to support reporting on currently active or last open payor source.

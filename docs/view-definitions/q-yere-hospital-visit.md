@@ -1,12 +1,35 @@
-# Q_YERE_HOSPITAL_VISIT
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-hospital-visit.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_HOSPITAL_VISIT
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-hospital-visit.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - name: pwyerehospitalvisitnote
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerehospitalvisitnote
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_HOSPITAL_VISIT
 
 ## Purpose
 
@@ -58,5 +81,6 @@ Captures initial hospital-based contact notes for youth referred to the YERE pro
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-07-15**: View definition created to support hospital-based contact tracking for YERE referrals.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-07-15**: Adds initial view definition to support hospital-based contact tracking for YERE referrals.

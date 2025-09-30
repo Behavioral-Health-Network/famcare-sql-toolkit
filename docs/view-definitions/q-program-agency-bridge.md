@@ -1,12 +1,35 @@
-# Q_PROGRAM_AGENCY_BRIDGE
-
-**Category:** Lookup Views  
-**Source File:** `code/lookups/q-program-agency-bridge.sql`  
-**Last Updated:** **2025-08-10**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_PROGRAM_AGENCY_BRIDGE
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-program-agency-bridge.sql
+last_updated: 2025-08-10
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0 # indicates the version of the frontmatter schema
+---
+
+# Q_PROGRAM_AGENCY_BRIDGE
 
 ## Purpose
 
@@ -53,5 +76,6 @@ Provides a normalized bridge between programs (parent organizations) and agencie
 
 ## Changelog
 
-- **2025-08-10**: Initial Markdown documentation authored.  
-- **2025-06-28**: View created to support normalized program/agency mapping.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-06-28**: Adds initial view definition to support normalized program/agency mapping.

@@ -24,18 +24,62 @@ See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documenta
 */
 ```
 
-## Lifecycle Tag Reference
+---
 
-Use the `Lifecycle:` field in Markdown documentation headers to indicate the operational status of a report or view.
+## Standardized Markdown Frontmatter YAML
 
-| Tag          | Meaning                                                                 | Contributor Guidance                          |
-|--------------|-------------------------------------------------------------------------|-----------------------------------------------|
-| `Production` | Actively updated and used in live reporting workflows.          | Keep documentation current; test regularly.     |
-| `Deprecated` | Superseded by a newer report/view but still available for reference.     | Flag in changelog; avoid new dependencies.      |
-| `Retired`    | No longer in use; retained for historical or audit purposes.             | Do not modify; archive if appropriate.          |
-| `Experimental` | Under development or pilot use; not yet approved for production.       | Document clearly; coordinate with stakeholders. |
+### Schema Version Tag Reference
 
->_Note: Lifecycle tags should be updated whenever a report’s status changes due to program shifts, vendor transitions, or internal restructuring. Use backticks around the lifecyle tag in the header to visually distinguish these as controlled values_
+Use `schema_version:` in the frontmatter to indicate which version of the documentation schema is being used. This tracks changes to the structure of the YAML itself—not the SQL asset or table.
+
+Increment when:
+
+- New frontmatter fields are introduced (e.g., `dependencies`, `program_scope`).
+- Field names or conventions are updated.
+- Contributor expectations or validation rules change.
+
+> **Example:**
+
+```yaml
+schema_version: 1.0
+```
+
+This field supports future linting, backward compatibility, and contributor onboarding. It does **not** reflect changes to the SQL logic or table structure. Increment by whole numbers.
+
+### Lifecycle Tag Reference
+
+Use the `lifecycle:` field in Markdown frontmatter to indicate the operational status of a report or view.
+
+|      Value     |                                Meaning                               |               Contributor Guidance              |
+|:--------------:|:--------------------------------------------------------------------:|:-----------------------------------------------:|
+| `production`   | Actively updated and used in live reporting workflows.               | Keep documentation current; test regularly.     |
+| `deprecated`   | Superseded by a newer report/view but still available for reference. | Flag in changelog; avoid new dependencies.      |
+| `retired`      | No longer in use; retained for historical or audit purposes.         | Do not modify; archive if appropriate.          |
+| `experimental` | Under development or pilot use; not yet approved for production.     | Document clearly; coordinate with stakeholders. |
+
+>_Note: Lifecycle tags should be updated whenever a report’s status changes due to program shifts, vendor transitions, or internal restructuring. Use backticks around the lifecyle tag in the header to visually distinguish these as controlled values._
+
+---
+
+### Change Control Tag Reference
+
+Use the `change_control` field in Markdown frontmatter to indicate whether an asset has external constraints or internal review protocols that affect how it can be changed.  
+
+|          Value           |                          Meaning                          |                        Example                       |
+|:------------------------:|:---------------------------------------------------------:|:----------------------------------------------------:|
+| `vendor-dependent`         | Changes may break vendor logic or require vendor approval.| HRFORM logic is tied to USERID assignments           |
+| `requires-rollback-plan`   | Changes must be reversible and tested in staging.         | Maintenance scripts or form logic                    |
+| `cross-repo-coordination`  | Changes affect multiple repos.                            | SQL views used in both reporting and form validation |
+| `internal-review-required` | Must be reviewed by Data Team before publishing.          | Compliance reports or audit logic                    |
+| `low-risk`                 | Freely editable with minimal impact.                      | Standalone documentation or exploratory queries      |
+
+> _Note: Use of compound values is acceptable when more than one `change-control` constraint applies._
+
+```yaml
+change_control:
+  - vendor-dependent
+  - requires-rollback-plan
+```
 
 ---
 
@@ -47,14 +91,41 @@ Use the `Lifecycle:` field in Markdown documentation headers to indicate the ope
 
 ## Exception Reports
 
-```markdown
-# [Report Name]
+```yaml
+---
+front-matter-title: asset-name
+category: exception-reports
+category-label: Exception Reports
+source_file: code/exception-reports/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Report Name
 
 ## Purpose
 
@@ -72,24 +143,50 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 ## Changelog
 
 - **YYYY-MM-DD**: Adjusts filter to exclude dismissed clients.
-- **YYYY-MM-DD**: Initial creation.
+- **YYYY-MM-DD**: Adds initial SQL query.
 ```
 
 ---
 
 ## Program Management Reports
 
-```markdown
-# [Report Name]
+```yaml
+---
+front-matter-title: asset-name
+category: program-management-reports
+category-label: Program Management Reports
+source_file: code/program-management-reports/file-name.sql
+last_updated: YYYY-MM-DD
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Program Management  
-**Source File:** `code/program-management-reports/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Report Name
 
 ## Purpose
-
+ 
 Summarize or segment data to support caseload tracking, grant monitoring, or service planning.
 
 ## Key Metrics
@@ -103,21 +200,48 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 ## Changelog
 
 - **YYYY-MM-DD**: Adds agency filter logic.
-- **YYYY-MM-DD**: Initial version.
+- **YYYY-MM-DD**: Adds initial SQL query.
 ```
 
 ---
 
 ## Audit Reports
 
-```markdown
-# [Report Name]
+```yaml
+---
+front-matter-title: asset-name
+category: audit-reports
+category-label: Audit Reports
+source_file: code/audit-reports/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Audit Reports  
-**Source File:** `code/audit-reports/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Report Name
 
 ## Purpose
 
@@ -131,21 +255,47 @@ Validate procedural compliance, user actions, or documentation completeness.
 ## Changelog
 
 - **YYYY-MM-DD**: Expands audit scope to include housing status forms.
-- **YYYY-MM-DD**: Initial version.
+- **YYYY-MM-DD**: Adds initial SQL query.
 ```
 
 ---
 
 ## Compliance Reports
 
-```markdown
-# [Report Name]
+```yaml
+---
+front-matter-title: asset-name
+category: compliance-reports
+category-label: Compliance Reports
+source_file: code/compliance-reports/file-name.sql
+last_updated: YYYY-MM-DD
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Compliance Reports  
-**Source File:** `code/compliance-reports/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Report Name
 
 ## Purpose
 
@@ -164,21 +314,48 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 ## Changelog
 
 - **YYYY-MM-DD**: Adds required eligibility field per updated policy.
-- **YYYY-MM-DD**: Initial compliance report authored for [entity].
+- **YYYY-MM-DD**: Adds initial compliance report authored for [entity].
 ```
 
 ---
 
 ## External Data Sharing Reports
 
-```markdown
-# [Report Name]
+```yaml
+---
+front-matter-title: asset-name
+category: external-data-sharing-reports
+category-label: External Data Sharing Reports
+source_file: code/external-data-sharing-reports/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** External Data Sharing Reports  
-**Source File:** `code/external-data-sharing-reports/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Report Name
 
 ## Purpose
 
@@ -198,21 +375,48 @@ Provide structured data exports for approved non-contractual partners
 ## Changelog
 
 - **YYYY-MM-DD**: Renames demographic fields for consistency.
-- **YYYY-MM-DD**: Initial version for [partner agency].
+- **YYYY-MM-DD**: Adds initial SQL query for [partner agency].
 ```
 
 ---
 
 ## Extract Queries
 
-```markdown
-# [Query Title]
+```yaml
+---
+front-matter-title: asset-name
+category: extract-queries
+category-label: Extract Queries
+source_file: code/extract-queries/file-name.sql
+last_updated: YYYY-MM-DD
+author: author  
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Extract Queries  
-**Source File:** `code/extract-queries/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# Query Title
 
 ## Purpose
 
@@ -230,21 +434,48 @@ Export structured data for external analysis or flat-file delivery.
 ## Changelog
 
 - **YYYY-MM-DD**: Replaces something.
-- **YYYY-MM-DD**: Initial query authored.
+- **YYYY-MM-DD**: Adds initial SQL query.
 ```
 
 ---
 
 ## Maintenance Queries
 
-```markdown
-# [Query Title]
+```yaml
+front-matter-title: asset-name
+category: maintenance-queries
+category-label: Maintenance Queries
+source_file: `code/maintenance-queries/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Maintenance Queries  
-**Source File:** `code/maintenance-queries/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+
+# Query Title
 
 ## Purpose
 
@@ -263,21 +494,48 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 ## Changelog
 
 - **YYYY-MM-DD**: Adds filtering for `sys.indexes` by object type.
-- **YYYY-MM-DD**: Initial maintenance query created.
+- **YYYY-MM-DD**: Adds initial maintenance SQL query.
 ```
 
 ---
 
 ## Maintentance Scripts (e.g., UPDATE, DELETE, INSERT)
 
-```markdown
-# [Script Title]
+```yaml
+front-matter-title: asset-name
+category: maintenance-scripts
+category-label: Maintenance Scripts
+source_file: code/maintenance-scripts/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** Maintenance Scripts  
-**Source File:** `code/maintenance-scripts/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+
+# Script Title
 
 ## Purpose
 
@@ -299,21 +557,48 @@ Apply data corrections or cleanup actions.
 ## Changelog
 
 - **YYYY-MM-DD**: Updates something.
-- **YYYY-MM-DD**: Script created for FY25 onboarding cleanup.
+- **YYYY-MM-DD**: Adds initial SQL script for [purpose].
 ```
 
 ---
 
 ## View Definitions
 
-```markdown
-# [View Name]
+```yaml
+---
+front-matter-title: asset-name
+category: view-definitions
+category-label: View Definitions
+source_file: code/view-definitions/file-name.sql
+last_updated: YYYY-MM-DD
+author: author
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | multi
+programs:
+  - program1
+  - program2 (if relevant)
+dependencies:
+  - name: value1
+    type: type1
+    repo: repo1
+  - name: value2
+    type: type2
+    repo: repo2
+change_control: value
+reviewed_by:
+  - name: name
+  - date: YYYY-MM-DD
+last_reviewed: YYYY-MM-DD
+schema_version: 1.0
+---
+```
 
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/file-name.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+```markdown
+# View Name
 
 ## Purpose
 
@@ -331,7 +616,7 @@ Encapsulate reusable logic for reporting or downstream joins.
 ## Changelog
 
 - **YYYY-MM-DD**: Fixes something.
-- **YYYY-MM-DD**: Initial view definition authored.
+- **YYYY-MM-DD**: Adds initial view definition.
 ```
 
 ---

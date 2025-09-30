@@ -1,12 +1,50 @@
-# Q_EPICC_ALL_HOUSING_STATUS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-epicc-all-housing-status.sql`  
-**Last Updated:** **2025-08-10**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_EPICC_ALL_HOUSING_STATUS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-epicc-all-housing-status.sql
+last_updated: 2025-08-10
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - historical-record-view
+  - housing-status-data
+dependencies:
+  - name: pwhousingstatus
+    type: html
+    repo: famcare-html-form-code
+  - name: pwhousingstatus
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-pathway-form-docsernos
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepiccinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepiccinitialcontact
+    type: table
+    repo: none
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_EPICC_ALL_HOUSING_STATUS
 
 ## Purpose
 
@@ -64,5 +102,6 @@ Returns a complete history of housing status records for EPICC clients. Each row
 
 ## Changelog
 
-- **2025-08-10**: Initial Markdown documentation authored.  
-- **2025-05-19**: View created to support full housing status history reporting for EPICC clients.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-05-19**: Adds initial view definition to support full housing status history reporting for EPICC clients.

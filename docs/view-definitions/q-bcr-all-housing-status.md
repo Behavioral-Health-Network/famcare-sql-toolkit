@@ -1,17 +1,54 @@
-# Q_BCR_ALL_HOUSING_STATUS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-all-housing-status.sql`  
-**Last Updated:** **2025-05-19**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_ALL_HOUSING_STATUS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-all-housing-status.sql
+last_updated: 2025-05-19
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - historical-record-view
+  - housing-status-data
+dependencies:
+  - name: pwhousingstatus
+    type: html
+    repo: famcare-html-form-code
+  - name: pwhousingstatus
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-pathway-form-docsernos
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwbcrinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrinitialcontact
+    type: table
+    repo: none
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_ALL_HOUSING_STATUS
 
 ## Purpose
 
 Returns a complete history of housing status records for BCR clients. Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
-
 
 ## Description
 
@@ -52,4 +89,6 @@ Returns a complete history of housing status records for BCR clients. Each row r
 
 ## Changelog
 
-- **2025-05-19**: Initial view definition authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-05-19**: Adds initial view definition.

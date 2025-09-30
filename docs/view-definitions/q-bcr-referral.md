@@ -1,12 +1,38 @@
-# Q_BCR_REFERRAL
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-referral.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_REFERRAL
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-referral.sql
+last_updated: 2025-09-30
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pwbcrreferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrreferral
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_REFERRAL
 
 ## Purpose
 
@@ -47,5 +73,7 @@ Extracts and consolidates BCR Referral form data for reporting, eligibility trac
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-05-16**: Initial view definition authored.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-05-16**: Adds initial view definition.  

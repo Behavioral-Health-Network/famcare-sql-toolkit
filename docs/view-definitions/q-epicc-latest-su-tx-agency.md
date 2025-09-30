@@ -1,12 +1,92 @@
-# Q_EPICC_LATEST_SU_TX_AGENCY
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-epicc-latest-su-tx-agency.sql`  
-**Last Updated:** **2025-08-10**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_EPICC_LATEST_SU_TX_AGENCY
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-epicc-latest-su-tx-agency.sql
+last_updated: 2025-08-10
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - epicc-su-tx-agency
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - active-record-view
+  - pathway-event
+  - enrollment-join
+  - provider-placement
+dependencies:
+  - name: pwsubroadtreatmentagency
+    type: html
+    repo: famcare-html-form-code
+  - name: pwsubroadtreatmentagency
+    type: table
+    repo: none
+  - name: epicc-su-tx-agency
+    type: table
+    repo: none
+  - name: q-epicc-ic
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepiccinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepiccinitialcontact
+    type: table
+    repo: none
+  - name: q-epicc-two-week
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepicc2weekfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepicc2weekfollowup
+    type: table
+    repo: none
+  - name: q-epicc-thirty-days
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepicc30dayfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepicc30dayfollowup
+    type: table
+    repo: none
+  - name: q-epicc-three-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepicc3monthfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepicc3monthfollowup
+    type: table
+    repo: none
+  - name: q-epicc-six-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwepicc6monthfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepicc6monthfollowup
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_EPICC_LATEST_SU_TX_AGENCY
 
 ## Purpose
 
@@ -60,6 +140,7 @@ Returns the most recent substance use treatment agency referral record for each 
 
 ## Changelog
 
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds `SU_TX_INTAKE`, `INTAKE_NOT_COMPLETED`, `SU_TX_DATE`, `COACH_ATTEND_INTAKE`, and `CES_ATTEND_INTAKE`.
-- **2025-08-10**: Initial Markdown documentation authored.  
-- **2025-05-06**: View created to support reporting on latest substance use treatment referrals for EPICC clients.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-05-06**: Adds initial view definition to support reporting on latest substance use treatment referrals for EPICC clients.

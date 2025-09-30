@@ -1,12 +1,38 @@
-# Q_ERE_REFERRAL
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-referral.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_REFERRAL
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-referral.sql
+last_updated: 2025-09-30
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pwerereferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwerereferral
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_REFERRAL
 
 ## Purpose
 
@@ -47,5 +73,7 @@ Extracts and consolidates ERE referral data for reporting, eligibility tracking,
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored to support standardized view tracking.  
-- **2025-07-16**: View definition created to support ERE referral reporting and eligibility tracking.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
+- **2025-07-16**: Adds initial view definition to support ERE referral reporting and eligibility tracking.

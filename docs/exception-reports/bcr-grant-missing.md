@@ -1,10 +1,29 @@
-# BCR Grant Missing
+---
+front-matter-title: BCR Grant Missing
+category: Exception Reports
+source_file: code/exception-reports/bcr-grant-missing.sql
+last_updated: 2025-08-14
+author: Bradley Wing
+status: active
+lifecycle: production
+program-scope: single
+programs:
+  - bcr
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
 
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/bcr-grant-missing.sql`  
-**Last Updated:** 2025-08-14  
-**Author:** BHN Data Team  
-**Lifecycle:** `Production`
+# BCR Grant Missing
 
 ## Purpose
 
@@ -25,5 +44,7 @@ Identifies clients whose BCR Initial Contact forms are missing required grant in
 
 ## Changelog
 
-- **2025-08-14**: Initial Markdown documentation authored.
-- **2025-04-07**: Initial SQL query authored.
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-14**: Adds initial Markdown documentation.
+- **2025-04-07**: Adds initial SQL query.

@@ -1,12 +1,33 @@
-# Client Dismissed But Client Status Still Active
-
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/client-dismissed-but-client-status-still-active.sql`  
-**Last Updated:** 2025-07-21
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Client Dismissed But Client Status Still Active
+category: Exception Reports
+source_file: code/exception-reports/client-dismissed-but-client-status-still-active.sql
+last_updated: 2025-07-21
+author: Bradley Wing
+status: active
+lifecycle: production
+program-scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Client Dismissed But Client Status Still Active
 
 ## Purpose
 
@@ -27,8 +48,10 @@ Identify clients who have a recorded enrollment dismissal but whose client statu
 
 ## Changelog
 
-- **2025-07-21**: Initial Markdown documentation authored.
-- **2025-05-02**: Initial SQL query authored.  
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-07-21**: Adds initial Markdown documentation.
+- **2025-05-02**: Adds initial SQL query.  
 
 ## Related Assets
 

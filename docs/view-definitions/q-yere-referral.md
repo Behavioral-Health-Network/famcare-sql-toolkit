@@ -1,12 +1,35 @@
-# Q_YERE_REFERRAL
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-referral.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_REFERRAL
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-referral.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - name: pwyerereferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerereferral
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_REFERRAL
 
 ## Purpose
 
@@ -47,7 +70,8 @@ Extracts and consolidates YERE referral data for reporting, eligibility tracking
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-07-02**: Switched to `Q_CLIENT_BHN` for client details and test client exclusion.  
-- **2025-06-13**: Renamed table alias from `REF` to `YREF`.  
-- **2025-05-23**: Initial creation to support YERE referral reporting and agency involvement tracking.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-07-02**: Switches to `Q_CLIENT_BHN` for client details and test client exclusion.  
+- **2025-06-13**: Renames table alias from `REF` to `YREF`.  
+- **2025-05-23**: Adds initial view definition to support YERE referral reporting and agency involvement tracking.

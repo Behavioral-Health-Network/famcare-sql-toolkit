@@ -1,12 +1,40 @@
-# Q_BCR_CLIENT
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-client.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_CLIENT
+category: view-definitions
+category_label: View Definitionssource_file: code/view-definitions/q-bcr-client.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - client-view
+  - tag2
+dependencies:
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-providerplacement-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: providerplacement
+    type: html
+    repo: famcare-html-form-code
+  - name: providerplacement
+    type: table
+    repo: none
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_CLIENT
 
 ## Purpose
 
@@ -45,5 +73,7 @@ Provides a filtered client reference view for individuals enrolled in the BCR pr
 
 ## Changelog
 
-- **2025-07-23**: Updated to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming.  
-- **2025-06-10**: Initial creation to support BCR-specific client reporting.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-07-28**: Adds initial Markdown documentation.
+- **2025-07-23**: Updates to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming.  
+- **2025-06-10**: Adds initial view definition to support BCR-specific client reporting.

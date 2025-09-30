@@ -1,12 +1,44 @@
-# Q_ERE_BHS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-bhs.sql`  
-**Last Updated:** **2025-07-22**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_BHS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-bhs.sql
+last_updated: 2025-09-30
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pwerebehavioralhealthservice
+    type: html
+    repo: famcare-html-form-code
+  - name: pwerebehavioralhealthservice
+    type: table
+    repo: none
+  - name: cmhc_agency
+    type: table
+    repo: none
+  - name: ada_su_agency
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_BHS
 
 ## Purpose
 
@@ -47,4 +79,7 @@ Extracts and consolidates ERE behavioral health service data to enagble reportin
 
 ## Changelog
 
-- **2025-07-22**: Initial view definition authored to support admission tracking for ERE behavioral health services.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-07-22**: Adds initial view definition to support admission tracking for ERE behavioral health services.

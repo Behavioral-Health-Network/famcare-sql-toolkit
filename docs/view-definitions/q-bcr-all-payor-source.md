@@ -1,12 +1,53 @@
-# BCR_ALL_PAYOR_SOURCE
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-all-payor-source.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_ALL_PAYOR_SOURCE
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-all-payor-source.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - historical-record-view
+  - insurance-data
+dependencies:
+  - name: pwpayorsource
+    type: html
+    repo: famcare-html-form-code
+  - name: pwpayorsource
+    type: table
+    repo: none
+  - name: pwbcrinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrinitialcontact
+    type: table
+    repo: none
+  - name: q-client_bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwbcrinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: q-bcr-pathway-form-docsernos
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-09
+last_reviewed: 2025-08-09
+schema_version: 1.0
+---
+
+# Q_BCR_ALL_PAYOR_SOURCE
 
 ## Purpose
 
@@ -14,7 +55,7 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Description
 
-- Built on `PWPAYORSOURCE`, joined with `Q_CLIENT` for client metadata and test client exclusion.
+- Built on `PWPAYORSOURCE`, joined with `Q_CLIENT_BHN` for client metadata and test client exclusion.
 - Resolves imported records using `PWBCRINITIALCONTACT` to infer missing `PARENTDOCSERNO`.
 - Joins with `Q_BCR_PATHWAY_FORM_DOCSERNOS` to identify valid reporting intervals and form types.
 - Includes both active and historical payor source records for comprehensive analysis.
@@ -26,7 +67,7 @@ Returns all payor source records for BCR clients, including historical entries. 
   - Filters to only include records with valid parent form linkage via `Q_BCR_PATHWAY_FORM_DOCSERNOS`.
 
 - **Client Join**
-  - Uses `Q_CLIENT` for name fields and test client exclusion (`LASTNAME NOT IN (...)`).
+  - Uses `Q_CLIENT_BHN` for name fields and test client exclusion (`LASTNAME NOT IN (...)`).
 
 - **Import Handling**
   - Resolves missing `PARENTDOCSERNO` for imported records using `PWBCRINITIALCONTACT`.
@@ -51,6 +92,7 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Changelog
 
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-06-11**: View created to support full payor source history for BCR clients.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-06-11**: Adds initial view definition to support full payor source history for BCR clients.

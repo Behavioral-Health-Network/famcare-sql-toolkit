@@ -1,12 +1,35 @@
-# Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-clients-with-multiple-active-pathways.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-clients-with-multiple-active-pathways.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - exception-logic
+  - multi-join
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
 
 ## Purpose
 
@@ -59,5 +82,6 @@ Identifies clients with more than one active Pathway enrollment at the same time
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-06-24**: View definition created to support exception reporting for concurrent pathway enrollments.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-06-24**: Adds initial view definition to support exception reporting for concurrent pathway enrollments.

@@ -1,17 +1,31 @@
-# YERE Caseload Report
-
-**Category:** Program Management Reports  
-**Source File:** `code/program-management-reports/yere-caseload-report.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: YERE Caseload Report
+category: Program Management Reports
+source_file: code/program-management-reports/yere-caseload-report.sql
+last_updated: 2025-09-12
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# YERE Caseload Report
 
 ## Purpose
 
-Summarizes YERE program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, payor information, and suicide attempt history.  
-Supports program managers in tracking milestone compliance, identifying overdue forms, and reviewing worker caseloads.
+Summarizes YERE program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, payor information, and suicide attempt history. Supports program managers in tracking milestone compliance, identifying overdue forms, and reviewing worker caseloads.
 
 ## Logic Summary
 
@@ -35,10 +49,10 @@ Supports program managers in tracking milestone compliance, identifying overdue 
 | `CLIENT_NUMBER`                    | Unique client identifier                                     |
 | `CLIENT LAST`, `CLIENT FIRST`      | Client name                                                  |
 | `WORKER`                           | Assigned program worker (first + last name)                  |
-| `ENROLLMENT_DATE`, `DISMISSAL_DATE`| Enrollment start and end dates                               |
-| `AGENCY_DESCRIPTION`              | Agency associated with the enrollment                        |
-| `SUICIDE_ATTEMPT`                 | Flag for suicide attempt history                             |
-| `IA_DATE_ACCOMPLISHED`            | Initial Assessment completion date                           |
+| `ENROLLMENT_DATE`                  | Enrollment start date                               |
+| `AGENCY_DESCRIPTION`               | Agency associated with the enrollment                        |
+| `SUICIDE_ATTEMPT`                  | Flag for suicide attempt history                             |
+| `IA_DATE_ACCOMPLISHED`             | Initial Assessment completion date                           |
 | `30_DAY_DUE_DATE`, `30_DAY_DATE_ACCOMPLISHED` | 30-Day milestone due and completion dates         |
 | `DAYS_UNTIL_30_DAY_DUE`, `30_DAY_OVERDUE_DAYS` | Days until due and overdue for 30-Day milestone |
 | `3_MONTH_DUE_DATE`, `3_MONTH_DATE_ACCOMPLISHED` | 3-Month milestone dates                          |
@@ -73,7 +87,7 @@ This report uses FAMCare Quick Report parameters for date filtering:
 
 ## Changelog
 
-- **2025-07-31** – Initial version authored.  
-  - Added milestone tracking logic and overdue calculations.  
-  - Incorporated payor and suicide attempt indicators.  
-  - Documented parameter usage and HR joins.
+- **2025-08-20**: Adds `HOSPITAL_VISIT_NOTE_DATE_ACCOMPLISHED` so that Theresa may assess completion rate and work toward getting the team to achieve 100% compliance with the hospital visit expectation.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-14**: Adds initial Markdown documentation.
+- **2025-07-31** – Adds initial version. Adds milestone tracking logic and overdue calculations. Incorporates payor and suicide attempt indicators. Documents parameter usage and HR joins.

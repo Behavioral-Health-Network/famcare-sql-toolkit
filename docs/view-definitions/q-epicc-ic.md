@@ -1,12 +1,37 @@
-# Q_EPICC_IC
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-epicc-ic.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_EPICC_IC
+category: view-definitions
+category_label: View Definitionssource_file: code/view-definitions/q-epicc-ic.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pwepiccinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepiccinitialcontact
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_EPICC_IC
 
 ## Purpose
 
@@ -52,4 +77,6 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 ## Changelog
 
-- **2025-05-05**: Initial view definition authored to support EPICC Initial Contact reporting and MAT tracking.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.
+- **2025-05-05**: Adds initial view definition to support EPICC Initial Contact reporting and MAT tracking.

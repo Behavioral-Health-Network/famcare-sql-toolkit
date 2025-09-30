@@ -1,12 +1,33 @@
-# Clients With Multiple Active Pathways
-
-**Category:** Exception Reports  
-**Source File:** `code/exception-reports/clients-with-multiple-active-pathways.sql`  
-**Last Updated:** 2025-07-21
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Clients With Multiple Active Pathways
+category: Exception Reports
+source_file: code/exception-reports/clients-with-multiple-active-pathways.sql
+last_updated: 2025-07-21
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - exception-logic
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Clients With Multiple Active Pathways
 
 ## Purpose
 
@@ -28,7 +49,10 @@ Identify clients who are assigned to more than one active Pathway at the same ti
 
 ## Changelog
 
-- **2025-06-24**: View created.
+- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-08**: Adds initial Markdown documentation.  
+- **2025-06-24**: Adds initial SQL query.
 
 ## Related Assets
 

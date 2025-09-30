@@ -1,12 +1,38 @@
-# Q_EPICC_ACTIVE_HOUSING_STATUS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-epicc-active-housing-status.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_EPICC_ACTIVE_HOUSING_STATUS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-epicc-active-housing-status.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - active-record-view
+  - housing-status-data
+dependencies:
+  - name: q-epicc-all-housing-status
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_EPICC_ACTIVE_HOUSING_STATUS
 
 ## Purpose
 
@@ -62,6 +88,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored; alias `HOUSE` corrected to `EHOUSE`.  
-- **2025-07-01**: Updated client join to use `Q_CLIENT_BHN` for test client exclusion.  
-- **2025-05-05**: View created to support EPICC housing status reporting.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation; Corrects alias `HOUSE` to `EHOUSE`.  
+- **2025-07-01**: Updates `Q_Client` join to use `Q_CLIENT_BHN` for test client exclusion.  
+- **2025-05-05**: Adds initial view definition to support EPICC housing status reporting.

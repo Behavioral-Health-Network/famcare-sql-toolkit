@@ -1,17 +1,33 @@
-# ERE Caseload Report
-
-**Category:** Program Management Reports  
-**Source File:** `code/program-management-reports/ere-caseload-report.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** Bradley Wing
-**Lifecycle**: `Production`
-
 ---
+front-matter-title: ERE Caseload Report
+category: Program Management Reports
+source_file: code/program-management-reports/ere-caseload-report.sql
+last_updated: 2025-09-16
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# ERE Caseload Report
 
 ## Purpose
 
-Summarizes ERE program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, and payor information.  
-Supports program managers in tracking milestone compliance, identifying overdue forms, and reviewing worker caseloads.
+Summarizes ERE program client caseloads, including enrollment details, worker assignment, agency, milestone completion status, and payor information. Supports program managers in tracking milestone compliance, identifying overdue forms, and reviewing worker caseloads.
 
 ---
 
@@ -32,21 +48,23 @@ Supports program managers in tracking milestone compliance, identifying overdue 
 
 ## Output Fields
 
-| Field Name                          | Description                                                  |
+| Field Name                         | Description                                                  |
 |------------------------------------|--------------------------------------------------------------|
-| `CLIENT_NUMBER`                    | Unique client identifier                                     |
-| `CLIENT LAST`, `CLIENT FIRST`      | Client name                                                  |
-| `WORKER`                           | Assigned program worker (first + last name)                  |
-| `ENROLLMENT_DATE`, `DISMISSAL_DATE`| Enrollment start and end dates                               |
-| `AGENCY_DESCRIPTION`              | Agency associated with the enrollment                        |
-| `IHNA_DATE_ACCOMPLISHED`            | IHNA completion date                           |
-| `DAYS_UNTIL_30_DAY_DUE`, `30_DAY_OVERDUE_DAYS` | Days until due and overdue for 30-Day milestone |
-| `3_MONTH_DUE_DATE`, `3_MONTH_DATE_ACCOMPLISHED` | 3-Month milestone dates                          |
+| `CLIENT_NUMBER`                    | Unique client identifier                                       |
+| `CLIENT LAST`, `CLIENT FIRST`      | Client name                                                    |
+| `WORKER`                           | Assigned program worker (first + last name)                    |
+| `ENROLLMENT_DATE`                  | Enrollment start date                                          |
+| `AGENCY_DESCRIPTION`               | Agency associated with the enrollment                          |
+| `HOSP_VISIT_NOTE_DATE_ACCOMPLISHED`| Hospital Visit Note completion date                            |
+| `IHNA_DUE_DATE`                    | Date the IHNA will be due                                      |
+| `IHNA_DATE_ACCOMPLISHED`           | IHNA completion date                                           |
+| `DAYS_UNTIL_30_DAY_DUE`, `30_DAY_OVERDUE_DAYS` | Days until due and overdue for 30-Day milestone    |
+| `3_MONTH_DUE_DATE`, `3_MONTH_DATE_ACCOMPLISHED` | 3-Month milestone dates                           |
 | `DAYS_UNTIL_3_MONTH_DUE`, `3_MONTH_OVERDUE_DAYS` | Days until due and overdue for 3-Month milestone |
-| `6_MONTH_DUE_DATE`, `6_MONTH_DATE_ACCOMPLISHED` | 6-Month milestone dates                          |
+| `6_MONTH_DUE_DATE`, `6_MONTH_DATE_ACCOMPLISHED` | 6-Month milestone dates                           |
 | `DAYS_UNTIL_6_MONTH_DUE`, `6_MONTH_OVERDUE_DAYS` | Days until due and overdue for 6-Month milestone |
-| `BHS_DATE_ACCOMPLISHED`           | Behavioral Health Service milestone completion date          |
-| `MANAGED_MEDICAID_PROVIDER_DESCRIPTION` | Managed Medicaid payor info                          |
+| `BHS_DATE_ACCOMPLISHED`           | Behavioral Health Service milestone completion date             |
+| `MANAGED_MEDICAID_PROVIDER_DESCRIPTION` | Managed Medicaid payor info                               |
 
 ---
 
@@ -79,5 +97,8 @@ This report uses FAMCare Quick Report parameters for date filtering:
 
 ## Changelog
 
+- **2025-09-16**: Adds `HOSP_VISIT_NOTE_DATE_ACCOMPLISHED` column.
+- **2025-09-12**: Removes `DISMISSAL_DATE` column and adds `IHNA_DUE_DATE` column.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds initial Markdown documentation.
 - **2025-08-06**: Adds initial SQL query.  

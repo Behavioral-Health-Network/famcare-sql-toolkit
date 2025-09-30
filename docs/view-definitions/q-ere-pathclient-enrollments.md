@@ -1,12 +1,74 @@
-# Q_ERE_PATHCLIENT_ENROLLMENTS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-pathclient-enrollments.sql`  
-**Last Updated:** **2025-07-22**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_PATHCLIENT_ENROLLMENTS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-pathclient-enrollments.sql
+last_updated: 2025-08-21
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - pathway-join-view
+  - multi-join
+dependencies:
+  - name: providerplacement
+    type: html
+    repo: famcare-html-form-code
+  - name: providerplacement
+    type: table
+    repo: none
+  - name: pathway
+    type: table
+    repo: none
+  - name: pathwayevent
+    type: table
+    repo: none
+  - name: pathwayclient
+    type: table
+    repo: none
+  - name: pathwayeventclient
+    type: table
+    repo: none
+  - name: closingreasons
+    type: table
+    repo: none
+  - name: q-provider
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-hrform
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-ere-referral
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-ere-ihna
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-ere-three-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-ere-six-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-ere-bhs
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_PATHCLIENT_ENROLLMENTS
 
 ## Purpose
 
@@ -42,7 +104,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 
 - **Output Fields:**
   - Client identifiers and names
-  - Enrollment and pathway dates
+  - Enrollment and Pathway dates
   - Attribution source (`ENROLL_PATH_JOIN_SOURCE`)
   - Event metadata and form DOCSERNOs
   - Program worker and agency details
@@ -56,4 +118,8 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 
 ## Changelog
 
-- **2025-07-22**: Initial view definition authored, adapted from YERE architecture with dual join logic and form-level traceability.
+- **2025-09-16**: Adds `DOCSERNO`, `VISITDT`, and `PATHWAY_DATE` from `Q_ERE_HOSPITAL_VISIT_NOTE` to the columns `PWY_FORMS_DOCSERNO`, `PWY_FORMS_VISITDT`, and `PATHWAY_DATE`.
+- **2025-08-21**: Adds `VISITDT` from the Pathway Event forms as column `PWY_FORMS_VISITDT` to allow for the creation of a CareManager report that filters by VISITDT to show newly added or edited records that would need to be entered into CareManager.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
+- **2025-07-22**: Adds initial view definition, adapted from YERE architecture with dual join logic and form-level traceability.
