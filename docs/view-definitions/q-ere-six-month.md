@@ -1,12 +1,38 @@
-# Q_ERE_SIX_MONTH
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-six-month.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_SIX_MONTH
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-six-month.sql
+last_updated: 2025-09-30
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pweresixmonthfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pweresixmonthfollowup
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_SIX_MONTH
 
 ## Purpose
 
@@ -44,5 +70,7 @@ Supports ERE 6-month follow-up reporting by extracting client engagement, contac
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored to support standardized view tracking.  
-- **2025-07-22**: View definition created to support ERE 6-month follow-up reporting.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
+- **2025-07-22**: Adds initial view definition to support ERE 6-month follow-up reporting.
