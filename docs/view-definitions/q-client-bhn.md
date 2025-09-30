@@ -1,12 +1,57 @@
-# Q_CLIENT_BHN
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-client-bhn.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_CLIENT_BHN
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-client-bhn.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: multi
+programs:
+  - bcr
+  - complex-care
+  - epicc
+  - ere
+  - yere
+tags:
+  - client-view
+  - tag2
+dependencies:
+  - name: q-client
+    type: sql
+    repo: famcare-sql-toolkit
+    name: client
+    type: table
+    repo: none
+  - name: gender
+    type: table
+    repo: none
+  - name: race
+    type: table
+    repo: none
+  - name: ethnicity
+    type: table
+    repo: none
+  - name: familysuffix
+    type: table
+    repo: none
+  - name: counties
+    type: table
+    repo: none
+  - name: clientpassport
+    type: table
+    repo: none
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_CLIENT_BHN
 
 ## Purpose
 
@@ -55,5 +100,6 @@ Provides a clean, locally customized client reference view for use across BHN re
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-06-28**: Initial view definition authored to support BHN-wide client reference logic and test client exclusion.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-06-28**: Adds initial view definition to support BHN-wide client reference logic and test client exclusion.

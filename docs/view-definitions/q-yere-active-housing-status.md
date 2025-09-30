@@ -1,12 +1,34 @@
-# Q_YERE_ACTIVE_HOUSING_STATUS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-active-housing-status.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_ACTIVE_HOUSING_STATUS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-active-housing-status.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - active-record-view
+  - housing-status-data
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_ACTIVE_HOUSING_STATUS
 
 ## Purpose
 
@@ -61,6 +83,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status,
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-08-06**: Alias corrected from `HOUSE` to `YHOUSE` for clarity.  
-- **2025-05-07**: View created to support FY25 housing status reporting.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-08-06**: Corrects alias from `HOUSE` to `YHOUSE` for clarity.  
+- **2025-05-07**: Adds initial view definition to support FY25 housing status reporting.

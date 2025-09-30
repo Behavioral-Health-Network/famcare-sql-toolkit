@@ -1,12 +1,71 @@
-# Q_YERE_PATHWAY_FORM_DOCSERNOS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-pathway-form-docsernos.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_PATHWAY_FORM_DOCSERNOS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-pathway-form-docserno.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - name: pwyerereferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerereferral
+    type: table
+    repo: none
+  - name: pwyereinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyereinitialcontact
+    type: table
+    repo: none
+  - name: pwyerehospitalvisitnote
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerehospitalvisitnote
+    type: table
+    repo: none
+  - name: pwyere30dayfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere30dayfollowuptp
+    type: table
+    repo: none
+  - name: pwyere3monthfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere3monthfollowuptp
+    type: table
+    repo: none
+  - name: pwyere6monthfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere6monthfollowuptp
+    type: table
+    repo: none
+  - name: pwyerebehavioralhealthservicestp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerebehavioralhealthservicestp
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_PATHWAY_FORM_DOCSERNOS
 
 ## Purpose
 
@@ -51,5 +110,6 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-05-01**: Initial view definition authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-05-01**: Adds initial view definition.

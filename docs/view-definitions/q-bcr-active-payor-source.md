@@ -1,12 +1,44 @@
-# Q_BCR_ACTIVE_PAYOR_SOURCE
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-active-payor-source.sql`  
-**Last Updated:** 2025-08-09  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production` 
-
 ---
+front-matter-title: Q_BCR_ACTIVE_PAYOR_SOURCE
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-active-payor-source.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - view-layer
+  - summation-view
+  - slowly-changing-dimension
+  - active-record-view
+  - insurance-data
+dependencies:
+  - name: pwpayorsource
+    type: html
+    repo: famcare-html-form-code
+  - name: pwpayorsource
+    type: table
+    repo: none
+  - name: q-bcr-pathway-form-docsernos
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: managed-medicaid-provider
+    type: table
+    repo: none
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_ACTIVE_PAYOR_SOURCE
 
 ## Purpose
 
@@ -54,6 +86,7 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Changelog
 
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-05-07**: Initial view definition authored.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-05-07**: Adds initial view definition.

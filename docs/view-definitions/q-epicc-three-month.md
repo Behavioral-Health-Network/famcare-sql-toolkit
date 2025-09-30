@@ -1,12 +1,38 @@
-# Q_EPICC_THREE_MONTH
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-epicc-three-month.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_EPICC_THREE_MONTH
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-epicc-three-month.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - epicc
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: pwepicc3monthfollowup
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepicc3monthfollowup
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_EPICC_THREE_MONTH
 
 ## Purpose
 
@@ -48,7 +74,8 @@ Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
-- **2025-07-07**: Updated to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
-- **2025-06-16**: Corrected join logic for `WHAT_MAT_PHYSICIAN_APPT_THREE_MONTH` to reference correct code field.  
-- **2025-05-05**: Initial creation to support EPICC 3-month follow-up reporting and longitudinal engagement tracking.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
+- **2025-06-16**: Corrects join logic for `WHAT_MAT_PHYSICIAN_APPT_THREE_MONTH` to reference correct code field.  
+- **2025-05-05**: Adds initial view definition to support EPICC 3-month follow-up reporting and longitudinal engagement tracking.

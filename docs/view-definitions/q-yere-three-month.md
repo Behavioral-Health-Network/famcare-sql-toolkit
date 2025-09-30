@@ -1,17 +1,39 @@
-# Q_YERE_THREE_MONTH
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-three-month.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_THREE_MONTH
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-three-month.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - name: pwyere3monthfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere3monthfollowuptp
+    type: table
+    repo: none
+  - name: q_client_bhn
+    type: view
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_THREE_MONTH
 
 ## Purpose
 
-Extracts and consolidates YERE 3-month follow-up data for engagement tracking, service utilization, school involvement, and behavioral health intake monitoring.  
-Includes client metadata, residency changes, justice system involvement, and DLA-20 scoring.
+Extracts and consolidates YERE 3-month follow-up data for engagement tracking, service utilization, school involvement, and behavioral health intake monitoring. Includes client metadata, residency changes, justice system involvement, and DLA-20 scoring.
 
 ## Description
 
@@ -48,6 +70,7 @@ Includes client metadata, residency changes, justice system involvement, and DLA
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored to support standardized view tracking.  
-- **2025-07-07**: Updated to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
-- **2025-05-23**: Initial view definition created to support YERE 3-month follow-up reporting.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
+- **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
+- **2025-05-23**: Adds initial view definition to support YERE 3-month follow-up reporting.

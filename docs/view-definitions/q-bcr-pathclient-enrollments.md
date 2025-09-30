@@ -1,12 +1,86 @@
-# Q_BCR_PATHCLIENT_ENROLLMENTS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-bcr-pathclient-enrollments.sql`  
-**Last Updated:** **2025-07-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_PATHCLIENT_ENROLLMENTS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-pathclient-enrollments.sql
+last_updated: 2025-07-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - pathway-join-view
+  - multi-join
+dependencies:
+  - name: providerplacement
+    type: html
+    repo: famcare-html-form-code
+  - name: providerplacement
+    type: table
+    repo: none
+  - name: pathway
+    type: table
+    repo: none
+  - name: pathwayevent
+    type: table
+    repo: none
+  - name: pathwayclient
+    type: table
+    repo: none
+  - name: pathwayeventclient
+    type: table
+    repo: none
+  - name: closingreasons
+    type: table
+    repo: none
+  - name: q-provider
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-hrform
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: q-bcr-referral
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwbcrreferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrreferral
+    type: table
+    repo: none
+  - name: q-bcr-ic
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwbcrinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrinitialcontact
+    type: table
+    repo: none
+  - name: q-bcr-ref-placed
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwbcrreferralsplaced
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrreferralsplaced
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_PATHCLIENT_ENROLLMENTS
 
 ## Purpose
 
@@ -56,6 +130,8 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 
 ## Changelog
 
-- **2025-07-13**: Replaced direct `INNER JOIN` to `PATHWAYCLIENT` with dual `JOIN` strategy using DOCSERNO and enrollment/start date alignment.
-- **2025-07-13**: Added logic to trace enrollment-to-pathway attribution, consistent with YERE and EPICC view architecture.
-- **2025-07-09**: Initial view definition authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
+- **2025-07-13**: Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `JOIN` strategy using DOCSERNO and enrollment/start date alignment.
+- **2025-07-13**: Adds logic to trace enrollment-to-pathway attribution, consistent with bcr and EPICC view architecture.
+- **2025-07-09**: Adds initial view definition.

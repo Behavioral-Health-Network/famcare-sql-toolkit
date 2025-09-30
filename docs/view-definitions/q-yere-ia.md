@@ -1,12 +1,35 @@
-# Q_YERE_IA
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-ia.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_IA
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-ia.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags: [value1, value2]
+dependencies:
+  - name: pwyereinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyereinitialcontact
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+change_control: value
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_IA
 
 ## Purpose
 
@@ -51,7 +74,8 @@ Supports reporting and analytics for YERE Initial Assessments (formerly Initial 
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.
 - **2025-07-01**: Refactors join to use `Q_CLIENT_BHN` for test client filtering.  
 - **2025-06-13**: Renames table alias from `IA` to `YIA`.  
-- **2025-05-23**: Adds initial view definition authored.
+- **2025-05-23**: Adds initial view definition.

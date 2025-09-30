@@ -1,12 +1,31 @@
-# Q_ERE_CLIENT_NEEDS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-ere-client-needs.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_ERE_CLIENT_NEEDS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-ere-client-needs.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - ere
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_ERE_CLIENT_NEEDS
 
 ## Purpose
 
@@ -53,5 +72,6 @@ View on summation form for client needs accessed from ERE milestone forms. The s
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-08-04**: View created to support embedded client needs summary across ERE milestone forms.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-08-04**: Adds initial view definition to support embedded client needs summary across ERE milestone forms.

@@ -1,12 +1,31 @@
-# Q_COMPLEX_CARE_ROSTER
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-complex-care-roster.sql`  
-**Last Updated:** **2025-08-09**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_COMPLEX_CARE_ROSTER
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-complex-care-roster.sql
+last_updated: 2025-08-09
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - complex-care
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - value1
+  - value2
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_COMPLEX_CARE_ROSTER
 
 ## Purpose
 
@@ -61,5 +80,6 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 
 ## Changelog
 
-- **2025-08-09**: Initial Markdown documentation authored.  
-- **2025-07-09**: View definition created to support Clinical BEACN / Complex Care roster tracking.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-07-09**: Adds initial view definition to support Clinical BEACN / Complex Care roster tracking.

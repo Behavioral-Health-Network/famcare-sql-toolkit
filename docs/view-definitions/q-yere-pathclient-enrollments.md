@@ -1,12 +1,132 @@
-# Q_YERE_PATHCLIENT_ENROLLMENTS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/q-yere-pathclient-enrollments.sql`  
-**Last Updated:** **2025-07-16**  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_YERE_PATHCLIENT_ENROLLMENTS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-yere-pathclient-enrollments.sql
+last_updated: 2025-07-16
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - yere
+tags:
+  - pathway-join-view
+  - multi-join
+dependencies:
+  - name: providerplacement
+    type: html
+    repo: famcare-html-form-code
+  - name: providerplacement
+    type: table
+    repo: none
+  - name: pathway
+    type: table
+    repo: none
+  - name: pathwayevent
+    type: table
+    repo: none
+  - name: pathwayclient
+    type: table
+    repo: none
+  - name: pathwayeventclient
+    type: table
+    repo: none
+  - name: closingreasons
+    type: table
+    repo: none
+  - name: q-provider
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: provider
+    type: html
+    repo: famcare-html-form-code
+  - name: provider
+    type: table
+    repo: none
+  - name: q-hrform
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: hrform
+    type: html
+    repo: famcare-html-form-code
+  - name: hrform
+    type: table
+    repo: none
+  - name: q-yere-referral
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyerereferral
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerereferral
+    type: table
+    repo: none
+  - name: q-yere-ia
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyereinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyereinitialcontact
+    type: table
+    repo: none
+  - name: q-yere-thirty-day
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyere30dayfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere30dayfollowuptp
+    type: table
+    repo: none
+  - name: q-yere-three-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyere3monthfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere3monthfollowuptp
+    type: table
+    repo: none
+  - name: q-yere-six-month
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyere6monthfollowuptp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyere6monthfollowuptp
+    type: table
+    repo: none
+  - name: q-yere-bhs
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyerebehavioralhealthservicestp
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerebehavioralhealthservicestp
+    type: table
+    repo: none
+  - name: q-yere-hospital-visit
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: pwyerehospitalvisitnote
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyerehospitalvisitnote
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_YERE_PATHCLIENT_ENROLLMENTS
 
 ## Purpose
 
@@ -55,8 +175,10 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 
 ## Changelog
 
-- **2025-07-16**: Standardized join logic for `Q_YERE_BHS` and `Q_YERE_HOSPITAL_VISIT` to match other form views.
-- **2025-07-15**: Added view-based joins for Behavioral Health Services (YBHS) and Hospital Visit Note (HOSP), resolving form-level duplication.
-- **2025-07-13**: Replaced direct `INNER JOIN` to `PATHWAYCLIENT` with dual `LEFT JOIN` strategy using DOCSERNO and enrollment/start date alignment.
-- **2025-07-13**: Added column `[ENROLL_PATH_JOIN_SOURCE]` to trace how each enrollment was linked to a pathway.
-- **2025-05-04**: Initial view definition authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-07-16**: Standardizes join logic for `Q_YERE_BHS` and `Q_YERE_HOSPITAL_VISIT` to match other form views.
+- **2025-07-15**: Adds view-based joins for Behavioral Health Services (YBHS) and Hospital Visit Note (HOSP), resolving form-level duplication.
+- **2025-07-13**: Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `LEFT JOIN` strategy using DOCSERNO and enrollment/start date alignment.
+- **2025-07-13**: Adds column `[ENROLL_PATH_JOIN_SOURCE]` to trace how each enrollment was linked to a pathway.
+- **2025-05-04**: Adds initial view definition.

@@ -1,12 +1,35 @@
-# Q_BCR_CLIENT_COUNSELING_SESSIONS
-
-**Category:** View Definitions  
-**Source File:** `code/view-definitions/bcr-client-counseling-sessions.sql`  
-**Last Updated:** 2025-07-31  
-**Author:** Bradley Wing  
-**Lifecycle:** `Production`
-
 ---
+front-matter-title: Q_BCR_CLIENT_COUNSELING_SESSIONS
+category: view-definitions
+category_label: View Definitions
+source_file: code/view-definitions/q-bcr-client-counseling-sessions.sql
+last_updated: 2025-07-31
+author: Bradley Wing
+status: active
+lifecycle: production
+program_scope: single
+programs:
+  - bcr
+tags:
+  - tag1
+  - tag2
+dependencies:
+  - name: 
+    type: 
+    repo: 
+  - name: 
+    type: 
+    repo: 
+change_control:
+  - cross-repo-coordination
+reviewed_by:
+  - name: Bradley Wing
+    date: 2025-08-18
+last_reviewed: 2025-08-18
+schema_version: 1.0
+---
+
+# Q_BCR_CLIENT_COUNSELING_SESSIONS
 
 ## Purpose
 
@@ -47,5 +70,6 @@ Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges
 
 ## Changelog
 
-- **2025-07-28**: Initial Markdown documentation authored.
-- **2025-07-02**: Initial view definition authored.
+- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
+- **2025-07-28**: Adds initial Markdown documentation.
+- **2025-07-02**: Adds initial view definition.
