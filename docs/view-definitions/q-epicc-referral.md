@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_REFERRAL
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-referral.sql
-last_updated: 2025-08-09
+last_updated: 2025-10-02
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -76,6 +76,7 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 
 ## Changelog
 
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-21**: Updates to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming  
