@@ -3,7 +3,7 @@ front-matter-title: Q_YERE_HOSPITAL_VISIT
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-hospital-visit.sql
-last_updated: 2025-08-09
+last_updated: 2025-10-02
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -81,6 +81,7 @@ Captures initial hospital-based contact notes for youth referred to the YERE pro
 
 ## Changelog
 
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-15**: Adds initial view definition to support hospital-based contact tracking for YERE referrals.
