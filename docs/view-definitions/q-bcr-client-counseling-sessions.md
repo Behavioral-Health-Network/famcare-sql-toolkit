@@ -3,7 +3,7 @@ front-matter-title: Q_BCR_CLIENT_COUNSELING_SESSIONS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-client-counseling-sessions.sql
-last_updated: 2025-07-31
+last_updated: 2025-10-02
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -70,6 +70,7 @@ Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges
 
 ## Changelog
 
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-28**: Adds initial Markdown documentation.
 - **2025-07-02**: Adds initial view definition.
