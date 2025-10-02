@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_SIX_MONTH
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-six-month.sql
-last_updated: 2025-08-09
+last_updated: 2025-10-02
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -74,6 +74,7 @@ Extracts and consolidates EPICC 6-month follow-up data for longitudinal engageme
 
 ## Changelog
 
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-09**: Documentation authored and aligned with 30-day and 3-month scaffolds.  
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
