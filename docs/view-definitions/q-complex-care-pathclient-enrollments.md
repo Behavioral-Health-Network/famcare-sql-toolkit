@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_PATHCLIENT_ENROLLMENTS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-pathclient-enrollments.sql
-last_updated: 2025-08-09
+last_updated: 2025-10-23
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -33,30 +33,26 @@ Extracts and consolidates enrollment and event data for clients participating in
 
 ## Description
 
-- Built on `PROVIDERPLACEMENT`, joined with `PATHWAYCLIENT`, `PATHWAYEVENTCLIENT`, and `PATHWAYEVENT` to surface Pathway participation and event tracking.
+- Consolidates client enrollment and event-level form data for the Complex Care Pathway.
+- Anchored in `PROVIDERPLACEMENT` (PP) as the enrollment source.
+- Resolves attribution to `PATHWAYCLIENT` (PC) using dual logic:
+  - **DOCSERNO Join**: Preferred linkage when enrollment DOCSERNO matches pathway DOCSERNO.
+  - **Enrollment/Start Date Join**: Fallback logic for mismatches (e.g., imports).
+- Joins to `PATHWAYEVENTCLIENT` (PEC) and `PATHWAYEVENT` (PE) for event-level metadata.
+- Left joins to filtered views of Complex Care-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
+- Uses `COALESCE` and `ENROLL_PATH_JOIN_SOURCE` to trace attribution logic.
+- Includes form-level metadata:
+  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `TREATMENT_PATH`, `PROGRAM_PARTICIPATION`, `PRO_OR_CORE`
+- Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy record versions.
 - Filters to Pathway ID `55320240920114308822` (Complex Care).
-- Joins with `Q_CLIENT_BHN` to exclude test clients.
-- Enriches dismissal reasons, agency names, and program worker details via lookup tables.
-- Includes logic to match Complex Care-specific forms (e.g., Roster) to Pathway events.
 
-### Logic Summary
-
-- **Client Join**
-  - Uses `Q_CLIENT_BHN` to exclude test clients based on last name variants.
-
-- **Pathway Matching**
-  - Filters to Complex Care Pathway ID.
-  - Joins `PATHWAYCLIENT` using both direct and fallback logic to handle imported records.
-
-- **Event Matching**
-  - Joins `PATHWAYEVENTCLIENT` and `PATHWAYEVENT` to surface event metadata.
-  - Calculates `DAYS_UNTIL_FORM_DUE` if `DATEACCOMPLISHED` is missing.
-
-- **Roster Matching**
-  - Joins `Q_COMPLEX_CARE_ROSTER` to match event completion to form submission.
-
-- **Worker Metadata**
-  - Joins `Q_HRFORM` for program worker and supervisor details.
+- **Joins:**
+  - `INNER JOIN Q_CLIENT_BHN` for client validation and test client exclusion
+  - `LEFT JOIN PATHWAYCLIENT` (dual logic)
+  - `INNER JOIN PATHWAYEVENT`, `PATHWAY`
+  - `LEFT JOIN Q_PROVIDER`, `Q_HRFORM`, `CLOSINGREASONS`
+  - `LEFT JOIN` to Complex Care form views using `CLIENT_NUMBER`, `TIEDENROLLMENT`, and `EVENT_NAME`
 
 ## Output Fields
 
@@ -75,6 +71,18 @@ Extracts and consolidates enrollment and event data for clients participating in
 | `CURRENT_MESSAGE`                 | Status message from event record |
 | `PROGRAM_WORKER_FIRST`, `PROGRAM_WORKER_LAST` | Assigned staff member |
 
+### Diagnostic Logic: TIEDENROLLMENT_MATCH
+
+Validates whether the form-level `TIEDENROLLMENT` value correctly links to the enrollment record.
+
+- Compares `TIEDENROLLMENT` from the Complex Care form views to the coalesced enrollment DOCSERNO (`COALESCE(PC_DOCSERNO.DOCSERNO, PC_START.DOCSERNO)`).
+- Returns:
+  - '1' (`TRUE`) - Match confirmed; form correctly tied to enrollment
+  - '0' (`FALSE`) - Mismatch; potential patch failure or user selection error
+  - `NULL` - No `TIEDENROLLMENT` value present (form not submitted or legacy data)
+
+This column supports validation of the vendor’s historical patch and helps surface attribution anomalies for review.
+
 ## Maintenance Notes
 
 - **Pathway ID Filter**: Hardcoded to `55320240920114308822`; confirm this remains valid for Complex Care.
@@ -84,6 +92,8 @@ Extracts and consolidates enrollment and event data for clients participating in
 
 ## Changelog
 
+- **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
+- **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-08-10**: Adds initial view to support Complex Care Pathway enrollment and event tracking.
