@@ -3,7 +3,7 @@ front-matter-title: Q_YERE_PATHCLIENT_ENROLLMENTS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-pathclient-enrollments.sql
-last_updated: 2025-07-16
+last_updated: 2025-10-23
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -139,8 +139,8 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 - Resolves attribution to `PATHWAYCLIENT` (PC) using dual logic:
   - **DOCSERNO Join**: Preferred linkage when enrollment DOCSERNO matches pathway DOCSERNO.
   - **Enrollment/Start Date Join**: Fallback logic for mismatches (e.g., imports).
-- Joins to `PATHWAYEVENTCLIENT` (PEC) and `PATHWAYEVENT` (PE) for event-level metadata.
-- Left joins to filtered views of YERE-specific forms to avoid row inflation.
+- Joins to `PATHWAYCLIENT`, `PATHWAYEVENTCLIENT` (PEC), and `PATHWAYEVENT` (PE) for event-level metadata.
+- Left joins to filtered views of YERE-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Uses `COALESCE` and `[ENROLL_PATH_JOIN_SOURCE]` to trace attribution logic.
 - Includes form-level metadata:
   - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
@@ -157,7 +157,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
   - `LEFT JOIN PATHWAYCLIENT` (dual logic)
   - `INNER JOIN PATHWAYEVENT`, `PATHWAY`
   - `LEFT JOIN Q_PROVIDER`, `Q_HRFORM`, `CLOSINGREASONS`
-  - `LEFT JOIN` to YERE form views using `CLIENT_NUMBER`, `PATHWAY_DATE`, and `EVENT_NAME`
+  - `LEFT JOIN` to YERE form views using `CLIENT_NUMBER`, `TIEDENROLLMENT`, and `EVENT_NAME`
 
 - **Output Fields:**
   - Client identifiers and names
@@ -165,6 +165,18 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
   - Attribution source (`ENROLL_PATH_JOIN_SOURCE`)
   - Event metadata and form DOCSERNOs
   - Program worker and agency details
+
+### Diagnostic Logic: TIEDENROLLMENT_MATCH
+
+Validates whether the form-level `TIEDENROLLMENT` value correctly links to the enrollment record.
+
+- Compares `TIEDENROLLMENT` from the YERE form views to the coalesced enrollment DOCSERNO (`COALESCE(PC_DOCSERNO.DOCSERNO, PC_START.DOCSERNO)`).
+- Returns:
+  - '1' (`TRUE`) - Match confirmed; form correctly tied to enrollment
+  - '0' (`FALSE`) - Mismatch; potential patch failure or user selection error
+  - `NULL` - No `TIEDENROLLMENT` value present (form not submitted or legacy data)
+
+This column supports validation of the vendor’s historical patch and helps surface attribution anomalies for review.
 
 ## Maintenance Notes
 
@@ -175,6 +187,8 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 
 ## Changelog
 
+- **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
+- **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-07-16**: Standardizes join logic for `Q_YERE_BHS` and `Q_YERE_HOSPITAL_VISIT` to match other form views.

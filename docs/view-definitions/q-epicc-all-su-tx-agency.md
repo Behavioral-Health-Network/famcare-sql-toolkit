@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_ALL_SU_TX_AGENCY
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-epicc-all-su-tx-agency.sql
-last_updated: 2025-08-22
+last_updated: 2025-10-22
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -147,6 +147,7 @@ Returns all substance use treatment agency referral records for EPICC clients. S
 
 ## Changelog
 
+- **2025-10-22**: Adds join conditions for `LEFT JOIN` between `PWSUBROADTREATMENTAGENCY` and each EPICC milestone form (`EIC`, `ETWOW`, `ETHIRTYD`, `ETHREEM`, and `ESIXM`) by joining `PWSUBROADTREATMENTAGENCY.START_DATE` to `FOOFORM.PATHWAY_DATE` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is `NULL` (which will always be true for imported records) and otherwise joining `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` = `FORFORM.DOCSERNO` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is not `NULL` (which should always be true for form data entered using the FAMCare front end forms). Adds `PARENT_PWY_EVENT` column to identify the parent form when a `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` join is possible.
 - **2025-08-22**: Adds join to `Q_EPICC_PATHCLIENT_ENROLLMENTS` for `PWY_EVENT`, `ENROLLMENT_STARTING_DATE`, and `PP_DOCSERNO`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  

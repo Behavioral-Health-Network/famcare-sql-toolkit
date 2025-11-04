@@ -1,7 +1,7 @@
 ---
 front-matter-title: YERE Duplicate Pathway Forms Per Enrollment
 category: Exception Reports
-source_file: code/exception-reports/duplicate-pathway-forms-per-enrollment.sql
+source_file: code/exception-reports/yere-duplicate-pathway-forms-per-enrollment.sql
 last_updated: 2025-07-28
 author: Bradley Wing
 status: active
