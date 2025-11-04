@@ -3,7 +3,7 @@ front-matter-title: Q_CLIENT_BHN
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-client-bhn.sql
-last_updated: 2025-08-09
+last_updated: 2025-10-17
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -100,6 +100,7 @@ Provides a clean, locally customized client reference view for use across BHN re
 
 ## Changelog
 
+- **2025-10-17**: Adds column `ETO_CASE_NUM` from `LegacyID` column on `CLIENTPASSPORT` table.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-06-28**: Adds initial view definition to support BHN-wide client reference logic and test client exclusion.
