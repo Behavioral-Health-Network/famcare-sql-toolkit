@@ -3,7 +3,7 @@ front-matter-title: Q_ERE_IHNA
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-ihna.sql
-last_updated: 2025-09-30
+last_updated: 2025-10-27
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -75,7 +75,8 @@ Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting c
 
 ## Changelog
 
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-27**: Adds `LEFT JOIN` to `ERE_INELIGIBLE_STATUS` because the original query treated `ERE_INELIGIBLE_STATUS` as if it was in the IHNA table. Adds `ERE_INELIGIBLE_STATUS` as an alias of the description from the master table of the same name.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` to enable joining back to the enrollment.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
 - **2025-07-22**: Adds initial view definition to support ERE IHNA reporting.
