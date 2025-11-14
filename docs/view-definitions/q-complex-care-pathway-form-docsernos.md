@@ -35,7 +35,9 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 
 - Consolidates DOCSERNO values from all Complex Care Pathway forms into a unified dataset.
 - Uses `UNION ALL` to aggregate records from:
-  - `PWCOMPLEXCAREROSTER` (Roster)
+  - `Q_COMPLEX_CARE_ROSTER` (Complex Care Roster)
+  - `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` (Clinical BEACN Metrics)
+  - `Q_COMPLEX_CARE_PFP_DISCHARGE` (PfP Discharge)
 - Joins to `Q_CLIENT_BHN` to validate client existence and exclude test clients.
 - Standardizes output fields:
   - `CLIENT_NUMBER`
@@ -62,6 +64,7 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 
 ## Changelog
 
+- **2025-11-12**: Updates to include `DOCSERNO` values from `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` and `Q_COMPLEX_CARE_PFP_DISCHARGE`
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-11**: Adds initial Markdown documentation.  
 - **2025-08-11**: Adds initial view definition.
