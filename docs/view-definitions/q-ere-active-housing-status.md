@@ -68,6 +68,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 | `CLIENT_NUMBER`                        | Unique client ID                                 |
 | `HOUSING_START_DATE` / `HOUSING_END_DATE` | Date range of housing status                    |
 | `CLIENT_HOUSING_STATUS` (pivoted)      | Flags for each housing status type              |
+| `HOUSING_STATUS_INCARCERATED`, `UNHOUSED_SHELTER` | Additional housing context |
 | `IF_UNHOUSED_EXP`                      | Client reports prior experience of being unhoused |
 | `WORRIED_LOSING_HOUSING`               | Client expresses concern about housing stability |
 | `HOMELESS_HOUSING_INSECURE_ETO`        | Housing insecurity flag for ETO reporting        |
@@ -82,6 +83,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 
 ## Changelog
 
+- **2025-11-13**: Adds `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER` fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-08-06**: Adds initial view definition to support ERE housing status reporting.
