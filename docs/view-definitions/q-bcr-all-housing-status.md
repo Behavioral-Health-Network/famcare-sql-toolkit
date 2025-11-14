@@ -3,7 +3,7 @@ front-matter-title: Q_BCR_ALL_HOUSING_STATUS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-all-housing-status.sql
-last_updated: 2025-05-19
+last_updated: 2025-11-13
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -76,10 +76,19 @@ Returns a complete history of housing status records for BCR clients. Each row r
   - `Q_BCR_PATHWAY_FORM_DOCSERNOS` for form type and validation.
 
 - **Parent Form Resolution:**
-  - Uses `COALESCE(HOUSE.PARENTDOCSERNO, BIC.DOCSERNO)` to ensure all records have a valid parent form reference.
+  - Uses `COALESCE(BHOUSE.PARENTDOCSERNO, BIC.DOCSERNO)` to ensure all records have a valid parent form reference.
 
-- **Output Fields:**
-  - Housing status flags, start/end dates, pathway metadata, and form type.
+## Output Fields
+
+| Field Name                              | Description                                      |
+|----------------------------------------|--------------------------------------------------|
+| `CLIENT_NUMBER`, `CLIENT_FIRST`, `CLIENT_LAST` | Client identifiers and names                  |
+| `PARENT_DOCSERNO`, `FORM_TYPE`         | Reporting interval linkage                      |
+| `HOUSING_START_DATE`, `HOUSING_END_DATE` | Date range of housing status                   |
+| `CLIENT_HOUSING_STATUS` (pivoted)      | Flags for each housing status type              |
+| `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`    | Additional housing indicators for institutionally housed and unhoused   |
+| `IF_UNHOUSED_EXP`, `WORRIED_LOSING_HOUSING`, `HOMELESS_HOUSING_INSECURE_ETO` | Housing insecurity indicators |
+| `VISITDT`, `VISITTM`, `USERID`         | Metadata for audit and traceability             |
 
 ## Maintenance Notes
 
@@ -89,6 +98,7 @@ Returns a complete history of housing status records for BCR clients. Each row r
 
 ## Changelog
 
+- **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the form back on 2025-06-23. Renames the `HOUSE` alias to `BHOUSE`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-19**: Adds initial view definition.
