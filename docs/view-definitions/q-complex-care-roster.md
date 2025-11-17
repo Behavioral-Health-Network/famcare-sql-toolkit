@@ -34,7 +34,7 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 ## Description
 
 - Built on `PWCOMPLEXCAREROSTER`, joined with `Q_CLIENT_BHN` for client identifiers.
-- Enriches roster data with CIMOR status and agency descriptions via lookup tables.
+- Enriches roster data with CIMOR status, DM3700 status, and agency descriptions via lookup tables.
 - Filters to current records using `DOCREVNO = ' 0 '`.
 
 ### Logic Summary
@@ -43,7 +43,7 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
   - Uses `CLIENT_NUMBER` to join `PWCOMPLEXCAREROSTER` and `Q_CLIENT_BHN`.
 
 - **Status and Agency Lookups**
-  - Joins to `CIMOR_STATUS`, `CMHC_AGENCY`, and `ADA_SU_AGENCY` for descriptive fields.
+  - Joins to `CIMOR_STATUS`, `DM3700_STATUS`, `CMHC_AGENCY`, and `ADA_SU_AGENCY` for descriptive fields.
 
 - **Date Casting**
   - `VISITDT` and `PATHWAY_DATE` cast to `DATE` for consistency.
@@ -58,19 +58,22 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 | `CLIENT_NUMBER`                    | Unique client identifier |
 | `VISITDT`, `VISITTM`               | Date and time of roster entry |
 | `PATHWAY_DATE`                     | Date of pathway assignment |
+| `ADDED_COHORT_DATE`                | Date of cohort selection |
+| `COMPLEX_CARE_REFERRAL_SOURCE`     | Referral Source for cohort selection |
 | `PROGRAM_ASSIGNED`                 | Assigned program name |
-| `CIMOR_STATUS_CODE`, `CMHC_CIMOR_STATUS.DESCRIPTION` | CMHC status and description |
+| `CIMOR_STATUS_CODE`, `CMHC_CIMOR_STATUS.DESCRIPTION` | CMHC status code and description |
 | `CMHC_AGENCY_CODE`, `CMHC_AGENCY_DESCRIPTION`        | CMHC agency code and name |
 | `OTHER_CMHC_AGENCY`                | Free-text alternate CMHC agency |
-| `ADA_CIMOR_STATUS_CODE`, `ADA_CIMOR_STATUS_DESCRIPTION` | ADA/SU status and description |
+| `ADA_CIMOR_STATUS_CODE`, `ADA_CIMOR_STATUS_DESCRIPTION` | ADA/SU status code and description |
 | `ADA_SU_AGENCY_CODE`, `ADA_SU_AGENCY_DESCRIPTION`     | ADA/SU agency code and name |
 | `OTHER_ADA_SU_AGENCY`             | Free-text alternate ADA/SU agency |
+| `DM3700_STATUS_CODE`, `DM3700_STATUS_DESCRIPTION`     | DM3700 status code and description |
 
 ## Usage Notes
 
 - **Program Naming**: Clinical BEACN in roster; Complex Care in FAMCare. Ensure naming consistency in downstream reports.
 - **Agency Fields**: Includes both coded and free-text agency fields; consider flagging mismatches or missing codes.
-- **Status Lookups**: Descriptions pulled from `CIMOR_STATUS` and agency tables; ensure lookup tables are maintained.
+- **Status Lookups**: Descriptions pulled from `CIMOR_STATUS`, `DM3700_STATUS`, and agency tables; ensure lookup tables are maintained.
 
 ## Maintenance Notes
 
@@ -80,6 +83,8 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 
 ## Changelog
 
+- **2025-11-06**: Adds `dm3700_status` and `complex_care_referral_source` fields.
+- **2025-11-05**: Adds `added_cohort_date` field, which is the cohort selection date.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  

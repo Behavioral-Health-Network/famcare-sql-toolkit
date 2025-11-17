@@ -85,7 +85,7 @@ change_control:
 
 ## Documentation Templates for Markdown Documentation
 
-> See [Documentation Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/data-team-processes/documentation-standards.md) for guidance on formatting changelogs.
+> See [Documentation Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/wiki-architecture/documentation-standards.md) for guidance on formatting changelogs.
 
 ---
 

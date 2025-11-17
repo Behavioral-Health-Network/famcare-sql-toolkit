@@ -3,7 +3,7 @@ front-matter-title: Q_BCR_CLIENT_COUNSELING_SESSIONS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-client-counseling-sessions.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-07
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -70,6 +70,7 @@ Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges
 
 ## Changelog
 
+- **2025-11-07**: Removes `SESSION_GRANT_DESCRIPTION` and remove the alias for `SESSION_GRANT_CODE` so that the only column is now `SESSION_GRANT` to accommodate for the fact that the field no longer uses a master table to supply a LOV. The legacy values for `SESSION_GRANT` have already been recoded to change code values to the description values so that recoding need not happen in R or elsewhere.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-28**: Adds initial Markdown documentation.

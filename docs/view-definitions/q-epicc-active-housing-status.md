@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_ACTIVE_HOUSING_STATUS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-active-housing-status.sql
-last_updated: 2025-08-09
+last_updated: 2025-11-13
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -73,6 +73,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 | `CLIENT_NUMBER`                        | Unique client ID                                 |
 | `HOUSING_START_DATE` / `HOUSING_END_DATE` | Date range of housing status                    |
 | `CLIENT_HOUSING_STATUS` (pivoted)      | Flags for each housing status type              |
+| `HOUSING_STATUS_INCARCERATED`, `UNHOUSED_SHELTER` | Additional housing context |
 | `IF_UNHOUSED_EXP`                      | Client reports prior experience of being unhoused |
 | `WORRIED_LOSING_HOUSING`               | Client expresses concern about housing stability |
 | `HOMELESS_HOUSING_INSECURE_ETO`        | Housing insecurity flag for ETO reporting        |
@@ -88,6 +89,7 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 
 ## Changelog
 
+- **2025-11-13**: Adds `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER` fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation; Corrects alias `HOUSE` to `EHOUSE`.  
 - **2025-07-01**: Updates `Q_Client` join to use `Q_CLIENT_BHN` for test client exclusion.  

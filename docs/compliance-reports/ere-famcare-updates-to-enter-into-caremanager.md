@@ -3,7 +3,7 @@ front-matter-title: ere-famcare-updates-to-enter-into-caremanager
 category: compliance-reports
 category-label: Compliance Reports
 source_file: code/compliance-reports/ere-famcare-updates-to-enter-into-caremanager.sql
-last_updated: 2025-11-04
+last_updated: 2025-11-12
 author: Bradley
 status: active
 lifecycle: production
@@ -51,6 +51,7 @@ This report identifies ERE clients with completed Pathway Event forms that must 
 
 ## Changelog
 
+- **2025-11-12**: Updates the `WHERE` clause to include 'Re-Referred' to the dismissal reasons to be filtered out.
 - **2025-11-04**: Adds `EENROLL.DISMISSAL_REASON_DESCRIPTION` field and updates the `WHERE` clause to filter out values of 'Reconnect' since they are irrelevant in CareManager Wwhile ensuring that those with `EENROLL.ENROLLMENT_ENDING_DATE` are not `NULL` to retain active clients not reconnected.
 - **2025-09-18**: Relocates and reformats tags: field.
 - **2025-08-21**: Adds initial Markdown documentation.

@@ -3,7 +3,7 @@ front-matter-title: Q_ERE_ALL_HOUSING_STATUS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-all-housing-status.sql
-last_updated: 2025-08-09
+last_updated: 2025-11-13
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -83,6 +83,7 @@ Provides a complete history of housing status records for ERE clients, including
 | `PARENT_DOCSERNO`, `FORM_TYPE`         | Reporting interval linkage                      |
 | `HOUSING_START_DATE`, `HOUSING_END_DATE` | Date range of housing status                   |
 | `CLIENT_HOUSING_STATUS` (pivoted)      | Flags for each housing status type              |
+| `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`    | Additional housing indicators for institutionally housed and unhoused   |
 | `IF_UNHOUSED_EXP`, `WORRIED_LOSING_HOUSING`, `HOMELESS_HOUSING_INSECURE_ETO` | Housing insecurity indicators |
 | `VISITDT`, `VISITTM`, `USERID`         | Metadata for audit and traceability             |
 
@@ -95,6 +96,7 @@ Provides a complete history of housing status records for ERE clients, including
 
 ## Changelog
 
+- **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the form back on 2025-06-23.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-08-06**: Adds initial view definition to support full housing status history and reporting interval alignment.

@@ -1,15 +1,15 @@
 ---
-front-matter-title: Q_EPICC_ALL_HOUSING_STATUS
+front-matter-title: Q_COMPLEX_CARE_ALL_HOUSING_STATUS
 category: view-definitions
 category_label: View Definitions
-source_file: code/view-definitions/q-epicc-all-housing-status.sql
+source_file: code/view-definitions/q-complex-care-all-housing-status.sql
 last_updated: 2025-11-13
 author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
-  - epicc
+  - complex-care
 tags:
   - view-layer
   - summation-view
@@ -26,34 +26,30 @@ dependencies:
   - name: q-client-bhn
     type: sql
     repo: famcare-sql-toolkit
-  - name: q-pathway-form-docsernos
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: pwepiccinitialcontact
+  - name: pwmercybeacnbenchmarks
     type: html
     repo: famcare-html-form-code
-  - name: pwepiccinitialcontact
+  - name: pwmercybeacnbenchmarks
     type: table
     repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
   - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
+    date: 2025-11-12
+last_reviewed: 2025-11-12
 schema_version: 1.0
 ---
 
-# Q_EPICC_ALL_HOUSING_STATUS
+# Q_COMPLEX_CARE_ALL_HOUSING_STATUS
 
 ## Purpose
 
-Returns a complete history of housing status records for EPICC clients. Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
+Returns a complete history of housing status records for Complex Care clients. Each row represents a single housing status entry, linked to its reporting interval via `PARENTDOCSERNO`.
 
 ## Description
 
 - Includes all housing status records, not just the latest or active ones.
-- Uses `COALESCE(PARENTDOCSERNO, DOCSERNO)` to ensure imported records are properly linked to their Initial Contact form.
 - Transforms housing status types into binary flags for simplified reporting.
 - Filters out test clients via `Q_CLIENT_BHN`.
 
@@ -61,8 +57,7 @@ Returns a complete history of housing status records for EPICC clients. Each row
 
 - **Source Table**: `PWHOUSINGSTATUS`
 - **Client Filter**: `Q_CLIENT_BHN` excludes test clients (`GVTTest`, `GVTest`, `GVTTEST`)
-- **Import Handling**: For records with `PARENTDOCSERNO IS NULL` and `USERID LIKE 'import%'`, uses `DOCSERNO` from `Q_EPICC_IC`
-- **Form Linkage**: Joins to `Q_EPICC_PATHWAY_FORM_DOCSERNOS` to identify reporting interval
+- **Form Linkage**: Joins to `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` to identify parent document for reporting on client housing status
 - **Pivoting**: Housing status types are converted to binary columns via `CASE` statements
 
 ## Output Fields
@@ -70,7 +65,7 @@ Returns a complete history of housing status records for EPICC clients. Each row
 | Field Name                         | Description |
 |------------------------------------|-------------|
 | `ID`                               | Unique identifier for housing status record |
-| `DOCSERNO`, `DOCREVNO`             | Document metadata |
+| `DOCSERNO`                         | Document metadata |
 | `VISITDT`, `VISITTM`               | Visit date and time |
 | `USERID`                           | User who entered the record |
 | `PARENT_DOCSERNO`                  | Reporting interval form (via COALESCE) |
@@ -80,7 +75,6 @@ Returns a complete history of housing status records for EPICC clients. Each row
 | `CLIENT_HOUSING_STATUS`           | Raw housing status value |
 | `HOUSING_STATUS_INCARCERATED`, `UNHOUSED_SHELTER`, `IF_UNHOUSED_EXP`, `WORRIED_LOSING_HOUSING` | Additional housing context |
 | `HOUSING_START_DATE`, `HOUSING_END_DATE` | Duration of housing status |
-| `HOMELESS_HOUSING_INSECURE_ETO`   | External housing insecurity flag |
 | `HOUSING_STATUS_*`                | Binary flags for each housing status type |
 
 ## Housing Status Flags
@@ -97,12 +91,9 @@ Returns a complete history of housing status records for EPICC clients. Each row
 
 - **Status Expansion**: Update `CASE` logic if new housing status types are introduced.
 - **Test Client Filter**: Adjust `Q_CLIENT_BHN` logic if naming conventions change.
-- **Import Logic**: Ensure `Q_EPICC_IC` remains aligned with Initial Contact form structure.
-- **Form Linkage Integrity**: Confirm `Q_EPICC_PATHWAY_FORM_DOCSERNOS` includes all valid DOCSERNOs.
+- **Form Linkage Integrity**: Confirm `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` includes all valid DOCSERNOs.
 
 ## Changelog
 
 - **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the form back on 2025-06-23.
-- **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Adds initial Markdown documentation.  
-- **2025-05-19**: Adds initial view definition to support full housing status history reporting for EPICC clients.
+- **2025-11-12**: Adds initial view definition to support full housing status history reporting for Complex Care clients. Adds initial Markdown documentation.

@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_PATHCLIENT_ENROLLMENTS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-pathclient-enrollments.sql
-last_updated: 2025-10-23
+last_updated: 2025-11-12
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -92,6 +92,7 @@ This column supports validation of the vendor’s historical patch and helps sur
 
 ## Changelog
 
+- **2025-11-12**: Adds joins to `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` and `Q_COMPLEX_CARE_PFP_DISCHARGE` now that those have been created. Ensures that each condition includes these two forms joined using `TIEDENROLLMENT`.
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.

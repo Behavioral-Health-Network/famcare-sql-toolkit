@@ -3,7 +3,7 @@ front-matter-title: Q_BCR_ACTIVE_HOUSING_STATUS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-active-housing-status.sql
-last_updated: 2025-08-09
+last_updated: 2025-11-13
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -70,6 +70,7 @@ Consolidates active housing status data into a single row per client, providing 
 
 ## Changelog
 
+- **2025-11-13**: Adds `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER` fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-08-09**: Adds initial view definition.
