@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_IC
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-ic.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-18
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -23,6 +23,12 @@ dependencies:
   - name: q-client-bhn
     type: sql
     repo: famcare-sql-toolkit
+  - name: community-referral-source
+    type: table
+    repo: none
+  - name: epicc-types-mat
+    type: table
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -78,6 +84,7 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 ## Changelog
 
+- **2025-11-18**: Adds fields `TREATMENT_PATH_UNKNOWN_IC` and `TRANSFER_TYPE_IC`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.

@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_THIRTY_DAY
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-thirty-day.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-18
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -23,6 +23,12 @@ dependencies:
   - name: q_client_bhn
     type: view
     repo: famcare-sql-toolkit
+  - name: epicc-types-mat
+    type: table
+    repo: none
+  - name: epicc-program-participation
+    type: table
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -53,7 +59,9 @@ Extracts and consolidates EPICC 30-day follow-up data for reporting, program tra
 - **Joins:**
   - `INNER JOIN Q_CLIENT_BHN` for client metadata and test client exclusion
   - `LEFT JOIN EPICC_PROGRAM_PARTICIPATION` for program participation descriptions
-  - `LEFT JOIN EPICC_TYPES_MAT` for MAT type descriptions
+  - `LEFT JOIN EPICC_TYPES_MAT` (aliased twice) for MAT type descriptions:
+    - `WHAT_MAT_PHYSICIAN_APPT_TWO_WEEK `
+    - `WHAT_MAT_PHYSICIAN_APPT_THIRTY_DAY_UNABLE_TO_CONTACT`
 
 - **Key Filters:**
   - `DOCREVNO = ' 0 '` to isolate current records
@@ -74,6 +82,7 @@ Extracts and consolidates EPICC 30-day follow-up data for reporting, program tra
 
 ## Changelog
 
+- **2025-11-18**: Adds fields `TREATMENT_PATH_THIRTY_DAY_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_THIRTY_DAY_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_THIRTY_DAY_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_THIRTYD_UTC_CODE`, `WHAT_MAT_PHYSICIAN_APPT_THIRTYD_UTC_DESCRIPTION`, `REASON_NOT_PARTICIPATING_THIRTY_DAY`, `REASON_NOT_ATTENDING_SUD_TX_ THIRTY_DAY`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ THIRTY_DAY`, `ATTENDING_SUD_TX_VERIFY_ THIRTY_DAY`, and `TRANSFER_TYPE_ THIRTY_DAY`. Adds left join to master table `EPICC_TYPES_MAT` to get the descriptions for `WHAT_MAT_PHYSICIAN_APPT_THIRTY_DAY_UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.

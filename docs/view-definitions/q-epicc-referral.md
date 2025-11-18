@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_REFERRAL
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-referral.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-18
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -23,6 +23,21 @@ dependencies:
   - name: q_client_bhn
     type: view
     repo: famcare-sql-toolkit
+  - name: program-referral-sources
+    type: table
+    repo: none
+  - name: community-referral-source
+    type: table
+    repo: none
+  - name: epicc-ems-fire-district
+    type: table
+    repo: none
+  - name: epicc-program-participation
+    type: table
+    repo: none
+  - name: program-referral-sources
+    type: table
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -76,6 +91,7 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 
 ## Changelog
 
+- **2025-11-18**: Adds field `INELIGIBLE_REFERRAL`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
