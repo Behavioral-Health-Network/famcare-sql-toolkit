@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_SIX_MONTH
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-six-month.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-18
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -23,6 +23,12 @@ dependencies:
   - name: q_client_bhn
     type: view
     repo: famcare-sql-toolkit
+  - name: epicc-types-mat
+    type: table
+    repo: none
+  - name: epicc-program-participation
+    type: table
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -74,6 +80,7 @@ Extracts and consolidates EPICC 6-month follow-up data for longitudinal engageme
 
 ## Changelog
 
+- **2025-11-18**: Adds fields `TREATMENT_PATH_SIX_MONTH_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_SIXM_UTC_CODE`, `WHAT_MAT_PHYSICIAN_APPT_SIXM_UTC_DESCRIPTION`, `REASON_NOT_PARTICIPATING_ SIX_MONTH`, `REASON_NOT_ATTENDING_SUD_TX_ SIX_MONTH`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ SIX_MONTH`, and `ATTENDING_SUD_TX_VERIFY_ SIX_MONTH`. Adds left join to master table `EPICC_TYPES_MAT` aliased as `MAT_UTC` to get descriptions for `WHAT_MAT_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-09**: Documentation authored and aligned with 30-day and 3-month scaffolds.  
 - **2025-08-09**: Adds initial Markdown documentation.  
