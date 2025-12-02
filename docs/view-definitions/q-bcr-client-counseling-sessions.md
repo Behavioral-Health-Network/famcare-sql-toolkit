@@ -14,12 +14,21 @@ tags:
   - tag1
   - tag2
 dependencies:
-  - name: 
-    type: 
-    repo: 
-  - name: 
-    type: 
-    repo: 
+  - name: pwbcrclientcounselingsessions
+    type: html
+    repo: famcare-html-form-code
+  - name: pwbcrclientcounselingsessions
+    type: table
+    repo: none
+  - name: q-client-bhn
+    type: sql
+    repo: famcare-sql-toolkit
+  - name: bcr-grant
+    type: table
+    repo: none
+  - name: bcr-counseling-agencies
+    type: table
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
