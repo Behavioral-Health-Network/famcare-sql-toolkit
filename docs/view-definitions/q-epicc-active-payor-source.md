@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_ACTIVE_PAYOR_SOURCE
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-active-payor-source.sql
-last_updated: 2025-08-10
+last_updated: 2025-11-20
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -21,6 +21,12 @@ dependencies:
     type: html
     repo: famcare-html-form-code
   - name: pwpayorsource
+    type: table
+    repo: none
+  - name: pwepiccinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwepiccinitialcontact
     type: table
     repo: none
   - name: q-epicc-pathway-form-docsernos
@@ -48,6 +54,7 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 
 - Built on `PWPAYORSOURCE`, filtered to include only active records (`PAYOR_SOURCE_END_DATE IS NULL`, `DOCREVNO = ' 0 '`).
 - Aggregates and pivots payor source types into binary flags for simplified reporting.
+- Resolves imported records using `PWEPICCINITIALCONTACT` to infer missing `PARENTDOCSERNO`.
 - Retains the latest `PARENTDOCSERNO` per client to anchor reporting interval.
 - Joins with `MANAGED_MEDICAID_PROVIDER` for descriptive metadata.
 
@@ -58,6 +65,7 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 
 - **AGGREGATED_PAYOR_SOURCE CTE**
   - Groups by `CLIENT_NUMBER` and `PAYOR_SOURCE`.
+  - Resolves imported records using `PWEPICCINITIALCONTACT` to infer missing `PARENTDOCSERNO`.
   - Retains max `PARENTDOCSERNO`, provider fields, and flags for pivoting.
   - Filters to valid EPICC records via `Q_EPICC_PATHWAY_FORM_DOCSERNOS`.
 
@@ -107,6 +115,7 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 
 ## Changelog
 
+- **2025-11-20**: Adds `COALESCE(EIC.DOCSERNO, EPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to replace just using `EPAY.PARENTDOCSERNO` in the `SELECT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It isn't relevant for EPICC. Updates PAY to EPAY.
 - **2025-08-10**: Adds initial Markdown documentation.  
