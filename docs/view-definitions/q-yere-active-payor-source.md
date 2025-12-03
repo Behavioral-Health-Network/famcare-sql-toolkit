@@ -3,7 +3,7 @@ front-matter-title: Q_YERE_ACTIVE_PAYOR_SOURCE
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-active-payor-source.sql
-last_updated: 2025-08-10
+last_updated: 2025-11-20
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -21,6 +21,12 @@ dependencies:
     type: html
     repo: famcare-html-form-code
   - name: pwpayorsource
+    type: table
+    repo: none
+  - name: pwyereinitialcontact
+    type: html
+    repo: famcare-html-form-code
+  - name: pwyereinitialcontact
     type: table
     repo: none
   - name: q-yere-pathway-form-docsernos
@@ -47,6 +53,7 @@ Provides a snapshot of each YERE client’s active payor source(s), pivoted into
 
 - Built on `PWPAYORSOURCE`, filtered to include only active records (`PAYOR_SOURCE_END_DATE IS NULL`).
 - Aggregates and pivots payor source types into binary flags for simplified reporting.
+- Resolves imported records using `PWYEREINITIALCONTACT` to infer missing `PARENTDOCSERNO`.
 - Retains the latest `PARENTDOCSERNO` per client to anchor reporting interval.
 - Joins with `MANAGED_MEDICAID_PROVIDER` for descriptive metadata.
 
@@ -93,6 +100,7 @@ Provides a snapshot of each YERE client’s active payor source(s), pivoted into
 
 ## Changelog
 
+- **2025-11-20**: Adds `COALESCE(YIA.DOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to replace just using `YPAY.PARENTDOCSERNO` in the `SELECT`. Updates dependencies in the frontmatter YAML to include join to `PWYEREINITIALCONTACT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-04-30**: Adds initial view definition to support active payor source reporting for YERE clients.

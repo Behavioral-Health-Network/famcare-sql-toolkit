@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_LATEST_SU_TX_AGENCY
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-latest-su-tx-agency.sql
-last_updated: 2025-08-10
+last_updated: 2025-12-03
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -77,6 +77,9 @@ dependencies:
   - name: q-client-bhn
     type: sql
     repo: famcare-sql-toolkit
+  - name: q-epicc-pathway-form-docsernos
+    type: sql
+    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -99,7 +102,8 @@ Returns the most recent substance use treatment agency referral record for each 
 - Enriches agency codes with descriptions via `EPICC_SU_TX_AGENCY`.
 - Infers missing `PARENTDOCSERNO` for imported records using form-matching logic.
 - Applies tie-breaking logic to ensure one record per client based on `VISITDT`, `DOCSERNO`, and `PARENTDOCSERNO`.
-- Includes `SU_TX_INTAKE` indicator for whether client attended intake with `INTAKE_NOT_COMPLETED` for the reason if the client did not attend intake and `SU_TX_DATE` if the client did attend intake.
+- Adds `FORM_TYPE` to indicate which Pathway Event form was the parent form to enable reporting on patterns in referrals, intakes, and admissions throughout EPICC program participation.
+- Includes `SU_TX_INTAKE` indicator for whether client attended intake with `WAS_INTAKE_COMPLETED` to indicate that the intake was conducted and completed, `INTAKE_NOT_COMPLETED` for the reason if the client did not attend intake, and `SU_TX_DATE` if the client did attend intake.
 - Includes `COACH_ATTEND_INTAKE` and `CES_ATTEND_INTAKE` indicator columns.
 
 ### Logic Summary
@@ -126,9 +130,16 @@ Returns the most recent substance use treatment agency referral record for each 
 | `CLIENT_NUMBER`                    | Unique client identifier |
 | `DOCSERNO`                         | Document reference for the referral |
 | `PARENT_DOCSERNO`                  | Reporting interval form (inferred if needed) |
+| `FORM_TYPE`                        | Name of the Pathway Event Form that was the parent form/reporting interval form |
 | `VISITDT`                          | Date of referral entry |
 | `EPICC_SU_TX_AGENCY_CODE`         | Referral agency code |
 | `EPICC_SU_TX_AGENCY_DESCRIPTION`  | Human-readable agency name |
+| `SU_TX_INTAKE`                          | Indicator for whether client attended a new intake  |
+| `WAS_INTAKE_COMPLETED`                          | Indicator for whether the intake was conducted and completed |
+| `INTAKE_NOT_COMPLETED`                          | Reason intake was not completed, if relevant |
+| `SU_TX_INTAKE_DATE`                          | Intake date |
+| `COACH_ATTEND_INTAKE`                          | Indicator for whether the coach attended the intake |
+| `CES_ATTEND_INTAKE`                          | Indicator for whether the CES attended the intake |
 | `USERID`                           | User who entered the record |
 
 ## Maintenance Notes
@@ -140,6 +151,7 @@ Returns the most recent substance use treatment agency referral record for each 
 
 ## Changelog
 
+- **2025-12-03**: Adds `WAS_INTAKE_COMPLETED`. Updates the dependencies in the frontmatter. Updates description and matrix of output fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds `SU_TX_INTAKE`, `INTAKE_NOT_COMPLETED`, `SU_TX_DATE`, `COACH_ATTEND_INTAKE`, and `CES_ATTEND_INTAKE`.
 - **2025-08-10**: Adds initial Markdown documentation.  

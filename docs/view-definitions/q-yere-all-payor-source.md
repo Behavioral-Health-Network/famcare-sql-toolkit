@@ -3,7 +3,7 @@ front-matter-title: Q_YERE_ALL_PAYOR_SOURCE
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-all-payor-source.sql
-last_updated: 2025-08-09
+last_updated: 2025-11-20
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -87,6 +87,7 @@ Returns all payor source records for YERE clients, including historical entries.
 
 ## Changelog
 
+- **2025-11-20**: Updates `COALESCE(YIA.PARENTDOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to `COALESCE(YIA.DOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` in the `SELECT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients.

@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_REENGAGEMENT
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-reengagement.sql
-last_updated: 2025-10-02
+last_updated: 2025-11-19
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -81,18 +81,18 @@ Tracks client-level data for individuals transferred to a **Re-Engagement Specia
 
 ## Usage Notes
 
-- **Staff Join**: Uses `FACM` from client record to link to `Q_HRFORM`; confirm this reflects the Re-Engagement Specialist.
+- **Staff Join**: Joins on `HR.EMPLOYEENUMBER`. `FACM` was originally used, but this proves to be inaccurate. Imported records will lack an employee number to provide the Reengagement Specialist name.
 - **Engagement Flags**: Multiple binary fields track outreach methods; consider summarizing for reporting.
 - **Outcome Tracking**: `DID_CLIENT_REENGAGE` and `STATUS_REENGAGEMENT` are key indicators for program effectiveness.
 
 ## Maintenance Notes
 
 - **DOCREVNO Filter**: Hardcoded to `' 0 '`; confirm this remains valid for identifying current records.
-- **Staff Join Logic**: If `FACM` does not reliably reflect the Re-Engagement Specialist, consider alternative linkage.
 - **Field Expansion**: If additional outreach methods are added, update view and documentation accordingly.
 
 ## Changelog
 
+- **2025-11-19**: Updates the left join to `Q_HRFORM` to use `HR.EMPLOYEENUMBER = REENGAGE.REENGAGEMENT_SPECIALIST`. Renames `REENGAGE.REENGAGEMENT_SPECIALIST` in the `SELECT` to `REENGAGE.REENGAGEMENT_SPECIALIST_EMPLOYEE_NUMBER`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
