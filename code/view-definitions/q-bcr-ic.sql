@@ -1,8 +1,8 @@
 /*
-View Name: Q_BCR_ACTIVE_HOUSING_STATUS  
+View Name: Q_BCR_IC
 Category: View Definitions  
 
-See docs/view-definitions/q-bcr-active-housing-status.md for full documentation.
+See docs/view-definitions/q-bcr-ic.md for full documentation.
 */
 USE BEHAVHEALT_LIVE;
 GO
