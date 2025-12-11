@@ -63,7 +63,7 @@ Returns all payor source records for BCR clients, including historical entries. 
 ### Logic Summary
 
 - **Parent Form Resolution**
-  - Uses `COALESCE(PARENTDOCSERNO, BIC.DOCSERNO)` to ensure all records have a valid parent reference.
+  - Uses `COALESCE(BPAY.PARENTDOCSERNO, BIC.DOCSERNO)` to ensure all records have a valid parent reference.
   - Filters to only include records with valid parent form linkage via `Q_BCR_PATHWAY_FORM_DOCSERNOS`.
 
 - **Client Join**
@@ -92,6 +92,7 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Changelog
 
+- **2025-11-19**: Fixes `COALESCE(BIC.DOCSERNO, BPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` by changing `BIC.PARENTDOCSERNO` to `BIC.DOCSERNO`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
 - **2025-08-09**: Adds initial Markdown documentation.  
