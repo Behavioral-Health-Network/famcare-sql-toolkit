@@ -3,10 +3,10 @@ front-matter-title: Q_BCR_CLIENT_ACTIVE_90_DAYS_OR_LONGER
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q_bcr_client_active_90_days_or_longer.sql
-last_updated: 2025-08-13
+last_updated: 2025-12-11
 author: Bradley Wing
 status: active
-lifecycle: production
+lifecycle: deprecated
 program_scope: single
 programs:
   - bcr
@@ -64,6 +64,7 @@ Encapsulate reusable logic to identify BCR clients who have been actively enroll
 
 ## Changelog
 
+- **2025-12-11**: Deprecates the report since the Program Manager has decided to dismiss clients enrolled more than 30 days. Removes visibility for the 'BCR Managers' security group but retains visibility for 'GVT' and 'System Administrator' security groups.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-13**: Converts the exception report query as a view to get around the limitations of the vendor's quick reports that did not run the report with the filter applied due to binding issues.
 - **2025-08-13**: Adds `PC.PARENTDOCSERNO = '55320240917145557321'` to restrict to BCR Pathway; switches from base `PROVIDERPLACEMENT` to `Q_PROVIDERPLACEMENT_BHN`.
