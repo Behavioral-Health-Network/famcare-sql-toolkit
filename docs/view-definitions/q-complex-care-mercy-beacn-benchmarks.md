@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-mercy-beacn-benchmarks.sql
-last_updated: 2025-11-14
+last_updated: 2025-12-09
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -90,4 +90,5 @@ Captures dates for referral, enrollment, evaluation, and treatment team assignme
 
 ## Changelog
 
+- **2025-12-09**: Adds `INNER JOIN` to filter out test clients.
 - **2025-11-14**: Adds initial view definition to support full housing status history reporting for Complex Care clients. Adds initial Markdown documentation.
