@@ -75,7 +75,8 @@ Supports program management by surfacing missing baseline entries, skipped month
   - Generate baseline + 12 monthly expected dates.  
   - Cut off schedule at discharge date if earlier.  
   - Compare expected vs. actual housing entries.  
-  - Flag baseline mismatch if baseline date ≠ expected date.  
+  - Flag baseline mismatch if baseline date ≠ expected date.
+  - Flag housing status entries with more than one entered with start dates in the same month.
 - **Output:**  
   - Client demographics.  
   - Baseline date.  
@@ -94,6 +95,7 @@ Supports program management by surfacing missing baseline entries, skipped month
 | `EXPECTED_DATE`           | Expected date for housing entry |
 | `HOUSING_START_DATE_ENTERED` | Actual housing entry date recorded |
 | `HAS_EXPECTED_ENTRY`      | 1 if expected entry exists, else 0 |
+| `HAS_MULTIPLE_ENTRIES`    | 1 if more than one `HOUSING_START_DATE` has been entered for a client within the same month, else 0 or `NULL` |
 | `BASELINE_MISMATCH`       | 1 if baseline date ≠ expected date, else 0 |
 | `HAS_BASELINE_ENTRY`      | 1 if baseline entry exists, else 0 |
 
@@ -107,4 +109,5 @@ Supports program management by surfacing missing baseline entries, skipped month
 
 ## Changelog
 
+- **2025-12-12**: Adds CTEs `MONTHLYCOUNTS` and `MULTIPLEENTRIES` to count instances where a client has more than one `HOUSING_START_DATE` in the same month and then flags as the exception `HAS_MULTIPLE_ENTRIES`.
 - **2025-12-09**: Adds initial view definition to support exception reporting on housing status entry for Complex Care clients. Adds initial Markdown documentation.
