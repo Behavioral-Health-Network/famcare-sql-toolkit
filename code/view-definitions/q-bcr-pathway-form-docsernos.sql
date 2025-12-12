@@ -2,7 +2,7 @@
 View Name: Q_BCR_PATHWAY_FORM_DOCSERNOS  
 Category: View Definitions  
 
-See docs/viview-definitionsws/q-bcr-pathway-form_docsernos.md for full documentation.
+See docs/view-definitions/q-bcr-pathway-form-docsernos.md for full documentation.
 */
 
 USE BEHAVHEALT_LIVE;

@@ -2,7 +2,7 @@
 front-matter-title: BCR Caseload Report
 category: Program Management Reports
 source_file: code/program-management-reports/bcr-caseload-report.sql
-last_updated: 2025-08-11
+last_updated: 2025-12-11
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -42,6 +42,7 @@ Summarizes BCR program client caseloads, including enrollment, worker assignment
 
 ## Changelog
 
+- **2025-12-11**: Adds optional parameters for `BCR_GRANT` and `PROGRAM_WORKER_EMPLOYEE_NUMBER`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-11**: Updates to add grant description in the `GRANT_FROM_IC` column.
 - **2025-08-11**: Adds initial Markdown documentation.
