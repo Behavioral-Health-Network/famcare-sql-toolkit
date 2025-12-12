@@ -1,0 +1,16 @@
+{
+  "MD013": false,
+  "MD048": false,
+  "MD033": {
+    "allowed_elements": [
+      "details",
+      "div",
+      "summary",
+      "strong",
+      "br",
+      "ul",
+      "li",
+      "span"
+    ]
+  }
+}
