@@ -70,9 +70,28 @@ Extracts and consolidates YERE referral data for reporting, eligibility tracking
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
+- **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-02**: Switches to `Q_CLIENT_BHN` for client details and test client exclusion.  
 - **2025-06-13**: Renames table alias from `REF` to `YREF`.  
 - **2025-05-23**: Adds initial view definition to support YERE referral reporting and agency involvement tracking.
+
+</details>
+</details>

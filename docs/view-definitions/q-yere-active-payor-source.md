@@ -100,7 +100,26 @@ Provides a snapshot of each YERE client’s active payor source(s), pivoted into
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
+- **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-11-20**: Adds `COALESCE(YIA.DOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to replace just using `YPAY.PARENTDOCSERNO` in the `SELECT`. Updates dependencies in the frontmatter YAML to include join to `PWYEREINITIALCONTACT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-04-30**: Adds initial view definition to support active payor source reporting for YERE clients.
+
+</details>
+</details>

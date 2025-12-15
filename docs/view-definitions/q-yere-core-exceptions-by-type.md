@@ -56,6 +56,22 @@ Encapsulate reusable logic for exception reporting on YERE enrollments starting 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
+- **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-07-22**: Adds logic to exclude all non-Referral forms for ETO enrollments flagged as 'ETO Referrals Not Imported - Manual Entry Needed'. The reason is that non-Referral forms may or may not need to be imported. For those that do not, the rows for those events would never be filtered from the results unless date parameters based on enrollment starting date and ending date were used to present the report from even querying those rows.
@@ -82,3 +98,6 @@ Encapsulate reusable logic for exception reporting on YERE enrollments starting 
 - **2025-07-13**: Refines exception tagging logic to apply ranked prioritization across types ('Import Mislink', 'Missing Referral', 'Legacy Gap', 'Dismissal Exception', etc.).
 - **2025-07-12**: Filteres input data to active enrollments with `PP_DOCSERNO` and post-2024 start.
 - **2025-07-12**: Adds initial view definition.
+
+</details>
+</details>

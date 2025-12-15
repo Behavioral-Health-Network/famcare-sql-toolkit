@@ -84,8 +84,26 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-18**: Adds fields `TREATMENT_PATH_UNKNOWN_IC` and `TRANSFER_TYPE_IC`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.
 - **2025-05-05**: Adds initial view definition to support EPICC Initial Contact reporting and MAT tracking.
+
+</details>
+</detials>

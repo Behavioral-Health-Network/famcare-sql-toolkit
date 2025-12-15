@@ -92,6 +92,21 @@ This column supports validation of the vendor’s historical patch and helps sur
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-25**: Adds `HR.EMPLOYEENUMBER AS [PROGRAM_WORKER_EMPLOYEE_NUMBER]` so that `HR.EMPLOYEENUMBER` will be available for filtering to program worker in the `WHERE` clause of Quick Reports using parameters.
 - **2025-11-12**: Adds joins to `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` and `Q_COMPLEX_CARE_PFP_DISCHARGE` now that those have been created. Ensures that each condition includes these two forms joined using `TIEDENROLLMENT`.
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
@@ -99,3 +114,6 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-08-10**: Adds initial view to support Complex Care Pathway enrollment and event tracking.
+
+</details>
+</details>

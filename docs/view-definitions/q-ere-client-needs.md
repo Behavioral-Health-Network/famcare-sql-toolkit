@@ -72,6 +72,24 @@ View on summation form for client needs accessed from ERE milestone forms. The s
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-08-04**: Adds initial view definition to support embedded client needs summary across ERE milestone forms.
+
+</details>
+</detials>

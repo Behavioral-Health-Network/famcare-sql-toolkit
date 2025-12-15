@@ -68,9 +68,27 @@ Encapsulate reusable logic to identify BCR clients who have been actively enroll
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-11**: Copies `q-bcr-client-active-90-days-or-longer` view and modifies to change the `WHERE` to filter to enrollments that have not been dismissed and that have been active for longer than 30 days. Adds `LEFT JOIN` to `Q_BCR_IC` and adds `BCR_PROGRAM_PARTICIPATION_DESC` to the `SELECT`. Carries original changelog over from the 90-day version and continues it here.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-13**: Converts the exception report query as a view to get around the limitations of the vendor's quick reports that did not run the report with the filter applied due to binding issues.
 - **2025-08-13**: Adds `PC.PARENTDOCSERNO = '55320240917145557321'` to restrict to BCR Pathway; switches from base `PROVIDERPLACEMENT` to `Q_PROVIDERPLACEMENT_BHN`.
 - **2025-07-31**: Adds original Markdown documentation; adds logic summary and output field descriptions.
 - **2025-04-29**: Adds original SQL query.
+
+</details>
+</details>

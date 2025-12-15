@@ -82,6 +82,21 @@ Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-18**: Adds fields `TREATMENT_PATH_THREE_MONTH_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_APPT_THREE_MONTH_UNABLE_TO_CONTACT`, `REASON_NOT_PARTICIPATING_ THREE_MONTH`, `REASON_NOT_ATTENDING_SUD_TX_ THREE_MONTH`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ THREE_MONTH`, `ATTENDING_SUD_TX_VERIFY_ THREE_MONTH`, and `TRANSFER_TYPE_ THREE_MONTH`. Left joins master table `epicc_tpes_mat` to get the descriptions for `WHAT_MAT_PHYSICIAN_APPT_THREE_MONTH _UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
@@ -89,3 +104,6 @@ Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking
 - **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
 - **2025-06-16**: Corrects join logic for `WHAT_MAT_PHYSICIAN_APPT_THREE_MONTH` to reference correct code field.  
 - **2025-05-05**: Adds initial view definition to support EPICC 3-month follow-up reporting and longitudinal engagement tracking.
+
+</details>
+</detials>

@@ -90,5 +90,23 @@ Captures dates for referral, enrollment, evaluation, and treatment team assignme
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-09**: Adds `INNER JOIN` to filter out test clients.
 - **2025-11-14**: Adds initial view definition to support full housing status history reporting for Complex Care clients. Adds initial Markdown documentation.
+
+</details>
+</details>

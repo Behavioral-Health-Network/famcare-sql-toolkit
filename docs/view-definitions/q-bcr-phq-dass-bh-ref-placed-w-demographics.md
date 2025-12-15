@@ -157,4 +157,22 @@ Provides a consolidated view of BCR clients who completed PHQ‑9 and DASS asses
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-24**: Initial documentation created. View definition includes Initial Contact, Referrals Placed, Counseling Sessions, Housing Status, and Payor Source joins.  
+
+</details>
+</details>

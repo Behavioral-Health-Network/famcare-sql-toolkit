@@ -48,5 +48,24 @@ Encapsulates logic for extracting non-behavioral health needs recorded for Youth
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
+- **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-09-12**: Initial Markdown documentation authored.  
 - **2025-09-12**: Initial SQL view authored.
+
+</details>
+</details>

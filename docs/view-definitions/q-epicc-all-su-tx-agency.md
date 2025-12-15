@@ -167,6 +167,21 @@ Returns all substance use treatment agency referral records for EPICC clients. S
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-24**: Refactors view to introduce `SUTX_BASE` CTE for normalized parent references and join key casting. Updates join logic to use `PATHWAY_DATE_JOINKEY` consistently. Documentation updated to reflect contributor guidance and governance notes.
 - **2025-11-20**: Introduces `PATHWAY_DATE_JOINKEY` (persisted computed column) in `PWSUBROADTREATMENTAGENCY` and indexes (`CLIENTNUMBER`, `PATHWAY_DATE_JOINKEY`) for performant form matching. Refactors join logic to use `PATHWAY_DATE_JOINKEY` for inference when `PARENTDOCSERNO` is absent. Adds `PARENT_PWY_EVENT` distribution guidance and `NULL`‑case QA notes. Updates maintenance and governance notes to reflect schema annotation and contributor usage.
 - **2025-10-22**: Adds join conditions for `LEFT JOIN` between `PWSUBROADTREATMENTAGENCY` and each EPICC milestone form (`EIC`, `ETWOW`, `ETHIRTYD`, `ETHREEM`, and `ESIXM`) by joining `PWSUBROADTREATMENTAGENCY.START_DATE` to `FOOFORM.PATHWAY_DATE` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is `NULL` (which will always be true for imported records) and otherwise joining `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` = `FORFORM.DOCSERNO` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is not `NULL` (which should always be true for form data entered using the FAMCare front end forms). Adds `PARENT_PWY_EVENT` column to identify the parent form when a `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` join is possible.
@@ -174,3 +189,6 @@ Returns all substance use treatment agency referral records for EPICC clients. S
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-06-09**: Adds initial view definition to support full referral tracking to substance use treatment agencies for EPICC clients.
+
+</details>
+</detials>
