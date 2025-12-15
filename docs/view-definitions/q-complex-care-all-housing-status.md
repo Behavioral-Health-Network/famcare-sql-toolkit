@@ -95,5 +95,23 @@ Returns a complete history of housing status records for Complex Care clients. E
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the form back on 2025-06-23.
 - **2025-11-12**: Adds initial view definition to support full housing status history reporting for Complex Care clients. Adds initial Markdown documentation.
+
+</details>
+</details>

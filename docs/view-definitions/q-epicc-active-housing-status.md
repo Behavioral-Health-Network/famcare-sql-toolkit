@@ -89,8 +89,26 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-13**: Adds `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER` fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation; Corrects alias `HOUSE` to `EHOUSE`.  
 - **2025-07-01**: Updates `Q_Client` join to use `Q_CLIENT_BHN` for test client exclusion.  
 - **2025-05-05**: Adds initial view definition to support EPICC housing status reporting.
+
+</details>
+</detials>

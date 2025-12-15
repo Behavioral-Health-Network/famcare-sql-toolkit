@@ -304,7 +304,7 @@ Each service domain follows a repeating pattern:
 
 ### 2025
 
-- **2025-12-12**: Adds initial Markdown documentation file.
+- **2025-12-12**: Adds initial Markdown documentation file. Adds collapsible `<details>` elements to the Changelog section.
 - **2025-11-25**: Adds initial SQL view definition.
 - **2025-10-08**: Adds HTML form.
 

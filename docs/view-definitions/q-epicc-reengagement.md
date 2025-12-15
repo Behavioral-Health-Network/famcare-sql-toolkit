@@ -92,8 +92,26 @@ Tracks client-level data for individuals transferred to a **Re-Engagement Specia
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-19**: Updates the left join to `Q_HRFORM` to use `HR.EMPLOYEENUMBER = REENGAGE.REENGAGEMENT_SPECIALIST`. Renames `REENGAGE.REENGAGEMENT_SPECIALIST` in the `SELECT` to `REENGAGE.REENGAGEMENT_SPECIALIST_EMPLOYEE_NUMBER`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-07**: Adds initial view definition to support EPICC Re-Engagement tracking.
+
+</details>
+</detials>

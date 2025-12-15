@@ -82,6 +82,24 @@ Captures initial hospital-based contact notes for clients referred to the ERE pr
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-09-16**: Adds initial Markdown documentation.  
 - **2025-09-12**: Adds initial view definition to support hospital-based contact tracking for ERE referrals.
+
+</details>
+</detials>

@@ -75,8 +75,26 @@ Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting c
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-10-27**: Adds `LEFT JOIN` to `ERE_INELIGIBLE_STATUS` because the original query treated `ERE_INELIGIBLE_STATUS` as if it was in the IHNA table. Adds `ERE_INELIGIBLE_STATUS` as an alias of the description from the master table of the same name.
 - **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` to enable joining back to the enrollment.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
 - **2025-07-22**: Adds initial view definition to support ERE IHNA reporting.
+
+</details>
+</detials>

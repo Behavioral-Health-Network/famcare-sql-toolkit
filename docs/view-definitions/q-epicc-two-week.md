@@ -82,9 +82,27 @@ Extracts and consolidates EPICC 2-week follow-up data for reporting, program tra
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-18**: Adds fields `TREATMENT_PATH_TWO_WEEK_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_TWO_WEEK_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_TWO_WEEK_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_TWOW_UTC _CODE`, `REASON_NOT_PARTICIPATING_TWO_WEEK`, `REASON_NOT_ATTENDING_SUD_TX_TWO_WEEK`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_TWO_WEEK`, `ATTENDING_SUD_TX_VERIFY_TWO_WEEK`, and `TRANSFER_TYPE_TWO_WEEK`. Adds left join to master table `EPICC_TYPES_MAT` to get descriptions for `WHAT_MAT_PHYSICIAN_APPT_TWO_WEEK`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-07-07**: Updates to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming.  
 - **2025-05-05**: Adds initial SQL view definition to support EPICC 2-week follow-up reporting and MAT engagement tracking.
+
+</details>
+</detials>

@@ -92,8 +92,26 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-19**: Fixes `COALESCE(BIC.DOCSERNO, BPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` by changing `BIC.PARENTDOCSERNO` to `BIC.DOCSERNO`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-06-11**: Adds initial view definition to support full payor source history for BCR clients.
+
+</details>
+</details>

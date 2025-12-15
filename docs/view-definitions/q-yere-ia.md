@@ -74,9 +74,28 @@ Supports reporting and analytics for YERE Initial Assessments (formerly Initial 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
+- **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-07-01**: Refactors join to use `Q_CLIENT_BHN` for test client filtering.  
 - **2025-06-13**: Renames table alias from `IA` to `YIA`.  
 - **2025-05-23**: Adds initial view definition.
+
+</details>
+</details>

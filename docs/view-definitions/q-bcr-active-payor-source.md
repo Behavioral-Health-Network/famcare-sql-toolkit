@@ -92,8 +92,26 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-19**: Adds left join to `PWBCRINITIALCONTACT AS [BIC]` when `BPAY.PATHWAY_DATE = BIC.PATHWAY_DATE` and `BPAY.USERID LIKE 'import%'` in the `[ACTIVE_PAYOR_SOURCE]` CTE. Updates `BPAY.PARENTDOCSERNO` to `COALESCE(BIC.DOCSERNO, BPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` so that imported records, which will not have a `PARENTDOCSERNO` will inherit the `DOCSERNO` from the BCR Initial Contact form. Comments out `AND BPAY.PAYOR_SOURCE_END_DATE IS NULL` in the `WHERE` clause of the `[ACTIVE_PAYOR_SOURCE]`. Updates the frontmatter YAML to include the dependency on the `PWBCRINITIALCONTACT` form for `DOCSERNO` when `BPAY.PARENTDOCSERNO IS NULL`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-07**: Adds initial view definition.
+
+</details>
+</details>

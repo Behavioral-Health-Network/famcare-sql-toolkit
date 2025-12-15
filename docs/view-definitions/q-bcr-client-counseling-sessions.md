@@ -79,8 +79,26 @@ Tracks client counseling sessions funded by ARPA or DMH grants under the Bridges
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-11-07**: Removes `SESSION_GRANT_DESCRIPTION` and remove the alias for `SESSION_GRANT_CODE` so that the only column is now `SESSION_GRANT` to accommodate for the fact that the field no longer uses a master table to supply a LOV. The legacy values for `SESSION_GRANT` have already been recoded to change code values to the description values so that recoding need not happen in R or elsewhere.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-28**: Adds initial Markdown documentation.
 - **2025-07-02**: Adds initial view definition.
+
+</details>
+</details>

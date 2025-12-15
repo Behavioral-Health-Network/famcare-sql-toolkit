@@ -57,6 +57,21 @@ Encapsulate reusable logic for exception reporting on EPICC enrollments starting
 
 ## Changelog  
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.
 - **2025-07-22**: Adds initial EPICC view definition. All changes prior to this were changes to the YERE version of this report, which I have copied here to provide context for the report.
@@ -88,3 +103,6 @@ Encapsulate reusable logic for exception reporting on EPICC enrollments starting
 - **2025-07-15**: Adds `FORM_COUNT` logic to detect duplicate form entries per enrollment-event.
 - **2025-07-13**: Refines exception tagging logic to apply ranked prioritization across types ('Import Mislink', 'Missing Referral', 'Legacy Gap', 'Dismissal Exception', etc.).
 - **2025-07-12**: Filters input data to active enrollments with `PP_DOCSERNO` and post-2024 start.
+
+</details>
+</detials>

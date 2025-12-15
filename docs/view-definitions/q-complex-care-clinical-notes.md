@@ -85,4 +85,22 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-09**: Adds initial view definition to support patient selection reporting for Complex Care clients. Adds initial Markdown documentation.
+
+</details>
+</details>

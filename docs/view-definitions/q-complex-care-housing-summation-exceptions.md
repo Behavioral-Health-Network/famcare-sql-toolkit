@@ -109,5 +109,23 @@ Supports program management by surfacing missing baseline entries, skipped month
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-12**: Adds CTEs `MONTHLYCOUNTS` and `MULTIPLEENTRIES` to count instances where a client has more than one `HOUSING_START_DATE` in the same month and then flags as the exception `HAS_MULTIPLE_ENTRIES`.
 - **2025-12-09**: Adds initial view definition to support exception reporting on housing status entry for Complex Care clients. Adds initial Markdown documentation.
+
+</details>
+</detials>

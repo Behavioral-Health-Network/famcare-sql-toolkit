@@ -151,8 +151,26 @@ Returns the most recent substance use treatment agency referral record for each 
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-03**: Adds `WAS_INTAKE_COMPLETED`. Updates the dependencies in the frontmatter. Updates description and matrix of output fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds `SU_TX_INTAKE`, `INTAKE_NOT_COMPLETED`, `SU_TX_DATE`, `COACH_ATTEND_INTAKE`, and `CES_ATTEND_INTAKE`.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-05-06**: Adds initial view definition to support reporting on latest substance use treatment referrals for EPICC clients.
+
+</details>
+</detials>

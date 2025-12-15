@@ -64,9 +64,27 @@ Encapsulate reusable logic to identify BCR clients who have been actively enroll
 
 ## Changelog
 
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
+
 - **2025-12-11**: Deprecates the report since the Program Manager has decided to dismiss clients enrolled more than 30 days. Removes visibility for the 'BCR Managers' security group but retains visibility for 'GVT' and 'System Administrator' security groups.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-13**: Converts the exception report query as a view to get around the limitations of the vendor's quick reports that did not run the report with the filter applied due to binding issues.
 - **2025-08-13**: Adds `PC.PARENTDOCSERNO = '55320240917145557321'` to restrict to BCR Pathway; switches from base `PROVIDERPLACEMENT` to `Q_PROVIDERPLACEMENT_BHN`.
 - **2025-07-31**: Adds initial Markdown documentation; adds logic summary and output field descriptions.
 - **2025-04-29**: Adds initial SQL query.
+
+</details>
+</details>
