@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_THREE_MONTH
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-three-month.sql
-last_updated: 2025-11-18
+last_updated: 2025-12-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -97,6 +97,7 @@ Extracts and consolidates EPICC 3-month follow-up data for longitudinal tracking
 
 ### 2025
 
+- **2025-12-16**: Adds field `WHY_NOT_MEET_PROG_ELIGIBILITY_THREE_MONTH`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_THREE_MONTH_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_APPT_THREE_MONTH_UNABLE_TO_CONTACT`, `REASON_NOT_PARTICIPATING_ THREE_MONTH`, `REASON_NOT_ATTENDING_SUD_TX_ THREE_MONTH`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ THREE_MONTH`, `ATTENDING_SUD_TX_VERIFY_ THREE_MONTH`, and `TRANSFER_TYPE_ THREE_MONTH`. Left joins master table `epicc_tpes_mat` to get the descriptions for `WHAT_MAT_PHYSICIAN_APPT_THREE_MONTH _UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
