@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_IC
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-ic.sql
-last_updated: 2025-11-18
+last_updated: 2025-12-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -99,6 +99,7 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 ### 2025
 
+- **2025-12-16**: Adds fields `OVERDOSE_EVENT_REFERRAL_UNKNOWN`, `MOST_RECENT_PAST_OVERDOSE_DATE_UNKNOWN`, `CURRENT_SU_TREATMENT_UNKNOWN`, `OPIOID_PRESCRIPTION_LONG_TERM_PAIN_MGMT_UNKNOWN`, `EVER_PRESCRIPTION_MAT_NOT_REFERRAL_UNKNOWN`, `CURRENT_SCRIPT_MAT_NOT_REFERRAL_UNKNOWN`, `MAT_SCRIPT_DISCHARGE_UNKNOWN`, and `REASON_NOT_PARTICIPATING_IC`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_UNKNOWN_IC` and `TRANSFER_TYPE_IC`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
