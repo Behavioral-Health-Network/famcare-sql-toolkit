@@ -3,7 +3,7 @@ front-matter-title: Q_ERE_IHNA
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-ihna.sql
-last_updated: 2025-10-27
+last_updated: 2025-12-17
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -51,7 +51,7 @@ Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting c
 
 - **Joins:**
   - `INNER JOIN Q_CLIENT_BHN` for client metadata and test client exclusion
-  - `LEFT JOIN EMPLOYMENTSTATUS` for employment code descriptions
+  - `LEFT JOIN ERE_EMPLOY_STATUS` for employment code descriptions
 
 - **Key Filters:**
   - `DOCREVNO = ' 0 '` to isolate current records
@@ -90,6 +90,7 @@ Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting c
 
 ### 2025
 
+- **2025-12-17**: Fixes `LEFT JOIN BEHAVHEALT_LIVE.DBO.ERE_EMPLOY_STATUS AS [EMPSTATUS]`. Previously, the GVT default master table `EMPLOYMENTSTATUS` had been joined by mistake.
 - **2025-10-27**: Adds `LEFT JOIN` to `ERE_INELIGIBLE_STATUS` because the original query treated `ERE_INELIGIBLE_STATUS` as if it was in the IHNA table. Adds `ERE_INELIGIBLE_STATUS` as an alias of the description from the master table of the same name.
 - **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` to enable joining back to the enrollment.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
@@ -97,4 +98,4 @@ Supports ERE Individual Health Needs Assessment (IHNA) reporting by extracting c
 - **2025-07-22**: Adds initial view definition to support ERE IHNA reporting.
 
 </details>
-</detials>
+</details>

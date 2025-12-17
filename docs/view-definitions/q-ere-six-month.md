@@ -3,7 +3,7 @@ front-matter-title: Q_ERE_SIX_MONTH
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-six-month.sql
-last_updated: 2025-09-30
+last_updated: 2025-12-17
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -51,7 +51,7 @@ Supports ERE 6-month follow-up reporting by extracting client engagement, contac
 
 - **Joins:**
   - `INNER JOIN Q_CLIENT_BHN` for client metadata and test client exclusion
-  - `LEFT JOIN EMPLOYMENTSTATUS` for employment code descriptions
+  - `LEFT JOIN ERE_EMPLOY_STATUS` for employment code descriptions
 
 - **Key Filters:**
   - `DOCREVNO = ' 0 '` to isolate current records
@@ -85,6 +85,7 @@ Supports ERE 6-month follow-up reporting by extracting client engagement, contac
 
 ### 2025
 
+- **2025-12-17**: Fixes `LEFT JOIN BEHAVHEALT_LIVE.DBO.ERE_EMPLOY_STATUS AS [EMPSTATUS]`. Previously, the GVT default master table `EMPLOYMENTSTATUS` had been joined by mistake.
 - **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
