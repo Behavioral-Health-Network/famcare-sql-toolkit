@@ -99,6 +99,7 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 ### 2025
 
+- **2025-12-29**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`. Adds fields `SU_TREATMENT_PAST_TWELVE_MOS_UNKNOWN` and `PREG_POST_PART_IC_UNKNOWN`.
 - **2025-12-16**: Adds fields `OVERDOSE_EVENT_REFERRAL_UNKNOWN`, `MOST_RECENT_PAST_OVERDOSE_DATE_UNKNOWN`, `CURRENT_SU_TREATMENT_UNKNOWN`, `OPIOID_PRESCRIPTION_LONG_TERM_PAIN_MGMT_UNKNOWN`, `EVER_PRESCRIPTION_MAT_NOT_REFERRAL_UNKNOWN`, `CURRENT_SCRIPT_MAT_NOT_REFERRAL_UNKNOWN`, `MAT_SCRIPT_DISCHARGE_UNKNOWN`, and `REASON_NOT_PARTICIPATING_IC`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_UNKNOWN_IC` and `TRANSFER_TYPE_IC`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
@@ -107,4 +108,4 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 - **2025-05-05**: Adds initial view definition to support EPICC Initial Contact reporting and MAT tracking.
 
 </details>
-</detials>
+</details>
