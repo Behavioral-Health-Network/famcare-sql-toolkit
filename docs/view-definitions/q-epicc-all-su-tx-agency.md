@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_ALL_SU_TX_AGENCY
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-epicc-all-su-tx-agency.sql
-last_updated: 2025-11-24
+last_updated: 2025-12-19
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -182,6 +182,7 @@ Returns all substance use treatment agency referral records for EPICC clients. S
 
 ### 2025
 
+- **2025-12-19**: Refactors `PWY_PARENT_EVENT` to match the values saved to `Q_EPICC_PATHCLIENT_ENROLLMENTS` view definition: 'EPICC Initial Contact', 'EPICC 2 Week', 'EPICC 30 Day', 'EPICC 3 Month', and 'EPICC 6 Month'.
 - **2025-11-24**: Refactors view to introduce `SUTX_BASE` CTE for normalized parent references and join key casting. Updates join logic to use `PATHWAY_DATE_JOINKEY` consistently. Documentation updated to reflect contributor guidance and governance notes.
 - **2025-11-20**: Introduces `PATHWAY_DATE_JOINKEY` (persisted computed column) in `PWSUBROADTREATMENTAGENCY` and indexes (`CLIENTNUMBER`, `PATHWAY_DATE_JOINKEY`) for performant form matching. Refactors join logic to use `PATHWAY_DATE_JOINKEY` for inference when `PARENTDOCSERNO` is absent. Adds `PARENT_PWY_EVENT` distribution guidance and `NULL`‑case QA notes. Updates maintenance and governance notes to reflect schema annotation and contributor usage.
 - **2025-10-22**: Adds join conditions for `LEFT JOIN` between `PWSUBROADTREATMENTAGENCY` and each EPICC milestone form (`EIC`, `ETWOW`, `ETHIRTYD`, `ETHREEM`, and `ESIXM`) by joining `PWSUBROADTREATMENTAGENCY.START_DATE` to `FOOFORM.PATHWAY_DATE` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is `NULL` (which will always be true for imported records) and otherwise joining `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` = `FORFORM.DOCSERNO` when `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` is not `NULL` (which should always be true for form data entered using the FAMCare front end forms). Adds `PARENT_PWY_EVENT` column to identify the parent form when a `PWSUBROADTREATMENTAGENCY.PARENTDOCSERNO` join is possible.
@@ -191,4 +192,4 @@ Returns all substance use treatment agency referral records for EPICC clients. S
 - **2025-06-09**: Adds initial view definition to support full referral tracking to substance use treatment agencies for EPICC clients.
 
 </details>
-</detials>
+</details>
