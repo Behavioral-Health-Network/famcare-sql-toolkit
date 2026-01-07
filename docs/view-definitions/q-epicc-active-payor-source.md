@@ -82,14 +82,14 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 
 ## Output Fields
 
-| Field Name                             | Description |
-|----------------------------------------|-------------|
-| `CLIENT_NUMBER`                        | Unique client identifier |
-| `PARENT_DOCSERNO`                      | Latest reporting interval form |
+| Field Name                             | Description                             |
+|----------------------------------------|-----------------------------------------|
+| `CLIENT_NUMBER`                        | Unique client identifier                |
+| `PARENT_DOCSERNO`                      | Latest reporting interval form          |
 | `PAYOR_SOURCE_*`                       | Binary flags for each payor source type |
-| `MANAGED_MEDICAID_PROVIDER_CODE`       | Code for managed Medicaid provider |
-| `MANAGED_MEDICAID_PROVIDER_DESCRIPTION`| Description from lookup table |
-| `PRIVATE_INSURANCE_PROVIDER`          | Free-text field for private insurance |
+| `MANAGED_MEDICAID_PROVIDER_CODE`       | Code for managed Medicaid provider      |
+| `MANAGED_MEDICAID_PROVIDER_DESCRIPTION`| Description from lookup table           |
+| `PRIVATE_INSURANCE_PROVIDER`           | Free-text field for private insurance   |
 
 ## Payor Source Codes
 
