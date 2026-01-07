@@ -87,6 +87,7 @@ View on summation form for client needs accessed from ERE milestone forms. The s
 
 ### 2025
 
+- **2025-12-22**: Adds aliases for fields `MEDICATION_ASSIT_REFERRED_ENGAGED`, `MEDICATION_ASSIT_STATUS_THREE_MONTH`, and `MEDICATION_ASSIT_STATUS_SIX_MONTH` to fix the spelling.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-08-04**: Adds initial view definition to support embedded client needs summary across ERE milestone forms.
