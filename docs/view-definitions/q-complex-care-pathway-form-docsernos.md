@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_PATHWAY_FORM_DOCSERNOS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-pathway-form-docsernos.sql
-last_updated: 2025-08-09
+last_updated: 2025-12-22
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -43,6 +43,7 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
   - `CLIENT_NUMBER`
   - `PATHWAY_DATE`
   - `DOCSERNO`
+  - `TIEDENROLLMENT`
   - `FORM_TYPE`
 
 ### Logic Summary
@@ -54,7 +55,7 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
   - `INNER JOIN Q_CLIENT_BHN` for client validation and test client exclusion
 
 - **Output Fields:**
-  - `CLIENT_NUMBER`, `PATHWAY_DATE`, `DOCSERNO`, `FORM_TYPE`
+  - `CLIENT_NUMBER`, `PATHWAY_DATE`, `DOCSERNO`, `TIEDENROLLMENT`, `FORM_TYPE`
 
 ## Maintenance Notes
 
@@ -79,6 +80,7 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 
 ### 2025
 
+- **2025-12-22**: Adds field `TIEDENROLLMENT`.
 - **2025-11-12**: Updates to include `DOCSERNO` values from `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` and `Q_COMPLEX_CARE_PFP_DISCHARGE`
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-11**: Adds initial Markdown documentation.  
