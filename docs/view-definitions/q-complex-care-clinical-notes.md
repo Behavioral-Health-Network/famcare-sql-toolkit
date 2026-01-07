@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_CLINICAL_NOTES
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-clinical-notes.sql
-last_updated: 2025-12-09
+last_updated: 2025-12-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -100,6 +100,7 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 
 ### 2025
 
+- **2025-12-16**: Adds joins to master tables using `LEFT JOIN COMPLEX_CARE_CLINICAL_COMMITTEE_RATIONALE AS [COMPRAT]`, `LEFT JOIN COMPLEX_CARE_REASONS_INELIGIBLE AS [COMPINELIGIBLE]`, `LEFT JOIN COMPLEX_CARE_OTHER_OUTCOMES AS [COMPOTHOUT]`.
 - **2025-12-09**: Adds initial view definition to support patient selection reporting for Complex Care clients. Adds initial Markdown documentation.
 
 </details>

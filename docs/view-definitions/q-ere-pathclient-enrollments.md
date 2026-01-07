@@ -85,7 +85,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 - Left joins to filtered views of ERE-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Uses `COALESCE` and `[ENROLL_PATH_JOIN_SOURCE]` to trace attribution logic.
 - Includes form-level metadata:
-  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `PATHWAY_DATE`, `VISITDT`, `VISITTM`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
 - Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy versions.
 - Filters to Pathway ID `55320250326123001961` (ERE).
 
@@ -145,6 +145,7 @@ This column supports validation of the vendor’s historical patch and helps sur
 
 ### 2025
 
+- **2025-12-22**: Updates `PWY_FORMS_VISITDT` to `PWY_FORMS_VISIT_DATE`. Adds `PWY_FORMS_VISIT_TIME`. These may be named as `PARENT_VISIT_DATE` and `PARENT_VISIT_TIME` in exception reports confirming which duplicate Pathway Event form may be safely deleted without causing an orphaned child summation form in the case of duplication.
 - **2025-11-25**: Adds `HR.EMPLOYEENUMBER AS [PROGRAM_WORKER_EMPLOYEE_NUMBER]` so that `HR.EMPLOYEENUMBER` will be available for filtering to program worker in the `WHERE` clause of Quick Reports using parameters.
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.

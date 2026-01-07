@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_PATHWAY_FORM_DOCSERNOS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-pathway-form-docsernos.sql
-last_updated: 2025-11-20
+last_updated: 2025-12-22
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -83,7 +83,8 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
   - `CLIENT_NUMBER`
   - `PATHWAY_DATE`
   - `DOCSERNO`
-  - `PROGRAM_PARTICIAPTION_CODE`
+  - `TIEDENROLLMENT`
+  - `PROGRAM_PARTICIPATION_CODE`
   - `PROGRAM_PARTICIPATION_DESCRIPTION`
   - `TREATMENT_PATH` (shows as 'N/A' when `TREATMENT_PATH_FOO` is hidden on the form by design)
   - `FORM_TYPE`
@@ -98,7 +99,7 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
   - `LEFT JOIN EPICC_PROGRAM_PARTICIPATION` for adding the program participation descriptions.
 
 - **Output Fields:**
-  - `CLIENT_NUMBER`, `PATHWAY_DATE`, `DOCSERNO`, `PROGRAM_PARTICIPATION_CODE`, `PROGRAM_PARTICIPATION_DESCRIPTION`, `TREATMENT_PATH`, `FORM_TYPE`
+  - `CLIENT_NUMBER`, `PATHWAY_DATE`, `DOCSERNO`, `TIEDENROLLMENT`, `PROGRAM_PARTICIPATION_CODE`, `PROGRAM_PARTICIPATION_DESCRIPTION`, `TREATMENT_PATH`, `FORM_TYPE`
 
 ## Maintenance Notes
 
@@ -124,10 +125,11 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 
 ### 2025
 
+- **2025-12-22**: Adds field `TIEDENROLLMENT`.
 - **2025-11-20**: Adds fields `PROGRAM_PARTICIPATION_CODE` and `PROGRAM_PARTICIPATION_DESCRIPTION` to provide context for rows where `TREATMENT_PATH` is 'N/A'. Adds conditional CASE logic to return 'N/A' when the `TREATMENT_PATH_FOO` is missing by design because the field was hidden on the form and should not have a value.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-01**: Adds initial view definition.
 
 </details>
-</detials>
+</details>

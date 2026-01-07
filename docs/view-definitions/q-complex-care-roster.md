@@ -3,7 +3,7 @@ front-matter-title: Q_COMPLEX_CARE_ROSTER
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-roster.sql
-last_updated: 2025-10-02
+last_updated: 2026-01-06
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -59,7 +59,8 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 | `VISITDT`, `VISITTM`               | Date and time of roster entry |
 | `PATHWAY_DATE`                     | Date of pathway assignment |
 | `ADDED_COHORT_DATE`                | Date of cohort selection |
-| `COMPLEX_CARE_REFERRAL_SOURCE`     | Referral Source for cohort selection |
+| `COMPLEX_CARE_REFERRAL_SOURCE_CODE`     | Code for Referral Source for cohort referral |
+| `COMPLEX_CARE_REFERRAL_SOURCE_DESCRIPTION` | Description for Referral Source for cohort referral |
 | `PROGRAM_ASSIGNED`                 | Assigned program name |
 | `CIMOR_STATUS_CODE`, `CMHC_CIMOR_STATUS.DESCRIPTION` | CMHC status code and description |
 | `CMHC_AGENCY_CODE`, `CMHC_AGENCY_DESCRIPTION`        | CMHC agency code and name |
@@ -90,6 +91,8 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-06** Adds `LEFT JOIN COMPLEX_CARE_REFERRAL_SOURCE AS [REFSOURCE]`. Renames `COMPLEX_CARE_REFERRAL_SOURCE` with alias `COMPLEX_CARE_REFERRAL_SOURCE_CODE`. Adds description with alias `COMPLEX_CARE_REFERRAL_SOURCE_DESCRIPTION`.
 
 </details>
 

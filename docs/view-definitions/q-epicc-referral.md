@@ -106,6 +106,7 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 
 ### 2025
 
+- **2025-12-30**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`.
 - **2025-12-12**: Adds field `OTHER_EMS_FIRE_DISTRICT`. Adds collapsible `<details>` elements.
 - **2025-11-18**: Adds field `INELIGIBLE_REFERRAL`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.

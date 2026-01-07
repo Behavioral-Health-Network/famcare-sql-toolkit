@@ -3,7 +3,7 @@ front-matter-title: Q_BCR_IC
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-ic.sql
-last_updated: 2025-09-30
+last_updated: 2025-12-18
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -11,8 +11,8 @@ program_scope: single
 programs:
   - bcr
 tags:
-  - tag1
-  - tag2
+  - pathway-event
+  - sql-view
 dependencies:
   - name: pwbcrinitialcontact
     type: html
@@ -50,7 +50,7 @@ Consolidates BCR Initial Contact form data for reporting and analysis. Captures 
   - `PWBCRINITIALCONTACT` (aliased as `BIC`)
 
 - **Joins:**
-  - `LEFT JOIN Q_CLIENT_BHN` for client names and test client exclusion
+  - `INNER JOIN Q_CLIENT_BHN` for client names and test client exclusion
   - `LEFT JOIN BCR_PROG_PARTICIPATION` for program participation descriptions
   - `LEFT JOIN BCR_CHURCHES` for church affiliation descriptions
   - `LEFT JOIN EMPLOYMENTSTATUS` for employment status descriptions
@@ -73,6 +73,13 @@ Consolidates BCR Initial Contact form data for reporting and analysis. Captures 
 - Monitor for changes in form structure, especially around assessment scoring and eligibility logic.
 - Consider surfacing null flags or diagnostic hooks for missing assessments or grant mismatches.
 
+## Deprecated Fields (Retained for Legacy Reporting)
+
+The following fields were removed from `PWBCRINITIALCONTACT` form as of 2025-11-19 but remain in the view definition to support legacy reporting:
+
+- `PREGNANT_IC`
+- `PREG_CHILD_LAST_90_IC`
+
 ## Changelog
 
 <details markdown="1">
@@ -90,6 +97,8 @@ Consolidates BCR Initial Contact form data for reporting and analysis. Captures 
 
 ### 2025
 
+- **2025-12-18**: Changes `LEFT JOIN Q_CLIENT_BHN AS [C] ON BIC.CLIENTNUMBER = C.CLIENT_NUMBER` to `INNER JOIN Q_CLIENT_BHN AS [C] ON BIC.CLIENTNUMBER = C.CLIENT_NUMBER` to ensure test clients are removed.
+- **2025-11-19**: Deprecates fields `PREGNANT_IC` and `PREG_CHILD_LAST_90_IC`. Adds fields `PLANNED_EVENT`, `EVENT_TYPE`, `EVENT_TYPE_OTHER`, `PRIOR_MH_BH_SERVICES`, and `RESIDE_STL_CITY`.
 - **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.

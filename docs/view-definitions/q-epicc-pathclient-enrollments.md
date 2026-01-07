@@ -3,7 +3,7 @@ front-matter-title: Q_EPICC_PATHCLIENT_ENROLLMENTS
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-pathclient-enrollments.sql
-last_updated: 2025-11-25
+last_updated: 2025-12-19
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -88,7 +88,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 - Left joins to filtered views of EPICC-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Uses `COALESCE` and `ENROLL_PATH_JOIN_SOURCE` to trace attribution logic.
 - Includes form-level metadata:
-  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `PATHWAY_DATE`, `VISITDT`, `VISITTM`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
   - `TREATMENT_PATH`, `PROGRAM_PARTICIPATION`, `PRO_OR_CORE`
 - Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy record versions.
 - Filters to Pathway ID `55320240807113504583` (EPICC).
@@ -150,6 +150,8 @@ This column supports validation of the vendor’s historical patch and helps sur
 
 ### 2025
 
+- **2025-12-30**: Updates to use fields `EREF.VISIT_DATE`, `EIC.VISIT_DATE`, `ETWOW.VISIT_DATE`, `ETHIRTYD.VISIT_DATE`, `ETHREEM.VISIT_DATE`, `ESIXM.VISIT_DATE`, `EREF.VISIT_TIME`, `EIC.VISIT_TIME`, `ETWOW.VISIT_TIME`, `ETHIRTYD.VISIT_TIME`, `ETHREEM.VISIT_TIME`, `ESIXM.VISIT_TIME`.
+- **2025-12-19**: Adds fields `VISITDT AS [PWY_FORMS_VISIT_DATE]` and `VISITTM AS [PWY_FORMS_VISIT_TIME]` to give context for making decisions when deleting duplicate forms.
 - **2025-11-25**: Adds `HR.EMPLOYEENUMBER AS [PROGRAM_WORKER_EMPLOYEE_NUMBER]` so that `HR.EMPLOYEENUMBER` will be available for filtering to program worker in the `WHERE` clause of Quick Reports using parameters.
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
@@ -160,4 +162,4 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **2025-05-07**: Adds initial view definition.
 
 </details>
-</detials>
+</details>

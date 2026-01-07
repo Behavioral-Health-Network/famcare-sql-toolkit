@@ -97,6 +97,7 @@ Extracts and consolidates EPICC 30-day follow-up data for reporting, program tra
 
 ### 2025
 
+- **2025-12-30**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`.
 - **2025-12-16**: Adds field `WHY_NOT_MEET_PROG_ELIGIBILITY_THIRTY_DAY`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_THIRTY_DAY_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_THIRTY_DAY_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_THIRTY_DAY_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_THIRTYD_UTC_CODE`, `WHAT_MAT_PHYSICIAN_APPT_THIRTYD_UTC_DESCRIPTION`, `REASON_NOT_PARTICIPATING_THIRTY_DAY`, `REASON_NOT_ATTENDING_SUD_TX_ THIRTY_DAY`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ THIRTY_DAY`, `ATTENDING_SUD_TX_VERIFY_ THIRTY_DAY`, and `TRANSFER_TYPE_ THIRTY_DAY`. Adds left join to master table `EPICC_TYPES_MAT` to get the descriptions for `WHAT_MAT_PHYSICIAN_APPT_THIRTY_DAY_UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
@@ -106,4 +107,4 @@ Extracts and consolidates EPICC 30-day follow-up data for reporting, program tra
 - **2025-05-05**: Adds initial view definition to support EPICC 30-day follow-up reporting and MAT engagement tracking.
 
 </details>
-</detials>
+</details>

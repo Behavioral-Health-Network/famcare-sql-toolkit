@@ -97,6 +97,7 @@ Extracts and consolidates EPICC 2-week follow-up data for reporting, program tra
 
 ### 2025
 
+- **2025-12-30**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`.
 - **2025-12-16**: Adds field `WHY_NOT_MEET_PROG_ELIGIBILITY_TWO_WEEK`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_TWO_WEEK_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_TWO_WEEK_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_TWO_WEEK_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_TWOW_UTC _CODE`, `REASON_NOT_PARTICIPATING_TWO_WEEK`, `REASON_NOT_ATTENDING_SUD_TX_TWO_WEEK`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_TWO_WEEK`, `ATTENDING_SUD_TX_VERIFY_TWO_WEEK`, and `TRANSFER_TYPE_TWO_WEEK`. Adds left join to master table `EPICC_TYPES_MAT` to get descriptions for `WHAT_MAT_PHYSICIAN_APPT_TWO_WEEK`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
 - **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
@@ -106,4 +107,4 @@ Extracts and consolidates EPICC 2-week follow-up data for reporting, program tra
 - **2025-05-05**: Adds initial SQL view definition to support EPICC 2-week follow-up reporting and MAT engagement tracking.
 
 </details>
-</detials>
+</details>

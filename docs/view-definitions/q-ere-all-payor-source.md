@@ -3,7 +3,7 @@ front-matter-title: Q_ERE_ALL_PAYOR_SOURCE
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-all-payor-source.sql
-last_updated: 2025-08-09
+last_updated: 2025-12-22
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -71,13 +71,13 @@ Returns all payor source records for ERE clients, including historical entries. 
 
 ## Output Fields
 
-| Field Name                             | Description |
-|----------------------------------------|-------------|
-| `CLIENT_NUMBER`, `CLIENT_FIRST`, `CLIENT_LAST` | Client identifiers |
-| `DOCSERNO`, `PARENTDOCSERNO`, `FORM_TYPE` | Form and reporting interval linkage |
+| Field Name                                                                | Description                           |
+|---------------------------------------------------------------------------|---------------------------------------|
+| `CLIENT_NUMBER`, `CLIENT_FIRST`, `CLIENT_LAST`                            | Client identifiers                    |
+| `DOCSERNO`, `PARENTDOCSERNO`, `FORM_TYPE`                                 | Form and reporting interval linkage   |
 | `PAYOR_SOURCE`, `MANAGED_MEDICAID_PROVIDER`, `PRIVATE_INSURANCE_PROVIDER` | Insurance source and provider details |
-| `PAYOR_SOURCE_START_DATE`, `PAYOR_SOURCE_END_DATE` | Coverage period |
-| `VISITDT`, `VISITTM`, `USERID`         | Metadata for audit and traceability |
+| `PAYOR_SOURCE_START_DATE`, `PAYOR_SOURCE_END_DATE`                        | Coverage period                       |
+| `VISITDT`, `VISITTM`, `USERID`                                            | Metadata for audit and traceability   |
 
 ## Maintenance Notes
 
@@ -103,9 +103,10 @@ Returns all payor source records for ERE clients, including historical entries. 
 
 ### 2025
 
+- **2025-12-22**: Fixes the view definition by removing the join to IHNA and requiring `PWPAYORSOURCE.PARENTDOCSERNO` values to be `IN` `Q_ERE_PATHWAY_FORM_DOCSERNOS.DOCSERNO`. ERE data was not imported into FAMCare.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-08-10**: Adds initial view definition to support full payor source history for ERE clients.
 
 </details>
-</detials>
+</details>
