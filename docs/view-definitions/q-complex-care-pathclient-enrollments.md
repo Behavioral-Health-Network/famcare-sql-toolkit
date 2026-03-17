@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_PATHCLIENT_ENROLLMENTS
+front-matter-title: Complex Care Pathclient Enrollments View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-pathclient-enrollments.sql
-last_updated: 2025-11-25
-author: Bradley Wing
+last_updated: 2026-01-08
 status: active
 lifecycle: production
 program_scope: single
@@ -18,14 +17,10 @@ dependencies:
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_PATHCLIENT_ENROLLMENTS
+# Complex Care Pathclient Enrollments View Definition
 
 ## Purpose
 
@@ -42,7 +37,7 @@ Extracts and consolidates enrollment and event data for clients participating in
 - Left joins to filtered views of Complex Care-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Uses `COALESCE` and `ENROLL_PATH_JOIN_SOURCE` to trace attribution logic.
 - Includes form-level metadata:
-  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `PATHWAY_DATE`, `VISITDT`, `VISITTM`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
   - `TREATMENT_PATH`, `PROGRAM_PARTICIPATION`, `PRO_OR_CORE`
 - Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy record versions.
 - Filters to Pathway ID `55320240920114308822` (Complex Care).
@@ -90,6 +85,10 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **Join Integrity**: Changes to `PROVIDERPLACEMENT`, `PATHWAYCLIENT`, `PATHWAYEVENTCLIENT`, or `Q_HRFORM` may affect logic.
 - **Test Client Filtering**: Confirm `Q_CLIENT_BHN` continues to exclude test clients reliably.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -99,6 +98,8 @@ This column supports validation of the vendor’s historical patch and helps sur
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-08**: Updates to use fields `ROSTER.VISITDT`, `CBENCH.VISIT_DATE`, `PFPDISCHARGE.VISIT_DATE`, `ROSTER.VISITTM`, `CBENCH.VISITTM`, `PFPDISCHARGE.VISITTM`.
 
 </details>
 
@@ -112,8 +113,8 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Adds initial Markdown documentation.  
-- **2025-08-10**: Adds initial view to support Complex Care Pathway enrollment and event tracking.
+- **2025-08-10**: Adds initial view to support Complex Care Pathway enrollment and event tracking. Adds initial Markdown documentation.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
