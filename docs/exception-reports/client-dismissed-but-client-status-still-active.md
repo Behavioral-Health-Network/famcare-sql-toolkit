@@ -1,9 +1,8 @@
 ---
-front-matter-title: Client Dismissed But Client Status Still Active
+front-matter-title: Client Dismissed But Client Status Still Active Exception Report
 category: Exception Reports
 source_file: code/exception-reports/client-dismissed-but-client-status-still-active.sql
 last_updated: 2025-07-21
-author: Bradley Wing
 status: active
 lifecycle: production
 program-scope: multi
@@ -20,14 +19,10 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Client Dismissed But Client Status Still Active
+# Client Dismissed But Client Status Still Active Exception Report
 
 ## Purpose
 
@@ -46,18 +41,14 @@ Identify clients who have a recorded enrollment dismissal but whose client statu
 - Supports status auditing and helps close workflow gaps between enrollment updates.
 - Should be reviewed periodically alongside other enrollment exception reports.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-21**: Adds initial Markdown documentation.
 - **2025-05-02**: Adds initial SQL query.  
-
-## Related Assets
-
-- Views: `Q_CLIENT_BHN`, `Q_PROVIDERPLACEMENT`  
-- Security Groups: GVT, System Administrator  
-- Exception Conditions:
-  - `CLIENT_STATUS = 'Active'`
-  - No open enrollments exist
-  - At least one dismissed enrollment present
+<!---CHANGELOG-END--->
