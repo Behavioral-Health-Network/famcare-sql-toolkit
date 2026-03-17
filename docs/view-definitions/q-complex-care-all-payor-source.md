@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_ALL_PAYOR_SOURCE
+front-matter-title: ex Care All Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-all-payor-source.sql
-last_updated: 2025-11-14
-author: Bradley Wing
+last_updated: 2026-03-16
 status: active
 lifecycle: production
 program_scope: single
@@ -34,14 +33,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-14
-last_reviewed: 2025-11-14
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_ALL_PAYOR_SOURCE
+# Complex Care All Payor Source View Definition
 
 ## Purpose
 
@@ -104,6 +99,10 @@ Provides the full historical record of payor source entries for Complex Care cli
 - **Provider Tables:** Ensure `MANAGED_MEDICAID_PROVIDER` remains aligned with form codes.  
 - **Program Scope:** Confirm `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` continues to reflect valid Complex Care clients.  
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -113,6 +112,8 @@ Provides the full historical record of payor source entries for Complex Care cli
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-16**: Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
 
 </details>
 
@@ -125,3 +126,4 @@ Provides the full historical record of payor source entries for Complex Care cli
 
 </details>
 </details>
+<!---CHANGELOG-END--->
