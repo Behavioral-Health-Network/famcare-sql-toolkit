@@ -84,6 +84,18 @@ As recursion proceeds, **hop\_** fields change at each level to reflect the depe
 <!---CHANGELOG-START--->
 ## Changelog
 
+
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
 - **2026‑02‑04**: Adds initial Markdown documentation file documentation. Confirms compatibility with program metadata model.
 - **2026‑01‑28**: Adds initial definition of recursive lineage view.
+
+</details>
+</details>
 <!---CHANGELOG-END--->
