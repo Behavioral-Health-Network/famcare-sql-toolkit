@@ -3,8 +3,7 @@ front-matter-title: Q_BCR_IC
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-ic.sql
-last_updated: 2025-12-18
-author: Bradley Wing
+last_updated: 2026-03-17
 status: active
 lifecycle: production
 program_scope: single
@@ -25,10 +24,6 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
@@ -61,7 +56,7 @@ Consolidates BCR Initial Contact form data for reporting and analysis. Captures 
   - `DOCREVNO = ' 0 '` to isolate current records
 
 - **Output Fields:**
-  - Contact metadata: `VISITDT`, `USERID`, `PATHWAY_DATE`, `ZIP_OF_INITIAL_CONTACT`
+  - Contact metadata: `VISITDT`, `VISITTM`, `USERID`, `PATHWAY_DATE`, `ZIP_OF_INITIAL_CONTACT`
   - Client info: `CLIENT_NUMBER`, `CLIENT_FIRST`, `CLIENT_LAST`
   - Assessment flags: `PHQ9_COMPLETED`, `CAGE_AID_ADMINISTERED`, `DASS_ADMINISTERED`
   - Justice involvement: recent/past arrests, probation, parole history
@@ -80,6 +75,10 @@ The following fields were removed from `PWBCRINITIALCONTACT` form as of 2025-11-
 - `PREGNANT_IC`
 - `PREG_CHILD_LAST_90_IC`
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -89,6 +88,8 @@ The following fields were removed from `PWBCRINITIALCONTACT` form as of 2025-11-
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-08**: Adds field `VISITTM`.
 
 </details>
 
@@ -106,3 +107,4 @@ The following fields were removed from `PWBCRINITIALCONTACT` form as of 2025-11-
 
 </details>
 </details>
+<!---CHANGELOG-END--->
