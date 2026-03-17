@@ -1,9 +1,8 @@
 ---
-front-matter-title: Client Status Missing
+front-matter-title: Client Status Missing Exception Report
 category: Exception Reports
 source_file: code/exception-reports/client-status-missing.sql
 last_updated: 2025-07-21
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: multi
@@ -20,14 +19,10 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Client Status Missing
+# Client Status Missing Exception Report
 
 ## Purpose
 
@@ -45,14 +40,14 @@ Identify clients who lack a current status in the client status field. Supports 
   Administrator groups.
 - Regular review recommended to ensure alignment with current business rules.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-21**: Adds initial Markdown documentation.
 - **2025-04-03**: Adds initial SQL query.
-
-## Related Assets
-
-- View: `Q_CLIENT_BHN`
-- Security Groups: GVT, System Administrator
+<!---CHANGELOG-END--->
