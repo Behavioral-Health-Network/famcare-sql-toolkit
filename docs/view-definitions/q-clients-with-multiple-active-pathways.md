@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
+front-matter-title: Clients With Multiple Active Pathways View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-clients-with-multiple-active-pathways.sql
 last_updated: 2025-08-09
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: multi
@@ -22,14 +21,10 @@ dependencies:
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_CLIENTS_WITH_MULTIPLE_ACTIVE_PATHWAYS
+# Clients With Multiple Active Pathways View Definition
 
 ## Purpose
 
@@ -80,6 +75,10 @@ Identifies clients with more than one active Pathway enrollment at the same time
 - **Join Integrity**: Ensure `PATHWAY`, `PATHWAYCLIENT`, and `Q_PROVIDERPLACEMENT` remain structurally aligned.
 - **Window Function Behavior**: Confirm that `COUNT_PATHWAY` reflects only active records.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -99,7 +98,8 @@ Identifies clients with more than one active Pathway enrollment at the same time
 
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
-- **2025-06-24**: Adds initial view definition to support exception reporting for concurrent pathway enrollments.
+- **2025-06-24**: Adds initial view definition to support exception reporting for concurrent Pathway enrollments.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
