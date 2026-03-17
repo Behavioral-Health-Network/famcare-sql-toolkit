@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_BCR_ACTIVE_PAYOR_SOURCE
+front-matter-title: BCR Active Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-active-payor-source.sql
-last_updated: 2025-11-19
+last_updated: 2026-03-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -37,14 +37,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_ACTIVE_PAYOR_SOURCE
+# BCR Active Payor Source View Definition
 
 ## Purpose
 
@@ -90,6 +86,10 @@ Returns all payor source records for BCR clients, including historical entries. 
 - If new payor source types are introduced, update the `PIVOT` clause in `[PIVOTED_PAYOR_SOURCES]`.
 - Aggregation and grouping logic may need to be revisited if additional fields are added or if uniqueness issues arise.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -100,6 +100,8 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ### 2026
 
+- **2026-03-16**: Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
+
 </details>
 
 <details markdown="1">
@@ -109,9 +111,10 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 - **2025-11-19**: Adds left join to `PWBCRINITIALCONTACT AS [BIC]` when `BPAY.PATHWAY_DATE = BIC.PATHWAY_DATE` and `BPAY.USERID LIKE 'import%'` in the `[ACTIVE_PAYOR_SOURCE]` CTE. Updates `BPAY.PARENTDOCSERNO` to `COALESCE(BIC.DOCSERNO, BPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` so that imported records, which will not have a `PARENTDOCSERNO` will inherit the `DOCSERNO` from the BCR Initial Contact form. Comments out `AND BPAY.PAYOR_SOURCE_END_DATE IS NULL` in the `WHERE` clause of the `[ACTIVE_PAYOR_SOURCE]`. Updates the frontmatter YAML to include the dependency on the `PWBCRINITIALCONTACT` form for `DOCSERNO` when `BPAY.PARENTDOCSERNO IS NULL`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
+- **2025-08-10**: Removes 'ShowMe Healthy Kids'. It's not relevant for BCR. Changes `PAY` alias to `BPAY`.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-07**: Adds initial view definition.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
