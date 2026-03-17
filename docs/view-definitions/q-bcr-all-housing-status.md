@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_BCR_ALL_HOUSING_STATUS
+front-matter-title: BCR All Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-all-housing-status.sql
-last_updated: 2025-12-22
-author: Bradley Wing
+last_updated: 2026-03-17
 status: active
 lifecycle: production
 program_scope: single
@@ -37,14 +36,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_ALL_HOUSING_STATUS
+# BCR All Housing Status View Definition
 
 ## Purpose
 
@@ -96,6 +91,10 @@ Returns a complete history of housing status records for BCR clients. Each row r
 - Monitor naming conventions for test clients and update exclusion logic as needed.
 - Changes to `PWHOUSINGSTATUS`, `PWBCRINITIALCONTACT`, `Q_BCR_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` may affect this view.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -121,3 +120,4 @@ Returns a complete history of housing status records for BCR clients. Each row r
 
 </details>
 </details>
+<!---CHANGELOG-END--->
