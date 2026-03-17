@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_CLIENT
+front-matter-title: YERE Client View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-client.sql
 last_updated: 2025-08-09
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -26,14 +25,10 @@ dependencies:
     type: table
     repo: none
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_CLIENT
+# YERE Client View Definition
 
 ## Purpose
 
@@ -70,6 +65,10 @@ Provides a filtered client reference view for individuals enrolled in the YERE p
 - Confirm that `Q_CLIENT_BHN` remains aligned with upstream logic for race, suffix, and test client exclusion.
 - Consider surfacing a diagnostic for YERE clients missing MRNs or with ambiguous placement records.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -91,7 +90,8 @@ Provides a filtered client reference view for individuals enrolled in the YERE p
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-07-23**: Updates to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming.  
-- **2025-06-11**: Addds initial view definition to support YERE-specific client reporting.
+- **2025-06-11**: Adds initial view definition to support YERE-specific client reporting.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
