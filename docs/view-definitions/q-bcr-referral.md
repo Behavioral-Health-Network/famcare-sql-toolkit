@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_BCR_REFERRAL
+front-matter-title: BCR Referral View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-referral.sql
-last_updated: 2025-12-18
-author: Bradley Wing
+last_updated: 2026-03-17
 status: active
 lifecycle: production
 program_scope: single
@@ -26,14 +25,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_REFERRAL
+# BCR Referral View Definition
 
 ## Purpose
 
@@ -90,6 +85,10 @@ The following fields were removed from `PWBCRREFERRAL` form as of 2025-11-19 but
 - Ensure that `Q_CLIENT_BHN` continues to exclude test clients to maintain data integrity.
 - Monitor for changes in `PWBCRREFERRAL` structure that could affect field availability or naming.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -100,6 +99,8 @@ The following fields were removed from `PWBCRREFERRAL` form as of 2025-11-19 but
 
 ### 2026
 
+- **2026-01-08**: Adds field `VISITTM`.
+
 </details>
 
 <details markdown="1">
@@ -108,10 +109,11 @@ The following fields were removed from `PWBCRREFERRAL` form as of 2025-11-19 but
 ### 2025
 
 - **2025-11-20**: Deprecates but retains fields `METHOD_REFERRAL`, `REF_THROUGH_EVENT`, `BCR_REF_EVENT`, `PREV_MH_BH_SERVICES`, `PREGNANT_AT_REF`, `PREG_OR_CHILD_LAST_NINETY`, `MARITAL_STATUS_REF`, `RESIDE_IN_STL_CITY`, `BCR_PROG_PARTICIPATION AS [BCR_PROGRAM_PARTICIPATION_CODE]`, `PART.DESCRIPTION AS [BCR_PROGRAM_PARTICIPATION_DESCRIPTION]`, `BCR_REASON_INELIGIBLE_REF`, `OTHER_REASON_INELIGIBLE`. Retains but deprecates `LEFT JOIN BCR_PROG_PARTICIPATION AS [PART] ON BREF.BCR_PROG_PARTICIPATION = PART.CODE`.
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-16**: Adds initial view definition.  
 
 </details>
 </details>
+<!---CHANGELOG-END--->
