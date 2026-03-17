@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_EPICC_IC
+front-matter-title: EPICC Initial Contact View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-ic.sql
 last_updated: 2025-12-16
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -31,14 +30,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_IC
+# EPICC Initial Contact View Definition
 
 ## Purpose
 
@@ -82,6 +77,10 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 - Monitor for changes in form structure, especially around overdose tracking and eligibility flags.
 - Consider surfacing diagnostic flags for missing MAT descriptions or ambiguous referral pathways.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -91,6 +90,8 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-02-11**: Adds fields `MAT_INITIATED_HOSPITAL_UNKNOWN` and `VETERAN_STATUS_UNKNOWN`.
 
 </details>
 
@@ -109,3 +110,4 @@ Extracts and consolidates EPICC Initial Contact form data for reporting, eligibi
 
 </details>
 </details>
+<!---CHANGELOG-END--->
