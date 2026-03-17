@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_ERE_ACTIVE_PAYOR_SOURCE
+front-matter-title: ERE Active Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-active-payor-source.sql
-last_updated: 2025-08-09
+last_updated: 2026-03-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -21,14 +21,10 @@ dependencies:
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_ACTIVE_PAYOR_SOURCE
+# ERE Active Payor Source View Definition
 
 ## Purpose
 
@@ -95,6 +91,10 @@ Provides a snapshot of each client’s active payor source(s), pivoted into indi
 - **Form Linkage**: Confirm that `Q_ERE_PATHWAY_FORM_DOCSERNOS` continues to reflect valid reporting intervals.
 - **Uniqueness Assurance**: `LATEST_PARENTDOCSERNO` resolves potential duplication; test regularly for edge cases.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -104,6 +104,8 @@ Provides a snapshot of each client’s active payor source(s), pivoted into indi
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+-**2026-03-16**: Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
 
 </details>
 
@@ -117,4 +119,5 @@ Provides a snapshot of each client’s active payor source(s), pivoted into indi
 - **2025-08-06**: Adds initial view definition to support reporting on currently active or last open payor source.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->
