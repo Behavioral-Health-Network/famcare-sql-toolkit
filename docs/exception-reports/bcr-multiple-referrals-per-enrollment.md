@@ -1,9 +1,8 @@
 ---
-front-matter-title: BCR Multiple Referrals Per Enrollment
+front-matter-title: BCR Multiple Referrals Per Enrollment Exception Report
 category: Exception Reports
 source_file: code/exception-reports/bcr-multiple-referrals-per-enrollmentr.sql
 last_updated: 2025-08-12
-author: Bradley Wing
 status: active
 lifecycle: production
 program-scope: single
@@ -16,14 +15,10 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# BCR Multiple Referrals Per Enrollment
+# BCR Multiple Referrals Per Enrollment Exception Report
 
 ## Purpose
 
@@ -43,9 +38,14 @@ Identifies clients who have more than one BCR referral recorded within a single 
 - Confirm that `PATHWAY_DATE` remains the correct linkage key for referral tracking.
 - Review logic periodically to align with evolving program workflows and form usage.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-12**: Adds initial Markdown documentation.  
 - **2025-04-07**: Adds initial SQL query.
+<!---CHANGELOG-END--->
