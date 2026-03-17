@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_BCR_PATHCLIENT_ENROLLMENTS
+front-matter-title: BCR Pathclient Enrollments View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-pathclient-enrollments.sql
-last_updated: 2025-11-25
-author: Bradley Wing
+last_updated: 2026-01-08
 status: active
 lifecycle: production
 program_scope: single
@@ -73,14 +72,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_PATHCLIENT_ENROLLMENTS
+# BCR Pathclient Enrollments View Definition
 
 ## Purpose
 
@@ -96,7 +91,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 - Joins to `PATHWAYEVENTCLIENT` (PEC) and `PATHWAYEVENT` (PE) for event-level metadata.
 - Left joins to filtered views of BCR-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Includes form-level metadata:
-  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `PATHWAY_DATE`, `VISITDT`, `VISITTM`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
   - `PROGRAM_PARTICIPATION`
 - Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy versions.
 - Filters to Pathway ID `55320240917145557321` (BCR).
@@ -140,6 +135,10 @@ This column supports validation of the vendor’s historical patch and helps sur
 - Monitor for changes in event naming conventions that could affect CASE logic or join keys.
 - Consider indexing `PATHWAYEVENTCLIENT` and form views on `CLIENT_NUMBER`, `PATHWAY_DATE`, and `EVENT_NAME` for performance.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -149,6 +148,8 @@ This column supports validation of the vendor’s historical patch and helps sur
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-08**: Updates to use fields `BREF.VISIT_DATE`, `BIC.VISIT_DATE`, `BRP.VISIT_DATE`, `BREF.VISIT_TIME`, `BIC.VISIT_TIME`, `BRP.VISIT_TIME`.
 
 </details>
 
@@ -162,9 +163,9 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to allow aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
-- **2025-07-13**: Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `JOIN` strategy using DOCSERNO and enrollment/start date alignment.
-- **2025-07-13**: Adds logic to trace enrollment-to-pathway attribution, consistent with bcr and EPICC view architecture.
+- **2025-07-13**: Adds logic to trace enrollment-to-pathway attribution, consistent with bcr and EPICC view architecture. Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `JOIN` strategy using DOCSERNO and enrollment/start date alignment.
 - **2025-07-09**: Adds initial view definition.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
