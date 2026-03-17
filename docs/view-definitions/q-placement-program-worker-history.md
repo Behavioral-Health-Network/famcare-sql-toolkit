@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_PLACEMENT_PROGRAM_WORKER_HISTORY
+front-matter-title: Placement Program Worker History View Definition
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-placement-program-worker-history.sql
 last_updated: 2025-09-18
-author: Bradley Wing
 status: active
 lifecycle: production
 tags:
@@ -37,15 +36,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-  - date: 2025-09-18
-last_reviewed: 2025-09-18
 schema_version: 1.0
 ---
 
-
-# Q_PLACEMENT_PROGRAM_WORKER_HISTORY
+# Placement Program Worker History View Definition
 
 ## Purpose
 
@@ -79,6 +73,10 @@ Supports program management reporting by extracting program worker assignment an
 
 - Monitor for changes in change reason codes and update descriptions accordingly.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -96,8 +94,8 @@ Supports program management reporting by extracting program worker assignment an
 
 ### 2025
 
-- **2025-09-18**: Adds initial Markdown documentation to support standardized view tracking.  
-- **2025-09-18**: Adds initial view definition to support program worker change reporting.
+- **2025-09-18**: Adds initial view definition to support program worker change reporting. Adds initial Markdown documentation to support standardized view tracking.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
