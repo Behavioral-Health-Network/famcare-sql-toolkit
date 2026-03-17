@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_BCR_REF_PLACED
+front-matter-title: BCR Referrals Placed View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-ref-placed.sql
 last_updated: 2025-09-30
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -25,14 +24,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_REF_PLACED
+# BCR Referrals Placed View Definition
 
 ## Purpose
 
@@ -78,6 +73,10 @@ Extracts and consolidates BCR Referrals Placed form data for reporting, eligibil
 - Ensure that `Q_CLIENT_BHN` continues to exclude test clients to maintain data integrity.
 - Monitor for changes in `PWBCRREFERRALSPLACED` structure that could affect field availability or naming.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -95,10 +94,11 @@ Extracts and consolidates BCR Referrals Placed form data for reporting, eligibil
 
 ### 2025
 
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT` `DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-09**: Adds initial Markdown documentation.  
+- **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-16**: Adds initial view definition.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
