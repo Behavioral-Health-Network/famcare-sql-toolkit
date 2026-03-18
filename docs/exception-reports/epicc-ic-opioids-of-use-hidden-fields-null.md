@@ -3,7 +3,6 @@ front-matter-title: EPICC IC Opioids of Use Hidden Fields Null
 category: Exception Reports
 source_file: code/exception-reports/epicc-ic-opioids-of-use-hidden-fields-null.sql
 last_updated: 2025-07-31
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -12,14 +11,7 @@ programs:
 tags:
   - exception-logic
   - tag2
-dependencies:
-  - value1
-  - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
@@ -62,16 +54,14 @@ The query joins to `Q_CLIENT_BHN` for client context and returns identifying det
 - Intended for internal review for Data Team staff remediation.
 - For any form with NULL values in the hidden fields, enter the form and click to save it. This prompts updateReportFields() to pivot the data.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-08**: Adds initial Markdown documentation.  
 - **2025-05-19**: Adds initial SQL query.
-
-## Related Assets
-
-- Base Table: `PWEPICCINITIALCONTACT`  
-- View: `Q_CLIENT_BHN`
-- Security Groups: GVT, System Administrator  
-  
+<!-- CHANGELOG:END -->
