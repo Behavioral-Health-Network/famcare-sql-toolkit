@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_ERE_REFERRAL
+front-matter-title: ERE Referral View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-referral.sql
-last_updated: 2025-09-30
+last_updated: 2026-03-14
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -25,14 +25,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_REFERRAL
+# ERE Referral View Definition
 
 ## Purpose
 
@@ -71,6 +67,10 @@ Extracts and consolidates ERE referral data for reporting, eligibility tracking,
 - Consider surfacing diagnostic flags for ambiguous eligibility or missing referral reasons.
 - Align naming conventions with other ERE views for consistency across reporting layers.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -81,6 +81,8 @@ Extracts and consolidates ERE referral data for reporting, eligibility tracking,
 
 ### 2026
 
+- **2026-03-14**: Renames `REFERRING_AGENCY` to `REFERRING_AGENCY_CODE`, `EMPLOYMENT_STATUS_REFERRAL` to `EMPLOYMENT_STATUS_REFERRAL_CODE`, and `INELIGIBLE_REASON_REFERRAL` to `INELIGIBLE_REASON_REFERRAL_CODE` to enforce consistency in the naming of `code` fields across forms.
+
 </details>
 
 <details markdown="1">
@@ -88,10 +90,11 @@ Extracts and consolidates ERE referral data for reporting, eligibility tracking,
 
 ### 2025
 
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
 - **2025-07-16**: Adds initial view definition to support ERE referral reporting and eligibility tracking.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
