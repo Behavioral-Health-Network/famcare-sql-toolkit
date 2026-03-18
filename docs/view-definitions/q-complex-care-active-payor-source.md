@@ -1,5 +1,5 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_ACTIVE_PAYOR_SOURCE
+front-matter-title: Complex Care Active Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-active-payor-source.sql
@@ -33,14 +33,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-14
-last_reviewed: 2025-11-14
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_ACTIVE_PAYOR_SOURCE
+# Complex Care Active Payor Source View Definition
 
 ## Purpose
 
