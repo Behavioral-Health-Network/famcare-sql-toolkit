@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_ERE_CLIENT_NEEDS
+front-matter-title: ERE client Needs View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-client-needs.sql
-last_updated: 2025-08-09
+last_updated: 2026-03-17
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -18,14 +18,10 @@ dependencies:
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_CLIENT_NEEDS
+# ERE Client Needs View Definition
 
 ## Purpose
 
@@ -70,6 +66,10 @@ View on summation form for client needs accessed from ERE milestone forms. The s
 - **Test Client Filtering**: Ensure `Q_CLIENT_BHN` continues to exclude test clients based on last name variants.
 - **Form Reusability**: Confirm that embedded tables on milestone forms correctly reference this view without duplication or logic bleed.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -79,6 +79,8 @@ View on summation form for client needs accessed from ERE milestone forms. The s
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-17**: Renames `PARENTDOCSERNO` as `PARENT_DOCSERNO`.
 
 </details>
 
@@ -93,4 +95,5 @@ View on summation form for client needs accessed from ERE milestone forms. The s
 - **2025-08-04**: Adds initial view definition to support embedded client needs summary across ERE milestone forms.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->
