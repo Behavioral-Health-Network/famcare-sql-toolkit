@@ -38,6 +38,8 @@ The documentation automation updates only the content between the `<!-- CHANGELO
 
 ## Standardized Markdown Frontmatter YAML
 
+Frontmatter defines identity, governance, and metadata for each SQL asset. It does **not** contain dependencies (now documented in a dedicated section).
+
 ### Schema Version Tag Reference
 
 Use `schema_version:` in the frontmatter to indicate which version of the documentation schema is being used. This tracks changes to the structure of the YAML itself—not the SQL asset or table.
@@ -110,6 +112,35 @@ This section defines the required Markdown structure for all SQL asset documenta
 >
 > See [Documentation Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/wiki-architecture/documentation-standards.md) for guidance on formatting changelogs.
 
+### Dependencies Section
+
+All SQL asset documentation files must include a dedicated **Dependencies** section in the body of the Markdown file. This section replaces the former `dependencies:` field in frontmatter and provides a clearer, more maintainable structure for documenting cross‑asset relationships.
+
+Dependencies describe any upstream objects required for the SQL asset to function correctly, including:
+
+- SQL views (e.g., `Q_*` views)  
+- tables or materialized structures  
+- form‑driven datasets or summation logic  
+- cross‑repository assets  
+- external data sources used in joins or filters  
+
+Each dependency should list:
+
+- **name** — the table, view, or asset identifier  
+- **type** — view, table, form, summation, script, or external  
+- **repo** — the repository where the dependency lives (if not local)
+
+Automation will populate this section in the future using metadata extracted from SQL dependency parsing. Contributors may add narrative notes above the anchors, but must not modify content between the dependency anchors.
+
+The required structure is:
+
+```md
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+```
+
+This section ensures that dependency metadata remains synchronized across repositories and supports automated impact analysis, cross‑repo coordination, and contributor onboarding.
+
 ### Automated Changelog Anchors
 
 All SQL asset documentation files must include HTML comment anchors that mark the beginning and end of the changelog section. These anchors allow the documentation automation to safely replace the changelog content without modifying contributor‑maintained narrative sections.
@@ -117,13 +148,11 @@ All SQL asset documentation files must include HTML comment anchors that mark th
 The required structure is:
 
 ```md
-## Changelog
-
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
 ```
 
-Contributors may edit any narrative content above the anchors, but must not modify, remove, or add content between the anchors. All changelog entries must be recorded in the `forms_changelogs` sheet of the `FC_Data_Dictionaries` Excel file. The automation will populate this section during documentation generation.
+Contributors may edit any narrative content above the anchors, but must not modify, remove, or add content between the anchors. All changelog entries must be recorded in the `forms_changelogs` or `standalone_asset_changelogs` sheets of the `FC_Data_Dictionaries` Excel file. The automation will populate this section during documentation generation.
 
 ---
 
@@ -141,17 +170,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -173,7 +196,8 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 
 - Intended for internal review or staff remediation.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -195,17 +219,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -226,7 +244,8 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 
 - Note time-based or demographic constraints.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -248,17 +267,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -276,7 +289,8 @@ Validate procedural compliance, user actions, or documentation completeness.
 - List tracked actions (e.g. form submissions, report runs).
 - Define timeframes or actors under review.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -298,17 +312,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -331,7 +339,8 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 - Often part of recurring obligations.
 - May require formal approval before publishing.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -353,17 +362,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -387,7 +390,8 @@ Provide structured data exports for approved non-contractual partners
 - Tailor filters and formatting to recipient needs.
 - Ensure sharing complies with internal guidelines.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -395,31 +399,25 @@ Provide structured data exports for approved non-contractual partners
 
 ---
 
-## Extract Queries
+## Ad Hoc Analytics
 
 ```yaml
 ---
 front-matter-title: asset-name
-category: extract-queries
-category-label: Extract Queries
-source_file: code/extract-queries/file-name.sql
+category: ad-hoc-analytics
+category-label: Ad Hoc Analytics
+source_file: code/ad-hoc-analytics/file-name.sql
 last_updated: YYYY-MM-DD
 status: active
-lifecycle: production
+lifecycle: experimental
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -441,7 +439,57 @@ Export structured data for external analysis or flat-file delivery.
 
 - Intended for dashboards or downstream pipelines.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
+```
+
+---
+
+## Extract Queries
+
+```yaml
+---
+front-matter-title: asset-name
+category: extract-queries
+category-label: Extract Queries
+source_file: code/extract-queries/file-name.sql
+last_updated: YYYY-MM-DD
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | all | none
+programs:
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
+change_control: value
+schema_version: 1.0
+---
+```
+
+```markdown
+# Query Title
+
+## Purpose
+
+Export structured data for external analysis or flat-file delivery.
+
+## Output Description
+
+- List fields returned and their source tables.
+- Indicate whether data is filtered or raw.
+
+## Usage Notes
+
+- Intended for dashboards or downstream pipelines.
+
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -462,17 +510,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -496,7 +538,8 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 - Used by developers and DBAs.
 - Often paired with performance diagnostics.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -517,17 +560,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -554,7 +591,8 @@ Apply data corrections or cleanup actions.
 
 - Run in staging prior to production deployment.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
@@ -576,17 +614,11 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
 schema_version: 1.0
 ---
@@ -608,7 +640,8 @@ Encapsulate reusable logic for reporting or downstream joins.
 
 - Document changes carefully—may affect multiple reports.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
 <!-- CHANGELOG:START -->
 <!-- CHANGELOG:END -->
