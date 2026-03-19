@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_ERE_ACTIVE_HOUSING_STATUS
+front-matter-title: RE Active Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-active-housing-status.sql
 last_updated: 2025-08-09
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -16,19 +15,12 @@ tags:
   - slowly-changing-dimension
   - active-record-view
   - housing-status-data
-dependencies:
-  - value1
-  - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_ACTIVE_HOUSING_STATUS
+# ERE Active Housing Status View Definition
 
 ## Purpose
 
@@ -81,6 +73,10 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 - **Housing Status Expansion**: Update CASE logic if new status types are introduced.
 - **Dependency Awareness**: Changes to `Q_ERE_ALL_HOUSING_STATUS`, `Q_ERE_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` may affect logic integrity.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -104,4 +100,5 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 - **2025-08-06**: Adds initial view definition to support ERE housing status reporting.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->
