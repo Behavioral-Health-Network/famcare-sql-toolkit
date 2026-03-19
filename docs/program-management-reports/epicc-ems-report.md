@@ -3,7 +3,6 @@ front-matter-title: EPICC EMS Report
 category: Program Management Reports
 source_file: code/program-management-reports/epicc-ems-report.sql
 last_updated: 2025-08-06
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -14,10 +13,6 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
@@ -63,12 +58,17 @@ It includes:
 - When updating filters or joins, ensure `GROUP BY` and `HAVING` clauses remain aligned  
 - Review EMS-related fields for completeness and consistency across referral sources
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
+- **2026-02-03**: Adds `LEFT JOIN` to `Q_EPICC_TWO_WEEK`, `Q_EPICC_THIRTY_DAY`, `Q_EPICC_THREE_MONTH`, and `Q_EPICC_SIX_MONTH`. Adds `PROGRAM_WORKER_LAST` and `PROGRAM_WORKER_FIRST` to the `SELECT`. Adds `CASE WEHEN` conditional logic to return the data from the latest reporting interval on record for the enrollment. Tightens the `HAVING` logic to ensure that data pertinent to EMS referrals is returned.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-08**: Adds initial Markdown documentation.
-- **2025-08-06**: Changes FAMCare Quick Report parameters to use `DATEPICKER` for enrollment start dates; removed enrollment end date parameter  
-- **2025-07-17**: Updates parameters to allow blank values and renamed START RANGE to START DATE  
-- **2025-07-17**: Addes EMS involvement logic for hospital referrals  
-- **2025-07-16**: Addes filtering for agency code `'073'` (EMS/Fire District)  
+- **2025-08-06**: Changes FAMCare Quick Report parameters to use `DATEPICKER` for enrollment start dates; removed enrollment end date parameter.
+- **2025-07-17**: Addes EMS involvement logic for hospital referrals. Updates parameters to allow blank values and renamed START RANGE to START DATE.
+- **2025-07-16**: Addes filtering for agency code `'073'` (EMS/Fire District).
 - **2025-07-08**: Adds initial SQL query.  
+<!---CHANGELOG-END--->

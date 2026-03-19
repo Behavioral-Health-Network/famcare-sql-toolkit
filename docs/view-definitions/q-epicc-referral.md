@@ -1,53 +1,22 @@
 ---
-front-matter-title: Q_EPICC_REFERRAL
+front-matter-title: EPICC Referral Form View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-referral.sql
 last_updated: 2025-12-12
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - epicc
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwepiccreferral
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccreferral
-    type: table
-    repo: none
-  - name: q_client_bhn
-    type: view
-    repo: famcare-sql-toolkit
-  - name: program-referral-sources
-    type: table
-    repo: none
-  - name: community-referral-source
-    type: table
-    repo: none
-  - name: epicc-ems-fire-district
-    type: table
-    repo: none
-  - name: epicc-program-participation
-    type: table
-    repo: none
-  - name: program-referral-sources
-    type: table
-    repo: none
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_REFERRAL
+# EPICC Referral Form View Definition
 
 ## Purpose
 
@@ -89,6 +58,10 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 - Monitor for changes in form structure, especially around EMS flags and program eligibility logic.
 - Consider surfacing diagnostic flags for missing referral descriptions or ambiguous EMS transport codes.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -109,7 +82,7 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 - **2025-12-30**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`.
 - **2025-12-12**: Adds field `OTHER_EMS_FIRE_DISTRICT`. Adds collapsible `<details>` elements.
 - **2025-11-18**: Adds field `INELIGIBLE_REFERRAL`. Updates the list of dependencies in the frontmatter YAML to include joined tables.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-21**: Updates to use `Q_CLIENT_BHN` instead of `Q_CLIENT` for test client exclusion and standardized field naming  
@@ -117,3 +90,4 @@ Extracts and consolidates EPICC referral data for reporting, eligibility trackin
 
 </details>
 </details>
+<!---CHANGELOG-END--->

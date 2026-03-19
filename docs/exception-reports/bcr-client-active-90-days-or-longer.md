@@ -3,7 +3,6 @@ front-matter-title: BCR Client Active 90 Days or Longer
 category: Exception Reports
 source_file: code/exception-reports/bcr-client-active-90-days-or-longer.sql
 last_updated: 2025-07-31
-author: Bradley Wing
 status: active
 lifecycle: production
 program-scope: single
@@ -16,10 +15,6 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
@@ -62,14 +57,15 @@ Identifies BCR clients who have been actively enrolled for 90 days or more. This
 - Test regularly to ensure accuracy and avoid silent misattribution.
 - Document any changes in the changelog below.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-09-18**: Adds exception-logic tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-13**: Updates exception report SQL query select from the view by the same name. See the code file for the view definition for detail on how the report is structured.
-- **2025-08-13**: Adds PC.PARENTDOCSERNO = '55320240917145557321' to the join with PATHWAYCLIENT to ensure that only enrollments with BCR Pathway assignments will be returned; switches from joining the base PROVIDERPLACEMENT table to using the view instead..
-- **2025-07-31**: Adds initial Markdown documentation.  
-  - Adds logic summary and output field descriptions.  
-  - Standardizes comment block and Markdown structure.  
-  - Confirms alignment with exception reporting standards.
+- **2025-08-13**: Adds `PC.PARENTDOCSERNO = '55320240917145557321'` to the join with `PATHWAYCLIENT` to ensure that only enrollments with BCR Pathway assignments will be returned; switches from joining the base `PROVIDERPLACEMENT` table to using the view instead. Updates exception report SQL query select from the view by the same name. See the code file for the view definition for detail on how the report is structured.
+- **2025-07-31**: Adds initial Markdown documentation. Adds logic summary and output field descriptions. Standardizes comment block and Markdown structure. Confirms alignment with exception reporting standards.
 - **2025-04-29**: Adds initial SQL query.  
+<!---CHANGELOG-END--->

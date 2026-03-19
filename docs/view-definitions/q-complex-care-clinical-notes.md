@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_CLINICAL_NOTES
+front-matter-title: Complex Care Clinical Notes View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-clinical-notes.sql
-last_updated: 2025-12-16
-author: Bradley Wing
+last_updated: 2025-01-16
 status: active
 lifecycle: production
 program_scope: single
@@ -26,14 +25,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-12-09
-last_reviewed: 2025-12-09
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_CLINICAL_NOTES
+# Complex Care Clinical Notes View Definition
 
 ## Purpose
 
@@ -83,6 +78,10 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 - **Client Scope:** Confirm linkage to Complex Care clients remains valid.  
 - **Audit Integrity:** Continue filtering on `DOCREVNO = '0'` to exclude superseded records.  
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -92,6 +91,8 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-15**: Changes alias `COMPRAT` to `COMRAT` since this represents `COMPLEX_CARE_CLINICAL_COMMITTEE_RATIONALE`. There is no 'P'. Adds `C.CLIENT_NAME` from `Q_CLIENT_BHN` so that Quick Reports can add a parameter to filter on this column.
 
 </details>
 
@@ -105,3 +106,4 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 
 </details>
 </details>
+<!---CHANGELOG-END--->

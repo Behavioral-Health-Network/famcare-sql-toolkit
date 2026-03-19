@@ -1,31 +1,25 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_ROSTER
+front-matter-title: Complex Care Roster View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-roster.sql
-last_updated: 2026-01-06
-author: Bradley Wing
+last_updated: 2026-03-05
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - complex-care
 tags:
-  - tag1
-  - tag2
+  - view-layer
 dependencies:
   - value1
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_ROSTER
+# Complex Care Roster View Definition
 
 ## Purpose
 
@@ -62,6 +56,7 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 | `COMPLEX_CARE_REFERRAL_SOURCE_CODE`     | Code for Referral Source for cohort referral |
 | `COMPLEX_CARE_REFERRAL_SOURCE_DESCRIPTION` | Description for Referral Source for cohort referral |
 | `PROGRAM_ASSIGNED`                 | Assigned program name |
+| `PAYOR_IS_OPTUM_UHC`                 | Flag for identifying patients with non-commercial payor name starting with "Optum" or "United Healthcare" |
 | `CIMOR_STATUS_CODE`, `CMHC_CIMOR_STATUS.DESCRIPTION` | CMHC status code and description |
 | `CMHC_AGENCY_CODE`, `CMHC_AGENCY_DESCRIPTION`        | CMHC agency code and name |
 | `OTHER_CMHC_AGENCY`                | Free-text alternate CMHC agency |
@@ -82,6 +77,10 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 - **Join Integrity**: Ensure lookup tables (`CIMOR_STATUS`, `CMHC_AGENCY`, `ADA_SU_AGENCY`) remain aligned with roster codes.
 - **Client Join**: Relies on `CLIENT_NUMBER`; confirm stability across systems.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -92,7 +91,8 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 
 ### 2026
 
-- **2026-01-06** Adds `LEFT JOIN COMPLEX_CARE_REFERRAL_SOURCE AS [REFSOURCE]`. Renames `COMPLEX_CARE_REFERRAL_SOURCE` with alias `COMPLEX_CARE_REFERRAL_SOURCE_CODE`. Adds description with alias `COMPLEX_CARE_REFERRAL_SOURCE_DESCRIPTION`.
+- **2026-03-05**: Adds `payor_is_optum_uhc` field to the view definition.
+- **2026-01-06**: Adds `LEFT JOIN COMPLEX_CARE_REFERRAL_SOURCE AS [REFSOURCE]`. Renames `COMPLEX_CARE_REFERRAL_SOURCE` with alias `COMPLEX_CARE_REFERRAL_SOURCE_CODE`. Adds description with alias `COMPLEX_CARE_REFERRAL_SOURCE_DESCRIPTION`.
 
 </details>
 
@@ -110,3 +110,4 @@ Tracks participants in the **Clinical BEACN** program, known as the **Complex Ca
 
 </details>
 </details>
+<!---CHANGELOG-END--->

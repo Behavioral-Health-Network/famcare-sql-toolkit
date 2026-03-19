@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_ALL_HOUSING_STATUS
+front-matter-title: Complex Care All Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-all-housing-status.sql
 last_updated: 2025-11-13
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -16,32 +15,12 @@ tags:
   - slowly-changing-dimension
   - historical-record-view
   - housing-status-data
-dependencies:
-  - name: pwhousingstatus
-    type: html
-    repo: famcare-html-form-code
-  - name: pwhousingstatus
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: pwmercybeacnbenchmarks
-    type: html
-    repo: famcare-html-form-code
-  - name: pwmercybeacnbenchmarks
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-12
-last_reviewed: 2025-11-12
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_ALL_HOUSING_STATUS
+# Complex Care All Housing Status View Definition
 
 ## Purpose
 
@@ -93,6 +72,10 @@ Returns a complete history of housing status records for Complex Care clients. E
 - **Test Client Filter**: Adjust `Q_CLIENT_BHN` logic if naming conventions change.
 - **Form Linkage Integrity**: Confirm `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` includes all valid DOCSERNOs.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -110,8 +93,9 @@ Returns a complete history of housing status records for Complex Care clients. E
 
 ### 2025
 
-- **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the form back on 2025-06-23.
+- **2025-11-13**: Adds fields `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER`. These had been added to the `PWHOUSINGSTATUS` form back on 2025-06-23.
 - **2025-11-12**: Adds initial view definition to support full housing status history reporting for Complex Care clients. Adds initial Markdown documentation.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

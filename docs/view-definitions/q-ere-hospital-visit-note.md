@@ -1,38 +1,22 @@
 ---
-front-matter-title: Q_ERE_HOSPITAL_VISIT_NOTE
+front-matter-title: ERE Hospital Visit Note View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-hospital-visit-note.sql
 last_updated: 2025-09-30
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - yere
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwerehospitalvisitnote
-    type: html
-    repo: famcare-html-form-code
-  - name: pwerehospitalvisitnote
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-09-16
-last_reviewed: 2025-09-16
 schema_version: 1.0
 ---
 
-# Q_ERE_HOSPITAL_VISIT_NOTE
+# ERE Hospital Visit Note View Definition
 
 ## Purpose
 
@@ -80,6 +64,10 @@ Captures initial hospital-based contact notes for clients referred to the ERE pr
 - **DOCREVNO Filter**: Hardcoded to `' 0 '`; confirm this remains valid for identifying current records.
 - **Client Join Integrity**: Ensure `CLIENT_NUMBER` remains stable across systems.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -97,9 +85,10 @@ Captures initial hospital-based contact notes for clients referred to the ERE pr
 
 ### 2025
 
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-09-16**: Adds initial Markdown documentation.  
 - **2025-09-12**: Adds initial view definition to support hospital-based contact tracking for ERE referrals.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->

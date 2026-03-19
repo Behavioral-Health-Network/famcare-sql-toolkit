@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_THREE_MONTH
+front-matter-title: YERE Thre Month View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-three-month.sql
-last_updated: 2025-10-02
-author: Bradley Wing
+last_updated: 2026-01-08
 status: active
 lifecycle: production
 program_scope: single
@@ -22,14 +21,10 @@ dependencies:
     type: view
     repo: famcare-sql-toolkit
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_THREE_MONTH
+# YERE Three Month View Definition
 
 ## Purpose
 
@@ -53,7 +48,7 @@ Extracts and consolidates YERE 3-month follow-up data for engagement tracking, s
   - `DOCREVNO = ' 0 '` to isolate current records
 
 - **Output Fields:**
-  - Follow-up metadata: `VISITDT`, `USERID`, `PATHWAY_DATE`, `PARENT_DOCSERNO`
+  - Follow-up metadata: `VISITDT`, `VISITTM`, `USERID`, `PATHWAY_DATE`, `PARENT_DOCSERNO`
   - Engagement: active status, contact method, intake attendance
   - Residency: change flags, change types, barrier alignment
   - School: attendance, grade level, school changes, equivalency status
@@ -68,6 +63,10 @@ Extracts and consolidates YERE 3-month follow-up data for engagement tracking, s
 - Consider surfacing diagnostic flags for missing DLA-20 scores or ambiguous provider entries.
 - Ensure alignment with YERE 30-day view for naming and logic consistency.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -78,6 +77,8 @@ Extracts and consolidates YERE 3-month follow-up data for engagement tracking, s
 
 ### 2026
 
+- **2026-01-08**: Adds field `VISITTM`.
+
 </details>
 
 <details markdown="1">
@@ -86,7 +87,7 @@ Extracts and consolidates YERE 3-month follow-up data for engagement tracking, s
 ### 2025
 
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation to support standardized view tracking.  
 - **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
@@ -94,3 +95,4 @@ Extracts and consolidates YERE 3-month follow-up data for engagement tracking, s
 
 </details>
 </details>
+<!---CHANGELOG-END--->

@@ -1,5 +1,5 @@
 ---
-front-matter-title: Q_BCR_ACTIVE_HOUSING_STATUS
+front-matter-title: BCR Active Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-active-housing-status.sql
@@ -25,14 +25,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_BCR_ACTIVE_HOUSING_STATUS
+# BCR Active Housing Status View Definition
 
 ## Purpose
 
@@ -88,8 +84,7 @@ Consolidates active housing status data into a single row per client, providing 
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-11-13**: Adds `HOUSING_STATUS_INCARCERATED` and `UNHOUSED_SHELTER` fields.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-09**: Adds initial Markdown documentation.
-- **2025-08-09**: Adds initial view definition.
+- **2025-08-09**: Adds initial view definition. Adds initial Markdown documentation.
 
 </details>
 </details>

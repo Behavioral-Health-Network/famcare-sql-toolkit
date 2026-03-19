@@ -1,9 +1,8 @@
 ---
-front-matter-title: Complex Care BEACN Duplicate PWY Forms Per Enrollment
+front-matter-title: Complex Care BEACN Duplicate PWY Forms Per Enrollment Exception Report
 category: Exception Reports
 source_file: code/exception-reports/complex-care-beacn-duplicate-pwy-forms-per-enrollment.sql
 last_updated: 2025-12-18
-author: Bradley Wing
 status: active
 lifecycle: production
 program-scope: single
@@ -11,17 +10,11 @@ programs:
   - complex-care
 tags:
   - exception-logic
-dependencies:
-  - q-complex-care-pathclient-enrollments
-change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-12-18
-last_reviewed: 2025-12-18
+change_control: cross-repo-coordination
 schema_version: 1.0
 ---
 
-# Complex Care BEACN Duplicate Pathway Forms Per Enrollment
+# Complex Care BEACN Duplicate Pathway Forms Per Enrollment Exception Report
 
 ## Purpose
 
@@ -39,6 +32,11 @@ Identifies duplicate Complex Care Pathway forms (Roster, BEACN Metrics, PfP Disc
 - Helps ensure one-to-one alignment between Pathway forms and enrollments.
 - Staff should manually review flagged records and retain only the correct form.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-12-18**: Adds initial SQL query. Adds initial Markdown documentation.
+<!---CHANGELOG-END--->

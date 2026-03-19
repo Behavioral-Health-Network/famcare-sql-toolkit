@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_ERE_ALL_HOUSING_STATUS
+front-matter-title: ERE All Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-all-housing-status.sql
 last_updated: 2025-11-13
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -16,35 +15,12 @@ tags:
   - slowly-changing-dimension
   - historical-record-view
   - housing-status-data
-dependencies:
-  - name: pwhousingstatus
-    type: html
-    repo: famcare-html-form-code
-  - name: pwhousingstatus
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: q-pathway-form-docsernos
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: pwereihna
-    type: html
-    repo: famcare-html-form-code
-  - name: pwereihna
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_ALL_HOUSING_STATUS
+# ERE All Housing Status View Definition
 
 ## Purpose
 
@@ -94,6 +70,10 @@ Provides a complete history of housing status records for ERE clients, including
 - **Housing Status Expansion**: Update CASE logic if new status types are introduced.
 - **Dependency Awareness**: Changes to `PWHOUSINGSTATUS`, `PWEREIHNA`, `Q_ERE_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` may affect logic integrity.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -117,4 +97,5 @@ Provides a complete history of housing status records for ERE clients, including
 - **2025-08-06**: Adds initial view definition to support full housing status history and reporting interval alignment.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->

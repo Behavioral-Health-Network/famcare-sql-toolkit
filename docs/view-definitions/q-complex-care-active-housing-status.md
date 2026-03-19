@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_ACTIVE_HOUSING_STATUS
+front-matter-title: Complex Care Active Housing Status View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-active-housing-status.sql
 last_updated: 2025-11-14
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -25,14 +24,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-14
-last_reviewed: 2025-11-14
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_ACTIVE_HOUSING_STATUS
+# Complex Care Active Housing Status View Definition
 
 ## Purpose
 
@@ -97,6 +92,10 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 - **Dependency Awareness**: Changes to `Q_COMPLEX_CARE_ALL_HOUSING_STATUS`, `Q_COMPLEX_CARE_PATHWAY_FORM_DOCSERNOS`, or `Q_CLIENT_BHN` may affect logic integrity.
 - **Baseline Logic**: Ensure baseline CTE continues to select earliest housing record per client.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -114,7 +113,9 @@ Provides a one-row-per-client snapshot of the most recent active housing status 
 
 ### 2025
 
+- **2025-11-14**: Adds initial Markdown documentation.
 - **2025-11-13**: Adds initial view definition to support Complex Care housing status reporting.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

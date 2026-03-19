@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_PATHCLIENT_ENROLLMENTS
+front-matter-title: YERE Pathclient Enrollments View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-pathclient-enrollments.sql
-last_updated: 2025-10-23
-author: Bradley Wing
+last_updated: 2026-01-08
 status: active
 lifecycle: production
 program_scope: single
@@ -119,14 +118,10 @@ dependencies:
   - name: q-client-bhn
     type: sql
     repo: famcare-sql-toolkit
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_PATHCLIENT_ENROLLMENTS
+# YERE Pathclient Enrollments View Definition
 
 ## Purpose
 
@@ -143,7 +138,7 @@ Joins client enrollment, Pathway core forms, and the Pathway Event data collecti
 - Left joins to filtered views of YERE-specific forms to avoid row inflation. Uses the new `TIEDENROLLMENT` field for joins to `PATHWAYCLIENT.DOCSERNO`.
 - Uses `COALESCE` and `[ENROLL_PATH_JOIN_SOURCE]` to trace attribution logic.
 - Includes form-level metadata:
-  - `PATHWAY_DATE`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
+  - `PATHWAY_DATE`, `VISITDT`, `VISITTM`, `PE_DATE_ACCOMPLISHED`, `DAYS_UNTIL_FORM_DUE`
 - Filters to `DOCREVNO = ' 0 '` across all relevant tables to suppress legacy versions.
 
 ### Logic Summary
@@ -185,6 +180,10 @@ This column supports validation of the vendor’s historical patch and helps sur
 - Monitor for changes in event naming conventions that could affect CASE logic or join keys.
 - Consider indexing `PATHWAYEVENTCLIENT` and form views on `CLIENT_NUMBER`, `PATHWAY_DATE`, and `EVENT_NAME` for performance.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -194,6 +193,8 @@ This column supports validation of the vendor’s historical patch and helps sur
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-01-08**: Updates to use fields `YREF.VISIT_DATE`, `YHOSP.VISIT_DATE`, `YIA.VISIT_DATE`, `YTHIRTYD.VISIT_DATE`, `YTHREEM.VISIT_DATE`, `YSIXM.VISIT_DATE`, `YREF.VISIT_TIME`, `YHOSP.VISIT_TIME`, `YIA.VISIT_TIME`, `YTHIRTYD.VISIT_TIME`, `YTHREEM.VISIT_TIME`, `YSIXM.VISIT_TIME`.
 
 </details>
 
@@ -207,12 +208,12 @@ This column supports validation of the vendor’s historical patch and helps sur
 - **2025-10-23**: Adds `FOO.TIEDENROLLMENT` = `PATHWAYEVENT.DOCSERNO` conditions to the Pathway Event form joins and comments out the default `FOO.PATHWAY_DATE` = `PATHWAYEVENTCLIENT.DATE_ACCOMPLISHED` join conditions. This enables one-to-one cardinality for joins to `PROVIDERPLACEMENT`.
 - **2025-10-02**: Adds `TIEDENROLLMENT` and `TIEDENROLLMENT_MATCH` to aid with validating GVT's patch to update `TIEDENROLLMENT` values for forms entered prior to the implementation of `TIEDENROLLMENT` in the Pathway Event forms. This may also be useful for validation going forward as well.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-08-10**: Adds initial Markdown documentation.
 - **2025-07-16**: Standardizes join logic for `Q_YERE_BHS` and `Q_YERE_HOSPITAL_VISIT` to match other form views.
 - **2025-07-15**: Adds view-based joins for Behavioral Health Services (YBHS) and Hospital Visit Note (HOSP), resolving form-level duplication.
-- **2025-07-13**: Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `LEFT JOIN` strategy using DOCSERNO and enrollment/start date alignment.
-- **2025-07-13**: Adds column `[ENROLL_PATH_JOIN_SOURCE]` to trace how each enrollment was linked to a pathway.
+- **2025-07-13**: Adds column `[ENROLL_PATH_JOIN_SOURCE]` to trace how each enrollment was linked to a pathway. Replaces direct `INNER JOIN` to `PATHWAYCLIENT` with dual `LEFT JOIN` strategy using `DOCSERNO` and enrollment/start date alignment.
 - **2025-05-04**: Adds initial view definition.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

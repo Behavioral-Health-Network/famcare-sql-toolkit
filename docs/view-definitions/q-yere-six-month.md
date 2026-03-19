@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_SIX_MONTH
+front-matter-title: YERE Six Month View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-six-month.sql
 last_updated: 2025-10-02
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -22,14 +21,10 @@ dependencies:
     type: view
     repo: famcare-sql-toolkit
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_SIX_MONTH
+# YERE Six Month View Definition
 
 ## Purpose
 
@@ -65,6 +60,10 @@ Extracts and consolidates YERE 6-month follow-up data for engagement tracking, b
 - Consider surfacing diagnostic flags for missing intake attendance or ambiguous contact methods.
 - Ensure alignment with YERE 30-day and 3-month views for naming and logic consistency.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -83,7 +82,7 @@ Extracts and consolidates YERE 6-month follow-up data for engagement tracking, b
 ### 2025
 
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds snitial Markdown documentation to support standardized view tracking.  
 - **2025-07-02**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
@@ -91,3 +90,4 @@ Extracts and consolidates YERE 6-month follow-up data for engagement tracking, b
 
 </details>
 </details>
+<!---CHANGELOG-END--->

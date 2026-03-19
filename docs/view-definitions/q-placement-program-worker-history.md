@@ -1,51 +1,21 @@
 ---
-front-matter-title: Q_PLACEMENT_PROGRAM_WORKER_HISTORY
+front-matter-title: Placement Program Worker History View Definition
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-placement-program-worker-history.sql
-last_updated: 2025-09-18
-author: Bradley Wing
+last_updated: 2026-03-18
 status: active
 lifecycle: production
 tags:
   - program-worker-history
-program-scope: multi
+program-scope: all
 programs:
-  - bcr
-  - complex-care
-  - ere
-  - epicc
-  - yere
-dependencies:
-  - name: placementprogramworkerhistory
-    type: html
-    repo: famcare-html-form-code
-  - name: placementprogramworkerhistory
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: q-provider-placement
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: changereason-base
-    type: table
-    repo: none
-  - name: q-hrform
-    type: sql
-    repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-  - date: 2025-09-18
-last_reviewed: 2025-09-18
 schema_version: 1.0
 ---
 
-
-# Q_PLACEMENT_PROGRAM_WORKER_HISTORY
+# Placement Program Worker History View Definition
 
 ## Purpose
 
@@ -70,7 +40,7 @@ Supports program management reporting by extracting program worker assignment an
   - `DOCREVNO = ' 0 '` to isolate current records
 
 - **Output Fields:**
-  - Follow-up metadata: `VISITDT`, `USERID`, `PARENTDOCSERNO`
+  - Follow-up metadata: `VISITDT`, `USERID`, `PARENT_DOCSERNO`
   - Enrollment: `PP.DOCSERNO` (ALIASED AS `PP_DOCSERNO`)`ENROLLMENT_STARTING_DATE`, `ENROLLMENT_ENDING_DATE`
   - Program Worker History: `PROGRAM_WORKER_CODE`, `PROGRAM_WORKER_LAST`, `PROGRAM_WORKER_FIRST`, `BEGIN_DATE`, `END_DATE`
   - Change Reason: `CHANGE_REASON_CODE`, `CHANGE_REASON_DESCRIPTION`
@@ -79,6 +49,10 @@ Supports program management reporting by extracting program worker assignment an
 
 - Monitor for changes in change reason codes and update descriptions accordingly.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -89,6 +63,8 @@ Supports program management reporting by extracting program worker assignment an
 
 ### 2026
 
+- **2026-03-18**: Renames `PARENTDOCSERNO` to `PARENT_DOCSERNO`.
+
 </details>
 
 <details markdown="1">
@@ -96,8 +72,8 @@ Supports program management reporting by extracting program worker assignment an
 
 ### 2025
 
-- **2025-09-18**: Adds initial Markdown documentation to support standardized view tracking.  
-- **2025-09-18**: Adds initial view definition to support program worker change reporting.
+- **2025-09-18**: Adds initial view definition to support program worker change reporting. Adds initial Markdown documentation to support standardized view tracking.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_CLIENTS_WITH_MULTIPLE_PATHWAYS_SHARING_SAME_START_DATE
+front-matter-title: Clients With Multiple Pathways Sharing the Same Start Date View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-clients-with-multiple-active-pathways-sharing-same-start-date.sql
 last_updated: 2025-07-21
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: multi
@@ -22,14 +21,10 @@ dependencies:
   - value2
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_CLIENTS_WITH_MULTIPLE_PATHWAYS_SHARING_SAME_START_DATE
+# Clients With Multiple Pathways Sharing the Same Start Date View Definition
 
 ## Purpose
 
@@ -54,6 +49,10 @@ Identify clients who have multiple active Pathways that share the same start dat
 - CTE: `DuplicateStartDates`  
 - View Name: `Q_CLIENTS_WITH_MULTIPLE_PATHWAYS_SHARING_SAME_START_DATE`
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -77,3 +76,4 @@ Identify clients who have multiple active Pathways that share the same start dat
 
 </details>
 </details>
+<!---CHANGELOG-END--->

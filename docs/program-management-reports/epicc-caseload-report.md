@@ -1,27 +1,23 @@
 ---
-front-matter-title: EPICC Caseload Report
+front-matter-title: EPICC Caseload Program Management Report
 category: Program Management Reports
 source_file: code/program-management-reports/epicc-caseload-report.sql
 last_updated: 2025-06-10
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - epicc
-tags: [value1, value2]
-dependencies:
-  - value1
-  - value2
+tags: 
+  - dismissal
+  - caseload
+  - program-management
+  - reporting-logic
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# EPICC Caseload Report
+# EPICC Caseload Program Management Report
 
 ## Purpose
 
@@ -94,10 +90,13 @@ This report uses FAMCare Quick Report parameters for date filtering:
 - Confirm client table joins remain valid for demographic accuracy.
 - Validate treatment path and participation  
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-08**: Adds initial Markdown documentation.
-- **2025-06-10** – Adds initial SQL query.  
-  - Adds milestone tracking logic and overdue calculations.  
-  - Documents parameter usage and HR joins.
+- **2025-06-10**: Adds initial SQL query. Adds milestone tracking logic and overdue calculations. Documents parameter usage and HR joins.
+<!---CHANGELOG-END--->

@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_CLIENT_NEEDS  
+front-matter-title: YERE Client Needs View Definition  
 category: view-definitions  
 category-label: View Definitions  
 source_file: code/view-definitions/q_yere_client_needs.sql  
 last_updated: 2025-09-12  
-author: Bradley Wing  
 status: active  
 lifecycle: production  
 tags: [youth-ere, client-needs, pathway-data, pivot-fields]  
@@ -19,14 +18,10 @@ dependencies:
     type: sql
     repo: famcare-sql-toolkit
 change_control: production  
-reviewed_by:
-  - name: Bradley Wing  
-    date: 2025-09-12  
-last_reviewed: 2025-09-12  
 schema_version: 1.0  
 ---
 
-# Q_YERE_CLIENT_NEEDS
+# YERE Client Needs View Definition
 
 ## Purpose
 
@@ -46,6 +41,10 @@ Encapsulates logic for extracting non-behavioral health needs recorded for Youth
 - Review periodically to ensure new need categories are reflected in the view.
 - Changes to this view may affect multiple downstream reports and dashboards.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -64,8 +63,8 @@ Encapsulates logic for extracting non-behavioral health needs recorded for Youth
 ### 2025
 
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
-- **2025-09-12**: Initial Markdown documentation authored.  
-- **2025-09-12**: Initial SQL view authored.
+- **2025-09-12**: Initial SQL view authored. Initial Markdown documentation authored.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

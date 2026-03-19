@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_BCR_ALL_PAYOR_SOURCE
+front-matter-title: BCR All Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bcr-all-payor-source.sql
-last_updated: 2025-08-09
+last_updated: 2026-03-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -40,14 +40,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-09
-last_reviewed: 2025-08-09
 schema_version: 1.0
 ---
 
-# Q_BCR_ALL_PAYOR_SOURCE
+# BCR All Payor Source View Definition
 
 ## Purpose
 
@@ -90,6 +86,10 @@ Returns all payor source records for BCR clients, including historical entries. 
 - **Form Linkage**: Confirm that `Q_BCR_PATHWAY_FORM_DOCSERNOS` continues to reflect valid reporting intervals.
 - **Provider Fields**: Validate that provider fields are consistently populated and aligned with form expectations.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -100,6 +100,8 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 ### 2026
 
+- **2026-03-16**: Renames `PARENTDOCSERNO` to `PARENT_DOCSERNO` to align with `Q_BCR_ACTIVE_PAYOR_SOURCE`. Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
+
 </details>
 
 <details markdown="1">
@@ -109,9 +111,10 @@ Returns all payor source records for BCR clients, including historical entries. 
 
 - **2025-11-19**: Fixes `COALESCE(BIC.DOCSERNO, BPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` by changing `BIC.PARENTDOCSERNO` to `BIC.DOCSERNO`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Removes ShowMe Healthy Kids. It's not relevant for BCR. Changes PAY alias to BPAY.
+- **2025-08-10**: Removes 'ShowMe Healthy Kids'. It's not relevant for BCR. Changes `PAY` alias to `BPAY`.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-06-11**: Adds initial view definition to support full payor source history for BCR clients.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

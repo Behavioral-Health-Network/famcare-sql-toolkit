@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_EPICC_ALL_PAYOR_SOURCE
+front-matter-title: EPICC All Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-all-payor-source.sql
-last_updated: 2025-11-20
+last_updated: 2026-03-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -37,14 +37,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_ALL_PAYOR_SOURCE
+# EPICC All Payor Source View Definition
 
 ## Purpose
 
@@ -86,6 +82,10 @@ Returns all payor source records for EPICC clients, including historical entries
 - **Form Linkage**: Confirm that `Q_EPICC_PATHWAY_FORM_DOCSERNOS` continues to reflect valid reporting intervals.
 - **Provider Fields**: Validate that provider fields are consistently populated and aligned with form expectations.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -96,6 +96,8 @@ Returns all payor source records for EPICC clients, including historical entries
 
 ### 2026
 
+- **2026-03-16**: Renames `PARENTDOCSERNO` to `PARENT_DOCSERNO` to align with `Q_EPICC_ACTIVE_PAYOR_SOURCE`. Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
+
 </details>
 
 <details markdown="1">
@@ -105,8 +107,8 @@ Returns all payor source records for EPICC clients, including historical entries
 
 - **2025-11-20**: Updates `COALESCE(EIC.PARENTDOCSERNO, EPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO],` to `COALESCE(EIC.DOCSERNO, EPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` in the `SELECT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Adds initial Markdown documentation.  
-- **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients.
+- **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients. Adds initial Markdown documentation.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->

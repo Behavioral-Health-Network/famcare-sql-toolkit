@@ -1,68 +1,22 @@
 ---
-front-matter-title: Q_EPICC_PATHWAY_FORM_DOCSERNOS
+front-matter-title: EPICC Pathway Form DOCSERNOS View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-pathway-form-docsernos.sql
 last_updated: 2025-12-22
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - epicc
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwepiccreferral
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccreferral
-    type: table
-    repo: none
-  - name: pwepiccinitialcontact
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccinitialcontact
-    type: table
-    repo: none
-  - name: pwepicc2weekfollowup
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepicc2weekfollowup
-    type: table
-    repo: none
-  - name: pwepicc30dayfollowup
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepicc30dayfollowup
-    type: table
-    repo: none
-  - name: pwepicc3monthfollowup
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepicc3monthfollowup
-    type: table
-    repo: none
-  - name: pwepicc6monthfollowup
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepicc6monthfollowup
-    type: table
-    repo: none
-  - name: q_client_bhn
-    type: sql
-    repo: famcare-sql-toolkit
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_PATHWAY_FORM_DOCSERNOS
+# EPICC Pathway Form DOCSERNOS View Definition
 
 ## Purpose
 
@@ -108,6 +62,10 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 - Monitor for changes in source table structures, especially `TREATMENT_PATH` field naming and updates to form workflows involving changes to `PROGRAM_PARTICIPATION_FOO`.
 - Consider indexing or materializing if used in high-volume reporting.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -126,10 +84,11 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 ### 2025
 
 - **2025-12-22**: Adds field `TIEDENROLLMENT`.
-- **2025-11-20**: Adds fields `PROGRAM_PARTICIPATION_CODE` and `PROGRAM_PARTICIPATION_DESCRIPTION` to provide context for rows where `TREATMENT_PATH` is 'N/A'. Adds conditional CASE logic to return 'N/A' when the `TREATMENT_PATH_FOO` is missing by design because the field was hidden on the form and should not have a value.
+- **2025-11-20**: Adds fields `PROGRAM_PARTICIPATION_CODE` and `PROGRAM_PARTICIPATION_DESCRIPTION` to provide context for rows where `TREATMENT_PATH` is 'N/A'. Adds conditional `CASE` logic to return 'N/A' when the `TREATMENT_PATH_FOO` is missing by design because the field was hidden on the form and should not have a value.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-05-01**: Adds initial view definition.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

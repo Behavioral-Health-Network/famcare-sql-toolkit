@@ -1,44 +1,22 @@
 ---
-front-matter-title: Q_EPICC_SIX_MONTH
+front-matter-title: EPICC Six Month Form View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-six-month.sql
 last_updated: 2025-11-18
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - epicc
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwepicc6monthfollowup
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepicc6monthfollowup
-    type: table
-    repo: none
-  - name: q_client_bhn
-    type: view
-    repo: famcare-sql-toolkit
-  - name: epicc-types-mat
-    type: table
-    repo: none
-  - name: epicc-program-participation
-    type: table
-    repo: none
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_SIX_MONTH
+# EPICC Six Month Form View Definition
 
 ## Purpose
 
@@ -78,6 +56,10 @@ Extracts and consolidates EPICC 6-month follow-up data for longitudinal engageme
 - Monitor for changes in form structure, especially around MAT and transfer fields.
 - Consider surfacing diagnostic flags for missing MAT descriptions or ambiguous program codes.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -97,11 +79,11 @@ Extracts and consolidates EPICC 6-month follow-up data for longitudinal engageme
 
 - **2025-12-30**: Updates field `VISITDT` to `VISIT_DATE` and field `VISITTM` to `VISIT_TIME`.
 - **2025-11-18**: Adds fields `TREATMENT_PATH_SIX_MONTH_UNABLE_TO_CONTACT`, `MAT_PRESCRIBED_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT`, `WHAT_MAT_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT` aliased as `WHAT_MAT_PHYSICIAN_APPT_SIXM_UTC_CODE`, `WHAT_MAT_PHYSICIAN_APPT_SIXM_UTC_DESCRIPTION`, `REASON_NOT_PARTICIPATING_ SIX_MONTH`, `REASON_NOT_ATTENDING_SUD_TX_ SIX_MONTH`, `OTHER_REASON_NOT_ATTENDING_SUD_TX_ SIX_MONTH`, and `ATTENDING_SUD_TX_VERIFY_ SIX_MONTH`. Adds left join to master table `EPICC_TYPES_MAT` aliased as `MAT_UTC` to get descriptions for `WHAT_MAT_PHYSICIAN_APPT_SIX_MONTH_UNABLE_TO_CONTACT`. Updates the list of dependencies in the frontmatter YAML to include joined tables. Removes the fields `IF_TRANSFER_WHAT_REGION_SIX_MONTH` and `IF_TRANSFER_CONTACT_TRANSFER_REGION_SUCCESS_SIX_MONTH` because transfers are not relevant by the six-month form, and these are not on the form itself.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
-- **2025-08-09**: Documentation authored and aligned with 30-day and 3-month scaffolds.  
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-07**: Updates to use `Q_CLIENT_BHN` for test client exclusion and standardized field naming.  
 - **2025-05-05**: Adds initial view definition to support EPICC 6-month follow-up reporting and longitudinal engagement tracking.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

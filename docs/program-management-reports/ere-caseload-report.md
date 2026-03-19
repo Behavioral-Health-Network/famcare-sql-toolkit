@@ -1,29 +1,26 @@
 ---
-front-matter-title: ERE Caseload Report
+front-matter-title: ERE Caseload Program Management Report
 category: Program Management Reports
 source_file: code/program-management-reports/ere-caseload-report.sql
-last_updated: 2025-09-16
-author: Bradley Wing
+last_updated: 2026-03-03
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - ere
 tags:
-  - tag1
-  - tag2
+  - program-management
+  - dismissal
+  - reporting-logic
+  - caseload
 dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# ERE Caseload Report
+# ERE Caseload Program Management Report
 
 ## Purpose
 
@@ -95,10 +92,15 @@ This report uses FAMCare Quick Report parameters for date filtering:
 
 ---
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-09-16**: Adds `HOSP_VISIT_NOTE_DATE_ACCOMPLISHED` column.
 - **2025-09-12**: Removes `DISMISSAL_DATE` column and adds `IHNA_DUE_DATE` column.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds initial Markdown documentation.
-- **2025-08-06**: Adds initial SQL query.  
+- **2025-08-06**: Adds initial SQL query.
+<!---CHANGELOG-END--->

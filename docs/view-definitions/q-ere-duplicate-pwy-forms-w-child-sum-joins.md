@@ -2,8 +2,7 @@
 front-matter-title: ERE Duplicate PWY Forms W Child Sum Joins
 category: Exception Reports
 source_file: code/exception-reports/ere-duplicate-pwy-forms-w-child-sum-joins.sql
-last_updated: 2025-12-22
-author: Bradley Wing
+last_updated: 2026-03-17
 status: active
 lifecycle: production
 program_scope: single
@@ -12,16 +11,8 @@ programs:
 tags:
   - sql-view
   - exception-logic
-dependencies:
-  - name: q-ere-pathclient-enrollments
-    type: sql
-    repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-03
-last_reviewed: 2025-11-03
 schema_version: 1.0
 ---
 
@@ -93,8 +84,33 @@ DUPES (aggregate duplicates check)
 - Performance considerations: The duplicate detection (`COUNT` + `HAVING`) can be expensive on large datasets. Indexing on `CLIENT_NUMBER`, `PWY_START_DATE`, `PWY_EVENT`, and `TIEDENROLLMENT` will help.
 - Audit alignment: If audit logs or submission timestamps are added to the source views, consider surfacing them here to aid decision‑making.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
+
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+- **2026-03-17**: Refactors `HOUSE_CHILD.PARENTDOCSERNO` as `HOUSE_CHILD.PARENT_DOCSERNO` to reflect the renaming of `PARENTDOCSERNO` in `Q_ERE_ALL_HOUSING_STATUS`. Refactors `NEEDS_CHILD.PARENTDOCSERNO` as `NEEDS_CHILD_PARENT_DOCSERNO` to reflect the renaming of `PARENTDOCSERNO` in `Q_ERE_CLIENT_NEEDS`.
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
 
 - **2025-12-19**: Adds initial SQL view definition. Adds initial Markdown documentation. Converts existing '[Exception Report] ERE Duplicate PWY Forms Per Enrollment' to a view defintion to allow for use of `CTEs`.
 - **2025-12-18**: Updates query to substitute `TIEDENROLLMENT` in place of `PEC_PATHCLIENT_DOCSERNO` and `DATE_ACCOMPLISHED` because `TIEDENROLLMENT` assures cardinality is one-to-one, while `DATE_ACCOMPLISHED` may be `NULL` even when a form exists and has been joined to the enrollment.
 - **2025-07-13**: Adds initial SQL query of original exception report. Adds initial Markdown documentation for original exception report.
+
+</details>
+</details>
+<!---CHANGELOG-END--->

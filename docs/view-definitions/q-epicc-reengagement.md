@@ -1,44 +1,22 @@
 ---
-front-matter-title: Q_EPICC_REENGAGEMENT
+front-matter-title: EPICC Reengagement Form View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-reengagement.sql
 last_updated: 2025-11-19
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - epicc
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwepiccreengagementform
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccreengagementform
-    type: table
-    repo: none
-  - name: q-hrform
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: hrform
-    type: html
-    repo: famcare-html-form-code
-  - name: q_client_bhn
-    type: view
-    repo: famcare-sql-toolkit
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_REENGAGEMENT
+# EPICC Reengagement Form View Definition
 
 ## Purpose
 
@@ -90,6 +68,10 @@ Tracks client-level data for individuals transferred to a **Re-Engagement Specia
 - **DOCREVNO Filter**: Hardcoded to `' 0 '`; confirm this remains valid for identifying current records.
 - **Field Expansion**: If additional outreach methods are added, update view and documentation accordingly.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -108,10 +90,11 @@ Tracks client-level data for individuals transferred to a **Re-Engagement Specia
 ### 2025
 
 - **2025-11-19**: Updates the left join to `Q_HRFORM` to use `HR.EMPLOYEENUMBER = REENGAGE.REENGAGEMENT_SPECIALIST`. Renames `REENGAGE.REENGAGEMENT_SPECIALIST` in the `SELECT` to `REENGAGE.REENGAGEMENT_SPECIALIST_EMPLOYEE_NUMBER`.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.  
 - **2025-07-07**: Adds initial view definition to support EPICC Re-Engagement tracking.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->

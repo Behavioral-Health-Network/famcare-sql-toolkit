@@ -1,33 +1,22 @@
 ---
-front-matter-title: Pathway Still Open Enrollment Closed
+front-matter-title: Pathway Still Open Enrollment Closed Exception Report
 category: Exception Reports
 source_file: code/exception-reports/pathway-still-open-enrollment-closed.sql
 last_updated: 2025-08-09
-author: Bradley Wing
 status: active
 lifecycle: production
-program_scope: multi
+program_scope: all
 programs:
-  - bcr
-  - complex-care
-  - epicc
-  - ere
-  - yere
 tags:
   - exception-logic
-  - tag2
 dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Pathway Still Open Enrollment Closed
+# Pathway Still Open Enrollment Closed Exception Report
 
 ## Purpose
 
@@ -54,12 +43,15 @@ Flags cases where a client's Pathway remains open while their program enrollment
 - Useful for identifying stale Pathways that may require manual closure.
 - Review regularly to ensure joins reflect current data structures and business rules.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-08**: Adds initial Markdown documentation.  
-- **2025-08-09**: Adds `ENROLLMENT_ENDING_DATE` to SELECT and `CLIENT_LAST` to ORDER BY.
-- **2025-08-09**: Corrects logic to flag open Pathways with closed enrollments (previously reversed).
-- **2025-08-09**: Fixes join between Provider Placement and Pathway tables to ensure accurate matching.
+- **2025-08-09**: Fixes join between `PROVIDERPLACEMENT` and Pathway tables to ensure accurate matching. Corrects logic to flag open Pathways with closed enrollments (previously reversed). Adds `ENROLLMENT_ENDING_DATE` to `SELECT` and `CLIENT_LAST` to `ORDER BY`.
 - **2025-05-03**: Adds initial SQL query.
+<!---CHANGELOG-END--->

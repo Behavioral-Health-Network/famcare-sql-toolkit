@@ -1,9 +1,8 @@
 ---
-front-matter-title: Clients With Multiple Active Pathways Sharing Same Start Date
+front-matter-title: Clients With Multiple Active Pathways Sharing Same Start Date Exception Report
 category: Exception Reports
 source_file: code/exception-reports/clients-with-multiple-active-pathways-sharing-same-start-date.sql
 last_updated: 2025-07-21
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: multi
@@ -20,14 +19,10 @@ dependencies:
   - value1
   - value2
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Clients With Multiple Active Pathways Sharing Same Start Date
+# Clients With Multiple Active Pathways Sharing Same Start Date Exception Report
 
 ## Purpose
 
@@ -46,15 +41,14 @@ Identifies clients who have multiple active Pathways that share the same start d
 - Review flagged rows for clients with multiple concurrent Pathways sharing identical start dates.  
 - Useful for data cleanup, staff follow-up, and resolving overlapping assignment logic.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-07-21**: Adds initial Markdown documentation.  
 - **2025-07-08**: Adds initial SQL query authored and view definition.
-
-## Related Assets
-
-- Source Tables: `PATHWAYCLIENT`, `PATHWAY`, `Q_PROVIDERPLACEMENT`, `Q_PROVIDER`, `Q_CLIENT_BHN`  
-- CTE: `DuplicateStartDates`  
-- View Name: `Q_CLIENTS_WITH_MULTIPLE_PATHWAYS_SHARING_SAME_START_DATE`
+<!---CHANGELOG-END--->

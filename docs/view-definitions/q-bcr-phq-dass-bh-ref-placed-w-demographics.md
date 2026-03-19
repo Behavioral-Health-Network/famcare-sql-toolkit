@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_BCR_PHQ_DASS_REF_PLACED_W_DEMOGRAPHICS
+front-matter-title: BCR PHQ-DASS Behavioral Health Referral Placed With Demographics View Definition
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-bcr-phq-dass-bh-ref-placed-w-demographics.sql
 last_updated: 2025-11-24
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -81,14 +80,10 @@ dependencies:
 change_control:
   - cross-repo-coordination
   - internal-review-required
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-11-24
-last_reviewed: 2025-11-24
 schema_version: 1.0
 ---
 
-# Q_BCR_PHQ_DASS_REF_PLACED_W_DEMOGRAPHICS
+# BCR PHQ-DASS Behavioral Health Referral Placed With Demographics View Definition
 
 ## Purpose
 
@@ -155,6 +150,10 @@ Provides a consolidated view of BCR clients who completed PHQ‑9 and DASS asses
 - Ensure alignment with data dictionary definitions for PHQ‑9, DASS, housing status, and payor source fields.  
 - Indexing may be required on `CLIENT_NUMBER` and `TIEDENROLLMENT` for performance in downstream joins.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -172,7 +171,8 @@ Provides a consolidated view of BCR clients who completed PHQ‑9 and DASS asses
 
 ### 2025
 
-- **2025-11-24**: Initial documentation created. View definition includes Initial Contact, Referrals Placed, Counseling Sessions, Housing Status, and Payor Source joins.  
+- **2025-11-24**: Adds initial Markdown documentation. Adds view definition, which includes Initial Contact, Referrals Placed, Counseling Sessions, Housing Status, and Payor Source joins.  
 
 </details>
 </details>
+<!---CHANGELOG-END--->

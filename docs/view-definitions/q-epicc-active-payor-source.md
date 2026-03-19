@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_EPICC_ACTIVE_PAYOR_SOURCE
+front-matter-title: EPICC Active Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-active-payor-source.sql
 last_updated: 2025-11-20
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -16,35 +15,12 @@ tags:
   - slowly-changing-dimension
   - active-record-view
   - insurance-data
-dependencies:
-  - name: pwpayorsource
-    type: html
-    repo: famcare-html-form-code
-  - name: pwpayorsource
-    type: table
-    repo: none
-  - name: pwepiccinitialcontact
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccinitialcontact
-    type: table
-    repo: none
-  - name: q-epicc-pathway-form-docsernos
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: managed-medicaid-provider
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_EPICC_ACTIVE_PAYOR_SOURCE
+# EPICC Active Payor Source View Definition
 
 ## Purpose
 
@@ -113,6 +89,10 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 - **Form Linkage Integrity**: Confirm `Q_EPICC_PATHWAY_FORM_DOCSERNOS` includes all relevant DOCSERNOs for active clients.
 - **Aggregation Caveats**: `MAX(PARENTDOCSERNO)` is used for aggregation; uniqueness is enforced later via `LATEST_PARENTDOCSERNO`.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -132,9 +112,9 @@ Provides a one-row-per-client snapshot of active payor source data for EPICC cli
 
 - **2025-11-20**: Adds `COALESCE(EIC.DOCSERNO, EPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to replace just using `EPAY.PARENTDOCSERNO` in the `SELECT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Removes ShowMe Healthy Kids. It isn't relevant for EPICC. Updates PAY to EPAY.
-- **2025-08-10**: Adds initial Markdown documentation.  
+- **2025-08-10**: Adds initial Markdown documentation. Removes 'ShowMe Healthy Kids'. It isn't relevant for EPICC. Updates alias `PAY` to `EPAY`.
 - **2025-05-01**: Adds initial view definition to support active payor source reporting for EPICC clients.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->

@@ -6,12 +6,12 @@ This guide defines the canonical Markdown documentation structure for all SQL as
 
 Each `.sql` file should begin with a standardized comment block that identifies its asset type and links to related documentation.
 
-| Asset Type             | Label Prefix     | Example                                   |
-|------------------------|------------------|-------------------------------------------|
-| Report Variant         | `Report Name:`   | `Report Name: yere-duplicate-pwy-forms`   |
-| View Definition        | `View Name:`     | `View Name: q-bcr-client-counseling-sessions` |
-| Extract / Maintenance Query | `Query Name:`     | `Query Name: extract-bcr-session-counts`    |
-| Maintenance Script     | `Script Name:`   | `Script Name: rebuild-session-indexes`     |
+| Asset Type                  | Label Prefix     | Example                                       |
+|-----------------------------|------------------|-----------------------------------------------|
+| Report Variant              | `Report Name:`   | `Report Name: yere-duplicate-pwy-forms`       |
+| View Definition             | `View Name:`     | `View Name: q-bcr-client-counseling-sessions` |
+| Extract / Maintenance Query | `Query Name:`    | `Query Name: extract-bcr-session-counts`      |
+| Maintenance Script          | `Script Name:`   | `Script Name: rebuild-session-indexes`        |
 
 ### Example
 
@@ -26,7 +26,19 @@ See docs/view-definitions/q-bcr-client-counseling-sessions.md for full documenta
 
 ---
 
+## Automated Changelog Updates
+
+The documentation automation updates only the content between the `<!-- CHANGELOG:START -->` and `<!-- CHANGELOG:END -->` anchors. All other sections of the Markdown file remain contributor‑maintained. This ensures:
+
+- narrative sections remain editable  
+- changelogs remain consistent and machine‑generated  
+- SQL assets can be updated across repositories without manual editing  
+
+---
+
 ## Standardized Markdown Frontmatter YAML
+
+Frontmatter defines identity, governance, and metadata for each SQL asset. It does **not** contain dependencies (now documented in a dedicated section).
 
 ### Schema Version Tag Reference
 
@@ -65,13 +77,21 @@ Use the `lifecycle:` field in Markdown frontmatter to indicate the operational s
 
 Use the `change_control` field in Markdown frontmatter to indicate whether an asset has external constraints or internal review protocols that affect how it can be changed.  
 
-|          Value           |                          Meaning                          |                        Example                       |
-|:------------------------:|:---------------------------------------------------------:|:----------------------------------------------------:|
-| `vendor-dependent`         | Changes may break vendor logic or require vendor approval.| HRFORM logic is tied to USERID assignments           |
-| `requires-rollback-plan`   | Changes must be reversible and tested in staging.         | Maintenance scripts or form logic                    |
-| `cross-repo-coordination`  | Changes affect multiple repos.                            | SQL views used in both reporting and form validation |
-| `internal-review-required` | Must be reviewed by Data Team before publishing.          | Compliance reports or audit logic                    |
-| `low-risk`                 | Freely editable with minimal impact.                      | Standalone documentation or exploratory queries      |
+|          Value                   |                          Meaning                                   |                        Example                                          |
+|:--------------------------------:|:------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
+| `vendor-dependent`               | Changes may break vendor logic or require vendor approval.         | `HRFORM` logic is tied to `USERID` assignments                          |
+| `requires-rollback-plan`         | Changes must be reversible and tested in staging.                  | Maintenance scripts or form logic                                       |
+| `cross-repo-coordination`        | Changes affect multiple repos.                                     | SQL views used in both reporting and form validation                    |
+| `internal-review-required`       | Must be reviewed by Data Team before publishing.                   | Compliance reports or audit logic                                       |
+| `low-risk`                       | Freely editable with minimal impact.                               | Standalone documentation or exploratory queries                         |
+| `pathways-coordination-required` | Changes affect Pathways logic or dashboards.                       | Updating `pathway_event_logic` for YERE 30 Day follow-up                |
+| `multi-program-coordination`     | Changes affect assets used by multiple programs.                   | SQL view used by both more than one program for tracking housing status |
+| `documentation-only`             | Changes affect documentation but not logic or data.                | Updating field descriptions in a data dictionary page                   |
+| `form-behavior-change`           | Changes affect how a form behaves (e.g., hide/show, quick submit). | Adding `checkhide()` logic to a form section                            |
+| `data-model-impact`              | Changes affect table structure, field types, or join logic.        | Casting `Pathway_Date` from `datetime` to `date`                        |
+| `summation-logic-sensitive`      | Changes affect how summation forms aggregate or interpret data.    | Adjusting logic in a summation to exclude certain clients               |
+| `deprecated-asset`               | Asset is no longer active but retained for reference.              | Legacy form `PWPAYORSOURCE` retained for audit history                  |
+| `experimental`                   | Asset is under development or testing; not yet in production use.  | New SQL view `Q_EPICC_PIVOTED_SU_TX_AGENCY_REFERRALS` under review      |
 
 > _Note: Use of compound values is acceptable when more than one `change-control` constraint applies._
 
@@ -85,7 +105,54 @@ change_control:
 
 ## Documentation Templates for Markdown Documentation
 
+This section defines the required Markdown structure for all SQL asset documentation files.
+
+> **Notes:**
+> SQL asset changelogs are populated automatically using the metadata in `forms_changelogs` and `standalone_asset_changelogs`. See the [Data Dictionary Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/wiki-architecture/data-dictionary-standards.md) for details on `change_source` and `change_asset_id`, which determine how changelog entries are routed to SQL asset documentation.
+>
 > See [Documentation Standards](https://github.com/Behavioral-Health-Network/BHN-Data-Team-Wiki/blob/main/docs/wiki-architecture/documentation-standards.md) for guidance on formatting changelogs.
+
+### Dependencies Section
+
+All SQL asset documentation files must include a dedicated **Dependencies** section in the body of the Markdown file. This section replaces the former `dependencies:` field in frontmatter and provides a clearer, more maintainable structure for documenting cross‑asset relationships.
+
+Dependencies describe any upstream objects required for the SQL asset to function correctly, including:
+
+- SQL views (e.g., `Q_*` views)  
+- tables or materialized structures  
+- form‑driven datasets or summation logic  
+- cross‑repository assets  
+- external data sources used in joins or filters  
+
+Each dependency should list:
+
+- **name** — the table, view, or asset identifier  
+- **type** — view, table, form, summation, script, or external  
+- **repo** — the repository where the dependency lives (if not local)
+
+Automation will populate this section in the future using metadata extracted from SQL dependency parsing. Contributors may add narrative notes above the anchors, but must not modify content between the dependency anchors.
+
+The required structure is:
+
+```md
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+```
+
+This section ensures that dependency metadata remains synchronized across repositories and supports automated impact analysis, cross‑repo coordination, and contributor onboarding.
+
+### Automated Changelog Anchors
+
+All SQL asset documentation files must include HTML comment anchors that mark the beginning and end of the changelog section. These anchors allow the documentation automation to safely replace the changelog content without modifying contributor‑maintained narrative sections.
+
+The required structure is:
+
+```md
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
+```
+
+Contributors may edit any narrative content above the anchors, but must not modify, remove, or add content between the anchors. All changelog entries must be recorded in the `forms_changelogs` or `standalone_asset_changelogs` sheets of the `FC_Data_Dictionaries` Excel file. The automation will populate this section during documentation generation.
 
 ---
 
@@ -98,28 +165,17 @@ category: exception-reports
 category-label: Exception Reports
 source_file: code/exception-reports/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -140,10 +196,11 @@ Describe the exception being flagged (e.g. overlapping dates, missing forms, dup
 
 - Intended for internal review or staff remediation.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Adjusts filter to exclude dismissed clients.
-- **YYYY-MM-DD**: Adds initial SQL query.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -162,22 +219,12 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -197,10 +244,11 @@ Summarize or segment data to support caseload tracking, grant monitoring, or ser
 
 - Note time-based or demographic constraints.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Adds agency filter logic.
-- **YYYY-MM-DD**: Adds initial SQL query.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -214,28 +262,17 @@ category: audit-reports
 category-label: Audit Reports
 source_file: code/audit-reports/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -252,10 +289,11 @@ Validate procedural compliance, user actions, or documentation completeness.
 - List tracked actions (e.g. form submissions, report runs).
 - Define timeframes or actors under review.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Expands audit scope to include housing status forms.
-- **YYYY-MM-DD**: Adds initial SQL query.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -274,22 +312,12 @@ lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -311,10 +339,11 @@ Fulfill contractual, policy-based, or regulatory requirements through structured
 - Often part of recurring obligations.
 - May require formal approval before publishing.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Adds required eligibility field per updated policy.
-- **YYYY-MM-DD**: Adds initial compliance report authored for [entity].
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -328,28 +357,17 @@ category: external-data-sharing-reports
 category-label: External Data Sharing Reports
 source_file: code/external-data-sharing-reports/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -372,45 +390,35 @@ Provide structured data exports for approved non-contractual partners
 - Tailor filters and formatting to recipient needs.
 - Ensure sharing complies with internal guidelines.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Renames demographic fields for consistency.
-- **YYYY-MM-DD**: Adds initial SQL query for [partner agency].
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
 
-## Extract Queries
+## Ad Hoc Analytics
 
 ```yaml
 ---
 front-matter-title: asset-name
-category: extract-queries
-category-label: Extract Queries
-source_file: code/extract-queries/file-name.sql
+category: ad-hoc-analytics
+category-label: Ad Hoc Analytics
+source_file: code/ad-hoc-analytics/file-name.sql
 last_updated: YYYY-MM-DD
-author: author  
 status: active
-lifecycle: production
+lifecycle: experimental
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -431,10 +439,60 @@ Export structured data for external analysis or flat-file delivery.
 
 - Intended for dashboards or downstream pipelines.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Replaces something.
-- **YYYY-MM-DD**: Adds initial SQL query.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
+```
+
+---
+
+## Extract Queries
+
+```yaml
+---
+front-matter-title: asset-name
+category: extract-queries
+category-label: Extract Queries
+source_file: code/extract-queries/file-name.sql
+last_updated: YYYY-MM-DD
+status: active
+lifecycle: production
+tags:
+  - tag1
+  - tag2
+program-scope: single | all | none
+programs:
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
+change_control: value
+schema_version: 1.0
+---
+```
+
+```markdown
+# Query Title
+
+## Purpose
+
+Export structured data for external analysis or flat-file delivery.
+
+## Output Description
+
+- List fields returned and their source tables.
+- Indicate whether data is filtered or raw.
+
+## Usage Notes
+
+- Intended for dashboards or downstream pipelines.
+
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -447,28 +505,17 @@ category: maintenance-queries
 category-label: Maintenance Queries
 source_file: `code/maintenance-queries/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -491,10 +538,11 @@ Examine system-level objects or metadata for troubleshooting, schema analysis, o
 - Used by developers and DBAs.
 - Often paired with performance diagnostics.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Adds filtering for `sys.indexes` by object type.
-- **YYYY-MM-DD**: Adds initial maintenance SQL query.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -507,28 +555,17 @@ category: maintenance-scripts
 category-label: Maintenance Scripts
 source_file: code/maintenance-scripts/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -554,10 +591,11 @@ Apply data corrections or cleanup actions.
 
 - Run in staging prior to production deployment.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Updates something.
-- **YYYY-MM-DD**: Adds initial SQL script for [purpose].
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---
@@ -571,28 +609,17 @@ category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/file-name.sql
 last_updated: YYYY-MM-DD
-author: author
 status: active
 lifecycle: production
 tags:
   - tag1
   - tag2
-program-scope: single | multi
+program-scope: single | all | none
 programs:
-  - program1
-  - program2 (if relevant)
-dependencies:
-  - name: value1
-    type: type1
-    repo: repo1
-  - name: value2
-    type: type2
-    repo: repo2
+  - program
+  - blank (if program_scope = 'all')
+  - none (if program_scope = 'none')
 change_control: value
-reviewed_by:
-  - name: name
-  - date: YYYY-MM-DD
-last_reviewed: YYYY-MM-DD
 schema_version: 1.0
 ---
 ```
@@ -613,10 +640,11 @@ Encapsulate reusable logic for reporting or downstream joins.
 
 - Document changes carefully—may affect multiple reports.
 
-## Changelog
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
 
-- **YYYY-MM-DD**: Fixes something.
-- **YYYY-MM-DD**: Adds initial view definition.
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
 ```
 
 ---

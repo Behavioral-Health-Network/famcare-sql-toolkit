@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_CLINICAL_NOTES_REPORT
+front-matter-title: Complex Care Clinical Notes Report
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-clinical-notes-report.sql
-last_updated: 2025-12-09
-author: Bradley Wing
+last_updated: 2026-03-05
 status: active
 lifecycle: production
 program_scope: single
@@ -44,14 +43,10 @@ dependencies:
     repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-12-09
-last_reviewed: 2025-12-09
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_CLINICAL_NOTES_REPORT
+# Complex Care Clinical Notes Report
 
 ## Purpose
 
@@ -77,7 +72,8 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
   - `Q_CLIENT_BHN` (client demographics and identifiers)  
 - **Joins:**  
   - Episode linkage via `CLIENT_NUMBER` and `DOCSERNO`/`PARENTDOCSERNO`/`TIEDENROLLMENT`.  
-  - Left joins to roster, housing, payor, and notes views to enrich benchmark data.  
+  - Left joins to roster, housing, payor views to enrich benchmark data.
+  - Inner joins to notes report to ensure only clients with notes are returned.
 - **Output:**  
   - Client demographics and identifiers.  
   - Cohort and program enrollment dates.  
@@ -94,6 +90,7 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 | `DOB`                               | Date of birth |
 | `MRN_MERCY`                         | Mercy medical record number |
 | `DATE OF CLINICAL NOTE`             | Committee meeting date |
+| `REFERRAL_SOURCE_DESCRIPTION`       | Source of referral to the cohort |
 | `CLINICAL_COMMITTEE_DECISION`       | Committee decision regarding cohort selection |
 | `COMPLEX_CARE_CLINICAL_COMMITTEE_RATIONALE` | Rationale for decision |
 | `COMPLEX_CARE_REASONS_INELIGIBLE`   | Reasons for ineligibility |
@@ -114,6 +111,10 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 - **Audit Integrity:** Continue filtering on `DOCREVNO = '0'` to exclude superseded records.  
 - **Dependencies:** Changes to roster, benchmarks, housing, or payor source views may affect output consistency.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -123,6 +124,9 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-05**: Adds `REFERRAL_SOURCE_DESCRIPTION` and `PAYOR_IS_OPTUM_UHC` fields to the view definition for this program management report to facilitate reporting on referrals of patients with 'UHC/Optum' payor name as well as to provide context for clinical committee decisions.
+- **2026-01-15**: Changes `LEFT JOIN CLINICAL_NOTES AS [NOTES]` to an `INNER JOIN` in the full outer `SELECT` in the CTE for the view. This is a bit more expensive than the `LEFT JOIN`, so it produces a little slowness, but this guarantees that only clients with clinical notes records are returned.
 
 </details>
 
@@ -135,3 +139,4 @@ Provides a full record of notes on patients referred for Mercy BEACN cohort cons
 
 </details>
 </details>
+<!---CHANGELOG-END--->

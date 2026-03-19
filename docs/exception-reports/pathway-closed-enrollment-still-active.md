@@ -1,10 +1,9 @@
 ---
-front-matter-title: pathway-closed-enrollment-still-active
+front-matter-title: Pathway Closed Enrollment Still Active Exception Report
 category: exception-reports
 category-label: Exception Reports
 source_file: code/exception-reports/pathway-closed-enrollment-still-active.sql
 last_updated: 2025-10-02
-author: Bradley Wing
 status: active
 lifecycle: production
 tags:
@@ -15,37 +14,15 @@ tags:
   - exception-report
   - pathways-dismissal
   - pathways-module
-program-scope: multi
+program-scope: all
 programs:
-  - BCR
-  - Complex Care
-  - EPICC
-  - ERE
-  - YERE
-dependencies:
-  - name: Q_CLIENT_BHN
-    type: sql
-    repo: FAMCare-SQL-Toolkit
-  - name: PROVIDERPLACEMENT
-    type: table
-    repo: FAMCare-SQL-Toolkit
-  - name: PATHWAYCLIENT
-    type: table
-    repo: FAMCare-SQL-Toolkit
-  - name: PATHWAYEVENTCLIENT
-    type: table
-    repo: FAMCare-SQL-Toolkit
 change_control:
   - internal-review-required
   - requires-rollback-plan
-reviewed_by:
-  - name: Bradley Wing
-  - date: 2025-10-02
-last_reviewed: 2025-10-02
 schema_version: 1.0
 ---
 
-# Pathway Closed Enrollment Still Active
+# Pathway Closed Enrollment Still Active Exception Report
 
 ## Purpose
 
@@ -65,7 +42,30 @@ Identifies clients whose program enrollment remains active even though their ass
 - May inform stakeholder review or internal audit processes.
 - Should be tested after schema or logic changes to Pathway metadata or `PROVIDERPLACEMENT` tables.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
+
+<details markdown="1">
+  <summary><strong>View Changelog Details</strong></summary>
+
+<details markdown="1">
+  <summary><strong>2026</strong></summary>
+
+### 2026
+
+</details>
+
+<details markdown="1">
+  <summary><strong>2025</strong></summary>
+
+### 2025
 
 - **2025-10-02**: Adds initial Markdown documentation file. Converts report to use `Q_CLIENT_BHN` instead of `Q_CLIENT`.
 - **2025-05-01**: Adds initial SQL query.
+
+</details>
+</details>
+<!---CHANGELOG-END--->

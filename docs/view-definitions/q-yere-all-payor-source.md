@@ -1,9 +1,9 @@
 ---
-front-matter-title: Q_YERE_ALL_PAYOR_SOURCE
+front-matter-title: YERE All Payor Source View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-all-payor-source.sql
-last_updated: 2025-11-20
+last_updated: 2026-03-16
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -36,14 +36,10 @@ dependencies:
     type: sql
     repo: famcare-sql-toolkit
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_ALL_PAYOR_SOURCE
+# YERE All Payor Source View Definition
 
 ## Purpose
 
@@ -85,6 +81,10 @@ Returns all payor source records for YERE clients, including historical entries.
 - **Form Linkage**: Confirm that `Q_YERE_PATHWAY_FORM_DOCSERNOS` continues to reflect valid reporting intervals.
 - **Provider Fields**: Validate that provider fields are consistently populated and aligned with form expectations.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -94,6 +94,8 @@ Returns all payor source records for YERE clients, including historical entries.
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-16**: Renames `PARENTDOCSERNO` to `PARENT_DOCSERNO` to align with `Q_YERE_ACTIVE_PAYOR_SOURCE`. Renames `MANAGED_MEDICAID_PROVIDER`to `MANAGED_MEDICAID_PROVIDER_CODE` to align with the convention for queries of `code` columns from Master Tables.
 
 </details>
 
@@ -105,8 +107,8 @@ Returns all payor source records for YERE clients, including historical entries.
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
 - **2025-11-20**: Updates `COALESCE(YIA.PARENTDOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` to `COALESCE(YIA.DOCSERNO, YPAY.PARENTDOCSERNO) AS [PARENTDOCSERNO]` in the `SELECT`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-10**: Adds initial Markdown documentation.  
-- **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients.
+- **2025-08-10**: Adds initial view definition to support full payor source history for EPICC clients. Adds initial Markdown documentation.
 
 </details>
 </details>
+<!---CHANGELOG-END--->

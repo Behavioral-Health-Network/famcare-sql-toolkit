@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_YERE_IA
+front-matter-title: YERE Initial Assessment View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-yere-ia.sql
 last_updated: 2025-10-02
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -22,14 +21,10 @@ dependencies:
     type: sql
     repo: famcare-sql-toolkit
 change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_YERE_IA
+# YERE Initial Assessment View Definition
 
 ## Purpose
 
@@ -72,6 +67,10 @@ Supports reporting and analytics for YERE Initial Assessments (formerly Initial 
 - Monitor for changes in form structure, especially around trauma flags and diagnostic fields.
 - Consider surfacing diagnostic flags for missing DLA-20 scores or ambiguous provider types.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -90,7 +89,7 @@ Supports reporting and analytics for YERE Initial Assessments (formerly Initial 
 ### 2025
 
 - **2025-12-12**: Adds collapsible `<details>` elements to the Changelog section.
-- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-10-02**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-09**: Adds initial Markdown documentation.
 - **2025-07-01**: Refactors join to use `Q_CLIENT_BHN` for test client filtering.  
@@ -99,3 +98,4 @@ Supports reporting and analytics for YERE Initial Assessments (formerly Initial 
 
 </details>
 </details>
+<!---CHANGELOG-END--->

@@ -1,10 +1,9 @@
 ---
-front-matter-title: Q_CLIENT_BHN
+front-matter-title: BHN Clients View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-client-bhn.sql
-last_updated: 2025-10-17
-author: Bradley Wing
+last_updated: 2026-03-19
 status: active
 lifecycle: production
 program_scope: multi
@@ -44,14 +43,10 @@ dependencies:
     repo: none
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_CLIENT_BHN
+# BHN Clients View Definition
 
 ## Purpose
 
@@ -91,6 +86,7 @@ Provides a clean, locally customized client reference view for use across BHN re
   - Contact info: address, phone numbers, email
   - Identifiers: MRNs (Mercy, BJC, SSM), SSN, SSN last four
   - County info: code and description
+  - Geocoded metadata: `LONGITUDE` and `LATITUDE`
 
 ## Maintenance Notes
 
@@ -98,6 +94,10 @@ Provides a clean, locally customized client reference view for use across BHN re
 - Confirm that `CLIENTPASSPORT` subquery logic reflects current ID types and naming conventions.
 - Consider surfacing a diagnostic for clients with missing MRNs or ambiguous race codes.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -107,6 +107,8 @@ Provides a clean, locally customized client reference view for use across BHN re
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-19**: Adds `LONGITUDE` and `LATITUDE`.
 
 </details>
 
@@ -122,3 +124,4 @@ Provides a clean, locally customized client reference view for use across BHN re
 
 </details>
 </details>
+<!---CHANGELOG-END--->
