@@ -1,27 +1,21 @@
 ---
-front-matter-title: EPICC Candidates for Dismissal
+front-matter-title: EPICC Candidates for Dismissal Program Management Report
 category: Program Management Reports
 source_file: code/program-management-reports/epicc-candidates-for-dismissal.sql
 last_updated: 2025-07-31
-author: Bradley Wing
 status: active
 lifecycle: deprecated
 program_scope: single
 programs:
   - epicc
-tags: [value1, value2]
-dependencies:
-  - value1
-  - value2
-change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
+tags: 
+  - program-management
+  - dismissal
+change_control: cross-repo-coordination
 schema_version: 1.0
 ---
 
-# EPICC Candidates for Dismissal
+# EPICC Candidates for Dismissal Program Management Report
 
 ## Purpose
 
@@ -64,10 +58,14 @@ The report applies a tiered HAVING clause that cascades through key milestones:
 - Review report routinely on an enrollment audit cycles set by the program leadership
 - Keep dismissal criteria consistent with evolving policy language and external oversight standards
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-06**: Fixes problematic joins to `PATHWAYCLIENT` and `PATHWAYEVENTCLIENT` by pulling the join logic from `Q_EPICC_PATHCLIENT_ENROLLMENTS`. The join to `PATHWAYCLIENT` was apparently not distinguishing between enrollments adequately, and at least one `PROGRAM_PARTICIPATION_IC` value from a different enrollment was being joined into another enrollment, resulting in a false positive showing.  
-- **2025-08-06**: Adds `PP.ENDINGDATE IS NULL` to ensure that only clients with active enrollments may be considered for dismissal.
+- **2025-08-06**: Adds `PP.ENDINGDATE IS NULL` to ensure that only clients with active enrollments may be considered for dismissal. Fixes problematic joins to `PATHWAYCLIENT` and `PATHWAYEVENTCLIENT` by pulling the join logic from `Q_EPICC_PATHCLIENT_ENROLLMENTS`. The join to `PATHWAYCLIENT` was apparently not distinguishing between enrollments adequately, and at least one `PROGRAM_PARTICIPATION_IC` value from a different enrollment was being joined into another enrollment, resulting in a false positive showing.
 - **2025-08-01**: Adds yaml-like block and this changelog.
 - **2025-07-29**: Adds initial SQL query.
+<!---CHANGELOG-END--->
