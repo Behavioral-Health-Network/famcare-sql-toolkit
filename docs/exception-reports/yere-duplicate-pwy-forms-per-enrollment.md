@@ -1,9 +1,8 @@
 ---
-front-matter-title: YERE Duplicate Pathway Forms Per Enrollment
+front-matter-title: YERE Duplicate Pathway Forms Per Enrollment Exception Report
 category: Exception Reports
 source_file: code/exception-reports/yere-duplicate-pathway-forms-per-enrollment.sql
 last_updated: 2025-12-18
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
@@ -13,15 +12,11 @@ tags:
   - exception-logic
 dependencies:
   - q-yere-pathclient-enrollments
-change_control: value
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
+change_control: cross-repo-coordination
 schema_version: 1.0
 ---
 
-# YERE Duplicate Pathway Forms Per Enrollment
+# YERE Duplicate Pathway Forms Per Enrollment Exception Report
 
 ## Purpose
 
@@ -40,10 +35,15 @@ Identify duplicate YERE Pathway forms (Referral, Initial Assessment, Follow-Up, 
 - Confirm authoritative version for each duplicated entry before cleanup.
 - Optionally reference audit log or historical submission timestamps to guide decision-making.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-12-18**: Updates query to substitute `TIEDENROLLMENT` in place of `PEC_PATHCLIENT_DOCSERNO` and `DATE_ACCOMPLISHED` because `TIEDENROLLMENT` assures cardinality is one-to-one, while `DATE_ACCOMPLISHED` may be `NULL` even when a form exists and has been joined to the enrollment.
-- **2025-09-18**: Adds exception-logic tag and front-matter-title.
+- **2025-09-18**: Adds `exception-logic` tag and front-matter-title.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-08**: Adds initial Markdown documentation.  
 - **2025-07-13**: Adds initial SQL query.
+<!---CHANGELOG-END--->
