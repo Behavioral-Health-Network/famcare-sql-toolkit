@@ -15,9 +15,6 @@ tags:
   - slowly-changing-dimension
   - active-record-view
   - housing-status-data
-dependencies:
-  - value1
-  - value2
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
