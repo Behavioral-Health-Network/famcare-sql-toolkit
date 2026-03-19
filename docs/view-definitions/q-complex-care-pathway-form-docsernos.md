@@ -1,31 +1,22 @@
 ---
-front-matter-title: Q_COMPLEX_CARE_PATHWAY_FORM_DOCSERNOS
+front-matter-title: Complex Care Pathway Form DOCSERNOS View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-complex-care-pathway-form-docsernos.sql
 last_updated: 2025-12-22
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - complex-care
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - value1
-  - value2
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_COMPLEX_CARE_PATHWAY_FORM_DOCSERNOS
+# Complex Care Pathway Form DOCSERNOS View Definition
 
 ## Purpose
 
@@ -63,6 +54,10 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 - Ensure `Q_CLIENT_BHN` continues to exclude test clients to maintain data integrity.
 - Consider indexing or materializing if used in high-volume reporting.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -83,8 +78,8 @@ Unions all Pathway form `DOCSERNO` values to allow for joining to summations to 
 - **2025-12-22**: Adds field `TIEDENROLLMENT`.
 - **2025-11-12**: Updates to include `DOCSERNO` values from `Q_COMPLEX_CARE_MERCY_BEACN_BENCHMARKS` and `Q_COMPLEX_CARE_PFP_DISCHARGE`
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-11**: Adds initial Markdown documentation.  
-- **2025-08-11**: Adds initial view definition.
+- **2025-08-11**: Adds initial view definition. Adds initial Markdown documentation.
 
 </details>
 </details>
+<!---CHANGELOG-END--->
