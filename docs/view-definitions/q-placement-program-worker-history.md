@@ -3,37 +3,13 @@ front-matter-title: Placement Program Worker History View Definition
 category: view-definitions
 category-label: View Definitions
 source_file: code/view-definitions/q-placement-program-worker-history.sql
-last_updated: 2025-09-18
+last_updated: 2026-03-18
 status: active
 lifecycle: production
 tags:
   - program-worker-history
-program-scope: multi
+program-scope: all
 programs:
-  - bcr
-  - complex-care
-  - ere
-  - epicc
-  - yere
-dependencies:
-  - name: placementprogramworkerhistory
-    type: html
-    repo: famcare-html-form-code
-  - name: placementprogramworkerhistory
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: q-provider-placement
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: changereason-base
-    type: table
-    repo: none
-  - name: q-hrform
-    type: sql
-    repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
@@ -64,7 +40,7 @@ Supports program management reporting by extracting program worker assignment an
   - `DOCREVNO = ' 0 '` to isolate current records
 
 - **Output Fields:**
-  - Follow-up metadata: `VISITDT`, `USERID`, `PARENTDOCSERNO`
+  - Follow-up metadata: `VISITDT`, `USERID`, `PARENT_DOCSERNO`
   - Enrollment: `PP.DOCSERNO` (ALIASED AS `PP_DOCSERNO`)`ENROLLMENT_STARTING_DATE`, `ENROLLMENT_ENDING_DATE`
   - Program Worker History: `PROGRAM_WORKER_CODE`, `PROGRAM_WORKER_LAST`, `PROGRAM_WORKER_FIRST`, `BEGIN_DATE`, `END_DATE`
   - Change Reason: `CHANGE_REASON_CODE`, `CHANGE_REASON_DESCRIPTION`
@@ -86,6 +62,8 @@ Supports program management reporting by extracting program worker assignment an
   <summary><strong>2026</strong></summary>
 
 ### 2026
+
+- **2026-03-18**: Renames `PARENTDOCSERNO` to `PARENT_DOCSERNO`.
 
 </details>
 
