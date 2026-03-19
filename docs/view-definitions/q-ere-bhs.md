@@ -1,44 +1,22 @@
 ---
-front-matter-title: Q_ERE_BHS
+front-matter-title: ERE Behavioral Health Services Form View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-bhs.sql
 last_updated: 2025-09-30
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - ere
 tags:
-  - tag1
-  - tag2
-dependencies:
-  - name: pwerebehavioralhealthservice
-    type: html
-    repo: famcare-html-form-code
-  - name: pwerebehavioralhealthservice
-    type: table
-    repo: none
-  - name: cmhc_agency
-    type: table
-    repo: none
-  - name: ada_su_agency
-    type: table
-    repo: none
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
+  - view-layer
 change_control:
   - cross-repo-coordination
-reviewed_by:
-  - name: Bradley Wing
-    date: 2025-08-18
-last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# Q_ERE_BHS
+# ERE Behavioral Health Services Form View Definition
 
 ## Purpose
 
@@ -77,6 +55,10 @@ Extracts and consolidates ERE behavioral health service data to enagble reportin
 - Monitor for changes in field naming or form structure that could affect output consistency.
 - Confirm that `DOCREVNO = ' 0 '` remains the correct filter for current records.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 <details markdown="1">
@@ -94,10 +76,11 @@ Extracts and consolidates ERE behavioral health service data to enagble reportin
 
 ### 2025
 
-- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a DOCSERNO that may be used for joining to the PATHWAYCLIENT DOCSERNO directly.
+- **2025-09-30**: Adds `TIEDENROLLMENT` field to provide a `DOCSERNO` that may be used for joining to the `PATHWAYCLIENT.DOCSERNO` directly.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-10**: Adds initial Markdown documentation.  
 - **2025-07-22**: Adds initial view definition to support admission tracking for ERE behavioral health services.
 
 </details>
-</detials>
+</details>
+<!---CHANGELOG-END--->
