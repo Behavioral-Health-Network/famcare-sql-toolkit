@@ -1,19 +1,19 @@
 ---
-front-matter-title: BCR Caseload Report
+front-matter-title: BCR Caseload Program Management Report
 category: Program Management Reports
 source_file: code/program-management-reports/bcr-caseload-report.sql
 last_updated: 2025-12-11
-author: Bradley Wing
 status: active
 lifecycle: production
 program_scope: single
 programs:
   - bcr
-tags: [value1, value2]
-dependencies:
-  - value1
-  - value2
-change_control: value
+tags: 
+  - dismissal
+  - program-management
+  - caseload
+  - reporting-logic
+change_control: cross-repo-coordination
 reviewed_by:
   - name: Bradley Wing
     date: 2025-08-18
@@ -21,7 +21,7 @@ last_reviewed: 2025-08-18
 schema_version: 1.0
 ---
 
-# BCR Caseload Report
+# BCR Caseload Program Management Report
 
 ## Purpose
 
@@ -40,10 +40,14 @@ Summarizes BCR program client caseloads, including enrollment, worker assignment
 - Filters to active enrollments (`ENROLLMENT_ENDING_DATE IS NULL`).
 - Optional date range filtering for FAMCare integration (commented logic for `START RANGE|DATEPICKER`).
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
 - **2025-12-11**: Adds optional parameters for `BCR_GRANT` and `PROGRAM_WORKER_EMPLOYEE_NUMBER`.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
-- **2025-08-11**: Updates to add grant description in the `GRANT_FROM_IC` column.
-- **2025-08-11**: Adds initial Markdown documentation.
+- **2025-08-11**: Adds initial Markdown documentation. Updates to add grant description in the `GRANT_FROM_IC` column.
 - **2025-07-08**: Adds initial SQL query.
+<!---CHANGELOG-END--->
