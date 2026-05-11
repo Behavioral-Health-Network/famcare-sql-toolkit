@@ -16,31 +16,6 @@ programs:
 tags:
   - client-view
   - tag2
-dependencies:
-  - name: q-client
-    type: sql
-    repo: famcare-sql-toolkit
-    name: client
-    type: table
-    repo: none
-  - name: gender
-    type: table
-    repo: none
-  - name: race
-    type: table
-    repo: none
-  - name: ethnicity
-    type: table
-    repo: none
-  - name: familysuffix
-    type: table
-    repo: none
-  - name: counties
-    type: table
-    repo: none
-  - name: clientpassport
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
