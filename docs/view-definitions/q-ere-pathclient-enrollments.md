@@ -3,7 +3,7 @@ front-matter-title: ERE Pathclient Enrollments View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-ere-pathclient-enrollments.sql
-last_updated: 2025-11-25
+last_updated: 2026-05-04
 status: active
 lifecycle: production
 program_scope: single

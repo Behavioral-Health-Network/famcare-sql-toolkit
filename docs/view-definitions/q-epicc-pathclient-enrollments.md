@@ -3,7 +3,7 @@ front-matter-title: EPICC Pathclient Enrollments View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-epicc-pathclient-enrollments.sql
-last_updated: 2025-12-19
+last_updated: 2026-05-08
 status: active
 lifecycle: production
 program_scope: single
@@ -72,6 +72,98 @@ Validates whether the form-level `TIEDENROLLMENT` value correctly links to the e
   - `NULL` - No `TIEDENROLLMENT` value present (form not submitted or legacy data)
 
 This column supports validation of the vendor’s historical patch and helps surface attribution anomalies for review.
+
+### Agency Attribution Logic
+
+#### Overview
+
+Until 5/4/2026, EPICC leadership changed the agency assignment on the `PROVIDERPLACEMENT` form to the agency of the current re-engagement specialist when assigning a client's enrollment to the re-engagement specialist. After re-engagement, the agency assignment was reverted to the recovery coach agency. The consequence of this is that participation and engagement tables that are disaggregated by agency would incorrectly attribute participation rates and engagement rates to Center For Life for clients assigned to re-engagement rather than attributing these to the current recovery coach. Consequently, legacy records require handling to ensure that the current recovery coach agency (and never the agency of the re-engagement specialist) is reported. To maintain transparency about the actual agency assignment history, this asset requires two distinct representations of agency assignment:
+
+1. **AGENCY_CODE / AGENCY_DESCRIPTION**  
+   The authoritative provider assignment stored on the `PROVIDERPLACEMENT` (PP) form.
+
+2. **AGENCY_CODE_NON_CFL / AGENCY_DESCRIPTION_NON_CFL**  
+   The most recent *non‑Center For Life* (*non-CFL*) provider assignment derived from `PRIMARYPROVIDERCODEHISTORY`.
+
+This dual‑column design preserves the original provider assignment while making the transformation explicit and auditable.
+
+#### Rationale
+
+The vendor’s `PRIMARYPROVIDERCODEHISTORY` table records provider assignment changes across multiple form instances.
+However:
+
+- Users may save older form instances after a new assignment is made.
+- `DOCREVNO` reflects the revision of the form instance, not the assignment sequence.
+- `ID` and `VISITDT` alone do not reliably indicate assignment order.
+- Multiple DOCSERNO values may exist for the same enrollment.
+
+The only reliable chronological indicators are:
+
+- `STARTINGDATE` — the effective date of the assignment
+- `VISITDT` and `VISITTM` — the timestamp of the save event
+
+To reconstruct the true sequence of non‑CFL assignments, the view ranks history rows using:
+
+``` sql
+ORDER BY STARTINGDATE DESC, VISITDT DESC, VISITTM DESC
+```
+
+This ordering ensures that the latest *actual* assignment is selected, even when older forms are saved later in time.
+
+#### Implementation
+
+The view introduces the following output fields:
+
+- `AGENCY_CODE`  
+- `AGENCY_DESCRIPTION`  
+  - Directly from `PROVIDERPLACEMENT.PRIMARYPROVIDERCODE` and `Q_PROVIDER`.
+
+- `AGENCY_CODE_NON_CFL`  
+- `AGENCY_DESCRIPTION_NON_CFL`  
+  - Derived from the ranked history table, excluding CFL (`PRIMARYPROVIDERCODE <> '100030'`).
+
+- `AGENCY_TRANSFORMATION_FLAG`  
+  - Indicates whether the non‑CFL assignment differs from the current assignment.
+
+Example:
+
+```sql
+CASE
+    WHEN PP.PRIMARYPROVIDERCODE <> PROGHISTORY.PRIMARYPROVIDERCODE
+    THEN 1
+    ELSE 0
+END AS [AGENCY_TRANSFORMATION_FLAG]
+```
+
+This flag supports downstream QA and makes the transformation transparent to analysts.
+
+#### History Ranking Logic
+
+The history table is processed using:
+
+```sql
+ROW_NUMBER() OVER (
+    PARTITION BY PARENTDOCSERNO
+    ORDER BY STARTINGDATE DESC, VISITDT DESC, VISITTM DESC
+) AS RN
+```
+
+Only rows with `RN = 1` are selected as the latest non‑CFL assignment.
+
+This logic correctly resolves cases where:
+
+- A user saves an older form instance after a new assignment.
+- Multiple provider changes occur on the same day.
+- STARTINGDATE ties require VISITDT/VISITTM to break the tie.
+
+#### Summary
+
+This enhancement:
+
+- Preserves the authoritative provider assignment.
+- Provides a transparent, auditable non‑CFL assignment.
+- Correctly reconstructs assignment history using reliable chronological fields.
+- Adds a transformation flag to support validation and reporting.
 
 ## Maintenance Notes
 

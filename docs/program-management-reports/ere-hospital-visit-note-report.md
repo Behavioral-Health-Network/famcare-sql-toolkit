@@ -1,9 +1,9 @@
 ---
-front-matter-title: ere-referral-hospital-visit-report
+front-matter-title: ERE Hospital Visit Note Report Program Management Report
 category: program-management-reports
 category-label: Program Management Reports
-source_file: code/program-management-reports/ere-referral-hospital-visit-report.sql
-last_updated: 2025-12-16
+source_file: code/program-management-reports/ere-hospital-visit-report.sql
+last_updated: 2026-03-25
 author: Bradley
 status: active
 lifecycle: production
@@ -14,40 +14,11 @@ tags:
 program-scope: single
 programs:
   - yere
-dependencies:
-  - name: q-ere-pathclient-enrollments
-    type: view
-    repo: FAMCare-SQL-Toolkit
-  - name: pwerereferral
-    type: html
-    repo: famcare-html-form-code
-  - name: pwyerereferral
-    type: table
-    repo: none 
-  - name: q-ere-referral
-    type: view
-    repo: FAMCare-SQL-Toolkit
-  - name: pwerehospitalvisitnote
-    type: html
-    repo: famcare-html-form-code
-  - name: pwerehospitalvisitnote
-    type: table
-    repo: none
-  - name: q-ere-hospital-visit-note
-    type: view
-    repo: FAMCare-SQL-Toolkit
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
 change_control: internal-review-required
-reviewed_by:
-  - name: Data Governance Committee
-  - date: 2025-12-16
-last_reviewed: 2025-12-16
 schema_version: 1.0
 ---
 
-# ERE Referral and Hospital Visit Report
+# ERE Hospital Visit Report Program Management Report
 
 ## Purpose
 
@@ -77,6 +48,12 @@ This report supports program management on documentation of hospital visit notes
 - The hospital visit join is left outer, so enrollments without a hospital note are still included.  
 - Designed for program staff to monitor referral-to-hospital transitions and worker assignments.
 
+<!---DEPENDENCIES-START--->
+<!---DEPENDENCIES-END--->
+
+<!---CHANGELOG-START--->
 ## Changelog
 
+- **2026-03-25**: Fixes `EREENROLL.PROGRAM_WORKER_EMPLOYEE_NUMBER` parameter by replacing the YERE `PP.PATHWAY` ID with the ERE `PP.PATHWAY` ID.
 - **2025-12-16**: Adds initial query linking enrollments, referrals, and hospital visits. Adds Markdown documentation file.
+<!---CHANGELOG-END--->

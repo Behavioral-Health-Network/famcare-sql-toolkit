@@ -16,25 +16,6 @@ tags:
   - slowly-changing-dimension
   - historical-record-view
   - insurance-data
-dependencies:
-  - name: pwpayorsource
-    type: html
-    repo: famcare-html-form-code
-  - name: pwpayorsource
-    type: table
-    repo: none
-  - name: pwepiccinitialcontact
-    type: html
-    repo: famcare-html-form-code
-  - name: pwepiccinitialcontact
-    type: table
-    repo: none
-  - name: q-epicc-pathway-form-docsernos
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
@@ -71,7 +52,7 @@ Returns all payor source records for EPICC clients, including historical entries
 |----------------------------------------|-------------|
 | `CLIENT_NUMBER`, `CLIENT_FIRST`, `CLIENT_LAST` | Client identifiers |
 | `DOCSERNO`, `PARENTDOCSERNO`, `FORM_TYPE` | Form and reporting interval linkage |
-| `PAYOR_SOURCE`, `MANAGED_MEDICAID_PROVIDER`, `PRIVATE_INSURANCE_PROVIDER` | Insurance source and provider details |
+| `PAYOR_SOURCE_CODE`, `PAYOR_SOURCE_DESCRIPTION`, `MANAGED_MEDICAID_PROVIDER`, `MANAGED_MEDICAID_PROVIDER_DESCRIPTION`, `PRIVATE_INSURANCE_PROVIDER` | Insurance source and provider details |
 | `PAYOR_SOURCE_START_DATE`, `PAYOR_SOURCE_END_DATE` | Coverage period |
 | `VISITDT`, `VISITTM`, `USERID`         | Metadata for audit and traceability |
 

@@ -16,25 +16,6 @@ tags:
   - slowly-changing-dimension
   - active-record-view
   - insurance-data
-dependencies:
-  - name: pwpayorsource
-    type: html
-    repo: famcare-html-form-code
-  - name: pwpayorsource
-    type: table
-    repo: none
-  - name: pwbcrinitialcontact
-    type: html
-    repo: famcare-html-form-code
-  - name: pwbcrinitialcontact
-    type: table
-    repo: none
-  - name: q-bcr-pathway-form-docsernos
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: managed-medicaid-provider
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
