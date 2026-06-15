@@ -3,7 +3,7 @@ front-matter-title: BHN Clients View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-client-bhn.sql
-last_updated: 2026-03-19
+last_updated: 2026-05-18
 status: active
 lifecycle: production
 program_scope: multi
@@ -50,7 +50,7 @@ Provides a clean, locally customized client reference view for use across BHN re
 - **Key Filters:**
   - `CLIENTINDICATOR = 'ON'` to include only active clients
   - `DOCREVNO = ' 0 '` to isolate current records
-  - `LASTNAME NOT IN ('GVTTest', 'GVTest', 'GVTTEST')` to exclude test clients
+  - `UPPER(C.LASTNAME) NOT LIKE 'GVT%'` and `UPPER(C.LASTNAME) NOT LIKE '%TEST%'` to exclude test clients
 
 - **Special Logic:**
   - Uses `dbo.RaceList(C.RACE)` to convert race codes into comma-separated descriptions

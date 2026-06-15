@@ -3,7 +3,7 @@ front-matter-title: BHN View and Table Dependencies View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bhn-view-and-table-dependencies.sql
-last_updated: 2026-03-17
+last_updated: 2026-06-15
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -25,6 +25,15 @@ schema_version: 1.0
 ## Purpose
 
 Identifies dependencies between BHN SQL objects (views, tables, and functions) to support governance, lineage mapping, program‑specific impact analysis, and change‑scope workflows across BHN’s reporting ecosystem.
+
+This view is the first stage of the lineage pipeline and is used to:
+
+- identify upstream and downstream impacts of SQL assets
+- support program‑specific change‑scope workflows
+- classify assets as program‑specific, BHN‑wide, or administrative
+- feed `Q_BHN_FULL_DEPENDENCY_LINEAGE` and downstream documentation/reporting tools
+
+It ensures that only BHN‑owned and curated vendor assets participate in lineage expansion.
 
 ## Description
 
@@ -63,17 +72,71 @@ Program metadata is derived from naming conventions in SQL object names:
 - Objects beginning with `Q_BCR_` → BCR  
 - Objects beginning with `Q_ERE_` → ERE  
 - Objects beginning with `Q_` but not matching any program prefix → **all‑program**  
+- Objects beginning with `Q_%_BHN` → BHN‑wide (“all‑program”)  
+- Objects beginning with `Q_%` but not matching any program prefix → BHN‑wide (“all‑program”)
 - Objects not matching any BHN naming convention → **none** (administrative or governance assets)
 
 This classification aligns with BHN’s documentation metadata model and ensures consistent filtering across lineage, documentation, and change‑scope workflows.
 
+## Inclusion Logic
+
+### Referencing objects (left‑hand side of dependency)
+
+Included if they match any of:
+
+- Program‑specific prefixes (`Q_EPICC_%`, `Q_YERE_%`, `Q_COMPLEX_CARE_%`, `Q_BCR_%`, `Q_ERE_%`)
+- Program‑specific PW objects (`PWEPICC%`, `PWYERE%`, `PWCOMPLEXCARE%`, `PWBCR%`, `PWERE%`)
+- BHN‑wide views (`Q_%_BHN`)
+- Synthetic BHN core tables (added via `UNION ALL`)
+
+### Referenced objects (right‑hand side of dependency)
+
+Included if they match any of:
+
+- Program‑specific prefixes  
+- Program‑specific PW objects  
+- Curated vendor tables:  
+  `CLIENT`, `CASENOTEDETAIL`, `CLIENTPASSPORT`,  
+  `PROVIDERPLACEMENT`, `PROVIDER`, `PATHWAY`,  
+  `PATHWAYEVENT`, `PATHWAYCLIENT`, `PATHWAYEVENTCLIENT`
+
+This ensures the dependency graph includes:
+
+- program assets  
+- BHN‑wide assets  
+- core operational tables  
+- curated vendor tables  
+- no vendor noise  
+
+## Synthetic Core Table Dependencies
+
+To ensure core BHN tables appear as first‑class lineage assets, the view injects self‑dependencies for:
+
+- CLIENT  
+- CASENOTEDETAIL  
+- CLIENTPASSPORT  
+- PROVIDERPLACEMENT  
+- PROVIDER  
+- PATHWAY  
+- PATHWAYEVENT  
+- PATHWAYCLIENT  
+- PATHWAYEVENTCLIENT  
+
+These are assigned:
+
+- `PROGRAM_SCOPE = 'all'`  
+- `PROGRAMS = ''`  
+
+This allows them to appear in dependency selectors even when no Q_ view references them directly.
+
 ## Maintenance Notes
 
-- Dependencies are extracted from SQL Server’s native dependency catalog (`sys.sql_expression_dependencies`)
-- Normalization uses `PARSENAME` to reliably extract the object name from 1‑, 2‑, or 3‑part identifiers
-- Vendor tables are explicitly whitelisted to avoid false positives
-- If SQL Server version is upgraded, consider using `sys.dm_sql_referenced_entities` for richer dependency metadata
-- This view is intended as a source for downstream lineage expansion (e.g., `Q_BHN_ALL_DEPENDENCIES`, `Q_BHN_FULL_DEPENDENCY_LINEAGE`)
+- Dependencies are extracted from SQL Server’s native dependency catalog (`sys.sql_expression_dependencies`).
+- Normalization uses `PARSENAME` to reliably extract the object name from 1‑, 2‑, or 3‑part identifiers.
+- Vendor tables are explicitly whitelisted to avoid false positives.
+- Program classification is naming‑convention‑driven and should be updated if new programs are added.
+- Synthetic BHN‑wide tables should be updated if new core tables are introduced.
+- This view is intended as a source for downstream lineage expansion (e.g., `Q_BHN_ALL_DEPENDENCIES`, `Q_BHN_FULL_DEPENDENCY_LINEAGE`).
 
 <!---DEPENDENCIES-START--->
 <!---DEPENDENCIES-END--->
