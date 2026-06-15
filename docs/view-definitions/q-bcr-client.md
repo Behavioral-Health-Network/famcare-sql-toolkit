@@ -2,7 +2,7 @@
 front-matter-title: Q_BCR_CLIENT
 category: view-definitions
 category_label: View Definitionssource_file: code/view-definitions/q-bcr-client.sql
-last_updated: 2025-08-09
+last_updated: 2026-05-14
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -11,20 +11,6 @@ programs:
   - bcr
 tags:
   - client-view
-  - tag2
-dependencies:
-  - name: q-client-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: q-providerplacement-bhn
-    type: sql
-    repo: famcare-sql-toolkit
-  - name: providerplacement
-    type: html
-    repo: famcare-html-form-code
-  - name: providerplacement
-    type: table
-    repo: none
 change_control:
   - cross-repo-coordination
 reviewed_by:
@@ -38,7 +24,7 @@ schema_version: 1.0
 
 ## Purpose
 
-Provides a filtered client reference view for individuals enrolled in the BCR program. Supports program-specific reporting, diagnostics, and cross-system linkage.
+Provides a filtered client reference view for individuals enrolled in the BCR program. Supports program-specific reporting, diagnostics, and cross-system linkage. This view supports BCR‑specific reporting, operational diagnostics, and downstream lineage workflows by exposing a standardized, BHN‑aligned client record.
 
 ## Description
 
@@ -58,12 +44,50 @@ Provides a filtered client reference view for individuals enrolled in the BCR pr
 - **Key Filters:**
   - `PROGRAM_CODE = '100005'` to isolate BCR clients
 
-- **Output Fields:**
-  - All fields inherited from `Q_CLIENT_BHN`, including:
-    - Client metadata: `CLIENT_NUMBER`, `CLIENT_NAME`, `BIRTH_DATE`, `GENDER`, `RACE`, `ETHNICITY`
-    - Contact info: address, phone numbers, email
-    - Identifiers: MRNs, SSN
-    - County info: code and description
+## Columns Returned
+
+| Column | Description |
+|--------|-------------|
+| `ID` | Internal BHN client record identifier |
+| `DOCSERNO` | Document serial number for the client record |
+| `VISIT_DATE` | Date portion of the visit timestamp |
+| `VISIT_TIME` | Time portion of the visit timestamp |
+| `ENTRY_DATE` | Date the client record was entered |
+| `USERID` | User who created or last updated the record |
+| `CLIENT_STATUS` | Status flag for the client |
+| `CLIENT_INDICATOR` | Additional client classification indicator |
+| `CLIENT_NUMBER` | Canonical BHN client identifier |
+| `CLIENT_NAME` | Full client name |
+| `CLIENT_LAST` | Last name |
+| `CLIENT_FIRST` | First name |
+| `MI` | Middle initial |
+| `SUFFIX` | Name suffix |
+| `NICKNAME` | Preferred name |
+| `BIRTH_DATE` | Date of birth |
+| `GENDER_CODE` | Gender code |
+| `GENDER_DESCRIPTION` | Gender description |
+| `RACE_CODE` | Race code |
+| `RACE_DESCRIPTION` | Race description |
+| `ETHNICITY_CODE` | Ethnicity code |
+| `ETHNICITY_DESCRIPTION` | Ethnicity description |
+| `MRN_MERCY` | Mercy medical record number |
+| `MRN_BJC` | BJC medical record number |
+| `MRN_SSM` | SSM medical record number |
+| `SSN` | Social Security Number (full) |
+| `SSN_LAST_FOUR` | Last four digits of SSN |
+| `ETO_CASE_NUM` | Legacy ETO case number |
+| `STREET` | Street address line 1 |
+| `STREET2` | Street address line 2 |
+| `CITY` | City |
+| `STATE` | State |
+| `ZIP_CODE` | ZIP code |
+| `COUNTY_CODE` | County code |
+| `COUNTY_DESCRIPTION` | County description |
+| `PRIMARY_PHONE` | Primary phone number |
+| `CELL_PHONE` | Cell phone number |
+| `WORK_PHONE` | Work phone number |
+| `CLIENT_EMAIL` | Email address |
+| `FACM` | FACM indicator (if applicable) |
 
 ## Maintenance Notes
 
