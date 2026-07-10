@@ -171,6 +171,7 @@ SELECT DISTINCT
 		WHEN QUERYNAME LIKE '%COMPLEX CARE%' THEN 'single'
 		WHEN QUERYNAME LIKE '%BCR%' THEN 'single'
 		WHEN QUERYNAME LIKE '%ERE%' THEN 'single'
+		WHEN QUERYNAME LIKE '%LINCS%' THEN 'single'
 		-- If no program acronym appears, it is an all-program asset
 		ELSE 'all'
 	END AS [PROGRAM_SCOPE],
@@ -180,6 +181,7 @@ SELECT DISTINCT
 		WHEN QUERYNAME LIKE '%COMPLEX CARE%' THEN 'complex-care'
 		WHEN QUERYNAME LIKE '%BCR%' THEN 'bcr'
 		WHEN QUERYNAME LIKE '%ERE%' THEN 'ere'
+		WHEN QUERYNAME LIKE '%LINCS%' THEN 'lincs'
 		-- If program_scope = all, programs must be empty
 		ELSE ''
 	END AS [PROGRAMS]

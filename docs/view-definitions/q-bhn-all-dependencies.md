@@ -3,7 +3,7 @@ front-matter-title: BHN All Dependencies View Definition
 category: view-definitions
 category_label: View Definitions
 source_file: code/view-definitions/q-bhn-all-dependencies.sql
-last_updated: 2026-03-17
+last_updated: 2026-06-29
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -12,9 +12,6 @@ programs:
   - none
 tags:
   - view-layer
-dependencies:
-  - value1
-  - value2
 change_control:
   - cross-repo-coordination
 schema_version: 1.0
@@ -31,6 +28,7 @@ Provides a unified, normalized dependency list by combining SQL object dependenc
 - Combines dependencies from:
   - `Q_BHN_SAVEDQUERY_DEPENDENCIES` (Quick Reports saved queries)
   - `Q_BHN_VIEW_AND_TABLE_DEPENDENCIES` (BHN SQL views and curated vendor tables)
+  - `Q_BHN_MASTER_TABLE_DEPENDENCIES` (BHN master table views)
 - Normalizes object names to ensure consistent joins across lineage layers
 - Assigns a `source_type` to distinguish between SQL objects and saved queries
 - Ensures all dependencies begin at lineage level `1`
