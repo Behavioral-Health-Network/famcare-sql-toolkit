@@ -71,6 +71,7 @@ Program metadata is derived from naming conventions in SQL object names:
 - Objects beginning with `Q_COMPLEX_CARE_` or `PWCOMPLEXCARE%` → COMPLEX‑CARE  
 - Objects beginning with `Q_BCR_` → BCR  
 - Objects beginning with `Q_ERE_` → ERE  
+- Objects beginning with `Q_LINCS` → LINCS
 - Objects beginning with `Q_` but not matching any program prefix → **all‑program**  
 - Objects beginning with `Q_%_BHN` → BHN‑wide (“all‑program”)  
 - Objects beginning with `Q_%` but not matching any program prefix → BHN‑wide (“all‑program”)
