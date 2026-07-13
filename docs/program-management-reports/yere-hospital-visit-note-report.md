@@ -3,7 +3,7 @@ front-matter-title: yere-referral-hospital-visit-report
 category: program-management-reports
 category-label: Program Management Reports
 source_file: code/program-management-reports/yere-referral-hospital-visit-report.sql
-last_updated: 2025-11-25
+last_updated: 2026-07-07
 author: Bradley
 status: active
 lifecycle: production
@@ -81,3 +81,4 @@ This report supports program management on documentation of hospital visit notes
 
 - **2025-11-25**: Implements optional date range parameters for hospital visit notes. Adds program worker parameter using employee number for stable filtering.
 - **2025-11-24**: Adds initial query linking enrollments, referrals, and hospital visits.
+- **2026-07-07**: Removes the HVN Status column from the query output. This question has been removed from this form.

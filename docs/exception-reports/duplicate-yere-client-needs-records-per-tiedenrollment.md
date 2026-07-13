@@ -2,8 +2,8 @@
 front-matter-title: Duplicate YERE Client Needs Records Per TIEDENROLLMENT Exception Report
 category: Exception Reports
 source_file: code/exception-reports/duplicate-yere-client-needs-records-per-tiedenrollment.sql
-last_updated: 2025-01-20
-status: active
+last_updated: 2026-07-07
+status: inactive
 lifecycle: production
 program-scope: single
 programs:
@@ -71,6 +71,7 @@ This identifies cases where staff submitted multiple youth client needs forms fo
 ### 2026
 
 - **2026-01-20**: Adds initial SQL query. Adds initial Markdown documentation file.
+- **2026-07-07**: FAMCare no longer has this form in production as there should be no more new versions of these forms. 
 
 </details>
 

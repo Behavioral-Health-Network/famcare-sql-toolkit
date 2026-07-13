@@ -2,7 +2,7 @@
 front-matter-title: YERE Caseload Report
 category: Program Management Reports
 source_file: code/program-management-reports/yere-caseload-report.sql
-last_updated: 2025-09-12
+last_updated: 2026-07-08
 author: Bradley Wing
 status: active
 lifecycle: production
@@ -32,7 +32,6 @@ Summarizes YERE program client caseloads, including enrollment details, worker a
 - Filters for active YERE enrollments (`ENROLLMENT_ENDING_DATE IS NULL`) and milestone events (`PWY_EVENT LIKE 'YERE%'`).
 - Aggregates milestone due dates, completion dates, and overdue status for:
   - Initial Assessment
-  - 30-Day
   - 3-Month
   - 6-Month
   - Behavioral Health Services
@@ -53,8 +52,6 @@ Summarizes YERE program client caseloads, including enrollment details, worker a
 | `AGENCY_DESCRIPTION`               | Agency associated with the enrollment                        |
 | `SUICIDE_ATTEMPT`                  | Flag for suicide attempt history                             |
 | `IA_DATE_ACCOMPLISHED`             | Initial Assessment completion date                           |
-| `30_DAY_DUE_DATE`, `30_DAY_DATE_ACCOMPLISHED` | 30-Day milestone due and completion dates         |
-| `DAYS_UNTIL_30_DAY_DUE`, `30_DAY_OVERDUE_DAYS` | Days until due and overdue for 30-Day milestone |
 | `3_MONTH_DUE_DATE`, `3_MONTH_DATE_ACCOMPLISHED` | 3-Month milestone dates                          |
 | `DAYS_UNTIL_3_MONTH_DUE`, `3_MONTH_OVERDUE_DAYS` | Days until due and overdue for 3-Month milestone |
 | `6_MONTH_DUE_DATE`, `6_MONTH_DATE_ACCOMPLISHED` | 6-Month milestone dates                          |
@@ -90,4 +87,5 @@ This report uses FAMCare Quick Report parameters for date filtering:
 - **2025-08-20**: Adds `HOSPITAL_VISIT_NOTE_DATE_ACCOMPLISHED` so that Theresa may assess completion rate and work toward getting the team to achieve 100% compliance with the hospital visit expectation.
 - **2025-08-18**: Adds Markdown frontmatter to replace the non-machine-readable tags.
 - **2025-08-14**: Adds initial Markdown documentation.
-- **2025-07-31** – Adds initial version. Adds milestone tracking logic and overdue calculations. Incorporates payor and suicide attempt indicators. Documents parameter usage and HR joins.
+- **2025-07-31**: Adds initial version. Adds milestone tracking logic and overdue calculations. Incorporates payor and suicide attempt indicators. Documents parameter usage and HR joins.
+- **2026-07-08**: Removes the 30 day columns (four of them) from the final output. This matches the fiscal year change to remove this form from the main pathway. 
