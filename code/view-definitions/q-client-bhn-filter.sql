@@ -1,0 +1,17 @@
+/*
+View Name: Q_CLIENT_BHN_FILTER  
+Category: View Definitions  
+
+See docs/view-definitions/q-client-bhn-filter.md for full documentation.
+*/
+
+USE BEHAVHEALT_LIVE;
+GO
+
+--CREATE VIEW dbo.Q_CLIENT_BHN_FILTER AS
+SELECT C.CLIENTNUMBER AS [CLIENT_NUMBER]
+FROM DBO.CLIENT AS [C]
+WHERE C.CLIENTINDICATOR = 'ON'
+  AND C.DOCREVNO = ' 0 '
+  AND UPPER(C.LASTNAME) NOT LIKE 'GVT%'
+  AND UPPER(C.LASTNAME) NOT LIKE '%TEST%';
