@@ -10,12 +10,9 @@ programs:
   - yere
 tags:
   - program-management
-  - ia
-  - three-month
-  - six-month
-  - mental-health-history
-  - substance-use-history
-  - physical-health-history
+  - yere-ia
+  - yere-three-month
+  - yere-six-month
 dependencies:
   - Q_YERE_PATHCLIENT_ENROLLMENTS
   - Q_YERE_IA
