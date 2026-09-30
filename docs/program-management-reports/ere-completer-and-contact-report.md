@@ -10,10 +10,7 @@ programs:
   - ere
 tags:
   - program-management
-  - ihna
-  - mental-health-history
-  - substance-use-history
-  - physical-health-history
+  - ere-ihna
 dependencies:
   - Q_ERE_PATHCLIENT_ENROLLMENTS
   - Q_ERE_IHNA
