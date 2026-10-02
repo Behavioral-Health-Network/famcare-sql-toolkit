@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-six-month.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_EPICC_SIX_MONTH AS
+-- ALTER VIEW DBO.Q_EPICC_SIX_MONTH AS
 SELECT ESIXM.ID,
 	ESIXM.DOCSERNO,
 	ESIXM.TIEDENROLLMENT,
