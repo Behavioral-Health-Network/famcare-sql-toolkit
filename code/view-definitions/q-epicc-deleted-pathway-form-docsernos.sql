@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-deleted-pathway-forms-docsernos.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_EPICC_DELETED_PATHWAY_FORM_DOCSERNOS AS
+-- ALTER VIEW DBO.Q_EPICC_DELETED_PATHWAY_FORM_DOCSERNOS AS
 SELECT EREF.CLIENTNUMBER AS [CLIENT_NUMBER],
 	CAST(EREF.PATHWAY_DATE AS DATE) AS [PATHWAY_DATE],
 	EREF.DOCSERNO,

@@ -1,9 +1,9 @@
 /*
+View Name: Q_ALL_DELETED_PATHWAY_FORM_DOCSERNOS 
+Category: View Definitions  
 
+See docs/view-definitions/q-all-deleted-pathway-form-docsernos.md for full documentation.
 */
-
-USE BEHAVHEALT_LIVE;
-GO
 
 --ALTER VIEW DBO.Q_ALL_DELETED_PATHWAY_FORM_DOCSERNOS AS
 SELECT EREPF.CLIENT_NUMBER,
