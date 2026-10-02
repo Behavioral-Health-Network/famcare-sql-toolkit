@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-bcr-deleted-pathway-form-docsernos.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_BCR_DELETED_PATHWAY_FORM_DOCSERNOS AS
+-- ALTER VIEW DBO.Q_BCR_DELETED_PATHWAY_FORM_DOCSERNOS AS
 SELECT BREF.CLIENTNUMBER AS [CLIENT_NUMBER],
 	CAST(BREF.PATHWAY_DATE AS DATE) AS [PATHWAY_DATE],
 	BREF.DOCSERNO,
