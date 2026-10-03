@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-yere-ia.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
---ALTER VIEW dbo.Q_YERE_IA AS 
+--ALTER VIEW DBO.Q_YERE_IA AS 
 SELECT YIA.ID,
 	YIA.DOCSERNO,
 	YIA.TIEDENROLLMENT,
