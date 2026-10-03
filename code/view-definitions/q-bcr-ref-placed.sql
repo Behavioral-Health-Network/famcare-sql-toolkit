@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-bcr-ref-placed.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_BCR_REF_PLACED AS
 SELECT BRP.ID,
 	BRP.DOCSERNO,
