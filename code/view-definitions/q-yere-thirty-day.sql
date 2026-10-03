@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-yere-thirty-day.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_YERE_THIRTY_DAY AS
 SELECT YTHIRTYD.ID,
 	YTHIRTYD.DOCSERNO,
