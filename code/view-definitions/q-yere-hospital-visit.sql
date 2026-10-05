@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-yere-hospital-visit.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_YERE_HOSPITAL_VISIT AS
 SELECT HOSP.ID,
 	HOSP.DOCSERNO,

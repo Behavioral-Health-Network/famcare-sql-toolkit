@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-yere-three-month.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_YERE_THREE_MONTH AS
 SELECT THREEM.ID,
 	THREEM.DOCSERNO,

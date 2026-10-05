@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-yere-referral.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_YERE_REFERRAL AS
+-- ALTER VIEW DBO.Q_YERE_REFERRAL AS
 SELECT YREF.ID,
 	YREF.DOCSERNO,
 	YREF.TIEDENROLLMENT,

@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-yere-six-month.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_YERE_SIX_MONTH AS
 SELECT YSIXM.ID,
 	YSIXM.DOCSERNO,
