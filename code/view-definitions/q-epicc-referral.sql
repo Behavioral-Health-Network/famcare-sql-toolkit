@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-referral.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
---ALTER VIEW dbo.Q_EPICC_REFERRAL AS
+--ALTER VIEW DBO.Q_EPICC_REFERRAL AS
 SELECT EREF.ID,
 	EREF.DOCSERNO,
 	EREF.TIEDENROLLMENT,

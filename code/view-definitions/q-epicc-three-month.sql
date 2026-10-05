@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-three-month.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_EPICC_THREE_MONTH AS
+-- ALTER VIEW DBO.Q_EPICC_THREE_MONTH AS
 SELECT ETHREEM.ID,
 	ETHREEM.DOCSERNO,
 	ETHREEM.TIEDENROLLMENT,

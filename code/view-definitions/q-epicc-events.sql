@@ -1,9 +1,9 @@
 /*
+View Name: Q_EPICC_EVENTS
+Category: View Definitions  
 
+See docs/view-definitions/q-epicc-events.md for full documentation.
 */
-
-USE BEHAVHEALT_LIVE;
-GO
 
 -- ALTER VIEW DBO.Q_EPICC_EVENTS AS
 SELECT EEVENTS.ID,

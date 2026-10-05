@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-thirty-day.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_EPICC_THIRTY_DAY AS
+-- ALTER VIEW DBO.Q_EPICC_THIRTY_DAY AS
 SELECT ETHIRTYD.ID,
 	ETHIRTYD.DOCSERNO,
 	ETHIRTYD.TIEDENROLLMENT,

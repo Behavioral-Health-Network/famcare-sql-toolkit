@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-ic.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
---ALTER VIEW dbo.Q_EPICC_IC AS
+--ALTER VIEW DBO.Q_EPICC_IC AS
 SELECT EIC.ID,
 	EIC.DOCSERNO,
 	EIC.TIEDENROLLMENT,

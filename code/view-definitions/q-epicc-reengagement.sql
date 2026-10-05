@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-reengagement.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_EPICC_REENGAGEMENT AS
 SELECT REENGAGE.ID,
 	REENGAGE.DOCSERNO,

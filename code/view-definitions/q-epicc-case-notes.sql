@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-case-notes.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 --CREATE VIEW DBO.Q_EPICC_CASE_NOTES AS
 SELECT CN.ID,
 	CN.DOCSERNO,
