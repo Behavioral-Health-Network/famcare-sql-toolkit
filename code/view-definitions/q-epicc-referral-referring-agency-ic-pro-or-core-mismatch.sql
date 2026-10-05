@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-referral-referring-agency-ic-pro-or-core-mismatch.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 -- ALTER VIEW DBO.Q_EPICC_REFERRAL_REFERRING_AGENCY_IC_PRO_OR_CORE_MISMATCH AS
 WITH [EPICC_REF] AS (
 	SELECT C.CLIENT_NUMBER,
