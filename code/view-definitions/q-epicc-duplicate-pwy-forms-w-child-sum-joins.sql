@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-duplicate-pwy-forms-w-child-sum-joins.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
---ALTER VIEW dbo.Q_EPICC_DUPLICATE_PWY_FORMS_W_CHILD_SUM_JOINS AS
+--ALTER VIEW DBO.Q_EPICC_DUPLICATE_PWY_FORMS_W_CHILD_SUM_JOINS AS
 WITH [BASE] AS (
     SELECT
         P.CLIENT_NUMBER,
