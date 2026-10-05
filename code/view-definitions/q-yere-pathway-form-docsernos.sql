@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-yere-pathway-form-docsernos.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
---ALTER VIEW dbo.Q_YERE_PATHWAY_FORM_DOCSERNOS AS
+--ALTER VIEW DBO.Q_YERE_PATHWAY_FORM_DOCSERNOS AS
 SELECT YREF.CLIENTNUMBER AS [CLIENT_NUMBER],
 	CAST(YREF.PATHWAY_DATE AS DATE) AS [PATHWAY_DATE],
 	YREF.DOCSERNO,
