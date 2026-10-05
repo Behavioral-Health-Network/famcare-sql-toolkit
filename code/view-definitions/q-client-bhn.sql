@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-client-bhn.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 --ALTER VIEW DBO.Q_CLIENT_BHN AS
 SELECT C.ID,
 	C.DOCSERNO,

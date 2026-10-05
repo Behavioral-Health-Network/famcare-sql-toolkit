@@ -5,9 +5,6 @@ Category: View Definitions
 See docs/view-definitions/q-epicc-client.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
 --ALTER VIEW DBO.Q_EPICC_CLIENT AS
 SELECT DISTINCT C.ID,
 	C.DOCSERNO,
