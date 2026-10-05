@@ -5,10 +5,7 @@ Category: View Definitions
 See docs/view-definitions/q-bcr-events.md for full documentation.
 */
 
-USE BEHAVHEALT_LIVE;
-GO
-
--- ALTER VIEW dbo.Q_BCR_EVENTS AS
+-- ALTER VIEW DBO.Q_BCR_EVENTS AS
 SELECT [EVENT].ID,
 	[EVENT].DOCSERNO,
 	CAST([EVENT].VISITDT AS DATE) AS [VISITDT],
