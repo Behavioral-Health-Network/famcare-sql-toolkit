@@ -4,8 +4,6 @@ Category: View Definitions
 
 See docs/view-definitions/q-yere-client-family-needs.md for full documentation.
 */
-USE BEHAVHEALT_LIVE;
-GO
 
 --ALTER VIEW DBO.Q_YERE_CLIENT_FAMILY_NEEDS AS
 SELECT YCFN.ID,
