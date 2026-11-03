@@ -1,7 +1,11 @@
-USE BEHAVHEALT_LIVE;
-GO
+/*
+View Name: Q_YERE_CAREGIVER_NEEDS
+Category: View Definitions  
 
---ALTER VIEW .DBO.Q_YERE_CAREGIVER_NEEDS AS
+See docs/view-definitions/q-yere-caregiver-needs.md for full documentation.
+*/
+
+--ALTER VIEW DBO.Q_YERE_CAREGIVER_NEEDS AS
 SELECT YCARENEEDS.ID,
 	YCARENEEDS.DOCSERNO,
 	CAST(YCARENEEDS.VISITDT AS DATE) AS [VISIT_DATE],
